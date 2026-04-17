@@ -1,7 +1,7 @@
 // lib/mongodb.ts (FIXED - TypeScript Compatible)
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/consultationDB";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://vishaltiwari101999_db_user:vish2323@cluster0.bsi7jvp.mongodb.net/consultationDB?retryWrites=true&w=majority";
 
 let cached = (global as any).mongoose;
 
