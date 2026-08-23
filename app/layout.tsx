@@ -1,13 +1,13 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar"; // ✅ File will exist after Step 1
-import type { Metadata } from "next"; // ✅ Proper Metadata type
+import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = { // ✅ FIXED: Proper Metadata type
-  title: "AI Consultation",
-  description: "Professional AI consulting services",
+export const metadata: Metadata = {
+  title: "vishal.buildss | Bespoke Premium Websites & AI Systems",
+  description: "High-end bespoke websites, Small to Enterprise web platforms, and AI automation systems built by vishal.buildss.",
 };
 
 export default function RootLayout({

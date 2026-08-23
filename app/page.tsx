@@ -1,280 +1,467 @@
 "use client";
-import { useState } from 'react';
-
-async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-
-  const form = e.currentTarget;
-
-  const data = {
-    name: (form.elements.namedItem("name") as HTMLInputElement).value,
-    business: (form.elements.namedItem("business") as HTMLInputElement).value,
-    contact: (form.elements.namedItem("contact") as HTMLInputElement).value,
-    message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
-  };
-
-  const res = await fetch("/api/consultation", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-
-  if (res.ok) {
-    alert("Consultation request submitted successfully! We'll contact you within 24 hours.");
-    form.reset();
-  } else {
-    alert("Something went wrong. Please try again.");
-  }
-}
+import React from "react";
+import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
+import ProjectsShowcase from "@/components/ProjectsShowcase";
+import PricingSection from "@/components/PricingSection";
+import PricingEstimator from "@/components/PricingEstimator";
+import RoiCalculator from "@/components/RoiCalculator";
+import TechMarquee from "@/components/TechMarquee";
+import ComparisonMatrix from "@/components/ComparisonMatrix";
+import FaqSection from "@/components/FaqSection";
+import FloatingQuoteWidget from "@/components/FloatingQuoteWidget";
+import ConsultationForm from "@/components/ConsultationForm";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import PrakritiChatbot from "@/components/PrakritiChatbot";
+import { ArrowRight, Globe, Bot, FileText, Zap, CheckCircle2, ShieldCheck, Clock, ArrowUpRight, Code, Sparkles, Layers, Cpu, Lock } from "lucide-react";
 
 export default function Home() {
-  const [submitting, setSubmitting] = useState(false);
-
   return (
-    <main className="min-h-screen bg-linear-to-br from-slate-50 via-white to-gray-50 text-gray-900 antialiased">
-      {/* Hero Section */}
-      <section className="relative bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial(circle_at_20%_80%,rgba(120,119,198,0.3),transparent_50%)]" />
-        <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 text-center text-white">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-black bg-linear-to-r from-white to-gray-200 bg-clip-text text-transparent mb-8 leading-tight">
-              Reduce Cost. Reduce Dependency.
-              <span className="block text-4xl md:text-5xl font-light text-indigo-100 mt-4">Build Smarter Systems.</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-12 text-indigo-100 leading-relaxed max-w-2xl mx-auto">
-              We help businesses design AI workflows, build custom apps, and create websites that eliminate repetitive work and improve efficiency.
+    <main className="min-h-screen bg-[#fafaf8] text-slate-900 antialiased selection:bg-yellow-400 selection:text-black relative overflow-x-hidden">
+      
+      {/* HIGH-END ADVANCED ANIMATED HERO SECTION */}
+      <section className="relative pt-10 sm:pt-14 md:pt-20 pb-20 sm:pb-28 overflow-hidden bg-[#fafaf8]">
+        
+        {/* Animated Background Glowing Orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.12, 1],
+            opacity: [0.25, 0.4, 0.25],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-amber-300/25 via-yellow-400/20 to-amber-500/10 blur-[130px] rounded-full pointer-events-none z-0"
+        />
+
+        {/* Giant Translucent Animated Floating Watermark */}
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-12 left-1/2 -translate-x-1/2 text-[90px] sm:text-[150px] lg:text-[210px] font-black uppercase tracking-widest text-slate-200/50 select-none pointer-events-none whitespace-nowrap z-0 font-sans"
+        >
+          VISION ENGINE
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 space-y-6 sm:space-y-8 text-center lg:text-left pt-4">
+              
+              {/* Clean Status Badge */}
+              
+
+              {/* Exact 3-Line Headline Format Requested by User with Framer Stagger */}
+              <motion.h1
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-3xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.16] text-slate-900 font-sans"
+              >
+                We Build Custom <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 inline-block">
+                  Websites & AI Systems
+                </span> <br />
+                That Automate Your Business.
+              </motion.h1>
+
+              {/* Description Text */}
+              <motion.p
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mx-auto lg:mx-0 font-medium"
+              >
+                Launch a high-speed website, deploy an AI agent, or automate manual tasks. We deliver in <strong className="text-amber-800 font-black">7 to 21 days</strong> with transparent itemized pricing.
+              </motion.p>
+
+              {/* Glowing Gradient Pill CTA Button with Magnetic Hover */}
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              >
+                <motion.a
+                  href="#pricing"
+                  whileHover={{ scale: 1.04, boxShadow: "0 15px 35px rgba(245, 158, 11, 0.4)" }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full sm:w-auto px-10 py-4.5 rounded-full btn-yellow-solid text-black font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2 transition-all"
+                >
+                  <span>GET ACCESS & PRICES</span>
+                  <ArrowRight className="w-4 h-4 text-black" />
+                </motion.a>
+
+                <motion.a
+                  href="#contact"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full sm:w-auto px-8 py-4.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-widest transition-all shadow-md"
+                >
+                  BOOK 15-MIN AUDIT
+                </motion.a>
+              </motion.div>
+
+              {/* Trust Metric Badges */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="pt-6 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-slate-600 font-bold uppercase tracking-wider"
+              >
+                <span className="flex items-center">
+                  <Clock className="w-4 h-4 text-amber-600 mr-1.5" />
+                  7-21 Days Delivery
+                </span>
+                <span className="flex items-center">
+                  <ShieldCheck className="w-4 h-4 text-amber-600 mr-1.5" />
+                  100% Code IP Ownership
+                </span>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Full Width Uncropped Video Player */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="lg:col-span-6 relative w-full flex items-center justify-center mt-6 lg:mt-0"
+            >
+              <div className="relative w-full overflow-hidden shadow-2xl rounded-2xl bg-black border border-slate-800">
+                <video
+                  src="/video2.mp4"
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto object-contain block rounded-2xl"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Marquee */}
+      <div id="tech">
+        <TechMarquee />
+      </div>
+
+      {/* Featured 3-Projects Portfolio Section */}
+      <ProjectsShowcase limit={3} isHomepage={true} />
+
+      {/* Website Design Packages */}
+      <PricingSection />
+
+      {/* Interactive Custom Quote Estimator */}
+      <PricingEstimator />
+
+      {/* Agency Feature Comparison Matrix */}
+      <ComparisonMatrix />
+
+      {/* Engineering Pillars Bento Grid */}
+      <section id="services" className="py-24 sm:py-32 bg-white relative overflow-hidden bg-grid-pattern border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-black uppercase tracking-wider inline-block mb-3 border border-slate-200">
+              CORE CAPABILITIES
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+              Engineering Pillars & Deliverables
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 font-medium">
+              We build custom web platforms, bespoke luxury sites, and automated AI pipelines tailored to your exact industry.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+          </div>
+
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+            
+            {/* Bento Card 1: Bespoke Premium Website Design (Span 7) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4 }}
+              className="md:col-span-7 bg-[#0b0f19] text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-2xl flex flex-col justify-between relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 blur-3xl rounded-full pointer-events-none" />
+
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="px-3 py-1 rounded-full bg-yellow-400 text-black text-xs font-black uppercase tracking-wider shadow-sm">
+                    PILLAR 01 • WEBSITES
+                  </span>
+                  <span className="text-xs font-mono font-bold text-yellow-400 px-3 py-1 rounded-lg bg-slate-800 border border-slate-700">
+                    100/100 SPEED SCORE
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                  Bespoke Premium Website Design
+                </h3>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                  High-end, responsive Next.js 16 websites crafted with custom vector artwork, glassmorphic UI elements, and Framer Motion micro-interactions.
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-3 mb-8">
+                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                    <p className="text-yellow-400 font-extrabold mb-1">Performance</p>
+                    <p className="text-slate-300 font-medium">Sub-second load times & Google PageSpeed 100</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                    <p className="text-yellow-400 font-extrabold mb-1">UI/UX Design</p>
+                    <p className="text-slate-300 font-medium">Custom vector SVGs & clean hierarchy</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                    <p className="text-yellow-400 font-extrabold mb-1">SEO & Tech</p>
+                    <p className="text-slate-300 font-medium">Next.js 16 + Turbopack & Schema markup</p>
+                  </div>
+                </div>
+              </div>
+
               <a
                 href="#contact"
-                className="group bg-white/90 hover:bg-white text-indigo-900 px-8 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-300 border-2 border-white/20 backdrop-blur-sm"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl btn-yellow-solid text-black font-black text-xs uppercase tracking-widest inline-flex items-center justify-center space-x-2 shadow-md"
               >
-                Book Paid Consultation
-                <span className="ml-2 group-hover:scale-110 transition-transform">→</span>
+                <span>Request Custom Website Proposal</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="#services"
-                className="border-2 border-white/30 hover:border-white/50 text-white/90 hover:text-white px-8 py-5 rounded-2xl font-semibold text-lg backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-              >
-                View Services
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black/50 to-transparent" />
-      </section>
+            </motion.div>
 
-      {/* Who This Is For */}
-      <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
-            Who This Is For
-          </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-indigo-500 to-purple-600 mx-auto rounded-full" />
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            "Small & Medium Businesses",
-            "Business Owners (Any Industry)",
-            "Organizations Without Tech Teams",
-          ].map((item, idx) => (
-            <div
-              key={item}
-              className="group bg-white/70 backdrop-blur-xl p-10 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border border-white/50 hover:bg-white hover:border-indigo-100"
+            {/* Bento Card 2: System & Architecture Audit (Span 5) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -4 }}
+              className="md:col-span-5 bg-white rounded-3xl p-8 border-2 border-amber-400/40 shadow-xl flex flex-col justify-between relative overflow-hidden group"
             >
-              <div className="w-16 h-16 bg-linear-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                <span className="text-2xl font-bold text-white">{idx + 1}</span>
-              </div>
-              <p className="text-2xl font-bold text-gray-900 leading-tight">{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Problems */}
-      <section className="bg-white/80 backdrop-blur-sm py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-r from-indigo-500/5 to-purple-500/5" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-purple-900 bg-clip-text text-transparent mb-6">
-              Problems We Solve
-            </h2>
-            <div className="w-24 h-1 bg-linear-to-r from-indigo-500 to-purple-600 mx-auto rounded-full" />
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "Manual data entry & repetitive work",
-              "High employee dependency",
-              "Missed follow-ups & revenue loss",
-              "No clear system or process visibility",
-              "Need for custom app or website but no technical direction",
-              "High operational cost",
-            ].map((problem) => (
-              <div
-                key={problem}
-                className="group p-8 rounded-2xl bg-linear-to-br from-white to-gray-50 border border-gray-100 hover:border-indigo-200 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
-              >
-                <div className="text-indigo-500 mb-4 text-xl font-semibold">✓</div>
-                <p className="text-lg font-medium text-gray-900 leading-relaxed group-hover:text-indigo-900">{problem}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
-            Our Services
-          </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-indigo-500 to-purple-600 mx-auto rounded-full" />
-        </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {[
-            {
-              title: "AI Workflow Consultation",
-              desc: "Paid diagnostic session to identify cost leaks and automation opportunities.",
-              icon: "🧠",
-            },
-            {
-              title: "AI Workflow Design & Automation",
-              desc: "Design and implementation of AI-powered workflows tailored to your business.",
-              icon: "⚡",
-            },
-            {
-              title: "Custom App Development",
-              desc: "We build internal or customer-facing apps based on your business needs.",
-              icon: "📱",
-            },
-            {
-              title: "Website Design & Development",
-              desc: "Professional websites, dashboards, and portals for businesses.",
-              icon: "🌐",
-            },
-          ].map((service) => (
-            <div
-              key={service.title}
-              className="group bg-linear-to-br from-white via-white/90 to-gray-50 p-10 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 border border-white/50 backdrop-blur-xl hover:border-indigo-200 relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-linear-to-r from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative">
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-indigo-900">{service.title}</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">{service.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="bg-linear-to-br from-slate-50 to-indigo-50 py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial(ellipse_at_center,from-indigo-200/30_via-transparent_to-transparent)]" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-black bg-linear-to-r from-gray-900 to-indigo-900 bg-clip-text text-transparent mb-6">
-              How Consultation Works
-            </h2>
-            <div className="w-24 h-1 bg-linear-to-r from-indigo-500 to-purple-600 mx-auto rounded-full" />
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              "Understand Business",
-              "Map Processes",
-              "Identify Cost Leaks",
-              "Recommend AI Solutions",
-            ].map((step, index) => (
-              <div key={step} className="group text-center relative">
-                <div className="w-20 h-20 bg-linear-to-r from-indigo-500 to-purple-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 font-bold text-xl">
-                  {index + 1}
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-xs font-black uppercase tracking-wider border border-slate-200">
+                    PILLAR 02 • AUDIT
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-yellow-400 text-black flex items-center justify-center font-bold shadow-sm">
+                    <Cpu className="w-5 h-5 text-black" />
+                  </div>
                 </div>
-                <p className="text-2xl font-bold text-gray-900 mb-3 leading-tight">{step}</p>
-                <div className="h-1 bg-linear-to-r from-indigo-500/50 to-purple-600/50 w-12 mx-auto rounded-full group-hover:w-24 transition-all" />
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-amber-700 transition-colors">
+                  System & Architecture Audit
+                </h3>
+
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                  Diagnostic engineering session to map business processes, uncover manual cost leaks, and architect custom AI automation roadmaps.
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-xs text-slate-800 font-bold space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>Process bottleneck mapping</span>
+                  </div>
+                  <div className="flex items-center text-xs text-slate-800 font-bold space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>ROI & payback timeline estimate</span>
+                  </div>
+                  <div className="flex items-center text-xs text-slate-800 font-bold space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>Tech stack recommendation</span>
+                  </div>
+                </div>
               </div>
+
+              <a
+                href="#contact"
+                className="w-full py-3.5 px-4 rounded-xl btn-dark-solid text-white font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2"
+              >
+                <span>Book Diagnostic Audit</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </motion.div>
+
+            {/* Bento Card 3: AI Workflows & Agentic Systems (Span 5) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ y: -4 }}
+              className="md:col-span-5 bg-white rounded-3xl p-8 border-2 border-amber-400/40 shadow-xl flex flex-col justify-between relative overflow-hidden group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="px-3 py-1 rounded-full bg-yellow-100 text-amber-900 border border-yellow-300 text-xs font-black uppercase tracking-wider">
+                    PILLAR 03 • AI AGENTS
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-yellow-400 text-black flex items-center justify-center font-bold shadow-sm">
+                    <Bot className="w-5 h-5 text-black" />
+                  </div>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-amber-700 transition-colors">
+                  AI Workflows & Agentic Systems
+                </h3>
+
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                  Deployment of 24/7 AI support bots, document OCR pipelines, and multi-agent workflow automations connected to your APIs.
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-xs text-slate-800 font-bold space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>RAG vector database search</span>
+                  </div>
+                  <div className="flex items-center text-xs text-slate-800 font-bold space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>Zendesk & WhatsApp API integrations</span>
+                  </div>
+                  <div className="flex items-center text-xs text-slate-800 font-bold space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>Human-in-the-loop security</span>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#contact"
+                className="w-full py-3.5 px-4 rounded-xl btn-dark-solid text-white font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2"
+              >
+                <span>Deploy AI Agent</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </motion.div>
+
+            {/* Bento Card 4: Custom Web Application Portals (Span 7) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4 }}
+              className="md:col-span-7 bg-[#0b0f19] text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-2xl flex flex-col justify-between relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 blur-3xl rounded-full pointer-events-none" />
+
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="px-3 py-1 rounded-full bg-yellow-400 text-black text-xs font-black uppercase tracking-wider shadow-sm">
+                    PILLAR 04 • WEB APPS & SAAS
+                  </span>
+                  <span className="text-xs font-mono font-bold text-yellow-400 px-3 py-1 rounded-lg bg-slate-800 border border-slate-700">
+                    REACT + NEXT.JS + PYTHON
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                  Custom Web Application Portals
+                </h3>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                  Full-stack development of client portals, enterprise dashboards, and SaaS software built with Next.js, React, and Python microservices.
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-3 mb-8">
+                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                    <p className="text-yellow-400 font-extrabold mb-1">Architecture</p>
+                    <p className="text-slate-300 font-medium">Sub-second UI response time & REST APIs</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                    <p className="text-yellow-400 font-extrabold mb-1">Security</p>
+                    <p className="text-slate-300 font-medium">Role-based access & JWT/OAuth 2.0</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                    <p className="text-yellow-400 font-extrabold mb-1">Infrastructure</p>
+                    <p className="text-slate-300 font-medium">Dockerized deployment & High availability</p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#contact"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl btn-yellow-solid text-black font-black text-xs uppercase tracking-widest inline-flex items-center justify-center space-x-2 shadow-md"
+              >
+                <span>Request Custom App Proposal</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive ROI Calculator */}
+      <RoiCalculator />
+
+      {/* Process Workflow Section */}
+      <section id="process" className="py-24 sm:py-32 bg-[#fafaf8] text-slate-900 relative overflow-hidden bg-grid-pattern">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <span className="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-800 text-xs font-black uppercase tracking-wider inline-block mb-3">
+              METHODOLOGY
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+              From Concept to Launch in 7 - 21 Days
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+              Our structured, zero-fluff methodology ensures your website or AI system is delivered rapidly with clear milestone validation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative">
+            {[
+              { step: "01", title: "Discovery & Math", desc: "We review your brand goals, calculate exact component math, and define clear project milestones." },
+              { step: "02", title: "Bespoke Design", desc: "We design custom vector SVG artwork, wireframes, and Framer Motion micro-interactions." },
+              { step: "03", title: "Next.js 16 Build", desc: "We engineer your website or web app with sub-second page loads, database hooks, and clean code." },
+              { step: "04", title: "Launch & Support", desc: "We deploy to Vercel/Cloudflare, connect analytics telemetry, and provide 30-90 days warranty." },
+            ].map((p, idx) => (
+              <motion.div
+                key={p.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15 }}
+                className="glass-card-pro p-7 sm:p-8 rounded-3xl relative group border border-slate-200 shadow-sm"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-yellow-400 to-amber-500 flex items-center justify-center font-black text-lg text-black shadow-md mb-6 group-hover:scale-105 transition-transform">
+                  {p.step}
+                </div>
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-2.5">{p.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">{p.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="max-w-4xl mx-auto px-6 py-24 md:py-32">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
-            Book a Consultation
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discuss your business problems, AI automation ideas, or app/website requirements.
-          </p>
-        </div>
-        <div className="bg-white/70 backdrop-blur-xl p-12 rounded-3xl shadow-2xl border border-white/50">
-          <form className="space-y-6" onSubmit={async (e) => {
-            setSubmitting(true);
-            await handleSubmit(e);
-            setSubmitting(false);
-          }}>
-            <div className="grid md:grid-cols-2 gap-6">
-              <input
-                name="name"
-                required
-                disabled={submitting}
-                className="w-full border-2 border-gray-200 p-5 rounded-2xl text-lg placeholder-gray-500 focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 disabled:opacity-50"
-                placeholder="Your Name"
-              />
-              <input
-                name="business"
-                required
-                disabled={submitting}
-                className="w-full border-2 border-gray-200 p-5 rounded-2xl text-lg placeholder-gray-500 focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 disabled:opacity-50"
-                placeholder="Business / Organization"
-              />
-            </div>
+      {/* Technical Commitments & Engineering Standards */}
+      <TestimonialsSection />
 
-            <input
-              name="contact"
-              required
-              disabled={submitting}
-              className="w-full border-2 border-gray-200 p-5 rounded-2xl text-lg placeholder-gray-500 focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 disabled:opacity-50"
-              placeholder="Phone / Email"
-            />
+      {/* Frequently Asked Questions */}
+      <FaqSection />
 
-            <textarea
-              name="message"
-              required
-              disabled={submitting}
-              className="w-full border-2 border-gray-200 p-5 rounded-2xl text-lg placeholder-gray-500 resize-vertical focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 disabled:opacity-50"
-              placeholder="Briefly describe your requirement"
-              rows={5}
-            />
+      {/* Consultation Booking Form */}
+      <ConsultationForm />
 
-            <button
-              type="submit"
-              disabled={submitting}
-              className="w-full bg-linear-to-r from-indigo-600 to-purple-700 text-white py-6 px-8 rounded-2xl font-bold text-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
-            >
-              {submitting ? (
-                <>
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
-                  Submitting...
-                </>
-              ) : (
-                'Request Consultation →'
-              )}
-            </button>
-          </form>
-        </div>
-      </section>
+      {/* Floating Instant Quote Drawer Trigger Widget */}
+      <FloatingQuoteWidget />
 
-      {/* Footer */}
-      <footer className="bg-linear-to-r from-gray-900 to-slate-900 text-gray-400 py-12 text-center border-t border-gray-800">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="text-lg font-medium text-gray-300">
-            © {new Date().getFullYear()} • AI Workflow & Technology Consultation
-          </p>
-          <p className="text-sm mt-2 opacity-75">Building smarter systems for forward-thinking businesses.</p>
-        </div>
-      </footer>
+      {/* Floating Prakriti AI Strategy Chatbot */}
+      <PrakritiChatbot />
+
+      {/* Global Footer */}
+      <Footer />
     </main>
   );
 }

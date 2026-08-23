@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { User, LogOut, Menu, X } from "lucide-react";
+import { User, LogOut, Menu, X, FolderGit2, DollarSign, Zap, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -33,51 +33,79 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200/50 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/70 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <a href="/" className="text-2xl font-bold bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent hover:scale-105 transition-transform">
-            AI Consult
+        <div className="flex justify-between items-center h-20">
+          
+          {/* Brand Logo with Clean Transparent Globe Icon */}
+          <a href="/" className="flex items-center space-x-3 group">
+            <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-sm group-hover:border-amber-400/80 group-hover:scale-105 transition-all">
+              <img
+                src="/images/logo-clean.png"
+                alt="vishal.buildss logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-tight text-slate-900 flex items-center">
+                vishal<span className="text-amber-600 font-extrabold ml-0.5">.buildss</span>
+              </span>
+            </div>
           </a>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-lg font-medium text-slate-700 hover:text-purple-600 transition-colors">Home</a>
-            <a href="/#services" className="text-lg font-medium text-slate-700 hover:text-purple-600 transition-colors">Services</a>
-            <a href="/#contact" className="text-lg font-medium text-slate-700 hover:text-purple-600 transition-colors">Contact</a>
-            
-            {/* Auth Buttons */}
+          {/* Google Reference Style Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-8 text-xs font-black uppercase tracking-widest text-slate-600">
+            <a href="/" className="text-amber-600 font-black hover:text-amber-700 transition-colors">
+              HOME
+            </a>
+            <a href="/#services" className="hover:text-slate-900 transition-colors">
+              VISION
+            </a>
+            <a href="/#tech" className="hover:text-slate-900 transition-colors">
+              TECHNOLOGY
+            </a>
+            <a href="/projects" className="hover:text-slate-900 transition-colors">
+              EXPERIENCE
+            </a>
+            <a href="/#pricing" className="hover:text-slate-900 transition-colors">
+              SOLUTIONS
+            </a>
+          </div>
+
+          {/* Action Button */}
+          <div className="hidden md:flex items-center space-x-4">
             <AnimatePresence mode="wait">
               {loading ? (
-                <div className="w-8 h-8 border-2 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-amber-500/40 border-t-amber-500 rounded-full animate-spin" />
               ) : user ? (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex items-center space-x-2 bg-linear-to-r from-purple-50 to-indigo-50 p-2 rounded-xl border border-purple-100"
+                  className="flex items-center space-x-3 bg-slate-100/80 px-3.5 py-1.5 rounded-full border border-slate-200"
                 >
-                  <div className="w-10 h-10 bg-linear-to-r from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                    {user.name.charAt(0).toUpperCase()}
+                  <div className="w-7 h-7 bg-gradient-to-tr from-yellow-400 to-amber-500 text-black rounded-full flex items-center justify-center font-black text-xs shadow-sm">
+                    {user.name?.charAt(0).toUpperCase()}
                   </div>
-                  <span className="font-semibold text-slate-800 hidden sm:inline">{user.name}</span>
-                  <motion.button
+                  <a href="/dashboard" className="font-black text-xs text-slate-800 hover:text-amber-600 transition-colors">
+                    Dashboard
+                  </a>
+                  <button
                     onClick={handleLogout}
-                    whileHover={{ scale: 1.05 }}
-                    className="ml-2 p-2 hover:bg-red-500/10 rounded-xl text-red-600 hover:text-red-500 transition-all"
+                    className="p-1 hover:bg-red-500/10 rounded-full text-slate-400 hover:text-red-500 transition-all"
+                    title="Logout"
                   >
-                    <LogOut className="w-5 h-5" />
-                  </motion.button>
+                    <LogOut className="w-3.5 h-3.5" />
+                  </button>
                 </motion.div>
               ) : (
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex space-x-3"
-                >
-                  <a href="/login" className="px-6 py-2.5 bg-slate-900 text-white font-semibold rounded-2xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl">Login</a>
-                  <a href="/register" className="px-6 py-2.5 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl hover:shadow-2xl hover:-translate-y-0.5 transition-all shadow-xl">Register</a>
-                </motion.div>
+                <div className="flex items-center space-x-3">
+                  <a
+                    href="#contact"
+                    className="px-7 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-widest transition-all shadow-sm hover:scale-105"
+                  >
+                    CONTACT
+                  </a>
+                </div>
               )}
             </AnimatePresence>
           </div>
@@ -85,54 +113,65 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+            className="lg:hidden p-2.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-slate-200"
+            className="lg:hidden overflow-hidden bg-white border-t border-slate-200 shadow-xl"
           >
-            <div className="px-4 pt-4 pb-6 space-y-4">
-              <a href="/" className="block py-3 px-4 text-lg font-medium text-slate-700 hover:text-purple-600 rounded-xl hover:bg-slate-100 transition-all">Home</a>
-              <a href="/#services" className="block py-3 px-4 text-lg font-medium text-slate-700 hover:text-purple-600 rounded-xl hover:bg-slate-100 transition-all">Services</a>
-              <a href="/#contact" className="block py-3 px-4 text-lg font-medium text-slate-700 hover:text-purple-600 rounded-xl hover:bg-slate-100 transition-all">Contact</a>
-              
-              {loading ? (
-                <div className="flex items-center py-3 px-4">
-                  <div className="w-6 h-6 border-2 border-purple-500/30 border-t-purple-500 rounded-full animate-spin mr-3" />
-                  <span>Loading...</span>
-                </div>
-              ) : user ? (
-                <div className="flex items-center py-3 px-4 space-x-3 bg-linear-to-r from-purple-50 to-indigo-50 rounded-2xl border border-purple-100">
-                  <div className="w-12 h-12 bg-linear-to-r from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                    {user.name.charAt(0).toUpperCase()}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-800">{user.name}</p>
-                    <p className="text-sm text-slate-500">{user.email}</p>
-                  </div>
-                  <button
-                    onClick={handleLogout}
-                    className="p-2 hover:bg-red-500/10 rounded-xl text-red-600 hover:text-red-500 transition-all ml-auto"
-                  >
-                    <LogOut className="w-5 h-5" />
-                  </button>
-                </div>
-              ) : (
-                <div className="flex flex-col space-y-3 pt-2">
-                  <a href="/login" className="py-3 px-6 bg-slate-900 text-white font-semibold rounded-2xl hover:bg-slate-800 text-center transition-all shadow-lg hover:shadow-xl">Login</a>
-                  <a href="/register" className="py-3 px-6 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl hover:shadow-2xl hover:-translate-y-0.5 transition-all shadow-xl text-center">Register</a>
-                </div>
-              )}
+            <div className="px-6 pt-4 pb-8 space-y-4 text-xs font-black uppercase tracking-widest text-slate-900">
+              <a
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className="block py-2.5 text-amber-600 font-black"
+              >
+                HOME
+              </a>
+              <a
+                href="/#services"
+                onClick={() => setIsOpen(false)}
+                className="block py-2.5 hover:text-amber-600"
+              >
+                VISION
+              </a>
+              <a
+                href="/#tech"
+                onClick={() => setIsOpen(false)}
+                className="block py-2.5 hover:text-amber-600"
+              >
+                TECHNOLOGY
+              </a>
+              <a
+                href="/projects"
+                onClick={() => setIsOpen(false)}
+                className="block py-2.5 hover:text-amber-600"
+              >
+                EXPERIENCE
+              </a>
+              <a
+                href="/#pricing"
+                onClick={() => setIsOpen(false)}
+                className="block py-2.5 hover:text-amber-600"
+              >
+                SOLUTIONS
+              </a>
+              <a
+                href="/#contact"
+                onClick={() => setIsOpen(false)}
+                className="block py-3 text-center rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-widest"
+              >
+                CONTACT
+              </a>
             </div>
           </motion.div>
         )}
