@@ -6,18 +6,18 @@ import { ArrowLeft, ShieldCheck, Lock, Eye, Database } from "lucide-react";
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[#fafaf8] text-slate-900 antialiased selection:bg-yellow-400 selection:text-black">
-      
+    <main className="min-h-screen bg-[#fafaf8] text-slate-900 antialiased selection:bg-black selection:text-white">
+
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 text-xs font-black uppercase tracking-wider text-slate-700 hover:text-amber-600 transition-colors">
+          <Link href="/" className="flex items-center space-x-2 text-xs font-black uppercase tracking-wider text-slate-700 hover:text-black transition-colors">
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
           <div className="flex items-center space-x-3">
             <span className="text-sm font-black text-slate-900">
-              vishal<span className="text-amber-600 font-extrabold">.buildss</span>
+              vishal<span className="text-black font-extrabold">.buildss</span>
             </span>
           </div>
         </div>
@@ -26,7 +26,7 @@ export default function PrivacyPage() {
       {/* Hero Banner */}
       <section className="py-12 sm:py-16 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-yellow-400/20 text-yellow-400 text-xs font-mono font-bold border border-yellow-400/30">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-mono font-bold border border-white/30">
             <Lock className="w-3.5 h-3.5" />
             <span>DATA PROTECTION & PRIVACY</span>
           </div>
@@ -80,9 +80,22 @@ export default function PrivacyPage() {
             </p>
           </div>
 
-          {/* Section 5: Third-Party Processors */}
+          {/* Section 5: Cookies */}
           <div className="space-y-4 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">5. Third-Party Service Processors</h2>
+            <h2 className="text-xl font-black text-slate-900">5. Cookies</h2>
+            <p>We use a minimal set of cookies, strictly limited to what's needed to run the site:</p>
+            <ul className="space-y-2 list-disc pl-5">
+              <li><strong>Essential session cookies</strong> (<code className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">user-token</code>, <code className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">admin-token</code>): keep you securely signed in to your client dashboard or the admin panel.</li>
+              <li><strong>Consent preference cookie</strong> (<code className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">cookie_consent</code>): remembers whether you've accepted or declined this cookie notice, so we don't ask again for 1 year.</li>
+            </ul>
+            <p>
+              We do not use third-party advertising or tracking cookies. You can clear cookies at any time via your browser settings; doing so will simply sign you out and re-show the cookie notice on your next visit.
+            </p>
+          </div>
+
+          {/* Section 6: Third-Party Processors */}
+          <div className="space-y-4 border-b border-slate-200 pb-6">
+            <h2 className="text-xl font-black text-slate-900">6. Third-Party Service Processors</h2>
             <p>We partner with trusted third-party infrastructure providers to deliver our services:</p>
             <ul className="space-y-2 list-disc pl-5">
               <li><strong>Razorpay:</strong> Secure payment processing and HMAC SHA256 payment verification.</li>
@@ -91,17 +104,17 @@ export default function PrivacyPage() {
             </ul>
           </div>
 
-          {/* Section 6: User Rights */}
+          {/* Section 7: User Rights */}
           <div className="space-y-3 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">6. Your Rights</h2>
+            <h2 className="text-xl font-black text-slate-900">7. Your Rights</h2>
             <p>
               You have the right to request access to, correction of, or permanent deletion of your personal contact data stored in our system at any time. Simply send an email request to our privacy team.
             </p>
           </div>
 
-          {/* Section 7: Contact Privacy Team */}
+          {/* Section 8: Contact Privacy Team */}
           <div className="space-y-3">
-            <h2 className="text-xl font-black text-slate-900">7. Contact Us</h2>
+            <h2 className="text-xl font-black text-slate-900">8. Contact Us</h2>
             <p>
               If you have any questions or requests regarding this Privacy Policy, please contact:
             </p>

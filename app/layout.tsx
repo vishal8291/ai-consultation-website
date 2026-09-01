@@ -1,13 +1,14 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import CookieConsent from "@/components/CookieConsent";
 import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "vishal.buildss | Bespoke Premium Websites & AI Systems",
-  description: "High-end bespoke websites, Small to Enterprise web platforms, and AI automation systems built by vishal.buildss.",
+  title: "vishal.buildss | Websites & AI Systems",
+  description: "Custom websites and AI automation systems for small businesses to enterprise, built by vishal.buildss.",
 };
 
 export default function RootLayout({
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
