@@ -18,9 +18,39 @@ export interface Project {
   featured: boolean;
   demoUrl?: string;
   githubUrl?: string;
+  previewImage?: string;
 }
 
 export const PROJECTS_DATA: Project[] = [
+  {
+    id: "mahagro-india-training-platform",
+    title: "MAHAGRO INDIA — Mushroom Cultivation Training Platform",
+    tagline: "Real client project: a bilingual booking site for a 30-year mushroom farming training institute, with resilient payments and enterprise-grade security.",
+    category: "Websites",
+    clientIndustry: "Agritech Education & Vocational Training",
+    results: {
+      primary: "96% Smaller JS Bundle",
+      secondary: "Bilingual English + Marathi",
+      roi: "Zero-Downtime Payment Fallback",
+    },
+    techStack: ["Vite", "Vanilla JS", "PHP 8", "MySQL", "Razorpay", "JSON-LD Schema"],
+    description: "A real, live client project for MAHAGRO INDIA, a mushroom cultivation training institute operating in Maharashtra since 1995. Built as a bilingual (English/Marathi) booking site with seat registration, live payment processing, and an admin dashboard for the client's team.",
+    problem: "MAHAGRO INDIA needed a fast, trustworthy booking site for their 2-day live training program — one that worked reliably for a bilingual audience (many prospective students are more comfortable in Marathi) and never lost a registration even if the payment gateway had issues.",
+    solution: "Built a lightweight Vite + vanilla JS frontend (no framework overhead) with a real-time English/Marathi language switcher, an interactive profit calculator, and a PHP + MySQL backend. Wired Razorpay for card/UPI payments with an invisible fallback to WhatsApp + manual UPI if the gateway is ever unavailable, so registrations never get blocked. Cut the JS bundle from 600KB+ (unpinned CDN icon library) down to ~25KB by importing only the icons actually used. Locked down the site with a strict Content-Security-Policy, HSTS, and full input sanitization that's safe for Devanagari (Marathi) text — the earlier ASCII-only sanitizer was silently deleting Marathi names.",
+    features: [
+      "Real-time English ⇄ Marathi language switcher across the entire site",
+      "Razorpay checkout with an invisible WhatsApp + UPI fallback if the gateway is down — registration never blocks",
+      "Live weekly registration counter with an honest static fallback, never a fabricated number",
+      "Interactive profit calculator (bag quantity × market rate → estimated monthly revenue)",
+      "Admin dashboard for the client's team: registrations list, CSV export, password-protected",
+      "Strict CSP + HSTS + security headers, zero inline scripts, PDO prepared statements against SQL injection"
+    ],
+    svgType: "edtech-ai",
+    featured: true,
+    demoUrl: "https://mahagroindia.com",
+    githubUrl: "https://github.com/vishal8291/mahagro-india",
+    previewImage: "/images/projects/mahagro-india.jpg",
+  },
   {
     id: "lex-agent-legal-auditor",
     title: "LexAgent — AI Legal Auditor for SMEs",
@@ -28,9 +58,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "AI Agents",
     clientIndustry: "LegalTech & SME Compliance",
     results: {
-      primary: "Clause Extraction",
-      secondary: "Claude AI SDK",
-      roi: "FastAPI & React",
+      primary: "Automated Clause Extraction & Risk Scoring",
+      secondary: "Plain-English Compliance Alerts",
+      roi: "Full-Stack AI Pipeline (FastAPI + React)",
     },
     techStack: ["Python", "FastAPI", "React", "MongoDB", "Claude AI SDK", "TailwindCSS"],
     description: "An AI-powered legal audit system that ingests SME contracts, agreements, and legal documents, performing automated clause extraction and risk analysis.",
@@ -46,6 +76,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: true,
     demoUrl: "https://lex-agent.vercel.app/",
     githubUrl: "https://github.com/vishal8291/LexAgent",
+    previewImage: "/images/projects/lex-agent-legal-auditor.jpg",
   },
   {
     id: "freelance-ai-sales-agent",
@@ -54,9 +85,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "AI Agents",
     clientIndustry: "Sales & B2B Lead Gen",
     results: {
-      primary: "Automated Outreach",
-      secondary: "Qdrant Cloud RAG",
-      roi: "Gmail API Drips",
+      primary: "End-to-End Lead-to-Proposal Automation",
+      secondary: "RAG-Personalized Outreach at Scale",
+      roi: "Zero Manual Follow-Up Required",
     },
     techStack: ["Node.js", "React + Vite", "Claude API", "Qdrant Cloud RAG", "Gmail API", "TailwindCSS"],
     description: "An end-to-end autonomous sales agent pipeline that discovers target prospects, performs contextual RAG research, drafts personal proposals, and tracks pipeline CRM stages.",
@@ -71,6 +102,7 @@ export const PROJECTS_DATA: Project[] = [
     svgType: "sales-ai",
     featured: true,
     githubUrl: "https://github.com/vishal8291/freelance-agent",
+    previewImage: "/images/projects/freelance-ai-sales-agent.jpg",
   },
   {
     id: "paperbag-ecommerce-leaf-ai",
@@ -79,9 +111,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "Websites",
     clientIndustry: "E-Commerce & Retail",
     results: {
-      primary: "Razorpay Checkout",
-      secondary: "Groq LLaMA Bot",
-      roi: "Docker Containerized",
+      primary: "Automated Checkout, Referrals & Invoicing",
+      secondary: "AI Support Bot Handles Customer Queries",
+      roi: "Containerized for Production Deployment",
     },
     techStack: ["React", "Node.js", "Express", "MongoDB", "Razorpay", "Groq / LLaMA API", "Docker"],
     description: "An eco-friendly full-stack e-commerce platform featuring product catalog, shopping cart, Razorpay payments, referral & coupon engine, real-time inventory, and PDF invoice generation.",
@@ -96,6 +128,7 @@ export const PROJECTS_DATA: Project[] = [
     svgType: "ecommerce-ai",
     featured: true,
     demoUrl: "https://frontend-delta-inky-96.vercel.app/",
+    previewImage: "/images/projects/paperbag-ecommerce-leaf-ai.jpg",
   },
   {
     id: "healthmap-shakticycle",
@@ -104,9 +137,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "Apps & SaaS",
     clientIndustry: "Healthcare & Mobile Tech",
     results: {
-      primary: "React Native Mobile",
-      secondary: "Cycle & Symptoms",
-      roi: "MongoDB Atlas Sync",
+      primary: "Cross-Platform iOS + Android App",
+      secondary: "AI-Personalized Health Insights",
+      roi: "Real-Time Cloud Data Sync",
     },
     techStack: ["React Native (Expo)", "TypeScript", "Node.js", "Express.js", "MongoDB Atlas"],
     description: "A cross-platform mobile application designed for women's cycle tracking, symptom logging, personalized AI wellness insights, and push notifications.",
@@ -121,6 +154,7 @@ export const PROJECTS_DATA: Project[] = [
     svgType: "health-ai",
     featured: true,
     githubUrl: "https://github.com/vishal8291/shakticycle",
+    previewImage: "/images/projects/healthmap-shakticycle.jpg",
   },
   {
     id: "pdf-solution-saas",
@@ -129,9 +163,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "Apps & SaaS",
     clientIndustry: "Document SaaS & Cloud Tools",
     results: {
-      primary: "Python OCR Engine",
-      secondary: "PDF Merge & Split",
-      roi: "Vercel Deployed",
+      primary: "All-in-One PDF Toolkit (Merge, Split, OCR)",
+      secondary: "Python Microservice Architecture",
+      roi: "Live in Production on Vercel",
     },
     techStack: ["React", "TypeScript", "Node.js", "Python Microservice", "MongoDB", "TailwindCSS"],
     description: "An all-in-one PDF SaaS platform supporting merge, split, OCR text extraction, compression, and format conversions.",
@@ -147,31 +181,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: true,
     demoUrl: "https://pdfsolution-seven.vercel.app",
     githubUrl: "https://github.com/vishal8291/pdfsolution",
-  },
-  {
-    id: "ai-consultation-website-gamma",
-    title: "AI Consultation & Business Platform",
-    tagline: "Business automation platform with AI workflow design, Razorpay paid consultations, and Framer Motion.",
-    category: "AI Agents",
-    clientIndustry: "AI Consulting & Technology",
-    results: {
-      primary: "Paid Booking Engine",
-      secondary: "Next.js 16 & TS",
-      roi: "Razorpay Gateway",
-    },
-    techStack: ["Next.js 16", "TypeScript", "MongoDB", "Tailwind CSS", "Framer Motion", "Razorpay"],
-    description: "A business consultation and automation web platform featuring AI workflow blueprints, Razorpay payment processing, Google OAuth, and Framer Motion visual animations.",
-    problem: "Businesses need a clear, interactive platform to book paid AI strategy audits and explore workflow automation blueprints.",
-    solution: "Built a high-performance Next.js 16 agency platform with MongoDB lead management, user authentication, and responsive dark glassmorphic design.",
-    features: [
-      "Razorpay payment gateway integration for paid consultation bookings",
-      "Framer Motion interactive animations and custom AI SVG graphics",
-      "User authentication dashboard with consultation status tracking",
-      "Sub-second load speed deployed on Vercel"
-    ],
-    svgType: "consultation-ai",
-    featured: true,
-    demoUrl: "https://ai-consultation-website-gamma.vercel.app",
+    previewImage: "/images/projects/pdf-solution-saas.jpg",
   },
   {
     id: "vishal-developer-portfolio",
@@ -180,9 +190,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "Websites",
     clientIndustry: "Software Engineering",
     results: {
-      primary: "Full-Stack Hub",
-      secondary: "MERN + Next.js",
-      roi: "Live Vercel Hub",
+      primary: "Unified Showcase for All Live Projects",
+      secondary: "Built with Next.js + TypeScript",
+      roi: "Deployed Live on Vercel",
     },
     techStack: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Vercel"],
     description: "Vishal's personal developer portfolio showcasing all full-stack applications, AI integrations, technical skills, and engineering experience.",
@@ -197,6 +207,7 @@ export const PROJECTS_DATA: Project[] = [
     svgType: "portfolio",
     featured: false,
     demoUrl: "https://my-portfolio-ashy-five-43.vercel.app",
+    previewImage: "/images/projects/vishal-developer-portfolio.jpg",
   },
   {
     id: "entrance-exam-recommendation-system",
@@ -205,9 +216,9 @@ export const PROJECTS_DATA: Project[] = [
     category: "Apps & SaaS",
     clientIndustry: "EdTech & University Systems",
     results: {
-      primary: "9-Module MERN System",
-      secondary: "Agile Team Build",
-      roi: "Matching Engine",
+      primary: "9 Integrated Modules Shipped",
+      secondary: "Led a 3-Person Agile Team",
+      roi: "Automated Course-Matching Engine",
     },
     techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "JavaScript"],
     description: "An Entrance Examination with Course Recommendation System featuring 9 integrated modules built using Agile + Iterative sprint methodologies.",

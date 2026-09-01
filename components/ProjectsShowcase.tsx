@@ -10,6 +10,7 @@ interface ProjectsShowcaseProps {
   limit?: number;
   showFilters?: boolean;
   isHomepage?: boolean;
+  hideHeader?: boolean;
 }
 
 const CATEGORIES = [
@@ -19,7 +20,7 @@ const CATEGORIES = [
   { label: "Apps & SaaS", key: "Apps & SaaS", icon: Layers },
 ] as const;
 
-export default function ProjectsShowcase({ limit, showFilters = true, isHomepage = false }: ProjectsShowcaseProps) {
+export default function ProjectsShowcase({ limit, showFilters = true, isHomepage = false, hideHeader = false }: ProjectsShowcaseProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
@@ -44,32 +45,34 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
   }
 
   return (
-    <section id="projects" className="relative py-20 bg-white text-slate-900 overflow-hidden bg-grid-pattern">
+    <section id="projects" className="relative py-20 bg-white/85 text-slate-900 overflow-hidden bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-3 tracking-tight"
-          >
-            {isHomepage || limit === 3 ? "Featured Production Builds" : "All Case Studies & Portfolio Builds"}
-          </motion.h2>
+        {!hideHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-3 tracking-tight"
+            >
+              {isHomepage || limit === 3 ? "Production Builds" : "All Case Studies & Portfolio Builds"}
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
-          >
-            {isHomepage || limit === 3
-              ? "3 featured engineering builds from our 3 core categories: AI Agents, Websites, and Apps & SaaS."
-              : "Explore real production applications engineered by Vishal—categorized by Websites, AI Agents, and Apps & SaaS."}
-          </motion.p>
-        </div>
+            {!(isHomepage || limit === 3) && (
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
+              >
+                Explore projects built by Vishal, categorized by Websites, AI Agents, and Apps & SaaS.
+              </motion.p>
+            )}
+          </div>
+        )}
 
         {/* Category Tabs (Shown on Portfolio page or when showFilters is enabled) */}
         {showFilters && !isHomepage && limit !== 3 && (
@@ -84,11 +87,11 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   onClick={() => setSelectedCategory(cat.key)}
                   className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-black tracking-wider uppercase flex items-center space-x-2 transition-all ${
                     isActive
-                      ? "bg-slate-900 text-yellow-400 shadow-md border-2 border-yellow-400"
+                      ? "bg-slate-900 text-white shadow-md border-2 border-white"
                       : "bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300"
                   }`}
                 >
-                  <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-yellow-400" : "text-slate-500"}`} />
+                  <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-slate-500"}`} />
                   <span>{cat.label}</span>
                 </button>
               );
@@ -106,12 +109,23 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl flex flex-col justify-between relative group hover:border-amber-400 transition-all"
+              className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl flex flex-col justify-between relative group hover:border-black transition-all"
             >
-              {/* Graphic Banner Top */}
-              <div className="h-44 sm:h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center p-4">
-                <ProjectGraphicSVG type={project.svgType} />
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/90 text-yellow-400 border border-slate-700 text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+              {/* Preview Banner Top */}
+              <div className="h-44 sm:h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+                {project.previewImage ? (
+                  <img
+                    src={project.previewImage}
+                    alt={`${project.title} live preview`}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="p-4 w-full h-full flex items-center justify-center">
+                    <ProjectGraphicSVG type={project.svgType} />
+                  </div>
+                )}
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/90 text-white border border-slate-700 text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md">
                   {project.category}
                 </div>
               </div>
@@ -119,24 +133,14 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               {/* Card Body */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">
+                  <h3 className="text-xl font-black text-slate-900 group-hover:text-slate-600 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    {project.tagline}
-                  </p>
-                </div>
-
-                {/* Tech Stack Pills */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-mono font-bold text-slate-700"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {project.results?.primary && (
+                    <p className="text-xs font-bold text-slate-500 mt-1.5 uppercase tracking-wide">
+                      {project.results.primary}
+                    </p>
+                  )}
                 </div>
 
                 {/* Card Action Buttons */}
@@ -144,10 +148,10 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   <button
                     type="button"
                     onClick={() => setActiveModalProject(project)}
-                    className="text-xs font-bold text-slate-900 hover:text-amber-600 transition-colors inline-flex items-center space-x-1"
+                    className="text-xs font-bold text-slate-900 hover:text-black transition-colors inline-flex items-center space-x-1"
                   >
                     <span>View Architecture Details</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
+                    <ArrowRight className="w-3.5 h-3.5 text-black" />
                   </button>
 
                   {project.demoUrl && (
@@ -155,7 +159,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-xl bg-slate-900 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
+                      className="p-2 rounded-xl bg-slate-900 text-white hover:bg-white hover:text-black transition-colors"
                       title="View Live Site"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -177,10 +181,10 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
           >
             <Link
               href="/projects"
-              className="inline-flex items-center space-x-3 px-10 py-4.5 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-widest hover:bg-yellow-400 hover:text-black transition-all shadow-xl hover:scale-105 border-2 border-slate-900 group"
+              className="inline-flex items-center space-x-3 px-10 py-4.5 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-xl hover:scale-105 border-2 border-slate-900 group"
             >
               <span>SEE ALL PROJECTS</span>
-              <ArrowRight className="w-4 h-4 text-yellow-400 group-hover:text-black transition-colors" />
+              <ArrowRight className="w-4 h-4 text-white group-hover:text-black transition-colors" />
             </Link>
           </motion.div>
         )}
@@ -195,7 +199,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white text-slate-900 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-amber-400 shadow-2xl p-6 sm:p-8 relative"
+              className="bg-white text-slate-900 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-black shadow-2xl p-6 sm:p-8 relative"
             >
               <button
                 type="button"
@@ -207,7 +211,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
 
               <div className="space-y-6">
                 <div>
-                  <span className="px-3 py-1 rounded-full bg-yellow-100 text-amber-900 text-xs font-mono font-bold uppercase tracking-wider border border-yellow-300">
+                  <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-xs font-mono font-bold uppercase tracking-wider border border-slate-300">
                     {activeModalProject.category}
                   </span>
                   <h3 className="text-2xl font-black text-slate-900 mt-2">{activeModalProject.title}</h3>
@@ -219,12 +223,24 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   <p>{activeModalProject.description}</p>
                 </div>
 
+                {activeModalProject.results && (
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {[activeModalProject.results.primary, activeModalProject.results.secondary, activeModalProject.results.roi]
+                      .filter(Boolean)
+                      .map((stat, idx) => (
+                        <div key={idx} className="p-3 rounded-xl bg-black text-white text-center">
+                          <p className="text-xs sm:text-sm font-black leading-tight">{stat}</p>
+                        </div>
+                      ))}
+                  </div>
+                )}
+
                 <div className="space-y-3">
                   <h4 className="text-sm font-black text-slate-900 uppercase tracking-wider">Key Features Delivered</h4>
                   <ul className="space-y-2 text-xs text-slate-700">
                     {activeModalProject.features.map((feat, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-black flex-shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -237,7 +253,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                       href={activeModalProject.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-xl bg-yellow-400 text-black font-black text-xs uppercase tracking-wider inline-flex items-center space-x-2 shadow-md hover:bg-yellow-300 transition-colors"
+                      className="px-6 py-3 rounded-xl bg-black text-white font-black text-xs uppercase tracking-wider inline-flex items-center space-x-2 shadow-md hover:bg-slate-800 transition-colors"
                     >
                       <span>Visit Live Application</span>
                       <ExternalLink className="w-4 h-4" />
