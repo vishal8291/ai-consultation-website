@@ -144,7 +144,7 @@ export default function ConsultationDetail() {
           className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/50"
         >
           <div className="flex items-center mb-6">
-            <div className="w-16 h-16 bg-linear-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-4 shadow-lg">
+            <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-4 shadow-lg">
               {consultation.name.charAt(0).toUpperCase()}
             </div>
             <div>

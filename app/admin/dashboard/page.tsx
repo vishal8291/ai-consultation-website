@@ -44,14 +44,14 @@ export default function DashboardPage() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-blue-500/30 border-t-blue-500 rounded-full"
+          className="w-12 h-12 border-4 border-slate-300 border-t-black rounded-full"
         />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100 p-8 antialiased">
+    <div className="min-h-screen bg-white p-8 antialiased">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ export default function DashboardPage() {
             title="Contacted"
             value={stats.contacted}
             icon={TrendingUp}
-            color="from-purple-500 to-purple-600"
+            color="from-slate-700 to-slate-900"
             trend="+5%"
             change="up"
           />
@@ -129,7 +129,7 @@ export default function DashboardPage() {
           </div>
           <div className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/50">
             <p className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-2">In Progress</p>
-            <span className="text-3xl font-black text-purple-600">{stats.contacted}</span>
+            <span className="text-3xl font-black text-slate-700">{stats.contacted}</span>
           </div>
         </div>
       </motion.div>

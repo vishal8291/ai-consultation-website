@@ -6,18 +6,18 @@ import { ArrowLeft, ShieldCheck, CheckCircle2, FileText, Lock, Scale } from "luc
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#fafaf8] text-slate-900 antialiased selection:bg-yellow-400 selection:text-black">
-      
+    <main className="min-h-screen bg-[#fafaf8] text-slate-900 antialiased selection:bg-black selection:text-white">
+
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 text-xs font-black uppercase tracking-wider text-slate-700 hover:text-amber-600 transition-colors">
+          <Link href="/" className="flex items-center space-x-2 text-xs font-black uppercase tracking-wider text-slate-700 hover:text-black transition-colors">
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
           <div className="flex items-center space-x-3">
             <span className="text-sm font-black text-slate-900">
-              vishal<span className="text-amber-600 font-extrabold">.buildss</span>
+              vishal<span className="text-black font-extrabold">.buildss</span>
             </span>
           </div>
         </div>
@@ -26,7 +26,7 @@ export default function TermsPage() {
       {/* Hero Banner */}
       <section className="py-12 sm:py-16 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-yellow-400/20 text-yellow-400 text-xs font-mono font-bold border border-yellow-400/30">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-mono font-bold border border-white/30">
             <Scale className="w-3.5 h-3.5" />
             <span>LEGAL AGREEMENT</span>
           </div>

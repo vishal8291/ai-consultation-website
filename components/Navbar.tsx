@@ -39,36 +39,36 @@ export default function Navbar() {
           
           {/* Brand Logo with Clean Transparent Globe Icon */}
           <a href="/" className="flex items-center space-x-3 group">
-            <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-sm group-hover:border-amber-400/80 group-hover:scale-105 transition-all">
+            <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-sm group-hover:border-black/60 group-hover:scale-105 transition-all">
               <img
-                src="/images/logo-clean.png"
+                src="/images/newlogo-clean.png"
                 alt="vishal.buildss logo"
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black tracking-tight text-slate-900 flex items-center">
-                vishal<span className="text-amber-600 font-extrabold ml-0.5">.buildss</span>
+                vishal<span className="text-black font-extrabold ml-0.5">.buildss</span>
               </span>
             </div>
           </a>
 
           {/* Google Reference Style Navigation Links */}
           <div className="hidden lg:flex items-center space-x-8 text-xs font-black uppercase tracking-widest text-slate-600">
-            <a href="/" className="text-amber-600 font-black hover:text-amber-700 transition-colors">
+            <a href="/" className="text-black font-black hover:text-slate-600 transition-colors">
               HOME
             </a>
             <a href="/#services" className="hover:text-slate-900 transition-colors">
-              VISION
+              SERVICES
             </a>
             <a href="/#tech" className="hover:text-slate-900 transition-colors">
               TECHNOLOGY
             </a>
             <a href="/projects" className="hover:text-slate-900 transition-colors">
-              EXPERIENCE
+              WORK
             </a>
             <a href="/#pricing" className="hover:text-slate-900 transition-colors">
-              SOLUTIONS
+              PRICING
             </a>
           </div>
 
@@ -76,17 +76,17 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <AnimatePresence mode="wait">
               {loading ? (
-                <div className="w-5 h-5 border-2 border-amber-500/40 border-t-amber-500 rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-slate-300 border-t-black rounded-full animate-spin" />
               ) : user ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center space-x-3 bg-slate-100/80 px-3.5 py-1.5 rounded-full border border-slate-200"
                 >
-                  <div className="w-7 h-7 bg-gradient-to-tr from-yellow-400 to-amber-500 text-black rounded-full flex items-center justify-center font-black text-xs shadow-sm">
+                  <div className="w-7 h-7 bg-black text-white rounded-full flex items-center justify-center font-black text-xs shadow-sm">
                     {user.name?.charAt(0).toUpperCase()}
                   </div>
-                  <a href="/dashboard" className="font-black text-xs text-slate-800 hover:text-amber-600 transition-colors">
+                  <a href="/dashboard" className="font-black text-xs text-slate-800 hover:text-black transition-colors">
                     Dashboard
                   </a>
                   <button
@@ -133,37 +133,37 @@ export default function Navbar() {
               <a
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="block py-2.5 text-amber-600 font-black"
+                className="block py-2.5 text-black font-black"
               >
                 HOME
               </a>
               <a
                 href="/#services"
                 onClick={() => setIsOpen(false)}
-                className="block py-2.5 hover:text-amber-600"
+                className="block py-2.5 hover:text-black"
               >
-                VISION
+                SERVICES
               </a>
               <a
                 href="/#tech"
                 onClick={() => setIsOpen(false)}
-                className="block py-2.5 hover:text-amber-600"
+                className="block py-2.5 hover:text-black"
               >
                 TECHNOLOGY
               </a>
               <a
                 href="/projects"
                 onClick={() => setIsOpen(false)}
-                className="block py-2.5 hover:text-amber-600"
+                className="block py-2.5 hover:text-black"
               >
-                EXPERIENCE
+                WORK
               </a>
               <a
                 href="/#pricing"
                 onClick={() => setIsOpen(false)}
-                className="block py-2.5 hover:text-amber-600"
+                className="block py-2.5 hover:text-black"
               >
-                SOLUTIONS
+                PRICING
               </a>
               <a
                 href="/#contact"

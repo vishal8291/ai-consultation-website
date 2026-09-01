@@ -21,29 +21,29 @@ export default function RoiCalculator() {
   const paybackMonths = (estimatedBuildCost / Math.max(1, monthlySavings * 83)).toFixed(1);
 
   return (
-    <section id="calculator" className="py-28 bg-white text-slate-900 relative overflow-hidden bg-grid-pattern border-t border-slate-200">
+    <section id="calculator" className="py-28 bg-black text-white relative overflow-hidden bg-grid-pattern border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
             Calculate Your AI Automation ROI
           </h2>
 
-          <p className="text-lg text-slate-600 leading-relaxed">
-            See how much operational capital and team hours your business can reclaim by automating manual workflows with AI.
+          <p className="text-lg text-slate-400 leading-relaxed">
+            See how much time and money your business can save by automating manual work with AI.
           </p>
         </div>
 
         {/* Calculator Widget Box */}
-        <div className="max-w-5xl mx-auto glass-card-pro rounded-3xl p-8 md:p-12 grid md:grid-cols-12 gap-12 items-center border border-slate-200 shadow-xl">
+        <div className="max-w-5xl mx-auto dark-card-pro rounded-3xl p-8 md:p-12 grid md:grid-cols-12 gap-12 items-center border border-slate-800 shadow-xl">
           {/* Controls Side */}
           <div className="md:col-span-7 space-y-8">
             {/* Slider 1: Team Size */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-extrabold text-slate-700 uppercase tracking-wider">
+                <label className="text-xs font-extrabold text-slate-300 uppercase tracking-wider">
                   Team Members Doing Manual Tasks
                 </label>
-                <span className="text-base font-extrabold text-black bg-yellow-400 px-3.5 py-1 rounded-lg border border-amber-400">
+                <span className="text-base font-extrabold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
                   {teamSize} People
                 </span>
               </div>
@@ -53,7 +53,7 @@ export default function RoiCalculator() {
                 max="50"
                 value={teamSize}
                 onChange={(e) => setTeamSize(Number(e.target.value))}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1 font-mono">
                 <span>1 person</span>
@@ -64,10 +64,10 @@ export default function RoiCalculator() {
             {/* Slider 2: Manual Hours per Week per Person */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-extrabold text-slate-700 uppercase tracking-wider">
+                <label className="text-xs font-extrabold text-slate-300 uppercase tracking-wider">
                   Manual Hours Spent / Person / Week
                 </label>
-                <span className="text-base font-extrabold text-black bg-yellow-400 px-3.5 py-1 rounded-lg border border-amber-400">
+                <span className="text-base font-extrabold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
                   {manualHoursPerWeek} hrs/wk
                 </span>
               </div>
@@ -77,7 +77,7 @@ export default function RoiCalculator() {
                 max="30"
                 value={manualHoursPerWeek}
                 onChange={(e) => setManualHoursPerWeek(Number(e.target.value))}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1 font-mono">
                 <span>2 hrs/wk</span>
@@ -88,10 +88,10 @@ export default function RoiCalculator() {
             {/* Slider 3: Average Hourly Labor Cost */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-extrabold text-slate-700 uppercase tracking-wider">
+                <label className="text-xs font-extrabold text-slate-300 uppercase tracking-wider">
                   Average Hourly Labor Rate ($/hr)
                 </label>
-                <span className="text-base font-extrabold text-black bg-yellow-400 px-3.5 py-1 rounded-lg border border-amber-400">
+                <span className="text-base font-extrabold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
                   ${hourlyRate}/hr
                 </span>
               </div>
@@ -101,7 +101,7 @@ export default function RoiCalculator() {
                 max="150"
                 value={hourlyRate}
                 onChange={(e) => setHourlyRate(Number(e.target.value))}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1 font-mono">
                 <span>$15/hr</span>
@@ -111,7 +111,7 @@ export default function RoiCalculator() {
           </div>
 
           {/* Results Side */}
-          <div className="md:col-span-5 bg-slate-900 text-white p-8 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-6 shadow-2xl relative">
+          <div className="md:col-span-5 bg-black text-white p-8 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-6 shadow-2xl relative">
             <div className="space-y-6">
               <div>
                 <p className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-1">Projected Monthly Savings</p>
@@ -119,35 +119,35 @@ export default function RoiCalculator() {
                   key={monthlySavings}
                   initial={{ scale: 0.95, opacity: 0.8 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-4xl md:text-5xl font-black text-yellow-400"
+                  className="text-4xl md:text-5xl font-black text-white"
                 >
                   ${monthlySavings.toLocaleString()}
                   <span className="text-xs text-slate-400 font-bold ml-1">/ mo</span>
                 </motion.p>
-                <p className="text-xs text-slate-400 mt-1">reclaimed operational capital</p>
+                <p className="text-xs text-slate-400 mt-1">estimated savings</p>
               </div>
 
               <div className="pt-4 border-t border-slate-800 space-y-3 text-xs">
                 <div className="flex justify-between text-slate-300">
                   <span>Annual Projected ROI Savings:</span>
-                  <span className="font-mono text-yellow-300 font-bold">${annualSavings.toLocaleString()}/yr</span>
+                  <span className="font-mono text-white font-bold">${annualSavings.toLocaleString()}/yr</span>
                 </div>
                 <div className="flex justify-between text-slate-300">
-                  <span>Hours Reclaimed / Month:</span>
+                  <span>Hours Saved / Month:</span>
                   <span className="font-mono text-white font-bold">{Math.round(weeklyHours * 4.33 * 0.75)} hours</span>
                 </div>
                 <div className="flex justify-between text-slate-300 pt-2 border-t border-slate-800 font-bold">
                   <span>Investment Payback:</span>
-                  <span className="text-yellow-400 font-bold">Less than 1 Month</span>
+                  <span className="text-white font-bold">Less than 1 Month</span>
                 </div>
               </div>
             </div>
 
             <a
               href="#contact"
-              className="w-full py-4 px-6 rounded-xl btn-yellow-solid text-black font-extrabold text-center text-xs uppercase tracking-wider flex items-center justify-center space-x-2"
+              className="w-full py-4 px-6 rounded-xl btn-white-solid text-black font-extrabold text-center text-xs uppercase tracking-wider flex items-center justify-center space-x-2"
             >
-              <span>Reclaim Your Capital</span>
+              <span>Book a Call</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>

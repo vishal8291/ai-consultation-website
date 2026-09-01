@@ -22,7 +22,7 @@ export default function PrakritiChatbot() {
     {
       id: "welcome",
       sender: "prakriti",
-      text: "Hello I am Prakriti, how I can help you?",
+      text: "Hi, I'm Prakriti. How can I help you?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -91,7 +91,7 @@ export default function PrakritiChatbot() {
       {
         id: "welcome",
         sender: "prakriti",
-        text: "Hello I am Prakriti, how I can help you?",
+        text: "Hi, I'm Prakriti. How can I help you?",
       },
     ]);
   };
@@ -109,10 +109,10 @@ export default function PrakritiChatbot() {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 border-2 border-amber-400 shadow-2xl flex items-center justify-center group"
+          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 border-2 border-white shadow-2xl flex items-center justify-center group"
           title="Drag me around! Click to chat with Prakriti"
         >
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 text-black flex items-center justify-center font-black shadow-md">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black flex items-center justify-center font-black shadow-md">
             <Bot className="w-6 h-6 text-black" />
           </div>
           {/* Glowing Green Online Status Beacon */}
@@ -130,13 +130,13 @@ export default function PrakritiChatbot() {
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
-            className="fixed bottom-24 left-4 sm:left-6 z-50 w-[calc(100vw-32px)] sm:w-[400px] h-[520px] bg-slate-900 text-white rounded-3xl border-2 border-amber-400/80 shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 left-4 sm:left-6 z-50 w-[calc(100vw-32px)] sm:w-[400px] h-[520px] bg-slate-900 text-white rounded-3xl border-2 border-white/60 shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Clean Chatbot Header */}
             <div className="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 text-black flex items-center justify-center font-black shadow-md">
+                  <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-black shadow-md">
                     <Bot className="w-5 h-5 text-black" />
                   </div>
                   <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950" />
@@ -175,7 +175,7 @@ export default function PrakritiChatbot() {
                   <div
                     className={`max-w-[85%] p-3.5 rounded-2xl leading-relaxed whitespace-pre-wrap ${
                       msg.sender === "user"
-                        ? "bg-yellow-400 text-black font-semibold rounded-br-none shadow-md"
+                        ? "bg-white text-black font-semibold rounded-br-none shadow-md"
                         : "bg-slate-800 text-slate-200 border border-slate-700 rounded-bl-none shadow-sm"
                     }`}
                   >
@@ -187,7 +187,7 @@ export default function PrakritiChatbot() {
               {isTyping && (
                 <div className="flex justify-start">
                   <div className="bg-slate-800 border border-slate-700 p-3 rounded-2xl rounded-bl-none text-slate-400 text-xs flex items-center space-x-2">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                     <span>Prakriti is typing...</span>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function PrakritiChatbot() {
                     type="button"
                     key={prompt}
                     onClick={() => handleSendMessage(prompt)}
-                    className="px-3 py-1.5 rounded-full bg-slate-800 hover:bg-amber-400 hover:text-black border border-slate-700 text-[11px] font-bold text-slate-300 whitespace-nowrap transition-colors flex-shrink-0"
+                    className="px-3 py-1.5 rounded-full bg-slate-800 hover:bg-white hover:text-black border border-slate-700 text-[11px] font-bold text-slate-300 whitespace-nowrap transition-colors flex-shrink-0"
                   >
                     {prompt}
                   </button>
@@ -224,12 +224,12 @@ export default function PrakritiChatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask Prakriti about pricing, timeline..."
-                className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-white transition-colors"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
-                className="p-2.5 rounded-xl bg-yellow-400 text-black hover:bg-yellow-300 disabled:opacity-40 transition-colors font-bold"
+                className="p-2.5 rounded-xl bg-white text-black hover:bg-slate-200 disabled:opacity-40 transition-colors font-bold"
               >
                 <Send className="w-4 h-4 text-black" />
               </button>

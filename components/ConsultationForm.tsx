@@ -48,45 +48,45 @@ export default function ConsultationForm() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#fafaf8] text-slate-900 relative overflow-hidden border-t border-slate-200 bg-grid-pattern">
+    <section id="contact" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-slate-800 bg-grid-pattern">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-yellow-100 text-amber-900 border border-yellow-300 text-xs font-black uppercase tracking-wider inline-block mb-3">
-            START YOUR BUILD
+          <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-black uppercase tracking-wider inline-block mb-3">
+            GET STARTED
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-            Book a 15-Minute Engineering Audit
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+            Book a Call
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            Schedule a direct diagnostic session with Vishal. We'll audit your business workflow, calculate exact itemized math, and map your website or AI architecture.
+          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+            Schedule a 15-minute call with Vishal to discuss your project, timeline, and pricing.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200">
+        <div className="bg-slate-900 p-8 sm:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-800">
           {success ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="py-12 text-center space-y-6"
             >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-400 to-amber-500 text-black flex items-center justify-center mx-auto shadow-lg">
+              <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center mx-auto shadow-lg">
                 <CheckCircle2 className="w-10 h-10 text-black" />
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900">Consultation Booking Received!</h3>
+              <h3 className="text-2xl sm:text-3xl font-black text-white">Consultation Booking Received!</h3>
 
-              <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed font-medium">
-                Thank you <strong className="text-slate-900 font-extrabold">{formData.name}</strong>. Vishal will reach out to you at <span className="text-amber-700 font-bold">{formData.contact}</span> within 24 hours to coordinate your 15-minute diagnostic call.
+              <p className="text-slate-400 max-w-md mx-auto text-sm leading-relaxed font-medium">
+                Thank you <strong className="text-white font-extrabold">{formData.name}</strong>. Vishal will reach out to you at <span className="text-white font-bold">{formData.contact}</span> within 24 hours to schedule your call.
               </p>
 
               <button
                 type="button"
                 onClick={() => setSuccess(false)}
-                className="px-8 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider transition-colors shadow-md"
+                className="px-8 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-black font-black text-xs uppercase tracking-wider transition-colors shadow-md"
               >
                 Submit Another Request
               </button>
@@ -94,14 +94,14 @@ export default function ConsultationForm() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               {errorMsg && (
-                <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-bold">
+                <div className="p-4 rounded-xl bg-red-950/50 border border-red-800 text-red-400 text-xs font-bold">
                   {errorMsg}
                 </div>
               )}
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -110,12 +110,12 @@ export default function ConsultationForm() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-400/20 outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
                     Email or Phone Number *
                   </label>
                   <input
@@ -124,14 +124,14 @@ export default function ConsultationForm() {
                     value={formData.contact}
                     onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                     placeholder="jane@company.com or +91 9999999999"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-400/20 outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
                   />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
                     Company / Organization
                   </label>
                   <input
@@ -139,18 +139,18 @@ export default function ConsultationForm() {
                     value={formData.business}
                     onChange={(e) => setFormData({ ...formData, business: e.target.value })}
                     placeholder="Acme Systems Inc."
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-400/20 outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
                     Desired Website Scope *
                   </label>
                   <select
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-400/20 outline-none transition-all text-sm font-bold cursor-pointer"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-bold cursor-pointer"
                   >
                     <option value="Launch Package (₹12,000 / $150)">Launch Package (₹12,000 / $150)</option>
                     <option value="Business Package (₹30,000 / $375)">Business Package (₹30,000 / $375)</option>
@@ -161,7 +161,7 @@ export default function ConsultationForm() {
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
                   Project Details & Goals
                 </label>
                 <textarea
@@ -169,20 +169,20 @@ export default function ConsultationForm() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Describe your current business needs, timeline, or automation goals..."
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-400/20 outline-none transition-all text-sm font-semibold"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-4.5 rounded-2xl btn-yellow-solid text-black font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2 disabled:opacity-50 shadow-xl hover:scale-[1.01] transition-all"
+                className="w-full py-4.5 rounded-2xl btn-white-solid text-black font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2 disabled:opacity-50 shadow-xl hover:scale-[1.01] transition-all"
               >
                 {submitting ? (
                   <span>Submitting Request...</span>
                 ) : (
                   <>
-                    <span>Book 15-Min Audit & Request Proposal</span>
+                    <span>Book a Call & Request a Proposal</span>
                     <Send className="w-4 h-4 text-black ml-1" />
                   </>
                 )}

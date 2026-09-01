@@ -9,12 +9,12 @@ const FAQS = [
     a: "Our Small/Starter websites launch in 5-7 days. Medium business portals and AI customer support bots launch in 14-21 days. Enterprise SaaS platforms take 21-35 days.",
   },
   {
-    q: "How do you calculate your fair pricing math?",
-    a: "We compute transparent pricing by adding estimated engineering hours (at fair $35-$60/hr rates), component costs (UI/UX design, database architecture, AI vector store setup), and server deployment fees without arbitrary agency markups.",
+    q: "How do you calculate pricing?",
+    a: "We calculate pricing based on estimated engineering hours ($35-$60/hr), component costs (design, database, AI setup), and deployment fees — no agency markups.",
   },
   {
-    q: "Do I own 100% of the source code and IP?",
-    a: "Yes! Upon final project delivery and sign-off, 100% of the source code, design assets, database schemas, and intellectual property rights are fully transferred to you.",
+    q: "Do I own the source code and IP?",
+    a: "Yes. On final delivery and sign-off, all source code, design assets, and IP rights transfer to you.",
   },
   {
     q: "What technologies do you use to ensure sub-second page speed?",
@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: "What post-launch support and warranty is included?",
-    a: "Every tier includes 30 to 90 days of post-launch warranty covering bug fixes, speed telemetry monitoring, and 1-on-1 strategy handoffs.",
+    a: "Every tier includes 30 to 90 days of post-launch support covering bug fixes and performance monitoring.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function FaqSection() {
             Got Questions? We Have Answers.
           </h2>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-            Everything you need to know about our web engineering process, fair pricing math, and post-launch support.
+            Everything you need to know about our process, pricing, and support.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function FaqSection() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:border-amber-400 transition-all duration-200"
+                className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:border-black transition-all duration-200"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
@@ -65,7 +65,7 @@ export default function FaqSection() {
                   <span className="text-base font-extrabold text-slate-900 leading-snug">
                     {faq.q}
                   </span>
-                  <div className={`p-2 rounded-xl border transition-transform duration-200 flex-shrink-0 ${isOpen ? "rotate-180 bg-yellow-400 text-black border-amber-500 font-bold" : "bg-slate-100 text-slate-600 border-slate-200"}`}>
+                  <div className={`p-2 rounded-xl border transition-transform duration-200 flex-shrink-0 ${isOpen ? "rotate-180 bg-black text-white border-black font-bold" : "bg-slate-100 text-slate-600 border-slate-200"}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>

@@ -69,7 +69,7 @@ export default function PricingEstimator() {
         currency: orderData.currency,
         name: "vishal.buildss",
         description: `50% Advance Quote Lock (${currency === "INR" ? "₹" : "$"}${advanceAmount.toLocaleString()})`,
-        image: "/images/logo-clean.png",
+        image: "/images/newlogo-clean.png",
         order_id: orderData.orderId,
         handler: async function (response: any) {
           const verifyRes = await fetch("/api/razorpay/verify-payment", {
@@ -95,7 +95,7 @@ export default function PricingEstimator() {
           contact: "9999999999",
         },
         theme: {
-          color: "#facc15",
+          color: "#000000",
         },
       };
 
@@ -110,16 +110,16 @@ export default function PricingEstimator() {
   };
 
   return (
-    <section id="estimator" className="py-24 bg-white text-slate-900 relative overflow-hidden bg-grid-pattern border-t border-slate-200">
+    <section id="estimator" className="py-24 bg-white/85 text-slate-900 relative overflow-hidden bg-grid-pattern border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Headline */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-            Build Your Custom Website Quote
+            Estimate Your Project Cost
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Select your scope, page scale, and AI add-ons to generate a transparent, real-time mathematical estimate.
+            Select your scope, page count, and add-ons to get an instant estimate.
           </p>
         </div>
 
@@ -138,14 +138,14 @@ export default function PricingEstimator() {
                 <button
                   type="button"
                   onClick={() => setCurrency("INR")}
-                  className={`px-4 py-1 rounded-full text-xs font-black transition-all ${currency === "INR" ? "bg-yellow-400 text-black shadow-xs" : "text-slate-600"}`}
+                  className={`px-4 py-1 rounded-full text-xs font-black transition-all ${currency === "INR" ? "bg-black text-white shadow-xs" : "text-slate-600"}`}
                 >
                   ₹ INR
                 </button>
                 <button
                   type="button"
                   onClick={() => setCurrency("USD")}
-                  className={`px-4 py-1 rounded-full text-xs font-black transition-all ${currency === "USD" ? "bg-yellow-400 text-black shadow-xs" : "text-slate-600"}`}
+                  className={`px-4 py-1 rounded-full text-xs font-black transition-all ${currency === "USD" ? "bg-black text-white shadow-xs" : "text-slate-600"}`}
                 >
                   $ USD
                 </button>
@@ -165,14 +165,14 @@ export default function PricingEstimator() {
                     onClick={() => setSelectedTierId(tier.id)}
                     className={`p-3.5 rounded-2xl border text-left transition-all ${
                       selectedTierId === tier.id
-                        ? "bg-yellow-400 text-black border-amber-500 shadow-md"
-                        : "bg-slate-50 border-slate-200 text-slate-700 hover:border-amber-400"
+                        ? "bg-black text-white border-black shadow-md"
+                        : "bg-slate-50 border-slate-200 text-slate-700 hover:border-black"
                     }`}
                   >
-                    <div className="font-extrabold text-xs text-slate-900">
+                    <div className={`font-extrabold text-xs ${selectedTierId === tier.id ? "text-white" : "text-slate-900"}`}>
                       {tier.name}
                     </div>
-                    <div className="text-[11px] font-mono font-bold mt-1 text-amber-800">
+                    <div className={`text-[11px] font-mono font-bold mt-1 ${selectedTierId === tier.id ? "text-slate-300" : "text-slate-600"}`}>
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </div>
                   </button>
@@ -186,7 +186,7 @@ export default function PricingEstimator() {
                 <label className="text-xs font-black text-slate-900 uppercase tracking-wider">
                   2. Total Estimated Pages
                 </label>
-                <span className="text-xs sm:text-sm font-black text-black bg-yellow-400 px-3 py-1 rounded-lg border border-amber-400">
+                <span className="text-xs sm:text-sm font-black text-white bg-black px-3 py-1 rounded-lg border border-black">
                   {pageCount} Pages
                 </span>
               </div>
@@ -196,7 +196,7 @@ export default function PricingEstimator() {
                 max="25"
                 value={pageCount}
                 onChange={(e) => setPageCount(Number(e.target.value))}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-black"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1 font-mono">
                 <span>1 page</span>
@@ -220,19 +220,19 @@ export default function PricingEstimator() {
                       onClick={() => toggleAddon(addon.id)}
                       className={`w-full p-3 rounded-2xl border text-left flex items-center justify-between transition-all ${
                         isChecked
-                          ? "bg-yellow-50 border-amber-500 text-slate-900 shadow-xs"
-                          : "bg-slate-50 border-slate-200 text-slate-600 hover:border-amber-300"
+                          ? "bg-slate-100 border-black text-slate-900 shadow-xs"
+                          : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-400"
                       }`}
                     >
                       <div className="flex items-center space-x-3">
-                        <div className={`w-5 h-5 rounded-md flex items-center justify-center border ${isChecked ? "bg-yellow-400 border-amber-500 text-black" : "border-slate-300 bg-white"}`}>
-                          {isChecked && <Check className="w-3.5 h-3.5 font-black text-black" />}
+                        <div className={`w-5 h-5 rounded-md flex items-center justify-center border ${isChecked ? "bg-black border-black text-white" : "border-slate-300 bg-white"}`}>
+                          {isChecked && <Check className="w-3.5 h-3.5 font-black text-white" />}
                         </div>
                         <div>
                           <p className="text-xs font-bold text-slate-900">{addon.name}</p>
                         </div>
                       </div>
-                      <span className="text-xs font-mono font-bold text-amber-800 ml-2 flex-shrink-0">
+                      <span className="text-xs font-mono font-bold text-slate-700 ml-2 flex-shrink-0">
                         +{price}
                       </span>
                     </button>
@@ -244,12 +244,12 @@ export default function PricingEstimator() {
             {/* Total Summary Row & Razorpay Checkout CTA */}
             <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <p className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">Total Investment Quote</p>
+                <p className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">Total Estimated Cost</p>
                 <motion.p
                   key={totalEstimate}
                   initial={{ scale: 0.95, opacity: 0.8 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-3xl font-black text-amber-600"
+                  className="text-3xl font-black text-black"
                 >
                   {currency === "INR" ? `₹${totalEstimate.toLocaleString()}` : `$${totalEstimate.toLocaleString()}`}
                 </motion.p>
@@ -259,9 +259,9 @@ export default function PricingEstimator() {
                 type="button"
                 onClick={handleRazorpayPayment}
                 disabled={isProcessingPayment}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-yellow-solid text-black font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-yellow-solid text-white font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md"
               >
-                <CreditCard className="w-4 h-4 text-black" />
+                <CreditCard className="w-4 h-4 text-white" />
                 <span>{isProcessingPayment ? "Processing..." : `Pay 50% Advance (${currency === "INR" ? `₹${Math.round(totalEstimate * 0.5).toLocaleString()}` : `$${Math.round(totalEstimate * 0.5).toLocaleString()}`})`}</span>
               </button>
             </div>
@@ -269,7 +269,7 @@ export default function PricingEstimator() {
 
           {/* PART 2 (RIGHT SIDE): Clean Video Player Only */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative bg-black rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400">
+            <div className="relative bg-black rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-800">
               <video
                 src="/video1.mp4"
                 controls
@@ -284,10 +284,10 @@ export default function PricingEstimator() {
             </div>
 
             {/* Trust Assurance Card */}
-            <div className="p-5 rounded-2xl bg-yellow-50 border border-yellow-300 text-xs text-slate-800 space-y-2">
-              <div className="flex items-center space-x-2 font-bold text-amber-900">
-                <ShieldCheck className="w-4 h-4 text-amber-600" />
-                <span>100% Fixed Math Guarantee</span>
+            <div className="p-5 rounded-2xl bg-slate-100 border border-slate-300 text-xs text-slate-800 space-y-2">
+              <div className="flex items-center space-x-2 font-bold text-black">
+                <ShieldCheck className="w-4 h-4 text-black" />
+                <span>Fixed Pricing Guarantee</span>
               </div>
               <p className="text-slate-700 leading-relaxed">
                 50% advance to start, 50% on delivery. Support for 30 days post-delivery (free) with zero hidden fees.

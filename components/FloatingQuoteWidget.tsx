@@ -46,9 +46,9 @@ export default function FloatingQuoteWidget() {
           onClick={() => setIsOpen(true)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="btn-yellow-solid px-5 py-3.5 rounded-full text-black font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-lg border border-amber-400"
+          className="btn-yellow-solid px-5 py-3.5 rounded-full text-white font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-lg border border-black"
         >
-          <Zap className="w-4 h-4 text-black animate-bounce" />
+          <Zap className="w-4 h-4 text-white animate-bounce" />
           <span>Instant Quote</span>
         </motion.button>
       </div>
@@ -75,8 +75,8 @@ export default function FloatingQuoteWidget() {
             >
               <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-xl bg-yellow-400 text-black flex items-center justify-center font-bold">
-                    <Sparkles className="w-4 h-4 text-black" />
+                  <div className="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold">
+                    <Sparkles className="w-4 h-4 text-white" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-slate-900">Get Instant Quote</h3>
@@ -93,10 +93,10 @@ export default function FloatingQuoteWidget() {
 
               {submitted ? (
                 <div className="py-8 text-center space-y-4">
-                  <CheckCircle2 className="w-12 h-12 text-amber-600 mx-auto" />
+                  <CheckCircle2 className="w-12 h-12 text-black mx-auto" />
                   <h4 className="text-xl font-bold text-slate-900">Quote Request Received!</h4>
                   <p className="text-xs text-slate-600">
-                    We will send an itemized estimate to <span className="text-amber-800 font-semibold">{form.contact}</span> shortly.
+                    We will send an itemized estimate to <span className="text-black font-semibold">{form.contact}</span> shortly.
                   </p>
                   <button
                     onClick={() => {
@@ -115,7 +115,7 @@ export default function FloatingQuoteWidget() {
                     <select
                       value={form.scope}
                       onChange={(e) => setForm({ ...form, scope: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 text-xs font-semibold focus:border-amber-500 outline-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 text-xs font-semibold focus:border-black outline-none"
                     >
                       <option value="Launch Package (₹12,000 / $150)">Launch Package (₹12,000 / $150)</option>
                       <option value="Business Package (₹30,000 / $375)">Business Package (₹30,000 / $375)</option>
@@ -131,7 +131,7 @@ export default function FloatingQuoteWidget() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Jane Doe"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 text-xs focus:border-amber-500 outline-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 text-xs focus:border-black outline-none"
                     />
                   </div>
 
@@ -142,14 +142,14 @@ export default function FloatingQuoteWidget() {
                       value={form.contact}
                       onChange={(e) => setForm({ ...form, contact: e.target.value })}
                       placeholder="jane@company.com"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 text-xs focus:border-amber-500 outline-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 text-xs focus:border-black outline-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 rounded-xl btn-yellow-solid text-black font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full py-3.5 rounded-xl btn-yellow-solid text-white font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 disabled:opacity-50"
                   >
                     {submitting ? (
                       <span>Sending...</span>

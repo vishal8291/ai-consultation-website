@@ -53,23 +53,23 @@ export default function UserDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center"> {/* ✅ Fixed Tailwind */}
-        <motion.div 
-          animate={{ rotate: 360 }} 
-          transition={{ duration: 1, repeat: Infinity }} 
-          className="w-12 h-12 border-4 border-blue-500/30 border-t-blue-500 rounded-full" 
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity }}
+          className="w-12 h-12 border-4 border-slate-300 border-t-black rounded-full"
         />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100"> {/* ✅ Fixed Tailwind */}
+    <div className="min-h-screen bg-white">
       <div className="max-w-6xl mx-auto p-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12 gap-6">
           <div className="flex items-center">
-            <div className="w-16 h-16 bg-linear-to-r from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-4 shadow-lg"> {/* ✅ Fixed Tailwind */}
+            <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-4 shadow-lg">
               {user?.name?.charAt(0).toUpperCase()}
             </div>
             <div>
@@ -93,7 +93,7 @@ export default function UserDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <div className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/50">
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center mr-4">
                 <FileText className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -121,7 +121,7 @@ export default function UserDashboard() {
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
           <div className="p-8 border-b border-slate-100">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Recent Consultations</h2>
-            <a href="/consultations/new" className="inline-flex items-center px-6 py-3 bg-linear-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-2xl hover:shadow-2xl transition-all"> {/* ✅ Fixed Tailwind */}
+            <a href="/consultations/new" className="inline-flex items-center px-6 py-3 bg-black hover:bg-slate-800 text-white font-semibold rounded-2xl hover:shadow-2xl transition-all">
               <FileText className="w-5 h-5 mr-2" />
               New Consultation
             </a>
