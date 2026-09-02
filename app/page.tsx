@@ -169,6 +169,24 @@ export default function Home() {
         <TechMarquee />
       </div>
 
+      {/* Trusted By */}
+      <div className="py-12 bg-white/85 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 mb-6">
+            Trusted By
+          </p>
+          <a
+            href="https://mahagroindia.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-4 px-7 py-4 rounded-2xl border border-slate-200 bg-white hover:border-black transition-colors"
+          >
+            <img src="/images/mahagro-logo.png" alt="MAHAGRO INDIA logo" className="w-11 h-11 object-contain" />
+            <div className="text-sm font-black text-slate-900">MAHAGRO INDIA</div>
+          </a>
+        </div>
+      </div>
+
       {/* Featured 3-Projects Portfolio Section */}
       <ProjectsShowcase limit={3} isHomepage={true} />
 
