@@ -65,12 +65,19 @@ export default function PricingSection() {
           if (verifyRes.ok && verifyData.success) {
             alert(`🎉 Payment Successful! Payment ID: ${response.razorpay_payment_id}. Your 50% advance for ${tier.name} package is confirmed.`);
           } else {
-            alert("Payment verification failed. Please contact support.");
+            alert(verifyData.error || "Payment verification failed. Please contact support.");
           }
+          setLoadingTierId(null);
+        },
+        modal: {
+          // User closed the checkout modal without completing payment
+          ondismiss: () => {
+            setLoadingTierId(null);
+          },
         },
         prefill: {
           name: "Valued Client",
-          email: "client@example.com",
+          email: "vishal.buildss@gmail.com",
           contact: "9999999999",
         },
         theme: {
@@ -79,11 +86,17 @@ export default function PricingSection() {
       };
 
       const razorpayWindow = new (window as any).Razorpay(options);
+
+      razorpayWindow.on("payment.failed", (response: any) => {
+        console.error("Razorpay payment failed:", response.error);
+        alert(`Payment failed: ${response.error?.description || "Please try again."}`);
+        setLoadingTierId(null);
+      });
+
       razorpayWindow.open();
     } catch (err: any) {
       console.error(err);
       alert("An unexpected error occurred during Razorpay checkout.");
-    } finally {
       setLoadingTierId(null);
     }
   };

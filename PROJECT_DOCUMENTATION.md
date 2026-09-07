@@ -162,11 +162,12 @@ The payment flow handles **50% Advance Deposits** for project reservations:
 Create or update `.env.local` in the project root directory:
 
 ```env
-MONGODB_URI=mongodb+srv://<REDACTED>@cluster0.bsi7jvp.mongodb.net/paperbag?retryWrites=true&w=majority&appName=Cluster0
-ADMIN_PASSWORD=admin123
-RAZORPAY_KEY_ID=rzp_test_SpzzGC6RqbwBgQ
-NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_SpzzGC6RqbwBgQ
-RAZORPAY_KEY_SECRET=THfx4EJbTAw0q7EniSyER3Rw
+MONGODB_URI=<REDACTED>
+ADMIN_PASSWORD=<set-a-strong-password>
+JWT_SECRET=<random-64-char-hex-string>
+RAZORPAY_KEY_ID=<REDACTED>
+NEXT_PUBLIC_RAZORPAY_KEY_ID=<REDACTED>
+RAZORPAY_KEY_SECRET=<REDACTED>
 ```
 
 ---

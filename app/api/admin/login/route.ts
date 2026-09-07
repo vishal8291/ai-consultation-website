@@ -3,7 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { signAuthToken, timingSafeStringCompare } from "@/lib/auth";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+if (!ADMIN_PASSWORD) {
+  throw new Error("ADMIN_PASSWORD environment variable is required");
+}
 
 export async function POST(req: NextRequest) {
   try {

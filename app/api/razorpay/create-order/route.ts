@@ -19,8 +19,10 @@ export async function POST(req: NextRequest) {
     const { amount, currency = "INR", receipt = `receipt_${Date.now()}` } = await req.json();
 
     const numericAmount = Number(amount);
-    if (!numericAmount || numericAmount <= 0 || isNaN(numericAmount)) {
-      return NextResponse.json({ error: "Invalid payment amount specified" }, { status: 400 });
+    // Razorpay's own floor is 100 paise; amount here is in whole currency units
+    // (rupees/dollars) and gets converted to subunits below, so require >= 1.
+    if (!numericAmount || isNaN(numericAmount) || numericAmount < 1) {
+      return NextResponse.json({ error: "Amount must be at least 1 (100 paise)" }, { status: 400 });
     }
 
     // Maximum safe transaction sanity cap (e.g. ₹5,00,000 / $6,000)
@@ -28,8 +30,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Amount exceeds maximum transaction threshold" }, { status: 400 });
     }
 
-    const key_id = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_SpzzGC6RqbwBgQ";
-    const key_secret = process.env.RAZORPAY_KEY_SECRET || "THfx4EJbTAw0q7EniSyER3Rw";
+    const key_id = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+    const key_secret = process.env.RAZORPAY_KEY_SECRET;
+    if (!key_id || !key_secret) {
+      console.error("RAZORPAY_KEY_ID / RAZORPAY_KEY_SECRET environment variables are not set");
+      return NextResponse.json({ error: "Payments are not configured" }, { status: 500 });
+    }
 
     const razorpay = new Razorpay({
       key_id,
@@ -60,9 +66,11 @@ export async function POST(req: NextRequest) {
     });
   } catch (error: any) {
     console.error("Razorpay Order Creation Error:", error);
+    // Razorpay auth failures (bad key_id/key_secret) come back as statusCode 401
+    const statusCode = error?.statusCode === 401 ? 401 : 500;
     return NextResponse.json(
-      { error: error?.message || "Failed to initiate payment order" },
-      { status: 500 }
+      { error: error?.error?.description || error?.message || "Failed to initiate payment order" },
+      { status: statusCode }
     );
   }
 }

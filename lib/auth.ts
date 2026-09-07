@@ -1,7 +1,10 @@
 // lib/auth.ts - Enterprise Cryptographic Authentication & Token Manager (100% Edge & Node Compatible)
 import { NextRequest } from "next/server";
 
-const JWT_SECRET = process.env.JWT_SECRET || process.env.RAZORPAY_KEY_SECRET || "vishal_buildss_ultra_secure_production_secret_2026_x99";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is required");
+}
 
 export interface TokenPayload {
   id?: string;

@@ -11,7 +11,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing required payment parameters" }, { status: 400 });
     }
 
-    const key_secret = process.env.RAZORPAY_KEY_SECRET || "THfx4EJbTAw0q7EniSyER3Rw";
+    const key_secret = process.env.RAZORPAY_KEY_SECRET;
+    if (!key_secret) {
+      console.error("RAZORPAY_KEY_SECRET environment variable is not set");
+      return NextResponse.json({ error: "Payment verification is not configured" }, { status: 500 });
+    }
 
     const body = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
