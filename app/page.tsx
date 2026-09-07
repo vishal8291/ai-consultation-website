@@ -42,62 +42,51 @@ export default function Home() {
             {/* Content Column */}
             <div className="max-w-3xl space-y-6 sm:space-y-8 text-center pt-4 pb-6">
 
-              {/* Exact 3-Line Headline Format Requested by User with Framer Stagger */}
-              <motion.h1
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl sm:text-5xl lg:text-[44px] font-semibold tracking-tight leading-[1.16] text-white font-sans"
+              {/* Exact 3-Line Headline Format Requested by User — pure CSS entrance so it
+                  paints on first frame instead of waiting on React hydration */}
+              <h1
+                className="hero-fade-in-up text-3xl sm:text-5xl lg:text-[44px] font-semibold tracking-tight leading-[1.16] text-white font-sans"
+                style={{ animationDelay: "0.1s" }}
               >
                 Tell us the problem. <br />
                 <span style={{ color: "var(--accent)" }}>We build the fix.</span> <br />
                 Built for small businesses.
-              </motion.h1>
+              </h1>
 
               {/* Description Text */}
-              <motion.p
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto font-medium"
+              <p
+                className="hero-fade-in-up text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto font-medium"
+                style={{ animationDelay: "0.2s" }}
               >
                 CustomeAI is a studio, not a menu of packages. Describe the problem in your business &mdash; a website that isn't converting, a process eating up your week, a task you wish ran itself &mdash; and we design, build, and support the specific system that fixes it, in <strong className="text-white font-semibold">7 to 21 days</strong> with itemized pricing.
-              </motion.p>
+              </p>
 
-              {/* Glowing Gradient Pill CTA Button with Magnetic Hover */}
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4"
+              {/* Glowing Gradient Pill CTA Button */}
+              <div
+                className="hero-fade-in-up pt-2 flex flex-col sm:flex-row items-center justify-center gap-4"
+                style={{ animationDelay: "0.3s" }}
               >
-                <motion.a
+                <a
                   href="#pricing"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                   style={{ background: "var(--accent)" }}
-                  className="w-full sm:w-auto px-6 py-3 rounded-md text-white font-semibold text-sm flex items-center justify-center space-x-2 transition-all shadow-[0_2px_10px_-2px_rgba(83,58,253,0.4)]"
+                  className="w-full sm:w-auto px-6 py-3 rounded-md text-white font-semibold text-sm flex items-center justify-center space-x-2 transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_2px_10px_-2px_rgba(83,58,253,0.4)]"
                 >
                   <span>View pricing</span>
                   <ArrowRight className="w-4 h-4 text-white" />
-                </motion.a>
+                </a>
 
-                <motion.a
+                <a
                   href="#contact"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-6 py-3 rounded-md bg-transparent border border-white/25 hover:border-white/50 text-white font-semibold text-sm transition-all"
+                  className="w-full sm:w-auto px-6 py-3 rounded-md bg-transparent border border-white/25 hover:border-white/50 text-white font-semibold text-sm transition-transform hover:scale-[1.01] active:scale-[0.98]"
                 >
                   Share your problem
-                </motion.a>
-              </motion.div>
+                </a>
+              </div>
 
               {/* Trust Metric Badges */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="pt-6 flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-slate-400"
+              <div
+                className="hero-fade-in-up pt-6 flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-slate-400"
+                style={{ animationDelay: "0.4s" }}
               >
                 <span className="flex items-center">
                   <Clock style={{ color: "var(--accent)" }} className="w-4 h-4 mr-1.5" />
@@ -107,7 +96,7 @@ export default function Home() {
                   <ShieldCheck style={{ color: "var(--accent-teal)" }} className="w-4 h-4 mr-1.5" />
                   100% code &amp; IP ownership
                 </span>
-              </motion.div>
+              </div>
             </div>
 
           </div>
