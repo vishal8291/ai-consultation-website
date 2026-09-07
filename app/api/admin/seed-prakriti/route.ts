@@ -1,10 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import PrakritiKnowledge from "@/models/PrakritiKnowledge";
 import { PRAKRITI_DATASET } from "@/lib/prakritiDataset";
+import { verifyAdminAuth } from "@/lib/auth";
 
-export async function GET() {
+export async function POST(req: NextRequest) {
   try {
+    const admin = await verifyAdminAuth(req);
+    if (!admin) {
+      return NextResponse.json({ error: "Unauthorized. Admin privileges required." }, { status: 401 });
+    }
+
     await connectDB();
 
     // Clear existing knowledge entries and re-seed
@@ -23,8 +29,4 @@ export async function GET() {
       { status: 500 }
     );
   }
-}
-
-export async function POST() {
-  return GET();
 }

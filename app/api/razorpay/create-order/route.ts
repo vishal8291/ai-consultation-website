@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const ip = getClientIp(req);
 
     // Rate Limit: Max 10 order creation requests per minute per IP
-    const rateCheck = checkRateLimit(`razorpay_order_${ip}`, { limit: 10, windowSeconds: 60 });
+    const rateCheck = await checkRateLimit(`razorpay_order_${ip}`, { limit: 10, windowSeconds: 60 });
     if (!rateCheck.success) {
       return NextResponse.json(
         { error: "Too many payment requests initiated. Please wait a moment." },

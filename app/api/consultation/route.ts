@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     const ip = getClientIp(req);
 
     // Rate Limit: Max 5 consultation submissions per minute per IP to prevent spam
-    const rateCheck = checkRateLimit(`consultation_submit_${ip}`, { limit: 5, windowSeconds: 60 });
+    const rateCheck = await checkRateLimit(`consultation_submit_${ip}`, { limit: 5, windowSeconds: 60 });
     if (!rateCheck.success) {
       return NextResponse.json(
         { error: "Too many submission attempts. Please wait a minute before trying again." },

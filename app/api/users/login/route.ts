@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     const ip = getClientIp(req);
 
     // Rate limit: 10 attempts per 15 minutes per IP
-    const rateCheck = checkRateLimit(`user_login_${ip}`, { limit: 10, windowSeconds: 15 * 60 });
+    const rateCheck = await checkRateLimit(`user_login_${ip}`, { limit: 10, windowSeconds: 15 * 60 });
     if (!rateCheck.success) {
       return NextResponse.json(
         { error: "Too many login attempts. Please try again in 15 minutes." },
