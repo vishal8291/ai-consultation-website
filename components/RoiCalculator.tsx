@@ -24,7 +24,7 @@ export default function RoiCalculator() {
     <section id="calculator" className="py-28 bg-black text-white relative overflow-hidden bg-grid-pattern border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 tracking-tight">
             Calculate Your AI Automation ROI
           </h2>
 
@@ -40,10 +40,10 @@ export default function RoiCalculator() {
             {/* Slider 1: Team Size */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-extrabold text-slate-300 uppercase tracking-wider">
+                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                   Team Members Doing Manual Tasks
                 </label>
-                <span className="text-base font-extrabold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
+                <span className="text-base font-semibold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
                   {teamSize} People
                 </span>
               </div>
@@ -64,10 +64,10 @@ export default function RoiCalculator() {
             {/* Slider 2: Manual Hours per Week per Person */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-extrabold text-slate-300 uppercase tracking-wider">
+                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                   Manual Hours Spent / Person / Week
                 </label>
-                <span className="text-base font-extrabold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
+                <span className="text-base font-semibold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
                   {manualHoursPerWeek} hrs/wk
                 </span>
               </div>
@@ -88,10 +88,10 @@ export default function RoiCalculator() {
             {/* Slider 3: Average Hourly Labor Cost */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-extrabold text-slate-300 uppercase tracking-wider">
+                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                   Average Hourly Labor Rate ($/hr)
                 </label>
-                <span className="text-base font-extrabold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
+                <span className="text-base font-semibold text-black bg-white px-3.5 py-1 rounded-lg border border-white">
                   ${hourlyRate}/hr
                 </span>
               </div>
@@ -114,12 +114,12 @@ export default function RoiCalculator() {
           <div className="md:col-span-5 bg-black text-white p-8 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-6 shadow-2xl relative">
             <div className="space-y-6">
               <div>
-                <p className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-1">Projected Monthly Savings</p>
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Projected Monthly Savings</p>
                 <motion.p
                   key={monthlySavings}
                   initial={{ scale: 0.95, opacity: 0.8 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-4xl md:text-5xl font-black text-white"
+                  className="text-4xl md:text-5xl font-semibold text-white"
                 >
                   ${monthlySavings.toLocaleString()}
                   <span className="text-xs text-slate-400 font-bold ml-1">/ mo</span>
@@ -145,7 +145,7 @@ export default function RoiCalculator() {
 
             <a
               href="#contact"
-              className="w-full py-4 px-6 rounded-xl btn-white-solid text-black font-extrabold text-center text-xs uppercase tracking-wider flex items-center justify-center space-x-2"
+              className="w-full py-4 px-6 rounded-xl btn-white-solid text-black font-semibold text-center text-sm flex items-center justify-center space-x-2"
             >
               <span>Book a Call</span>
               <ArrowRight className="w-4 h-4" />

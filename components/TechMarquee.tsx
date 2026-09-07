@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 import { Cpu, Sparkles, Code2, Database, Zap, Layers, Server, ShieldCheck, Terminal } from "lucide-react";
 
 const TECH_ITEMS = [
-  { name: "Next.js 16 (Turbopack)", category: "Full-Stack Core", icon: Code2 },
-  { name: "React 19 Server Components", category: "UI Engine", icon: Layers },
-  { name: "Claude 3.5 & OpenAI GPT-4o", category: "AI Workflows", icon: Cpu },
-  { name: "Framer Motion 12", category: "Micro-Interactions", icon: Sparkles },
-  { name: "TailwindCSS v4", category: "Design System", icon: Zap },
-  { name: "Python FastAPI", category: "Microservices", icon: Terminal },
-  { name: "Qdrant & Pinecone RAG", category: "Vector DB", icon: Database },
-  { name: "MongoDB & PostgreSQL", category: "Data Architecture", icon: Server },
-  { name: "Vercel & Cloudflare Edge", category: "Edge Hosting", icon: ShieldCheck },
+  { name: "Loads in under a second", category: "Speed", icon: Code2 },
+  { name: "Clean, modern design", category: "Interface", icon: Layers },
+  { name: "Built-in AI smarts", category: "Artificial Intelligence", icon: Cpu },
+  { name: "Smooth, natural animations", category: "Feel", icon: Sparkles },
+  { name: "Consistent, polished look", category: "Design", icon: Zap },
+  { name: "Reliable behind the scenes", category: "Backend", icon: Terminal },
+  { name: "AI that searches your own files", category: "Smart Search", icon: Database },
+  { name: "Your data, stored safely", category: "Data Storage", icon: Server },
+  { name: "Fast servers, worldwide", category: "Hosting", icon: ShieldCheck },
 ];
 
 export default function TechMarquee() {
@@ -24,10 +24,10 @@ export default function TechMarquee() {
 
       {/* Header Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 text-center">
-        <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-white flex items-center justify-center space-x-2">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white flex items-center justify-center space-x-2">
           <span className="w-2 h-2 rounded-full bg-white animate-ping" />
           <Sparkles className="w-4 h-4 text-white mr-1.5" />
-          <span>OUR TECH STACK</span>
+          <span>WHAT EVERY PROJECT INCLUDES</span>
         </p>
       </div>
 
@@ -45,14 +45,14 @@ export default function TechMarquee() {
                 key={idx}
                 className="inline-flex items-center space-x-3.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-slate-900 border-2 border-slate-700 text-white shadow-md hover:shadow-xl hover:border-white transition-all duration-300 group cursor-default"
               >
-                <div className="w-9 h-9 rounded-xl bg-white text-black flex items-center justify-center font-black shadow-sm group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-white text-black flex items-center justify-center font-semibold shadow-sm group-hover:scale-110 transition-transform">
                   <IconComp className="w-5 h-5 text-black" />
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="text-sm sm:text-base font-black text-white tracking-tight group-hover:text-slate-300 transition-colors">
+                  <span className="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-slate-300 transition-colors">
                     {item.name}
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                     {item.category}
                   </span>
                 </div>

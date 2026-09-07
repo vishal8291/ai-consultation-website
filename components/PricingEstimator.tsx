@@ -67,7 +67,7 @@ export default function PricingEstimator() {
         key: orderData.keyId,
         amount: orderData.amount,
         currency: orderData.currency,
-        name: "vishal.buildss",
+        name: "CustomAI",
         description: `50% Advance Quote Lock (${currency === "INR" ? "₹" : "$"}${advanceAmount.toLocaleString()})`,
         image: "/images/newlogo-clean.png",
         order_id: orderData.orderId,
@@ -110,12 +110,12 @@ export default function PricingEstimator() {
   };
 
   return (
-    <section id="estimator" className="py-24 bg-white/85 text-slate-900 relative overflow-hidden bg-grid-pattern border-t border-slate-200">
+    <section id="estimator" className="py-24 bg-white text-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Headline */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
             Estimate Your Project Cost
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
@@ -127,25 +127,25 @@ export default function PricingEstimator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* PART 1 (LEFT SIDE): Interactive Quote Estimator Builder */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-xl space-y-8">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-10 space-y-8">
             
             {/* Currency Selector */}
             <div className="flex justify-between items-center">
-              <label className="text-xs font-black text-slate-900 uppercase tracking-wider">
+              <label className="text-xs font-semibold text-slate-900 uppercase tracking-wider">
                 Select Currency
               </label>
               <div className="flex items-center bg-slate-100 p-1 rounded-full border border-slate-200">
                 <button
                   type="button"
                   onClick={() => setCurrency("INR")}
-                  className={`px-4 py-1 rounded-full text-xs font-black transition-all ${currency === "INR" ? "bg-black text-white shadow-xs" : "text-slate-600"}`}
+                  className={`px-4 py-1 rounded-full text-xs font-semibold transition-all ${currency === "INR" ? "bg-black text-white shadow-xs" : "text-slate-600"}`}
                 >
                   ₹ INR
                 </button>
                 <button
                   type="button"
                   onClick={() => setCurrency("USD")}
-                  className={`px-4 py-1 rounded-full text-xs font-black transition-all ${currency === "USD" ? "bg-black text-white shadow-xs" : "text-slate-600"}`}
+                  className={`px-4 py-1 rounded-full text-xs font-semibold transition-all ${currency === "USD" ? "bg-black text-white shadow-xs" : "text-slate-600"}`}
                 >
                   $ USD
                 </button>
@@ -154,7 +154,7 @@ export default function PricingEstimator() {
 
             {/* Step 1: Core Website Scope */}
             <div>
-              <label className="block text-xs font-black text-slate-900 mb-3 uppercase tracking-wider">
+              <label className="block text-xs font-semibold text-slate-900 mb-3 uppercase tracking-wider">
                 1. Select Core Website Scope
               </label>
               <div className="grid grid-cols-3 gap-3">
@@ -169,7 +169,7 @@ export default function PricingEstimator() {
                         : "bg-slate-50 border-slate-200 text-slate-700 hover:border-black"
                     }`}
                   >
-                    <div className={`font-extrabold text-xs ${selectedTierId === tier.id ? "text-white" : "text-slate-900"}`}>
+                    <div className={`font-semibold text-xs ${selectedTierId === tier.id ? "text-white" : "text-slate-900"}`}>
                       {tier.name}
                     </div>
                     <div className={`text-[11px] font-mono font-bold mt-1 ${selectedTierId === tier.id ? "text-slate-300" : "text-slate-600"}`}>
@@ -183,10 +183,10 @@ export default function PricingEstimator() {
             {/* Step 2: Page Count Slider */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-xs font-black text-slate-900 uppercase tracking-wider">
+                <label className="text-xs font-semibold text-slate-900 uppercase tracking-wider">
                   2. Total Estimated Pages
                 </label>
-                <span className="text-xs sm:text-sm font-black text-white bg-black px-3 py-1 rounded-lg border border-black">
+                <span className="text-xs sm:text-sm font-semibold text-white bg-black px-3 py-1 rounded-lg border border-black">
                   {pageCount} Pages
                 </span>
               </div>
@@ -206,7 +206,7 @@ export default function PricingEstimator() {
 
             {/* Step 3: Choose Add-ons */}
             <div>
-              <label className="block text-xs font-black text-slate-900 mb-3 uppercase tracking-wider">
+              <label className="block text-xs font-semibold text-slate-900 mb-3 uppercase tracking-wider">
                 3. Choose Add-ons
               </label>
               <div className="space-y-2.5">
@@ -226,7 +226,7 @@ export default function PricingEstimator() {
                     >
                       <div className="flex items-center space-x-3">
                         <div className={`w-5 h-5 rounded-md flex items-center justify-center border ${isChecked ? "bg-black border-black text-white" : "border-slate-300 bg-white"}`}>
-                          {isChecked && <Check className="w-3.5 h-3.5 font-black text-white" />}
+                          {isChecked && <Check className="w-3.5 h-3.5 font-semibold text-white" />}
                         </div>
                         <div>
                           <p className="text-xs font-bold text-slate-900">{addon.name}</p>
@@ -244,12 +244,12 @@ export default function PricingEstimator() {
             {/* Total Summary Row & Razorpay Checkout CTA */}
             <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <p className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">Total Estimated Cost</p>
+                <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Total Estimated Cost</p>
                 <motion.p
                   key={totalEstimate}
                   initial={{ scale: 0.95, opacity: 0.8 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="text-3xl font-black text-black"
+                  className="text-3xl font-semibold text-black"
                 >
                   {currency === "INR" ? `₹${totalEstimate.toLocaleString()}` : `$${totalEstimate.toLocaleString()}`}
                 </motion.p>
@@ -259,7 +259,7 @@ export default function PricingEstimator() {
                 type="button"
                 onClick={handleRazorpayPayment}
                 disabled={isProcessingPayment}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-yellow-solid text-white font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-yellow-solid text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md"
               >
                 <CreditCard className="w-4 h-4 text-white" />
                 <span>{isProcessingPayment ? "Processing..." : `Pay 50% Advance (${currency === "INR" ? `₹${Math.round(totalEstimate * 0.5).toLocaleString()}` : `$${Math.round(totalEstimate * 0.5).toLocaleString()}`})`}</span>

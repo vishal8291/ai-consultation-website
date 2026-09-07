@@ -9,18 +9,18 @@ export const PRAKRITI_DATASET: QAPair[] = [
   // 1. ABOUT US & FOUNDER (VISHAL)
   {
     question: "Who is Vishal?",
-    answer: "Vishal is a Full-Stack Web & AI Systems Engineer specializing in Next.js 16, Python AI pipelines, and business workflow automation. He leads vishal.buildss.",
+    answer: "Vishal is a Full-Stack Web & AI Systems Engineer specializing in Next.js 16, Python AI pipelines, and business workflow automation. He leads CustomAI.",
     category: "about",
     keywords: ["who", "vishal", "founder", "developer", "engineer", "owner"],
   },
   {
-    question: "What is vishal.buildss?",
-    answer: "vishal.buildss is a modern web engineering agency platform building custom Next.js 16 websites, full-stack portals, and AI agent automation systems delivered in 7 to 21 days.",
+    question: "What is CustomAI?",
+    answer: "CustomAI is a modern web engineering agency platform building custom Next.js 16 websites, full-stack portals, and AI agent automation systems delivered in 7 to 21 days.",
     category: "about",
-    keywords: ["what", "vishal.buildss", "agency", "company", "platform", "business"],
+    keywords: ["what", "CustomAI", "agency", "company", "platform", "business"],
   },
   {
-    question: "Where is vishal.buildss located?",
+    question: "Where is CustomAI located?",
     answer: "We operate remotely with global client coverage across India, the US, UK, and UAE.",
     category: "about",
     keywords: ["where", "location", "office", "country", "city", "remote", "india"],
@@ -32,13 +32,13 @@ export const PRAKRITI_DATASET: QAPair[] = [
     keywords: ["mission", "goal", "vision", "purpose"],
   },
   {
-    question: "Why choose vishal.buildss over solo freelancers?",
+    question: "Why choose CustomAI over solo freelancers?",
     answer: "Unlike freelancers who take 4-8 weeks with unpredictable hourly billing, we deliver in 7-21 days with fixed itemized pricing, sub-second Next.js 16 performance, and 30 days free support.",
     category: "about",
     keywords: ["freelancer", "freelance", "why", "choose", "versus", "compare"],
   },
   {
-    question: "Why choose vishal.buildss over traditional agencies?",
+    question: "Why choose CustomAI over traditional agencies?",
     answer: "Traditional agencies charge $30k+ markups and take months. We deliver identical enterprise-grade Next.js 16 & AI systems in 7-21 days starting at ₹12,000 ($150) with 100% code IP ownership.",
     category: "about",
     keywords: ["agency", "traditional", "versus", "compare", "markup", "expensive"],
@@ -474,7 +474,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
 
   // 9. BOOKING & NEXT STEPS
   {
-    question: "How do I start a project with vishal.buildss?",
+    question: "How do I start a project with CustomAI?",
     answer: "Step 1: Select a package or build a quote. Step 2: Pay the 50% advance deposit via Razorpay. Step 3: Send us your text & logo to launch the build sprint!",
     category: "booking",
     keywords: ["how to start", "begin", "hire", "steps", "order"],

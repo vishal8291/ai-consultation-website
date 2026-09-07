@@ -45,7 +45,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
   }
 
   return (
-    <section id="projects" className="relative py-20 bg-white/85 text-slate-900 overflow-hidden bg-grid-pattern">
+    <section id="projects" className="relative py-20 bg-white text-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -55,7 +55,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-3 tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3 tracking-tight"
             >
               {isHomepage || limit === 3 ? "Production Builds" : "All Case Studies & Portfolio Builds"}
             </motion.h2>
@@ -85,7 +85,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   key={cat.key}
                   type="button"
                   onClick={() => setSelectedCategory(cat.key)}
-                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-black tracking-wider uppercase flex items-center space-x-2 transition-all ${
+                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center space-x-2 transition-all ${
                     isActive
                       ? "bg-slate-900 text-white shadow-md border-2 border-white"
                       : "bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300"
@@ -109,7 +109,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl flex flex-col justify-between relative group hover:border-black transition-all"
+              className="bg-white overflow-hidden flex flex-col justify-between relative group"
             >
               {/* Preview Banner Top */}
               <div className="h-44 sm:h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
@@ -133,7 +133,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               {/* Card Body */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-slate-600 transition-colors">
+                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors">
                     {project.title}
                   </h3>
                   {project.results?.primary && (
@@ -144,7 +144,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-4 flex items-center justify-between">
                   <button
                     type="button"
                     onClick={() => setActiveModalProject(project)}
@@ -181,9 +181,9 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
           >
             <Link
               href="/projects"
-              className="inline-flex items-center space-x-3 px-10 py-4.5 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-xl hover:scale-105 border-2 border-slate-900 group"
+              className="inline-flex items-center space-x-3 px-10 py-4.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-white hover:text-black transition-all shadow-xl hover:scale-105 border-2 border-slate-900 group"
             >
-              <span>SEE ALL PROJECTS</span>
+              <span>See all projects</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:text-black transition-colors" />
             </Link>
           </motion.div>
@@ -214,7 +214,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-xs font-mono font-bold uppercase tracking-wider border border-slate-300">
                     {activeModalProject.category}
                   </span>
-                  <h3 className="text-2xl font-black text-slate-900 mt-2">{activeModalProject.title}</h3>
+                  <h3 className="text-2xl font-semibold text-slate-900 mt-2">{activeModalProject.title}</h3>
                   <p className="text-xs text-slate-500 font-mono mt-1 font-bold">Industry: {activeModalProject.clientIndustry}</p>
                 </div>
 
@@ -229,14 +229,14 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                       .filter(Boolean)
                       .map((stat, idx) => (
                         <div key={idx} className="p-3 rounded-xl bg-black text-white text-center">
-                          <p className="text-xs sm:text-sm font-black leading-tight">{stat}</p>
+                          <p className="text-xs sm:text-sm font-semibold leading-tight">{stat}</p>
                         </div>
                       ))}
                   </div>
                 )}
 
                 <div className="space-y-3">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-wider">Key Features Delivered</h4>
+                  <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wider">Key Features Delivered</h4>
                   <ul className="space-y-2 text-xs text-slate-700">
                     {activeModalProject.features.map((feat, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
@@ -253,7 +253,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                       href={activeModalProject.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-xl bg-black text-white font-black text-xs uppercase tracking-wider inline-flex items-center space-x-2 shadow-md hover:bg-slate-800 transition-colors"
+                      className="px-6 py-3 rounded-xl bg-black text-white font-semibold text-sm inline-flex items-center space-x-2 hover:bg-slate-800 transition-colors"
                     >
                       <span>Visit Live Application</span>
                       <ExternalLink className="w-4 h-4" />
@@ -265,7 +265,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                       href={activeModalProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs uppercase tracking-wider inline-flex items-center space-x-2 hover:bg-slate-800 transition-colors"
+                      className="px-6 py-3 rounded-xl bg-slate-900 text-white font-semibold text-sm inline-flex items-center space-x-2 hover:bg-slate-800 transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       <span>View GitHub Code</span>

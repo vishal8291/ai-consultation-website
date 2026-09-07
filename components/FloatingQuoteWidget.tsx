@@ -46,7 +46,7 @@ export default function FloatingQuoteWidget() {
           onClick={() => setIsOpen(true)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="btn-yellow-solid px-5 py-3.5 rounded-full text-white font-black text-xs uppercase tracking-wider flex items-center space-x-2 shadow-lg border border-black"
+          className="btn-yellow-solid px-5 py-3.5 rounded-full text-white font-semibold text-xs uppercase tracking-wider flex items-center space-x-2 shadow-lg border border-black"
         >
           <Zap className="w-4 h-4 text-white animate-bounce" />
           <span>Instant Quote</span>
@@ -111,7 +111,7 @@ export default function FloatingQuoteWidget() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1.5">Select Website Scope</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">Select Website Scope</label>
                     <select
                       value={form.scope}
                       onChange={(e) => setForm({ ...form, scope: e.target.value })}
@@ -125,7 +125,7 @@ export default function FloatingQuoteWidget() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1.5">Your Name</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">Your Name</label>
                     <input
                       required
                       value={form.name}
@@ -136,7 +136,7 @@ export default function FloatingQuoteWidget() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1.5">Email or Phone</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">Email or Phone</label>
                     <input
                       required
                       value={form.contact}
@@ -149,7 +149,7 @@ export default function FloatingQuoteWidget() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 rounded-xl btn-yellow-solid text-white font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full py-3.5 rounded-xl btn-yellow-solid text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 disabled:opacity-50"
                   >
                     {submitting ? (
                       <span>Sending...</span>

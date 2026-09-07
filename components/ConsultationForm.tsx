@@ -53,15 +53,15 @@ export default function ConsultationForm() {
 
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-black uppercase tracking-wider inline-block mb-3">
-            GET STARTED
+          <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+            SHARE YOUR PROBLEM
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
-            Book a Call
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
+            What's slowing your business down?
           </h2>
 
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
-            Schedule a 15-minute call with Vishal to discuss your project, timeline, and pricing.
+            No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it's a website fix, an AI system, or something else entirely &mdash; plus a real price.
           </p>
         </div>
 
@@ -77,16 +77,16 @@ export default function ConsultationForm() {
                 <CheckCircle2 className="w-10 h-10 text-black" />
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-white">Consultation Booking Received!</h3>
+              <h3 className="text-2xl sm:text-3xl font-semibold text-white">Got it &mdash; we're on it.</h3>
 
               <p className="text-slate-400 max-w-md mx-auto text-sm leading-relaxed font-medium">
-                Thank you <strong className="text-white font-extrabold">{formData.name}</strong>. Vishal will reach out to you at <span className="text-white font-bold">{formData.contact}</span> within 24 hours to schedule your call.
+                Thank you <strong className="text-white font-semibold">{formData.name}</strong>. We'll read what you sent and reach out to you at <span className="text-white font-bold">{formData.contact}</span> within 24 hours with an honest take on the fix.
               </p>
 
               <button
                 type="button"
                 onClick={() => setSuccess(false)}
-                className="px-8 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-black font-black text-xs uppercase tracking-wider transition-colors shadow-md"
+                className="px-8 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-black font-semibold text-sm transition-colors"
               >
                 Submit Another Request
               </button>
@@ -101,7 +101,7 @@ export default function ConsultationForm() {
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -115,7 +115,7 @@ export default function ConsultationForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                     Email or Phone Number *
                   </label>
                   <input
@@ -131,7 +131,7 @@ export default function ConsultationForm() {
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                     Company / Organization
                   </label>
                   <input
@@ -144,31 +144,32 @@ export default function ConsultationForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
-                    Desired Website Scope *
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                    Closest Fit, If You Had to Guess *
                   </label>
                   <select
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
                     className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-bold cursor-pointer"
                   >
-                    <option value="Launch Package (₹12,000 / $150)">Launch Package (₹12,000 / $150)</option>
-                    <option value="Business Package (₹30,000 / $375)">Business Package (₹30,000 / $375)</option>
-                    <option value="Automate Package (₹65,000 / $800)">Automate Package (₹65,000 / $800)</option>
-                    <option value="Custom AI Support & Automation System">Custom AI Support & Automation System</option>
+                    <option value="Launch Package (₹12,000 / $150)">A simple website (Launch, ₹12,000 / $150)</option>
+                    <option value="Business Package (₹30,000 / $375)">A full business website (Business, ₹30,000 / $375)</option>
+                    <option value="Automate Package (₹65,000 / $800)">A website + automation (Automate, ₹65,000 / $800)</option>
+                    <option value="Custom AI Support & Automation System">Not sure &mdash; it's more of an AI/automation problem</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-300 mb-2">
-                  Project Details & Goals
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  What's Actually Going Wrong? *
                 </label>
                 <textarea
                   rows={4}
+                  required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Describe your current business needs, timeline, or automation goals..."
+                  placeholder="e.g. 'Customers can't find us on Google', 'I spend 2 hours a day replying to the same WhatsApp questions', 'Our site looks outdated and nobody trusts it'..."
                   className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
                 />
               </div>
@@ -176,13 +177,13 @@ export default function ConsultationForm() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-4.5 rounded-2xl btn-white-solid text-black font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2 disabled:opacity-50 shadow-xl hover:scale-[1.01] transition-all"
+                className="w-full py-4.5 rounded-2xl btn-white-solid text-black font-semibold text-sm flex items-center justify-center space-x-2 disabled:opacity-50 shadow-xl hover:scale-[1.01] transition-all"
               >
                 {submitting ? (
-                  <span>Submitting Request...</span>
+                  <span>Sending...</span>
                 ) : (
                   <>
-                    <span>Book a Call & Request a Proposal</span>
+                    <span>Send Us the Problem</span>
                     <Send className="w-4 h-4 text-black ml-1" />
                   </>
                 )}

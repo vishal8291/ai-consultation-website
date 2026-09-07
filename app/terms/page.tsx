@@ -1,36 +1,20 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ShieldCheck, CheckCircle2, FileText, Lock, Scale } from "lucide-react";
+import { ShieldCheck, CheckCircle2, FileText, Lock, Scale } from "lucide-react";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#fafaf8] text-slate-900 antialiased selection:bg-black selection:text-white">
-
-      {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 text-xs font-black uppercase tracking-wider text-slate-700 hover:text-black transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Link>
-          <div className="flex items-center space-x-3">
-            <span className="text-sm font-black text-slate-900">
-              vishal<span className="text-black font-extrabold">.buildss</span>
-            </span>
-          </div>
-        </div>
-      </header>
+    <main className="min-h-screen bg-white text-slate-900 antialiased selection:bg-black selection:text-white">
 
       {/* Hero Banner */}
-      <section className="py-12 sm:py-16 bg-slate-900 text-white">
+      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-mono font-bold border border-white/30">
             <Scale className="w-3.5 h-3.5" />
             <span>LEGAL AGREEMENT</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight">Terms & Conditions</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Terms & Conditions</h1>
           <p className="text-slate-300 text-xs sm:text-sm">
             Last Updated: August 22, 2026 • Official Operating & Engineering Ground Rules
           </p>
@@ -43,15 +27,15 @@ export default function TermsPage() {
           
           {/* Introduction */}
           <div className="space-y-3 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">1. Agreement to Terms</h2>
+            <h2 className="text-xl font-semibold text-slate-900">1. Agreement to Terms</h2>
             <p>
-              By placing an order, submitting a deposit, or engaging services with <strong>vishal.buildss</strong> ("Agency", "We", "Us", or "Our"), you ("Client", "You") agree to be bound by these Terms and Conditions. These terms govern all website development, software engineering, and AI automation projects.
+              By placing an order, submitting a deposit, or engaging services with <strong>CustomAI</strong> ("Agency", "We", "Us", or "Our"), you ("Client", "You") agree to be bound by these Terms and Conditions. These terms govern all website development, software engineering, and AI automation projects.
             </p>
           </div>
 
           {/* Section 2: Ground Rules */}
           <div className="space-y-4 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">2. Core Ground Rules & Payment Terms</h2>
+            <h2 className="text-xl font-semibold text-slate-900">2. Core Ground Rules & Payment Terms</h2>
             <ul className="space-y-3 list-disc pl-5">
               <li>
                 <strong>50% Advance & 50% Delivery Policy:</strong> All engineering projects require a 50% advance deposit via Razorpay prior to sprint commencement. The remaining 50% balance is due upon final project completion prior to domain propagation.
@@ -76,7 +60,7 @@ export default function TermsPage() {
 
           {/* Section 3: Payment Gateway & Razorpay */}
           <div className="space-y-3 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">3. Payment Gateway & Security</h2>
+            <h2 className="text-xl font-semibold text-slate-900">3. Payment Gateway & Security</h2>
             <p>
               All online payments are securely processed through Razorpay. We do not store credit card or bank account details on our servers. Transactions are encrypted using 256-bit SSL technology and verified via server-side HMAC SHA256 cryptographic signatures.
             </p>
@@ -84,7 +68,7 @@ export default function TermsPage() {
 
           {/* Section 4: Cancellation & Refund Policy */}
           <div className="space-y-3 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">4. Cancellation & Refund Policy</h2>
+            <h2 className="text-xl font-semibold text-slate-900">4. Cancellation & Refund Policy</h2>
             <p>
               If a project is cancelled by the Client prior to engineering work starting (within 48 hours of advance payment), a 100% full refund of the deposit will be issued. Once design wireframing or Next.js 16 development has commenced, the 50% advance deposit covers labor incurred and is non-refundable.
             </p>
@@ -92,21 +76,21 @@ export default function TermsPage() {
 
           {/* Section 5: Limitation of Liability */}
           <div className="space-y-3 border-b border-slate-200 pb-6">
-            <h2 className="text-xl font-black text-slate-900">5. Limitation of Liability</h2>
+            <h2 className="text-xl font-semibold text-slate-900">5. Limitation of Liability</h2>
             <p>
-              In no event shall vishal.buildss or its lead engineer Vishal be liable for any indirect, incidental, special, or consequential damages resulting from third-party server outages (Vercel, Cloudflare, AWS), domain expiration, or unauthorized client modification of delivered source code.
+              In no event shall CustomAI or its lead engineer Vishal be liable for any indirect, incidental, special, or consequential damages resulting from third-party server outages (Vercel, Cloudflare, AWS), domain expiration, or unauthorized client modification of delivered source code.
             </p>
           </div>
 
           {/* Section 6: Contact */}
           <div className="space-y-3">
-            <h2 className="text-xl font-black text-slate-900">6. Legal Enquiries & Contact</h2>
+            <h2 className="text-xl font-semibold text-slate-900">6. Legal Enquiries & Contact</h2>
             <p>
               For legal inquiries or questions regarding these Terms & Conditions, please contact us directly at:
             </p>
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono font-bold text-slate-800">
+            <div className="p-4 bg-white text-xs font-mono font-bold text-slate-800">
               Email: vishal.buildss@gmail.com <br />
-              Platform: vishal.buildss Web & AI Systems
+              Platform: CustomAI Web & AI Systems
             </div>
           </div>
 

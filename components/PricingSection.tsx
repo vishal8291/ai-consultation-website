@@ -46,7 +46,7 @@ export default function PricingSection() {
         key: orderData.keyId,
         amount: orderData.amount,
         currency: orderData.currency,
-        name: "vishal.buildss",
+        name: "CustomAI",
         description: `50% Advance for ${tier.name} Tier (${currency === "INR" ? "₹" : "$"}${advanceAmount.toLocaleString()})`,
         image: "/images/newlogo-clean.png",
         order_id: orderData.orderId,
@@ -99,10 +99,10 @@ export default function PricingSection() {
         {/* Top Header Row with Currency Switcher */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/30 text-xs font-black uppercase tracking-wider inline-block mb-3">
+            <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/30 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
               PRICING
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
               Web & AI Packages
             </h2>
             <p className="text-base sm:text-lg text-slate-400 mt-2 max-w-2xl font-medium">
@@ -115,7 +115,7 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setCurrency("INR")}
-              className={`px-6 py-2.5 rounded-full text-xs font-black transition-all ${
+              className={`px-6 py-2.5 rounded-full text-xs font-semibold transition-all ${
                 currency === "INR"
                   ? "bg-white text-black shadow-lg"
                   : "text-slate-400 hover:text-white"
@@ -126,7 +126,7 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setCurrency("USD")}
-              className={`px-6 py-2.5 rounded-full text-xs font-black transition-all ${
+              className={`px-6 py-2.5 rounded-full text-xs font-semibold transition-all ${
                 currency === "USD"
                   ? "bg-white text-black shadow-lg"
                   : "text-slate-400 hover:text-white"
@@ -142,29 +142,30 @@ export default function PricingSection() {
           {PRICING_TIERS.map((tier) => (
             <div
               key={tier.id}
+              style={tier.popular ? { borderColor: "var(--accent-amber)" } : undefined}
               className={`rounded-3xl p-8 sm:p-9 flex flex-col justify-between relative transition-all duration-300 ${
                 tier.popular
-                  ? "bg-[#171717] text-white border-2 border-white shadow-[0_20px_60px_-15px_rgba(255,255,255,0.15)] scale-[1.03]"
+                  ? "bg-[#171717] text-white border-2 shadow-[0_20px_60px_-15px_rgba(217,119,6,0.25)] scale-[1.03]"
                   : "bg-[#0f172a]/70 text-white border border-slate-800 shadow-xl hover:border-slate-700"
               }`}
             >
               {tier.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-black font-black text-[10px] uppercase tracking-widest shadow-md">
+                <div style={{ background: "var(--accent-amber)" }} className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-white font-semibold text-[10px] uppercase tracking-widest shadow-md">
                   Most popular choice
                 </div>
               )}
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-2xl font-black text-white">{tier.name}</h3>
-                  {tier.popular && <Sparkles className="w-5 h-5 text-white" />}
+                  <h3 className="text-2xl font-semibold text-white">{tier.name}</h3>
+                  {tier.popular && <Sparkles style={{ color: "var(--accent-amber)" }} className="w-5 h-5" />}
                 </div>
                 <p className="text-xs text-slate-400 mb-6 font-medium leading-relaxed">{tier.tagline}</p>
 
                 {/* Price Display & Range */}
                 <div className="mb-6 pb-6 border-b border-slate-800">
                   <div className="flex items-baseline space-x-2">
-                    <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    <span className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </span>
                     <span className="text-xs text-slate-400 font-bold">
@@ -195,7 +196,7 @@ export default function PricingSection() {
                 type="button"
                 onClick={() => handleRazorpayCheckout(tier)}
                 disabled={loadingTierId === tier.id}
-                className={`w-full py-4 px-4 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center space-x-2 shadow-lg transition-all ${
+                className={`w-full py-4 px-4 rounded-2xl font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg transition-all ${
                   tier.popular
                     ? "bg-white text-black hover:scale-[1.02] shadow-[0_10px_25px_rgba(255,255,255,0.2)]"
                     : "bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 hover:border-slate-600"
@@ -214,7 +215,7 @@ export default function PricingSection() {
         <div className="mb-20">
           <div className="flex items-center space-x-2 mb-6">
             <Zap className="w-4 h-4 text-white" />
-            <h3 className="text-xs font-black uppercase tracking-widest text-slate-300">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-300">
               AVAILABLE ADD-ONS
             </h3>
           </div>
@@ -229,7 +230,7 @@ export default function PricingSection() {
                   <div className="w-2 h-2 rounded-full bg-white" />
                   <span className="text-sm font-bold text-slate-200">{addon.name}</span>
                 </div>
-                <span className="text-sm font-mono font-black text-white">
+                <span className="text-sm font-mono font-semibold text-white">
                   {currency === "INR" ? addon.priceDisplayINR : addon.priceDisplayUSD}
                 </span>
               </div>
@@ -241,7 +242,7 @@ export default function PricingSection() {
         <div>
           <div className="flex items-center space-x-2 mb-6">
             <ShieldCheck className="w-4 h-4 text-white" />
-            <h3 className="text-xs font-black uppercase tracking-widest text-slate-300">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-300">
               TERMS
             </h3>
           </div>

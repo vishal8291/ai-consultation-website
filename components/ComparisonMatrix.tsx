@@ -5,45 +5,45 @@ import { Check, X, Sparkles, Shield, Zap, Award } from "lucide-react";
 
 const COMPARISON_ROWS = [
   {
-    feature: "Delivery Speed",
-    freelance: "4 - 8 Weeks",
-    agency: "2 - 4 Months",
-    vishal: "7 - 21 Days",
+    feature: "How fast you get it",
+    freelance: "4 - 8 weeks",
+    agency: "2 - 4 months",
+    vishal: "7 - 21 days",
     vishalHighlight: true,
   },
   {
-    feature: "Tech Architecture & Performance",
-    freelance: "Slow WordPress / Templates",
-    agency: "Heavy Monoliths",
-    vishal: "Next.js 16 + Turbopack (100/100)",
+    feature: "How well it's built",
+    freelance: "Slow, template-based sites",
+    agency: "Slow, overcomplicated systems",
+    vishal: "Fast, modern, scores 100/100 on speed",
     vishalHighlight: true,
   },
   {
-    feature: "Built-in AI & Agentic Workflows",
-    freelance: "None or basic plugin",
-    agency: "Expensive custom add-on",
-    vishal: "Custom RAG Agents & OCR Parsers",
+    feature: "AI & automation",
+    freelance: "None, or a basic plugin",
+    agency: "Expensive add-on, extra cost",
+    vishal: "Built in, trained on your own data",
     vishalHighlight: true,
   },
   {
-    feature: "Pricing Transparency",
-    freelance: "Unpredictable Hourly Billing",
-    agency: "High Markups ($30k+)",
-    vishal: "Itemized Fixed Pricing",
+    feature: "How you're charged",
+    freelance: "Hourly, hard to predict",
+    agency: "High markup ($30k+)",
+    vishal: "One fixed price, listed upfront",
     vishalHighlight: true,
   },
   {
-    feature: "Code & IP Ownership",
-    freelance: "Partial / Shared",
-    agency: "Locked SaaS platform",
-    vishal: "Full Source Code Ownership",
+    feature: "Who owns it",
+    freelance: "Sometimes shared",
+    agency: "Locked into their platform",
+    vishal: "You own 100% of it",
     vishalHighlight: true,
   },
   {
-    feature: "Post-Launch Support",
-    freelance: "0 - 7 Days",
-    agency: "Paid Monthly Retainer",
-    vishal: "30 - 90 Days Included",
+    feature: "Support after launch",
+    freelance: "0 - 7 days",
+    agency: "Paid monthly plan",
+    vishal: "30 - 90 days included, free",
     vishalHighlight: true,
   },
 ];
@@ -55,10 +55,10 @@ export default function ComparisonMatrix() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-200 text-xs font-black uppercase tracking-wider inline-block mb-3">
+          <span className="px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-200 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
             COMPARISON
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
             How We Compare Against The Market
           </h2>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-medium">
@@ -71,14 +71,14 @@ export default function ComparisonMatrix() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-black border-b border-slate-800 text-xs font-black uppercase tracking-wider text-slate-300">
-                  <th className="p-6">Deliverable / Standard</th>
-                  <th className="p-6 text-slate-500">Solo Freelancer</th>
-                  <th className="p-6 text-slate-500">Traditional Agency</th>
-                  <th className="p-6 bg-white text-black border-x border-white font-black">
+                <tr className="bg-black border-b border-slate-800 text-xs font-semibold uppercase tracking-wider text-slate-300">
+                  <th className="p-6">What matters</th>
+                  <th className="p-6 text-slate-500">A Freelancer</th>
+                  <th className="p-6 text-slate-500">A Regular Agency</th>
+                  <th className="p-6 bg-white text-black border-x border-white font-semibold">
                     <div className="flex items-center space-x-2">
                       <Sparkles className="w-4 h-4 text-black" />
-                      <span>vishal.buildss</span>
+                      <span>CustomAI</span>
                     </div>
                   </th>
                 </tr>
@@ -86,10 +86,10 @@ export default function ComparisonMatrix() {
               <tbody className="divide-y divide-slate-800 text-sm">
                 {COMPARISON_ROWS.map((row, idx) => (
                   <tr key={idx} className="hover:bg-white/5 transition-colors">
-                    <td className="p-6 font-black text-white text-sm">{row.feature}</td>
+                    <td className="p-6 font-semibold text-white text-sm">{row.feature}</td>
                     <td className="p-6 text-slate-400 text-xs font-medium">{row.freelance}</td>
                     <td className="p-6 text-slate-400 text-xs font-medium">{row.agency}</td>
-                    <td className="p-6 bg-white/10 border-x border-white/20 text-white font-black text-sm">
+                    <td className="p-6 bg-white/10 border-x border-white/20 text-white font-semibold text-sm">
                       <div className="flex items-center space-x-2">
                         <div className="w-5 h-5 rounded-full bg-white/20 text-white flex items-center justify-center flex-shrink-0">
                           <Check className="w-3.5 h-3.5 text-white" />

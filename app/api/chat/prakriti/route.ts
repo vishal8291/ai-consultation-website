@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: "Hello! 👋 I am Prakriti, your strategy assistant at **vishal.buildss**.\n\nHow can I help you today? You can ask me about our website packages, pricing, AI chatbots, delivery timelines, or booking a consultation with Vishal!",
+        content: "Hello! 👋 I am Prakriti, your strategy assistant at **CustomAI**.\n\nHow can I help you today? You can ask me about our website packages, pricing, AI chatbots, delivery timelines, or booking a consultation with Vishal!",
       });
     }
 
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: "I'm **Prakriti**, the AI Strategy Assistant at **vishal.buildss**! 🚀\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems delivered in **7 to 21 days** with 100% code ownership. How can I help you build your project today?",
+        content: "I'm **Prakriti**, the AI Strategy Assistant at **CustomAI**! 🚀\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems delivered in **7 to 21 days** with 100% code ownership. How can I help you build your project today?",
       });
     }
 

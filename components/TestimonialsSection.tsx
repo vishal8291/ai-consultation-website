@@ -6,27 +6,31 @@ import { ShieldCheck, Clock, Code, DollarSign, CheckCircle2, Lock, Cpu, Sparkles
 const ENGINEERING_STANDARDS = [
   {
     icon: Clock,
-    title: "7 to 21 Days Delivery",
-    desc: "Milestone-based delivery keeps your website or AI system on schedule.",
+    title: "Delivered in 7 to 21 days",
+    desc: "We check in at each step so your project stays on time.",
     badge: "Fast Turnaround",
+    color: "var(--accent)",
   },
   {
     icon: Code,
-    title: "100% Source Code & IP Ownership",
-    desc: "You own the full source code, repositories, and database — no vendor lock-in.",
+    title: "You own everything, 100%",
+    desc: "The website, the code, the database — all yours. You're never locked in to us.",
     badge: "Full Ownership",
+    color: "var(--accent-teal)",
   },
   {
     icon: DollarSign,
-    title: "Transparent Quotes",
-    desc: "Every quote includes a full scope breakdown, with no hidden fees.",
-    badge: "Itemized Pricing",
+    title: "Clear, upfront pricing",
+    desc: "Every quote spells out exactly what you're paying for. No hidden fees.",
+    badge: "Upfront Pricing",
+    color: "var(--accent-amber)",
   },
   {
     icon: ShieldCheck,
-    title: "30 to 90 Days Warranty",
-    desc: "Post-launch support including monitoring, bug fixes, and optimization.",
-    badge: "Post-Launch Warranty",
+    title: "30 to 90 days of free support",
+    desc: "After launch, we keep an eye on things and fix anything that comes up.",
+    badge: "Free Support",
+    color: "var(--accent)",
   },
 ];
 
@@ -37,11 +41,11 @@ export default function TestimonialsSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
-            Built on Clear Engineering Standards
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
+            What you can always count on
           </h2>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            Every project follows the same engineering and delivery standards.
+            Every project we take on comes with the same four promises.
           </p>
         </div>
 
@@ -60,15 +64,15 @@ export default function TestimonialsSection() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white text-black flex items-center justify-center font-black shadow-md group-hover:scale-105 transition-transform">
-                      <Icon className="w-6 h-6 text-black" />
+                    <div style={{ background: item.color }} className="w-12 h-12 rounded-2xl text-white flex items-center justify-center font-semibold shadow-md group-hover:scale-105 transition-transform">
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <span className="px-2.5 py-1 rounded-full bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest border border-slate-700">
+                    <span style={{ borderColor: item.color, color: item.color }} className="px-2.5 py-1 rounded-full bg-slate-900 text-[10px] font-semibold uppercase tracking-widest border">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-black text-white mb-3 group-hover:text-slate-300 transition-colors">
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-slate-300 transition-colors">
                     {item.title}
                   </h3>
 
@@ -78,8 +82,8 @@ export default function TestimonialsSection() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-slate-700/60 flex items-center space-x-2 text-xs font-bold text-white">
-                  <CheckCircle2 className="w-4 h-4 text-white" />
-                  <span>Verified Standard</span>
+                  <CheckCircle2 style={{ color: item.color }} className="w-4 h-4" />
+                  <span>Included every time</span>
                 </div>
               </motion.div>
             );

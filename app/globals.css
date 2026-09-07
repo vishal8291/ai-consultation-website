@@ -1,17 +1,45 @@
 @import "tailwindcss";
 
+/* Override Tailwind's slate-900/slate-600 with Stripe's exact real text colors,
+   pulled directly from stripe.com's computed styles — since text-slate-900 and
+   text-slate-600 are already used pervasively across every component, this makes
+   the whole site match Stripe's palette without touching every className. */
+@theme {
+  --color-slate-900: #061b31;
+  --color-slate-600: #50617a;
+  --color-black: #061b31;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #0a0a0a;
+  --foreground: #061b31;
   --surface-card: #ffffff;
   --surface-dark: #0a0a0a;
   --surface-dark-card: #171717;
+  --accent: #533afd;
+  --accent-teal: #0d9488;
+  --accent-amber: #d97706;
 }
 
+/* Thin colored marker used to break up long stretches of black/white sections */
+.accent-bar {
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+
+/* Full-width solid section markers, one per accent color, cycled between major sections */
+.marker-bar {
+  height: 4px;
+  width: 100%;
+}
+.marker-indigo { background: var(--accent); }
+.marker-teal { background: var(--accent-teal); }
+.marker-amber { background: var(--accent-amber); }
+
 body {
-  background-color: #ffffff;
-  color: #0a0a0a;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Aptos', 'Aptos Display', var(--font-open-sans), 'Segoe UI', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -59,49 +87,42 @@ body {
   transform: translateY(-3px);
 }
 
-/* Premium Solid Buttons */
+/* Restrained Solid Buttons — Stripe-style: minimal radius, regular weight, subtle hover */
 .btn-yellow-solid {
-  background: #0a0a0a;
+  background: var(--accent);
   color: #ffffff;
-  font-weight: 800;
-  box-shadow: 0 4px 18px rgba(10, 10, 10, 0.3);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
 }
 
 .btn-yellow-solid:hover {
-  background: #262626;
-  box-shadow: 0 8px 28px rgba(10, 10, 10, 0.4);
-  transform: translateY(-2px) scale(1.02);
+  background: #4529e0;
 }
 
 .btn-white-solid {
   background: #ffffff;
   color: #0a0a0a;
-  font-weight: 800;
-  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
 }
 
 .btn-white-solid:hover {
-  background: #e5e5e5;
-  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px) scale(1.02);
+  background: #f8fafc;
 }
 
 .btn-dark-solid {
-  background: #0f172a;
+  background: #061b31;
   color: #ffffff;
-  font-weight: 800;
-  border: 1px solid #1e293b;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
 }
 
 .btn-dark-solid:hover {
-  background: #1e293b;
-  border-color: #334155;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
-  transform: translateY(-2px) scale(1.02);
+  background: #0f2c4c;
 }
 
 /* Ambient Radial Glow */

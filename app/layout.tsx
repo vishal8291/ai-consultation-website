@@ -1,14 +1,18 @@
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CookieConsent from "@/components/CookieConsent";
 import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "800"],
+  variable: "--font-open-sans",
+});
 
 export const metadata: Metadata = {
-  title: "vishal.buildss | Websites & AI Systems",
-  description: "Custom websites and AI automation systems for small businesses to enterprise, built by vishal.buildss.",
+  title: "CustomAI | Tell us the problem, we build the fix",
+  description: "CustomAI is a small-business-focused studio that builds custom websites and AI systems around your actual problem, not a fixed menu of services.",
 };
 
 export default function RootLayout({
@@ -18,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${openSans.variable} font-sans`}>
         <Navbar />
         {children}
         <CookieConsent />

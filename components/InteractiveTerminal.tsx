@@ -50,7 +50,7 @@ from langchain.vectorstores import Qdrant
 from groq import Groq
 import os
 
-app = FastAPI(title="vishal.buildss AI Engine")
+app = FastAPI(title="CustomAI Engine")
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 @app.post("/api/ai/query")
@@ -61,7 +61,7 @@ async def execute_rag_pipeline(user_query: str):
     completion = groq_client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {"role": "system", "content": "You are vishal.buildss AI assistant."},
+            {"role": "system", "content": "You are the CustomAI assistant."},
             {"role": "user", "content": f"Context: {context_docs}\\nQuery: {user_query}"}
         ],
         temperature=0.2
@@ -139,10 +139,10 @@ export default function InteractiveTerminal() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="px-4 py-1.5 rounded-full bg-yellow-400 text-black text-xs font-black uppercase tracking-wider shadow-sm">
+          <span className="px-4 py-1.5 rounded-full bg-yellow-400 text-black text-xs font-semibold uppercase tracking-wider shadow-sm">
             INTERACTIVE CODE DEMO
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-4 mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mt-4 mb-4 tracking-tight">
             Production-Grade Full-Stack Architecture
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
@@ -162,7 +162,7 @@ export default function InteractiveTerminal() {
               <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <div className="w-3 h-3 rounded-full bg-green-500/80" />
               <span className="ml-3 text-xs font-mono font-bold text-slate-400 hidden sm:inline">
-                vishal.buildss — bash (zsh)
+                CustomAI — bash (zsh)
               </span>
             </div>
 
