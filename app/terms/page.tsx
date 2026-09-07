@@ -29,7 +29,7 @@ export default function TermsPage() {
           <div className="space-y-3 border-b border-slate-200 pb-6">
             <h2 className="text-xl font-semibold text-slate-900">1. Agreement to Terms</h2>
             <p>
-              By placing an order, submitting a deposit, or engaging services with <strong>CustomAI</strong> ("Agency", "We", "Us", or "Our"), you ("Client", "You") agree to be bound by these Terms and Conditions. These terms govern all website development, software engineering, and AI automation projects.
+              By placing an order, submitting a deposit, or engaging services with <strong>CustomeAI</strong> ("Agency", "We", "Us", or "Our"), you ("Client", "You") agree to be bound by these Terms and Conditions. These terms govern all website development, software engineering, and AI automation projects.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
           <div className="space-y-3 border-b border-slate-200 pb-6">
             <h2 className="text-xl font-semibold text-slate-900">5. Limitation of Liability</h2>
             <p>
-              In no event shall CustomAI or its lead engineer Vishal be liable for any indirect, incidental, special, or consequential damages resulting from third-party server outages (Vercel, Cloudflare, AWS), domain expiration, or unauthorized client modification of delivered source code.
+              In no event shall CustomeAI or its lead engineer Vishal be liable for any indirect, incidental, special, or consequential damages resulting from third-party server outages (Vercel, Cloudflare, AWS), domain expiration, or unauthorized client modification of delivered source code.
             </p>
           </div>
 
@@ -90,7 +90,7 @@ export default function TermsPage() {
             </p>
             <div className="p-4 bg-white text-xs font-mono font-bold text-slate-800">
               Email: vishal.buildss@gmail.com <br />
-              Platform: CustomAI Web & AI Systems
+              Platform: CustomeAI Web & AI Systems
             </div>
           </div>
 

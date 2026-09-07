@@ -50,7 +50,7 @@ from langchain.vectorstores import Qdrant
 from groq import Groq
 import os
 
-app = FastAPI(title="CustomAI Engine")
+app = FastAPI(title="CustomeAI Engine")
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 @app.post("/api/ai/query")
@@ -61,7 +61,7 @@ async def execute_rag_pipeline(user_query: str):
     completion = groq_client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {"role": "system", "content": "You are the CustomAI assistant."},
+            {"role": "system", "content": "You are the CustomeAI assistant."},
             {"role": "user", "content": f"Context: {context_docs}\\nQuery: {user_query}"}
         ],
         temperature=0.2
@@ -162,7 +162,7 @@ export default function InteractiveTerminal() {
               <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <div className="w-3 h-3 rounded-full bg-green-500/80" />
               <span className="ml-3 text-xs font-mono font-bold text-slate-400 hidden sm:inline">
-                CustomAI — bash (zsh)
+                CustomeAI — bash (zsh)
               </span>
             </div>
 

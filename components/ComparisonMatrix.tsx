@@ -78,7 +78,7 @@ export default function ComparisonMatrix() {
                   <th className="p-6 bg-white text-black border-x border-white font-semibold">
                     <div className="flex items-center space-x-2">
                       <Sparkles className="w-4 h-4 text-black" />
-                      <span>CustomAI</span>
+                      <span>CustomeAI</span>
                     </div>
                   </th>
                 </tr>

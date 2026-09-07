@@ -16,7 +16,7 @@ export default function AboutPage() {
             not our services list.
           </h1>
           <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            <strong>CustomAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days.
+            <strong>CustomeAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days.
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                <strong>CustomAI</strong> was built to work the other way around: tell us the actual problem, and we design the website, AI system, or piece of software that solves it &mdash; with fixed, itemized pricing, full source code ownership, and real support after launch. It's currently run hands-on by one engineer end to end; as it grows, more people join, but every project still starts the same way &mdash; with your problem, not our services list.
+                <strong>CustomeAI</strong> was built to work the other way around: tell us the actual problem, and we design the website, AI system, or piece of software that solves it &mdash; with fixed, itemized pricing, full source code ownership, and real support after launch. It's currently run hands-on by one engineer end to end; as it grows, more people join, but every project still starts the same way &mdash; with your problem, not our services list.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">

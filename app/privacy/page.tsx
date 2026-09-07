@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <div className="space-y-3 border-b border-slate-200 pb-6">
             <h2 className="text-xl font-semibold text-slate-900">1. Overview</h2>
             <p>
-              At <strong>CustomAI</strong>, we respect your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, process, and safeguard information when you visit our website or interact with our services.
+              At <strong>CustomeAI</strong>, we respect your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, process, and safeguard information when you visit our website or interact with our services.
             </p>
           </div>
 
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
             </p>
             <div className="p-4 bg-white text-xs font-mono font-bold text-slate-800">
               Email: vishal.buildss@gmail.com <br />
-              Platform: CustomAI Web & AI Engineering
+              Platform: CustomeAI Web & AI Engineering
             </div>
           </div>
 

@@ -18,12 +18,12 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-2xl bg-white/90 border border-slate-700 p-1 flex items-center justify-center overflow-hidden shadow-md">
                 <img
                   src="/images/newlogo-clean.png"
-                  alt="CustomAI logo"
+                  alt="CustomeAI logo"
                   className="w-full h-full object-contain"
                 />
               </div>
               <span className="text-xl font-semibold text-white">
-                Custom<span style={{ color: "var(--accent)" }} className="font-semibold">AI</span>
+                Custome<span style={{ color: "var(--accent)" }} className="font-semibold">AI</span>
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -105,7 +105,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 space-y-4 sm:space-y-0 font-medium">
-          <p>© {new Date().getFullYear()} CustomAI. All rights reserved. </p>
+          <p>© {new Date().getFullYear()} CustomeAI. All rights reserved. </p>
           <div className="flex items-center space-x-6">
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

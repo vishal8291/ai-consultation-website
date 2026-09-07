@@ -46,7 +46,7 @@ export default function PricingSection() {
         key: orderData.keyId,
         amount: orderData.amount,
         currency: orderData.currency,
-        name: "CustomAI",
+        name: "CustomeAI",
         description: `50% Advance for ${tier.name} Tier (${currency === "INR" ? "₹" : "$"}${advanceAmount.toLocaleString()})`,
         image: "/images/newlogo-clean.png",
         order_id: orderData.orderId,

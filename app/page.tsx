@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import PricingSection from "@/components/PricingSection";
-import PricingEstimator from "@/components/PricingEstimator";
 import RoiCalculator from "@/components/RoiCalculator";
 import TechMarquee from "@/components/TechMarquee";
 import ComparisonMatrix from "@/components/ComparisonMatrix";
@@ -62,7 +61,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto font-medium"
               >
-                CustomAI is a studio, not a menu of packages. Describe the problem in your business &mdash; a website that isn't converting, a process eating up your week, a task you wish ran itself &mdash; and we design, build, and support the specific system that fixes it, in <strong className="text-white font-semibold">7 to 21 days</strong> with itemized pricing.
+                CustomeAI is a studio, not a menu of packages. Describe the problem in your business &mdash; a website that isn't converting, a process eating up your week, a task you wish ran itself &mdash; and we design, build, and support the specific system that fixes it, in <strong className="text-white font-semibold">7 to 21 days</strong> with itemized pricing.
               </motion.p>
 
               {/* Glowing Gradient Pill CTA Button with Magnetic Hover */}
@@ -430,9 +429,6 @@ export default function Home() {
 
       {/* Website Design Packages — pricing makes sense now */}
       <PricingSection />
-
-      {/* Interactive Custom Quote Estimator */}
-      <PricingEstimator />
 
       {/* Interactive ROI Calculator — justifies the price just shown */}
       <RoiCalculator />

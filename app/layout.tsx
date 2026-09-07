@@ -11,8 +11,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "CustomAI | Tell us the problem, we build the fix",
-  description: "CustomAI is a small-business-focused studio that builds custom websites and AI systems around your actual problem, not a fixed menu of services.",
+  title: "CustomeAI | Tell us the problem, we build the fix",
+  description: "CustomeAI is a small-business-focused studio that builds custom websites and AI systems around your actual problem, not a fixed menu of services.",
 };
 
 export default function RootLayout({
