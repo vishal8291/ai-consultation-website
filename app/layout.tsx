@@ -2,6 +2,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CookieConsent from "@/components/CookieConsent";
+import ScrollRestoration from "@/components/ScrollRestoration";
 import type { Metadata } from "next";
 
 const openSans = Open_Sans({
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} font-sans`}>
+        <ScrollRestoration />
         <Navbar />
         {children}
         <CookieConsent />
