@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import PricingSection from "@/components/PricingSection";
-import RoiCalculator from "@/components/RoiCalculator";
 import TechMarquee from "@/components/TechMarquee";
 import ComparisonMatrix from "@/components/ComparisonMatrix";
 import FaqSection from "@/components/FaqSection";
@@ -418,9 +417,6 @@ export default function Home() {
 
       {/* Website Design Packages — pricing makes sense now */}
       <PricingSection />
-
-      {/* Interactive ROI Calculator — justifies the price just shown */}
-      <RoiCalculator />
 
       {/* Technical Commitments & Engineering Standards */}
       <TestimonialsSection />
