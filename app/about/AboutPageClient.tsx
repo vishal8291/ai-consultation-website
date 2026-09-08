@@ -181,7 +181,7 @@ export default function AboutPageClient() {
               <ul className="space-y-2 text-xs font-medium text-slate-600">
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                  <span><strong>Python FastAPI</strong> Microservices</span>
+                  <span><strong>Next.js API</strong> Routes</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-black" />
@@ -189,7 +189,7 @@ export default function AboutPageClient() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                  <span><strong>RAG Vector Search</strong> Engines</span>
+                  <span><strong>MongoDB Keyword</strong> Search</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-black" />
