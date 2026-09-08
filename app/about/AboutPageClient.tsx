@@ -185,7 +185,7 @@ export default function AboutPageClient() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                  <span><strong>Groq LLaMA-3.3-70B</strong> Models</span>
+                  <span><strong>Google Gemini</strong> Models</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-black" />
