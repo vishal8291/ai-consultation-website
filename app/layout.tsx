@@ -16,7 +16,7 @@ const openSans = Open_Sans({
 });
 
 const SITE_DESCRIPTION =
-  "CustomeAI is a small-business-focused studio that builds custom websites and AI systems around your actual problem, not a fixed menu of services. Launched in 7 to 21 days.";
+  "CustomeAI is a Mumbai-based studio building custom websites and AI systems for small businesses across India, remote-first, live in 7 to 21 days.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "custom software development India",
     "AI chatbot development",
     "small business website studio",
+    "website design agency Mumbai",
+    "AI automation Mumbai",
+    "web development studio India",
   ],
   authors: [{ name: "CustomeAI" }],
   creator: "CustomeAI",
@@ -74,11 +77,25 @@ export const metadata: Metadata = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   name: "CustomeAI",
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo-clean.png`,
+  image: `${SITE_URL}/images/logo-clean.png`,
   description: SITE_DESCRIPTION,
+  email: "vishal.buildss@gmail.com",
+  telephone: "+918291569470",
+  priceRange: "₹12,000 - ₹1,20,000",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Mumbai",
+    addressRegion: "Maharashtra",
+    addressCountry: "IN",
+  },
+  areaServed: [
+    { "@type": "Country", name: "India" },
+    { "@type": "City", name: "Mumbai" },
+  ],
   sameAs: ["https://www.instagram.com/vishal.buildss"],
 };
 

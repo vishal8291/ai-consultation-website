@@ -89,6 +89,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs text-slate-400 font-medium">
               <p>Email: <a href="mailto:vishal.buildss@gmail.com" className="text-white font-bold hover:underline">vishal.buildss@gmail.com</a></p>
               <p>Portfolio: <a href="https://vishal-tiwari.me" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">vishal-tiwari.me</a></p>
+              <p>Based in <span className="text-slate-200 font-bold">Mumbai</span>, working remotely across India</p>
               <p>Delivery Timeline: <span className="text-slate-200 font-bold">5 Days to 4 Weeks</span></p>
               <p>Payment Terms: <span className="text-slate-200 font-bold">50% Advance, 50% Delivery</span></p>
               <div className="pt-2">

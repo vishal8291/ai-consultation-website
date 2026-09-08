@@ -16,7 +16,7 @@ export default function AboutPageClient() {
             not our services list.
           </h1>
           <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            <strong>CustomeAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days.
+            <strong>CustomeAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days. Based in Mumbai, working remotely with businesses across India.
           </p>
         </div>
       </section>
