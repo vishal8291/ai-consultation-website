@@ -137,7 +137,7 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       aria-label="Chat on WhatsApp"
                       title="Chat on WhatsApp"
-                      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white transition-transform hover:scale-105"
+                      className="w-10 h-10 flex items-center justify-center rounded-md bg-white border border-[var(--border-default)] text-slate-600 transition-colors hover:text-[#25D366] hover:border-[#25D366]"
                     >
                       <WhatsAppIcon className="w-5 h-5" />
                     </a>
@@ -159,7 +159,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
               title="Chat on WhatsApp"
-              className="flex md:hidden w-10 h-10 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform hover:scale-105 mr-3"
+              className="flex md:hidden w-10 h-10 items-center justify-center rounded-md bg-white border border-[var(--border-default)] text-slate-600 transition-colors hover:text-[#25D366] hover:border-[#25D366] mr-3"
             >
               <WhatsAppIcon className="w-5 h-5" />
             </a>
@@ -225,7 +225,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-3 py-3 flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white font-semibold text-sm"
+                className="mt-3 py-3 flex items-center justify-center gap-2 rounded-md bg-white border border-[var(--border-default)] text-slate-700 font-semibold text-sm hover:text-[#25D366] hover:border-[#25D366] transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 Chat on WhatsApp

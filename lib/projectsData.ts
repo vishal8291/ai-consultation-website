@@ -24,7 +24,7 @@ export interface Project {
 export const PROJECTS_DATA: Project[] = [
   {
     id: "mahagro-india-training-platform",
-    title: "MAHAGRO INDIA — Mushroom Cultivation Training Platform",
+    title: "MAHAGRO INDIA: Mushroom Cultivation Training Platform",
     tagline: "Real client project: a bilingual booking site for a 30-year mushroom farming training institute, with resilient payments and enterprise-grade security.",
     category: "Websites",
     clientIndustry: "Agritech Education & Vocational Training",
@@ -35,11 +35,11 @@ export const PROJECTS_DATA: Project[] = [
     },
     techStack: ["Vite", "Vanilla JS", "PHP 8", "MySQL", "Razorpay", "JSON-LD Schema"],
     description: "A real, live client project for MAHAGRO INDIA, a mushroom cultivation training institute operating in Maharashtra since 1995. Built as a bilingual (English/Marathi) booking site with seat registration, live payment processing, and an admin dashboard for the client's team.",
-    problem: "MAHAGRO INDIA needed a fast, trustworthy booking site for their 2-day live training program — one that worked reliably for a bilingual audience (many prospective students are more comfortable in Marathi) and never lost a registration even if the payment gateway had issues.",
-    solution: "Built a lightweight Vite + vanilla JS frontend (no framework overhead) with a real-time English/Marathi language switcher, an interactive profit calculator, and a PHP + MySQL backend. Wired Razorpay for card/UPI payments with an invisible fallback to WhatsApp + manual UPI if the gateway is ever unavailable, so registrations never get blocked. Cut the JS bundle from 600KB+ (unpinned CDN icon library) down to ~25KB by importing only the icons actually used. Locked down the site with a strict Content-Security-Policy, HSTS, and full input sanitization that's safe for Devanagari (Marathi) text — the earlier ASCII-only sanitizer was silently deleting Marathi names.",
+    problem: "MAHAGRO INDIA needed a fast, trustworthy booking site for their 2-day live training program, one that worked reliably for a bilingual audience (many prospective students are more comfortable in Marathi) and never lost a registration even if the payment gateway had issues.",
+    solution: "Built a lightweight Vite + vanilla JS frontend (no framework overhead) with a real-time English/Marathi language switcher, an interactive profit calculator, and a PHP + MySQL backend. Wired Razorpay for card/UPI payments with an invisible fallback to WhatsApp + manual UPI if the gateway is ever unavailable, so registrations never get blocked. Cut the JS bundle from 600KB+ (unpinned CDN icon library) down to ~25KB by importing only the icons actually used. Locked down the site with a strict Content-Security-Policy, HSTS, and full input sanitization that's safe for Devanagari (Marathi) text. The earlier ASCII-only sanitizer was silently deleting Marathi names.",
     features: [
       "Real-time English ⇄ Marathi language switcher across the entire site",
-      "Razorpay checkout with an invisible WhatsApp + UPI fallback if the gateway is down — registration never blocks",
+      "Razorpay checkout with an invisible WhatsApp + UPI fallback if the gateway is down, so registration never blocks",
       "Live weekly registration counter with an honest static fallback, never a fabricated number",
       "Interactive profit calculator (bag quantity × market rate → estimated monthly revenue)",
       "Admin dashboard for the client's team: registrations list, CSV export, password-protected",
@@ -53,7 +53,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "lex-agent-legal-auditor",
-    title: "LexAgent — AI Legal Auditor for SMEs",
+    title: "LexAgent: AI Legal Auditor for SMEs",
     tagline: "AI-powered legal auditor that analyzes contracts, extracts clauses, and flags compliance risks in plain English.",
     category: "AI Agents",
     clientIndustry: "LegalTech & SME Compliance",
@@ -106,7 +106,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "paperbag-ecommerce-leaf-ai",
-    title: "Paperbag — Eco E-Commerce Platform",
+    title: "Paperbag: Eco E-Commerce Platform",
     tagline: "Full-stack e-commerce platform with Razorpay payments, referral engine, and Groq/LLaMA powered 'Leaf AI' support bot.",
     category: "Websites",
     clientIndustry: "E-Commerce & Retail",
@@ -132,7 +132,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "healthmap-shakticycle",
-    title: "HealthMap AI (ShaktiCycle) — Mobile App",
+    title: "HealthMap AI (ShaktiCycle): Mobile App",
     tagline: "Cross-platform mobile health app for cycle tracking, AI recommendations, and symptom logging.",
     category: "Apps & SaaS",
     clientIndustry: "Healthcare & Mobile Tech",
@@ -158,7 +158,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "pdf-solution-saas",
-    title: "PDFSolution — All-in-One PDF & OCR SaaS",
+    title: "PDFSolution: All-in-One PDF & OCR SaaS",
     tagline: "SaaS platform supporting PDF merge, split, OCR text extraction, compression, and conversion pipelines.",
     category: "Apps & SaaS",
     clientIndustry: "Document SaaS & Cloud Tools",

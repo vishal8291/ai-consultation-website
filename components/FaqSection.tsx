@@ -10,11 +10,11 @@ const FAQS = [
   },
   {
     q: "How do you work out pricing?",
-    a: "We look at the time it'll take, what's involved (design, database, AI setup), and hosting costs — then give you one clear price. No hidden agency markups.",
+    a: "We look at the time it'll take, what's involved (design, database, AI setup), and hosting costs, then give you one clear price. No hidden agency markups.",
   },
   {
     q: "Do I own the website and all the code?",
-    a: "Yes. Once the project is complete and paid for, everything — code, designs, all of it — is yours.",
+    a: "Yes. Once the project is complete and paid for, everything, code, designs, all of it, is yours.",
   },
   {
     q: "Why is my site fast? What makes it fast?",
@@ -22,11 +22,11 @@ const FAQS = [
   },
   {
     q: "Can I add AI features later, like a support bot or invoice reader?",
-    a: "Yes. We build every site so new features can be added later without rebuilding it from scratch — AI chat support, smart document readers, or online payments, whenever you're ready.",
+    a: "Yes. We build every site so new features can be added later without rebuilding it from scratch: AI chat support, smart document readers, or online payments, whenever you're ready.",
   },
   {
     q: "What support do I get after launch?",
-    a: "Every project includes 30 to 90 days of free support — we fix bugs and keep an eye on performance during that time.",
+    a: "Every project includes 30 to 90 days of free support. We fix bugs and keep an eye on performance during that time.",
   },
 ];
 

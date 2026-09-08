@@ -20,23 +20,27 @@ const CATEGORIES = [
   { label: "Apps & SaaS", key: "Apps & SaaS", icon: Layers },
 ] as const;
 
+/** The three case studies featured on the homepage, in render order. */
+const HOMEPAGE_PROJECT_IDS = [
+  "lex-agent-legal-auditor",
+  "mahagro-india-training-platform",
+  "freelance-ai-sales-agent",
+];
+
 export default function ProjectsShowcase({ limit, showFilters = true, isHomepage = false, hideHeader = false }: ProjectsShowcaseProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
-  // If on homepage or limit=3, select 1 project from each of the 3 distinct categories
   let projectsToDisplay: Project[] = [];
 
   if (isHomepage || limit === 3) {
-    const aiAgentProject = PROJECTS_DATA.find((p) => p.category === "AI Agents");
-    const websiteProject = PROJECTS_DATA.find((p) => p.category === "Websites");
-    const appSaasProject = PROJECTS_DATA.find((p) => p.category === "Apps & SaaS");
-
-    projectsToDisplay = [
-      ...(aiAgentProject ? [aiAgentProject] : []),
-      ...(websiteProject ? [websiteProject] : []),
-      ...(appSaasProject ? [appSaasProject] : []),
-    ];
+    // The homepage shortlist is named explicitly rather than derived (it used to
+    // take the first project of each category, which meant the lineup changed
+    // silently whenever PROJECTS_DATA was reordered). Edit this list to change
+    // which three appear; order here is the order rendered.
+    projectsToDisplay = HOMEPAGE_PROJECT_IDS.map((id) =>
+      PROJECTS_DATA.find((p) => p.id === id)
+    ).filter((p): p is Project => Boolean(p));
   } else {
     projectsToDisplay = PROJECTS_DATA.filter((project) => {
       if (selectedCategory === "All") return true;

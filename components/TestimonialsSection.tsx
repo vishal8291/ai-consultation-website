@@ -13,7 +13,7 @@ const ENGINEERING_STANDARDS = [
   {
     icon: Code,
     title: "You own everything, 100%",
-    desc: "The website, the code, the database — all yours. You're never locked in to us.",
+    desc: "The website, the code, the database, all yours. You're never locked in to us.",
     badge: "Full Ownership",
   },
   {

@@ -48,7 +48,6 @@ export default function PricingSection() {
         currency: orderData.currency,
         name: "CustomeAI",
         description: `50% Advance for ${tier.name} Tier (${currency === "INR" ? "₹" : "$"}${advanceAmount.toLocaleString()})`,
-        image: "/images/newlogo-clean.png",
         order_id: orderData.orderId,
         handler: async function (response: any) {
           const verifyRes = await fetch("/api/razorpay/verify-payment", {
@@ -175,7 +174,7 @@ export default function PricingSection() {
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </span>
                     <span className="text-xs text-slate-500 font-bold">
-                      {currency === "INR" ? `– ${tier.priceRangeINR.split('–')[1]}` : `– ${tier.priceRangeUSD.split('–')[1]}`}
+                      {currency === "INR" ? `to ${tier.priceRangeINR.split(' to ')[1]}` : `to ${tier.priceRangeUSD.split(' to ')[1]}`}
                     </span>
                   </div>
                   <div className="flex items-center text-xs text-slate-600 font-bold mt-2">

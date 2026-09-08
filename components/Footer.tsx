@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="space-y-3 md:col-span-1">
             <Logo markSize="w-8 h-8 text-base" textSize="text-xl" />
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               A small studio that builds websites, AI systems, and custom software around the specific problem a small business brings us. Led by Vishal Tiwari.
             </p>
 
@@ -26,7 +26,7 @@ export default function Footer() {
                 href="https://vishal-tiwari.me"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-700 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-md bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors"
                 title="Personal Portfolio: vishal-tiwari.me"
               >
                 <Globe className="w-4 h-4" />
@@ -35,7 +35,7 @@ export default function Footer() {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-700 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-md bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors"
                 title="GitHub Account"
               >
                 <Github className="w-4 h-4" />
@@ -44,7 +44,7 @@ export default function Footer() {
                 href="https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-700 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-md bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors"
                 title="Instagram Account"
               >
                 <Instagram className="w-4 h-4" />
@@ -54,63 +54,66 @@ export default function Footer() {
 
           {/* Nav Links with Packages */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Services</h4>
-            <ul className="space-y-2 text-xs text-slate-600 font-semibold">
+            <h4 className="text-sm font-semibold text-slate-900 mb-3">Services</h4>
+            <ul className="space-y-2 text-sm text-slate-600">
               <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom website design</a></li>
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Business &amp; website review</a></li>
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI assistants &amp; automation</a></li>
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom apps &amp; dashboards</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Business and website review</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI assistants and automation</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom apps and dashboards</a></li>
               <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Pricing</a></li>
             </ul>
           </div>
 
           {/* Quick Legal & Company Links */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Company & Socials</h4>
-            <ul className="space-y-2 text-xs text-slate-600 font-semibold">
-              <li><Link href="/about" className="hover:text-slate-900 transition-colors">About Us & Founder</Link></li>
-              <li><a href="https://vishal-tiwari.me" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors flex items-center space-x-1"><span>Portfolio (vishal-tiwari.me)</span></a></li>
-              <li><Link href="/terms" className="hover:text-slate-900 transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/privacy" className="hover:text-slate-900 transition-colors">Privacy Policy</Link></li>
+            <h4 className="text-sm font-semibold text-slate-900 mb-3">Company</h4>
+            <ul className="space-y-2 text-sm text-slate-600">
+              <li><Link href="/about" className="hover:text-slate-900 transition-colors">About us</Link></li>
+              <li><Link href="/projects" className="hover:text-slate-900 transition-colors">Our work</Link></li>
+              <li><a href="https://vishal-tiwari.me" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">Founder&apos;s portfolio</a></li>
+              <li><Link href="/terms" className="hover:text-slate-900 transition-colors">Terms and conditions</Link></li>
+              <li><Link href="/privacy" className="hover:text-slate-900 transition-colors">Privacy policy</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Direct Contact</h4>
-            <div className="space-y-1.5 text-xs text-slate-600 font-medium">
-              <p>Email: <a href="mailto:vishal.buildss@gmail.com" className="text-slate-900 font-bold hover:underline">vishal.buildss@gmail.com</a></p>
-              <p>Based in <span className="text-slate-800 font-bold">Mumbai, India</span>. We work remotely with clients across India and overseas.</p>
-              <p>Hours: <span className="text-slate-800 font-bold">Monday to Saturday, 10:00 to 19:00 IST</span></p>
-              <p>We reply to every enquiry within <span className="text-slate-800 font-bold">24 hours</span>.</p>
-              <p>Payment terms: <span className="text-slate-800 font-bold">50% advance, 50% on delivery</span></p>
-              <div className="pt-2">
+            <h4 className="text-sm font-semibold text-slate-900 mb-3">Get in touch</h4>
+            <div className="space-y-2.5 text-sm text-slate-600 leading-relaxed">
+              <p>
+                <a href="mailto:vishal.buildss@gmail.com" className="text-slate-900 hover:underline">
+                  vishal.buildss@gmail.com
+                </a>
+              </p>
+              <p>
+                Based in Mumbai, India. We work remotely with clients across
+                India and overseas.
+              </p>
+              <p>Monday to Saturday, 10:00 to 19:00 IST.</p>
+              <p>We reply to every enquiry within 24 hours.</p>
+              <p>Payment terms are 50% advance, 50% on delivery.</p>
+              <p className="pt-1">
                 <a
                   href="/#contact"
-                  className="btn-yellow-solid inline-block px-4 py-2 text-sm"
+                  className="text-slate-900 font-semibold hover:underline"
                 >
-                  Book a Call
+                  Start a conversation
                 </a>
-              </div>
+              </p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[var(--border-default)] pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0 font-medium">
-          <p>© {new Date().getFullYear()} CustomeAI. All rights reserved. </p>
-          <div className="flex items-center space-x-6">
-            <Link href="/terms" className="hover:text-slate-900 transition-colors">Terms</Link>
-            <Link href="/privacy" className="hover:text-slate-900 transition-colors">Privacy</Link>
-            <Link href="/about" className="hover:text-slate-900 transition-colors">About</Link>
-            <button
-              onClick={scrollToTop}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-700 transition-colors font-bold"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
+        <div className="border-t border-[var(--border-default)] pt-6 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500 gap-4">
+          <p>© {new Date().getFullYear()} CustomeAI. All rights reserved.</p>
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </footer>
