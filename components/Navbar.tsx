@@ -112,74 +112,81 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Action Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <AnimatePresence mode="wait">
-              {loading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              ) : user ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex items-center space-x-3 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15"
-                >
-                  <div style={{ background: "var(--accent)" }} className="w-7 h-7 text-white rounded-full flex items-center justify-center font-semibold text-xs shadow-sm">
-                    {user.name?.charAt(0).toUpperCase()}
+          {/* Right-side group: kept as one flex item so it stays anchored to the
+              right edge regardless of which children inside are hidden at a given
+              breakpoint (previously the actions/icon/hamburger were separate flex
+              children of the justify-between row, so hiding the center nav links
+              between md and lg let them drift into the middle of the bar). */}
+          <div className="flex items-center">
+            {/* Action Button */}
+            <div className="hidden md:flex items-center space-x-4">
+              <AnimatePresence mode="wait">
+                {loading ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : user ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex items-center space-x-3 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15"
+                  >
+                    <div style={{ background: "var(--accent)" }} className="w-7 h-7 text-white rounded-full flex items-center justify-center font-semibold text-xs shadow-sm">
+                      {user.name?.charAt(0).toUpperCase()}
+                    </div>
+                    <a href="/dashboard" className="font-semibold text-xs text-white/85 hover:text-white transition-colors">
+                      Dashboard
+                    </a>
+                    <button
+                      onClick={handleLogout}
+                      className="p-1 hover:bg-red-500/10 rounded-full text-white/50 hover:text-red-400 transition-all"
+                      title="Logout"
+                    >
+                      <LogOut className="w-3.5 h-3.5" />
+                    </button>
+                  </motion.div>
+                ) : (
+                  <div className="flex items-center space-x-3">
+                    <a
+                      href={WHATSAPP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Chat on WhatsApp"
+                      title="Chat on WhatsApp"
+                      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105"
+                    >
+                      <WhatsAppIcon className="w-5 h-5" />
+                    </a>
+                    <a
+                      href="#contact"
+                      style={{ background: "var(--accent)" }}
+                      className="px-6 py-2.5 rounded-full text-white font-semibold text-sm transition-all shadow-sm hover:scale-105"
+                    >
+                      Contact
+                    </a>
                   </div>
-                  <a href="/dashboard" className="font-semibold text-xs text-white/85 hover:text-white transition-colors">
-                    Dashboard
-                  </a>
-                  <button
-                    onClick={handleLogout}
-                    className="p-1 hover:bg-red-500/10 rounded-full text-white/50 hover:text-red-400 transition-all"
-                    title="Logout"
-                  >
-                    <LogOut className="w-3.5 h-3.5" />
-                  </button>
-                </motion.div>
-              ) : (
-                <div className="flex items-center space-x-3">
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Chat on WhatsApp"
-                    title="Chat on WhatsApp"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105"
-                  >
-                    <WhatsAppIcon className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="#contact"
-                    style={{ background: "var(--accent)" }}
-                    className="px-6 py-2.5 rounded-full text-white font-semibold text-sm transition-all shadow-sm hover:scale-105"
-                  >
-                    Contact
-                  </a>
-                </div>
-              )}
-            </AnimatePresence>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* WhatsApp stays visible on mobile even with the menu closed (md+ already shows it in the actions bar above) */}
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp"
+              title="Chat on WhatsApp"
+              className="flex md:hidden w-10 h-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105 mr-3"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+            </a>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2.5 rounded-full bg-white/10 border border-white/15 text-white transition-colors"
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
-
-          {/* WhatsApp stays visible on mobile even with the menu closed (md+ already shows it in the actions bar above) */}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-            title="Chat on WhatsApp"
-            className="flex md:hidden w-10 h-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105 mr-3"
-          >
-            <WhatsAppIcon className="w-5 h-5" />
-          </a>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2.5 rounded-full bg-white/10 border border-white/15 text-white transition-colors"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
 
