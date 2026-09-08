@@ -41,7 +41,7 @@ export default function TermsPageClient() {
                 <strong>50% Advance & 50% Delivery Policy:</strong> All engineering projects require a 50% advance deposit via Razorpay prior to sprint commencement. The remaining 50% balance is due upon final project completion prior to domain propagation.
               </li>
               <li>
-                <strong>Timeline Start Criteria:</strong> The project delivery timeline (5-7 days for Launch, 2-3 weeks for Business, 4-6 weeks for Automate) officially begins after we receive your complete text content, brand assets, and logo files.
+                <strong>Timeline Start Criteria:</strong> The project delivery timeline (5 to 7 days for Launch, 2 to 3 weeks for Business, 4 to 6 weeks for Automate) officially begins after we receive your complete text content, brand assets, and logo files.
               </li>
               <li>
                 <strong>Scope Change Policy:</strong> Any requests for additional pages, custom API integrations, or architectural changes mid-sprint will receive an itemized revised quote for client approval before implementation.

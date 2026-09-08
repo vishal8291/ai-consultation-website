@@ -1,28 +1,34 @@
 @import "tailwindcss";
 
-/* Override Tailwind's slate-900/slate-600 with Amazon's exact real text/link
-   colors, pulled directly from amazon.com's computed styles — since
-   text-slate-900 and text-slate-600 are already used pervasively across every
-   component, this makes the whole site match Amazon's palette without
-   touching every className. */
+/* text-slate-900 and text-slate-600 are used pervasively across every
+   component, so redefining them here retones the whole site's type without
+   touching every className. Previously these carried Amazon's retail palette;
+   they now carry the ink scale below. */
 @theme {
-  --color-slate-900: #0f1111;
-  --color-slate-600: #565959;
-  --color-black: #0f1111;
+  --color-slate-900: #101418;
+  --color-slate-600: #5b636d;
+  --color-slate-500: #6b7480;
+  --color-slate-400: #97a0ab;
+  --color-black: #101418;
 }
 
+/* Ink + single cool accent.
+   The palette deliberately leads with near-black rather than a brand hue:
+   the accent earns its weight by being rare, so it is reserved for links,
+   small emphasis marks, and step numbers — never for large fills. */
 :root {
   --background: #ffffff;
-  --foreground: #0f1111;
+  --foreground: #101418;
   --surface-card: #ffffff;
-  --surface-alt: #f7f8f8;
-  --border-default: #d5d9d9;
-  --border-strong: #888c8c;
-  --accent: #c45500;
-  --cta-bg: #ffd814;
-  --cta-bg-hover: #f7ca00;
-  --cta-text: #0f1111;
-  --link: #2162a1;
+  --surface-alt: #f6f7f9;
+  --border-default: #d8dce1;
+  --border-strong: #8b939c;
+  --accent: #1b5e9c;
+  --accent-hover: #174e83;
+  --cta-bg: #101418;
+  --cta-bg-hover: #2b323a;
+  --cta-text: #ffffff;
+  --link: #1b5e9c;
 }
 
 /* Hero entrance animation runs in pure CSS (no JS/hydration dependency) so the
@@ -88,7 +94,7 @@ body {
 .glass-card-pro {
   background: #ffffff;
   border: 1px solid var(--border-default);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -101,7 +107,7 @@ body {
 .dark-card-pro {
   background: var(--surface-alt);
   border: 1px solid var(--border-default);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -111,45 +117,39 @@ body {
   box-shadow: 0 2px 8px rgba(15, 17, 17, 0.08);
 }
 
-/* Amazon-style buttons: pill-shaped primary (yellow fill, black text),
-   square-ish secondary — minimal, flat, no gradients */
+/* Buttons. The class names are historical (they date from the yellow Amazon
+   palette) but are kept because they are referenced across every component;
+   what they render is now an ink primary and a hairline secondary.
+   A 6px radius rather than a 100px pill: pills read consumer, and the squarer
+   corner matches the cards and the rest of the enterprise register. */
 .btn-yellow-solid {
   background: var(--cta-bg);
   color: var(--cta-text);
   font-weight: 600;
-  border: 1px solid #a88734;
-  border-radius: 100px;
-  transition: background-color 0.15s ease;
+  border: 1px solid var(--cta-bg);
+  border-radius: 6px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-yellow-solid:hover {
   background: var(--cta-bg-hover);
+  border-color: var(--cta-bg-hover);
 }
 
-.btn-white-solid {
-  background: #ffffff;
-  color: var(--foreground);
-  font-weight: 500;
-  border: 1px solid var(--border-strong);
-  border-radius: 100px;
-  transition: background-color 0.15s ease;
-}
-
-.btn-white-solid:hover {
-  background: var(--surface-alt);
-}
-
+.btn-white-solid,
 .btn-dark-solid {
   background: #ffffff;
   color: var(--foreground);
-  font-weight: 500;
+  font-weight: 600;
   border: 1px solid var(--border-strong);
-  border-radius: 100px;
-  transition: background-color 0.15s ease;
+  border-radius: 6px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
+.btn-white-solid:hover,
 .btn-dark-solid:hover {
   background: var(--surface-alt);
+  border-color: var(--foreground);
 }
 
 /* Custom Sleek Scrollbar */

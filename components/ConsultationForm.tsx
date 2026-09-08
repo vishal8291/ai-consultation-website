@@ -61,7 +61,7 @@ export default function ConsultationForm() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it's a website fix, an AI system, or something else entirely &mdash; plus a real price.
+            No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it's a website fix, an AI system, or something else entirely, plus a real price.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function ConsultationForm() {
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900">Got it &mdash; we're on it.</h3>
+              <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900">Got it. We're on it.</h3>
 
               <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed font-medium">
                 Thank you <strong className="text-slate-900 font-semibold">{formData.name}</strong>. We'll read what you sent and reach out to you at <span className="text-slate-900 font-bold">{formData.contact}</span> within 24 hours with an honest take on the fix.
@@ -155,7 +155,7 @@ export default function ConsultationForm() {
                     <option value="Launch Package (₹12,000 / $150)">A simple website (Launch, ₹12,000 / $150)</option>
                     <option value="Business Package (₹30,000 / $375)">A full business website (Business, ₹30,000 / $375)</option>
                     <option value="Automate Package (₹65,000 / $800)">A website + automation (Automate, ₹65,000 / $800)</option>
-                    <option value="Custom AI Support & Automation System">Not sure &mdash; it's more of an AI/automation problem</option>
+                    <option value="Custom AI Support & Automation System">Not sure, it's more of an AI/automation problem</option>
                   </select>
                 </div>
               </div>

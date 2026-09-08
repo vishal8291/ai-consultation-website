@@ -15,7 +15,7 @@ export default function AboutPageClient() {
             not our services list.
           </h1>
           <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            <strong className="text-slate-900">CustomeAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days. Based in Mumbai, working remotely with businesses across India.
+            <strong className="text-slate-900">CustomeAI</strong> is a small studio for small businesses. We design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days. Based in Mumbai, working remotely with businesses across India.
           </p>
         </div>
       </section>
@@ -97,11 +97,11 @@ export default function AboutPageClient() {
               </h2>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Most agencies hand a small business owner a menu: Launch, Growth, Enterprise, pick one. But a shop owner losing customers to a bad Google listing has a completely different problem than a founder drowning in repetitive WhatsApp questions &mdash; and neither fits neatly into a tier.
+                Most agencies hand a small business owner a menu: Launch, Growth, Enterprise, pick one. But a shop owner losing customers to a bad Google listing has a completely different problem than a founder drowning in repetitive WhatsApp questions, and neither fits neatly into a tier.
               </p>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                <strong>CustomeAI</strong> was built to work the other way around: tell us the actual problem, and we design the website, AI system, or piece of software that solves it &mdash; with fixed, itemized pricing, full source code ownership, and real support after launch. It's currently run hands-on by one engineer end to end; as it grows, more people join, but every project still starts the same way &mdash; with your problem, not our services list.
+                <strong>CustomeAI</strong> was built to work the other way around: tell us the actual problem, and we design the website, AI system, or piece of software that solves it, with fixed, itemized pricing, full source code ownership, and real support after launch. It's currently run hands-on by one engineer end to end; as it grows, more people join, but every project still starts the same way: with your problem, not our services list.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">

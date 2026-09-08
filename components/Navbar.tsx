@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Logo from "@/components/Logo";
 import { User, LogOut, Menu, X, FolderGit2, DollarSign, Zap, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -76,19 +77,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
 
-          {/* Brand wordmark */}
-          <a href="/" className="flex items-center space-x-2.5 group">
-            <div className="w-9 h-9 rounded-full bg-white border border-[var(--border-default)] p-1 flex items-center justify-center group-hover:scale-105 transition-transform">
-              <img
-                src="/images/newlogo-clean.png"
-                alt="CustomeAI logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <span className="text-lg font-bold tracking-tight text-[var(--foreground)] flex items-center">
-              Custome<span style={{ color: "var(--accent)" }} className="font-semibold">AI</span>
-              <span style={{ color: "var(--accent)" }} className="ml-0.5">.</span>
-            </span>
+          {/* Brand wordmark — see components/Logo.tsx to swap in a real mark */}
+          <a href="/" aria-label="CustomeAI home" className="flex items-center">
+            <Logo />
           </a>
 
           {/* Sentence-case nav links */}

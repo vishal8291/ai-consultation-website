@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import { Heart, Zap, ArrowUp, Globe, Github, Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -14,20 +15,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Col */}
           <div className="space-y-3 md:col-span-1">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-white border border-[var(--border-default)] p-1 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/images/newlogo-clean.png"
-                  alt="CustomeAI logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="text-xl font-semibold text-slate-900">
-                Custome<span style={{ color: "var(--accent)" }} className="font-semibold">AI</span>
-              </span>
-            </div>
+            <Logo markSize="w-8 h-8 text-base" textSize="text-xl" />
             <p className="text-xs text-slate-600 leading-relaxed">
-              A small studio that builds websites, AI systems, and custom software around the specific problem a small business brings us &mdash; led by Vishal Tiwari.
+              A small studio that builds websites, AI systems, and custom software around the specific problem a small business brings us. Led by Vishal Tiwari.
             </p>
 
             {/* Social & Portfolio Links */}
@@ -91,7 +81,7 @@ export default function Footer() {
             <div className="space-y-1.5 text-xs text-slate-600 font-medium">
               <p>Email: <a href="mailto:vishal.buildss@gmail.com" className="text-slate-900 font-bold hover:underline">vishal.buildss@gmail.com</a></p>
               <p>Based in <span className="text-slate-800 font-bold">Mumbai, India</span>. We work remotely with clients across India and overseas.</p>
-              <p>Hours: <span className="text-slate-800 font-bold">Mon&ndash;Sat, 10:00&ndash;19:00 IST</span></p>
+              <p>Hours: <span className="text-slate-800 font-bold">Monday to Saturday, 10:00 to 19:00 IST</span></p>
               <p>We reply to every enquiry within <span className="text-slate-800 font-bold">24 hours</span>.</p>
               <p>Payment terms: <span className="text-slate-800 font-bold">50% advance, 50% on delivery</span></p>
               <div className="pt-2">

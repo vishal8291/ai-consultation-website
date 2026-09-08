@@ -6,7 +6,7 @@ import { HelpCircle, ChevronDown } from "lucide-react";
 const FAQS = [
   {
     q: "How fast can you build and launch my website or AI system?",
-    a: "Simple websites are ready in 5-7 days. Bigger business sites or AI support bots take 14-21 days. Larger custom software can take 21-35 days.",
+    a: "Simple websites are ready in 5 to 7 days. Bigger business sites or AI support bots take 14 to 21 days. Larger custom software can take 21 to 35 days.",
   },
   {
     q: "How do you work out pricing?",
@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: "Why is my site fast? What makes it fast?",
-    a: "We build with modern, well-tested tools that are simply built for speed, and host them on fast, reliable servers. Most of our sites score 98-100 out of 100 on Google's own speed test.",
+    a: "We build with modern, well-tested tools that are simply built for speed, and host them on fast, reliable servers. Most of our sites score 98 to 100 out of 100 on Google's own speed test.",
   },
   {
     q: "Can I add AI features later, like a support bot or invoice reader?",

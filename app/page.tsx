@@ -60,6 +60,21 @@ const FACTS = [
   { label: "Based in", value: "Mumbai, India" },
 ];
 
+const NEXT_STEPS = [
+  {
+    title: "You describe the problem",
+    desc: "In your own words. No brief, no spec, no technical vocabulary needed.",
+  },
+  {
+    title: "We reply within 24 hours",
+    desc: "With an honest read on whether it is a website fix, an AI system, or something else, plus a real price.",
+  },
+  {
+    title: "Work starts once you agree",
+    desc: "50% to begin, 50% on delivery. You own everything at the end of it.",
+  },
+];
+
 const PROCESS = [
   { step: "01", title: "Understand", desc: "We learn about your goals and write down exactly what needs to be built." },
   { step: "02", title: "Design", desc: "We design how it will look and feel, and show you before building it." },
@@ -71,19 +86,34 @@ export default function Home() {
   return (
     <main className="min-h-screen text-slate-900 antialiased selection:bg-black selection:text-white relative overflow-x-hidden">
 
-      {/* HERO */}
+      {/* HERO
+          Asymmetric and left-aligned rather than a centered marketing block:
+          large firms lead with the message on the left and something concrete
+          beside it, instead of centering everything and filling the right with
+          decoration. The panel on the right is real content (what actually
+          happens after someone gets in touch), not an illustration. */}
       <section
         id="hero"
         className="relative pt-24 sm:pt-28 pb-14 sm:pb-16 bg-white border-b border-[var(--border-default)]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center">
-            <div className="max-w-3xl space-y-5 text-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+
+            {/* Message */}
+            <div className="lg:col-span-7">
+              <p
+                className="hero-fade-in-up text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-5"
+                style={{ animationDelay: "0.05s" }}
+              >
+                Web and AI studio
+                <span className="mx-2 text-slate-300">/</span>
+                Mumbai, India
+              </p>
 
               {/* Exact 3-Line Headline Format Requested by User — pure CSS entrance so it
                   paints on first frame instead of waiting on React hydration */}
               <h1
-                className="hero-fade-in-up text-3xl sm:text-5xl lg:text-[44px] font-semibold tracking-tight leading-[1.16] text-[var(--foreground)] font-sans"
+                className="hero-fade-in-up text-4xl sm:text-5xl lg:text-[52px] font-semibold tracking-tight leading-[1.1] text-[var(--foreground)] font-sans"
                 style={{ animationDelay: "0.1s" }}
               >
                 Tell us the problem. <br />
@@ -92,19 +122,19 @@ export default function Home() {
               </h1>
 
               <p
-                className="hero-fade-in-up text-base sm:text-lg text-[#565959] max-w-xl leading-relaxed mx-auto font-medium"
+                className="hero-fade-in-up mt-6 text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed"
                 style={{ animationDelay: "0.2s" }}
               >
-                CustomeAI is a studio, not a menu of packages. Describe the problem in your business &mdash; a website that isn&apos;t converting, a process eating up your week, a task you wish ran itself &mdash; and we design, build, and support the specific system that fixes it, in <strong className="text-[var(--foreground)] font-semibold">7 to 21 days</strong> with itemized pricing.
+                CustomeAI is a studio, not a menu of packages. Describe the problem in your business: a website that isn&apos;t converting, a process eating up your week, a task you wish ran itself. We design, build, and support the specific system that fixes it, in <strong className="text-[var(--foreground)] font-semibold">7 to 21 days</strong>, with itemized pricing.
               </p>
 
               <div
-                className="hero-fade-in-up pt-1 flex flex-col sm:flex-row items-center justify-center gap-3"
+                className="hero-fade-in-up mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
                 style={{ animationDelay: "0.3s" }}
               >
                 <a
                   href="#contact"
-                  className="btn-yellow-solid w-full sm:w-auto px-6 py-3 text-sm flex items-center justify-center space-x-2"
+                  className="btn-yellow-solid px-6 py-3 text-sm flex items-center justify-center gap-2"
                 >
                   <span>Start a conversation</span>
                   <ArrowRight className="w-4 h-4" />
@@ -112,26 +142,72 @@ export default function Home() {
 
                 <a
                   href="/projects"
-                  className="btn-white-solid w-full sm:w-auto px-6 py-3 text-sm"
+                  className="btn-white-solid px-6 py-3 text-sm text-center"
                 >
                   See our work
                 </a>
               </div>
 
               <div
-                className="hero-fade-in-up pt-4 flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#565959]"
+                className="hero-fade-in-up mt-8 pt-6 border-t border-[var(--border-default)] flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600"
                 style={{ animationDelay: "0.4s" }}
               >
                 <span className="flex items-center">
-                  <Clock style={{ color: "var(--accent)" }} className="w-4 h-4 mr-1.5" />
-                  7-21 days delivery
+                  <Clock className="w-4 h-4 mr-2 text-slate-400" />
+                  7 to 21 days delivery
                 </span>
                 <span className="flex items-center">
-                  <ShieldCheck style={{ color: "var(--accent)" }} className="w-4 h-4 mr-1.5" />
-                  100% code &amp; IP ownership
+                  <ShieldCheck className="w-4 h-4 mr-2 text-slate-400" />
+                  You own 100% of the code
                 </span>
               </div>
             </div>
+
+            {/* What happens next */}
+            <div
+              className="hero-fade-in-up lg:col-span-5 w-full"
+              style={{ animationDelay: "0.35s" }}
+            >
+              <div className="glass-card-pro p-6 sm:p-7">
+                <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-5">
+                  What happens next
+                </h2>
+
+                <ol className="space-y-5">
+                  {NEXT_STEPS.map((s, i) => (
+                    <li key={s.title} className="flex gap-4">
+                      <span
+                        className="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--border-default)] flex items-center justify-center text-xs font-semibold"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        {i + 1}
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900 mb-1">
+                          {s.title}
+                        </p>
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                          {s.desc}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+
+                <p className="mt-6 pt-5 border-t border-[var(--border-default)] text-sm text-slate-600">
+                  Prefer to talk first?{" "}
+                  <a
+                    href="mailto:vishal.buildss@gmail.com"
+                    className="font-semibold underline underline-offset-2"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    Email us directly
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
