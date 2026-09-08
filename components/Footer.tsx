@@ -64,11 +64,13 @@ export default function Footer() {
 
           {/* Nav Links with Packages */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Web & AI Packages</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Services</h4>
             <ul className="space-y-2 text-xs text-slate-600 font-semibold">
-              <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Launch (₹12,000 / $150)</a></li>
-              <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Business (₹30,000 / $375)</a></li>
-              <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Automate (₹65,000 / $800)</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom website design</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Business &amp; website review</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI assistants &amp; automation</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom apps &amp; dashboards</a></li>
+              <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Pricing</a></li>
             </ul>
           </div>
 
@@ -88,10 +90,10 @@ export default function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Direct Contact</h4>
             <div className="space-y-1.5 text-xs text-slate-600 font-medium">
               <p>Email: <a href="mailto:vishal.buildss@gmail.com" className="text-slate-900 font-bold hover:underline">vishal.buildss@gmail.com</a></p>
-              <p>Portfolio: <a href="https://vishal-tiwari.me" target="_blank" rel="noopener noreferrer" className="text-slate-900 font-bold hover:underline">vishal-tiwari.me</a></p>
-              <p>Based in <span className="text-slate-800 font-bold">Mumbai</span>, working remotely across India</p>
-              <p>Delivery Timeline: <span className="text-slate-800 font-bold">5 Days to 4 Weeks</span></p>
-              <p>Payment Terms: <span className="text-slate-800 font-bold">50% Advance, 50% Delivery</span></p>
+              <p>Based in <span className="text-slate-800 font-bold">Mumbai, India</span>. We work remotely with clients across India and overseas.</p>
+              <p>Hours: <span className="text-slate-800 font-bold">Mon&ndash;Sat, 10:00&ndash;19:00 IST</span></p>
+              <p>We reply to every enquiry within <span className="text-slate-800 font-bold">24 hours</span>.</p>
+              <p>Payment terms: <span className="text-slate-800 font-bold">50% advance, 50% on delivery</span></p>
               <div className="pt-2">
                 <a
                   href="/#contact"

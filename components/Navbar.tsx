@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { User, LogOut, Menu, X, FolderGit2, DollarSign, Zap, Sparkles, ChevronDown } from "lucide-react";
+import { User, LogOut, Menu, X, FolderGit2, DollarSign, Zap, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const WHATSAPP_NUMBER = "918291569470";
@@ -93,20 +93,17 @@ export default function Navbar() {
 
           {/* Sentence-case nav links */}
           <div className="hidden lg:flex items-center space-x-9 text-[15px] font-normal text-[var(--foreground)]/80">
-            <a href="/" className="hover:text-[var(--foreground)] transition-colors">
-              Home
-            </a>
-            <a href="/#services" className="flex items-center gap-1 hover:text-[var(--foreground)] transition-colors">
-              What we do <ChevronDown className="w-3.5 h-3.5 opacity-60" />
-            </a>
-            <a href="/#tech" className="flex items-center gap-1 hover:text-[var(--foreground)] transition-colors">
-              Our stack <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+            <a href="/#services" className="hover:text-[var(--foreground)] transition-colors">
+              What we do
             </a>
             <a href="/projects" className="hover:text-[var(--foreground)] transition-colors">
               Our work
             </a>
             <a href="/#pricing" className="hover:text-[var(--foreground)] transition-colors">
               Pricing
+            </a>
+            <a href="/about" className="hover:text-[var(--foreground)] transition-colors">
+              About
             </a>
           </div>
 
@@ -198,25 +195,11 @@ export default function Navbar() {
           >
             <div className="px-6 pt-4 pb-8 space-y-1 text-[15px] text-[var(--foreground)]/85">
               <a
-                href="/"
-                onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-[var(--border-default)] text-[var(--foreground)] font-medium"
-              >
-                Home
-              </a>
-              <a
                 href="/#services"
                 onClick={() => setIsOpen(false)}
                 className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
               >
                 What we do
-              </a>
-              <a
-                href="/#tech"
-                onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
-              >
-                Our stack
               </a>
               <a
                 href="/projects"
@@ -231,6 +214,13 @@ export default function Navbar() {
                 className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
               >
                 Pricing
+              </a>
+              <a
+                href="/about"
+                onClick={() => setIsOpen(false)}
+                className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
+              >
+                About
               </a>
               <a
                 href="/#contact"
