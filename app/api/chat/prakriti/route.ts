@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import PrakritiKnowledge from "@/models/PrakritiKnowledge";
 import { PRAKRITI_DATASET } from "@/lib/prakritiDataset";
+import { askGemini } from "@/lib/gemini";
 
 export async function POST(req: Request) {
   try {
@@ -254,8 +255,17 @@ Timelines begin immediately after receiving your content and 50% advance deposit
     }
 
     // =========================================================================
-    // TIER 3: NATURAL CONVERSATIONAL FALLBACK
+    // TIER 3: GEMINI-POWERED CONVERSATIONAL FALLBACK (with a static safety net
+    // if GEMINI_API_KEY isn't set or the request fails for any reason)
     // =========================================================================
+    const geminiReply = await askGemini(rawUserQuery);
+    if (geminiReply) {
+      return NextResponse.json({
+        role: "assistant",
+        content: geminiReply,
+      });
+    }
+
     return NextResponse.json({
       role: "assistant",
       content: `Hello! I am Prakriti. I'm here to help you build your website or AI automation system! 🚀
