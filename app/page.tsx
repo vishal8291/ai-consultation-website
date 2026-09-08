@@ -8,7 +8,7 @@ import FaqSection from "@/components/FaqSection";
 import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
-import { ArrowRight, Globe, Bot, CheckCircle2, ShieldCheck, Clock, Cpu, Layers } from "lucide-react";
+import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
 const SERVICES = [
   {
@@ -148,19 +148,6 @@ export default function Home() {
                 </a>
               </div>
 
-              <div
-                className="hero-fade-in-up mt-8 pt-6 border-t border-[var(--border-default)] flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600"
-                style={{ animationDelay: "0.4s" }}
-              >
-                <span className="flex items-center">
-                  <Clock className="w-4 h-4 mr-2 text-slate-400" />
-                  7 to 21 days delivery
-                </span>
-                <span className="flex items-center">
-                  <ShieldCheck className="w-4 h-4 mr-2 text-slate-400" />
-                  You own 100% of the code
-                </span>
-              </div>
             </div>
 
             {/* What happens next */}
