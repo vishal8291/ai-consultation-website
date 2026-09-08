@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
-            What you can always count on
+            Our Website &amp; AI Development Standards
           </h2>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
             Every project we take on comes with the same four promises.

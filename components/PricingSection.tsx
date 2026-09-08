@@ -114,7 +114,7 @@ export default function PricingSection() {
               PRICING
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
-              Web & AI Packages
+              Website &amp; AI Automation Pricing
             </h2>
             <p className="text-base sm:text-lg text-slate-400 mt-2 max-w-2xl font-medium">
               Choose a website tier or an AI automation package. Fixed pricing, 50% due upfront.

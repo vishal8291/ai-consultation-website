@@ -137,7 +137,7 @@ export default function Home() {
               WHAT WE ACTUALLY BUILD
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
-              Four ways this usually plays out
+              Website Design &amp; AI Automation, Built to Fit
             </h2>
             <p className="text-base sm:text-lg text-slate-600 font-medium">
               Most small-business problems land in one of these buckets. Tell us yours and we'll tell you honestly which one it is.
@@ -375,7 +375,7 @@ export default function Home() {
               OUR PROCESS
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
-              From idea to launch in 7 - 21 days
+              Idea to Launch: Website or AI in 7-21 Days
             </h2>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
               A clear, step-by-step process, so your website or system is ready on time.

@@ -30,6 +30,19 @@ const FAQS = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
@@ -39,10 +52,14 @@ export default function FaqSection() {
 
   return (
     <section id="faq" className="py-24 bg-white text-slate-900 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
-            Got Questions? We Have Answers.
+            Website &amp; AI Development, Answered
           </h2>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed">
             Everything you need to know about our process, pricing, and support.

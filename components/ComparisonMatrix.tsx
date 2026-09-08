@@ -59,7 +59,7 @@ export default function ComparisonMatrix() {
             COMPARISON
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
-            How We Compare Against The Market
+            CustomeAI vs. Web Design Agencies
           </h2>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-medium">
             See how we compare against traditional agencies and freelancers.
