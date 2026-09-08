@@ -78,11 +78,6 @@ export default function PricingSection() {
             setLoadingTierId(null);
           },
         },
-        prefill: {
-          name: "Valued Client",
-          email: "vishal.buildss@gmail.com",
-          contact: "9999999999",
-        },
         theme: {
           color: "#000000",
         },
