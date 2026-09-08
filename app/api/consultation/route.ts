@@ -4,6 +4,7 @@ import { connectDB } from "@/lib/mongodb";
 import Consultation from "@/models/Consultation";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 import { verifyAdminAuth } from "@/lib/auth";
+import { sendAdminNotification, newConsultationEmail } from "@/lib/email";
 
 // Public rate-limited submission handler
 export async function POST(req: NextRequest) {
@@ -41,6 +42,15 @@ export async function POST(req: NextRequest) {
     });
 
     console.log(`✅ Consultation recorded: ${consultation._id} for ${cleanName}`);
+
+    const { subject, html } = newConsultationEmail({
+      name: cleanName,
+      business: cleanBusiness,
+      contact: cleanContact,
+      message: cleanMessage,
+    });
+    // Fire-and-forget: a notification failure must never fail the user's submission
+    sendAdminNotification(subject, html);
 
     return NextResponse.json(
       {
