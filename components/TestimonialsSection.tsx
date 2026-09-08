@@ -36,7 +36,7 @@ const ENGINEERING_STANDARDS = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section className="py-24 bg-[var(--surface-dark)] text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-slate-800/80 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-700 flex flex-col justify-between hover:border-white transition-all group"
+                className="dark-card-pro p-6 sm:p-8 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">

@@ -100,10 +100,7 @@ export default function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden">
-
-      {/* Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-white/10 blur-[140px] rounded-full pointer-events-none" />
+    <section id="pricing" className="py-24 sm:py-32 bg-[var(--surface-dark)] text-white relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -153,11 +150,9 @@ export default function PricingSection() {
           {PRICING_TIERS.map((tier) => (
             <div
               key={tier.id}
-              style={tier.popular ? { borderColor: "var(--accent-amber)" } : undefined}
-              className={`rounded-3xl p-8 sm:p-9 flex flex-col justify-between relative transition-all duration-300 ${
-                tier.popular
-                  ? "bg-[#171717] text-white border-2 shadow-[0_20px_60px_-15px_rgba(217,119,6,0.25)] scale-[1.03]"
-                  : "bg-[#0f172a]/70 text-white border border-slate-800 shadow-xl hover:border-slate-700"
+              style={tier.popular ? { borderColor: "var(--accent-amber)", borderWidth: "2px" } : undefined}
+              className={`dark-card-pro p-8 sm:p-9 flex flex-col justify-between relative ${
+                tier.popular ? "scale-[1.03]" : ""
               }`}
             >
               {tier.popular && (
@@ -193,8 +188,8 @@ export default function PricingSection() {
                 <div className="space-y-3.5 mb-8">
                   {tier.features.map((feat) => (
                     <div key={feat} className="flex items-start space-x-3 text-xs font-semibold text-slate-300">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-emerald-400" />
+                      <div style={{ backgroundColor: "rgba(13, 148, 136, 0.18)", color: "var(--accent-teal)" }} className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3" style={{ color: "var(--accent-teal)" }} />
                       </div>
                       <span className="leading-snug">{feat}</span>
                     </div>
@@ -235,7 +230,7 @@ export default function PricingSection() {
             {ADDON_OPTIONS.map((addon) => (
               <div
                 key={addon.id}
-                className="bg-[#111827] p-5 rounded-2xl border border-slate-800 flex items-center justify-between hover:border-white/50 transition-all hover:translate-x-1"
+                className="dark-card-pro p-5 flex items-center justify-between hover:translate-x-1"
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-white" />
@@ -258,7 +253,7 @@ export default function PricingSection() {
             </h3>
           </div>
           
-          <div className="bg-[#111827] rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
+          <div className="dark-card-pro p-6 sm:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {GROUND_RULES.map((rule, idx) => (
                 <div key={idx} className="flex items-start space-x-3 text-xs sm:text-sm font-semibold text-slate-300">

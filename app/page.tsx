@@ -32,9 +32,6 @@ export default function Home() {
         className="relative pt-28 sm:pt-32 md:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[#0a0a0a]"
       >
 
-        {/* Subtle accent wash over the photo */}
-        <div className="absolute top-[-100px] right-[-140px] w-[520px] h-[520px] bg-gradient-to-br from-[#533afd]/20 via-transparent to-transparent blur-[130px] rounded-full pointer-events-none z-0" />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-center">
 
@@ -153,16 +150,14 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="md:col-span-7 bg-[#0b0f19] text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-2xl flex flex-col justify-between relative overflow-hidden group"
+              className="md:col-span-7 dark-card-pro text-white p-8 sm:p-10 flex flex-col justify-between relative group"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-3xl rounded-full pointer-events-none" />
-
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="px-3 py-1 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-wider shadow-sm">
                     PILLAR 01 • WEBSITES
                   </span>
-                  <span style={{ borderColor: "var(--accent)" }} className="text-xs font-mono font-bold text-white px-3 py-1 rounded-lg bg-slate-800 border">
+                  <span style={{ borderColor: "var(--accent)" }} className="text-xs font-mono font-bold text-white px-3 py-1 rounded-lg bg-[var(--surface-dark)] border">
                     100/100 SPEED SCORE
                   </span>
                 </div>
@@ -176,15 +171,15 @@ export default function Home() {
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
                     <p className="text-white font-semibold mb-1">Fast</p>
                     <p className="text-slate-300 font-medium">Loads in under a second, every time</p>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
                     <p className="text-white font-semibold mb-1">Easy to use</p>
                     <p className="text-slate-300 font-medium">Clean layout that's simple to read and navigate</p>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
                     <p className="text-white font-semibold mb-1">Found on Google</p>
                     <p className="text-slate-300 font-medium">Built so search engines can find you</p>
                   </div>
@@ -207,7 +202,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               whileHover={{ y: -4 }}
-              className="md:col-span-5 bg-white rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group"
+              className="md:col-span-5 glass-card-pro p-8 flex flex-col justify-between relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
@@ -259,7 +254,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               whileHover={{ y: -4 }}
-              className="md:col-span-5 bg-white rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group"
+              className="md:col-span-5 glass-card-pro p-8 flex flex-col justify-between relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
@@ -310,16 +305,14 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="md:col-span-7 bg-[#0b0f19] text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-2xl flex flex-col justify-between relative overflow-hidden group"
+              className="md:col-span-7 dark-card-pro text-white p-8 sm:p-10 flex flex-col justify-between relative group"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-3xl rounded-full pointer-events-none" />
-
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="px-3 py-1 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-wider shadow-sm">
                     PILLAR 04 • APPS
                   </span>
-                  <span style={{ borderColor: "var(--accent)" }} className="text-xs font-mono font-bold text-white px-3 py-1 rounded-lg bg-slate-800 border">
+                  <span style={{ borderColor: "var(--accent)" }} className="text-xs font-mono font-bold text-white px-3 py-1 rounded-lg bg-[var(--surface-dark)] border">
                     BUILT FOR YOUR BUSINESS
                   </span>
                 </div>
@@ -333,15 +326,15 @@ export default function Home() {
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
                     <p className="text-white font-semibold mb-1">Feels instant</p>
                     <p className="text-slate-300 font-medium">No waiting around, even with lots of data</p>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
                     <p className="text-white font-semibold mb-1">Secure logins</p>
                     <p className="text-slate-300 font-medium">Each person sees only what they should</p>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
                     <p className="text-white font-semibold mb-1">Always online</p>
                     <p className="text-slate-300 font-medium">Built to stay up and reliable</p>
                   </div>

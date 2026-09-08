@@ -50,7 +50,7 @@ const COMPARISON_ROWS = [
 
 export default function ComparisonMatrix() {
   return (
-    <section className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-y border-slate-800 bg-grid-pattern">
+    <section className="py-24 sm:py-32 bg-[var(--surface-dark)] text-white relative overflow-hidden border-y border-white/10 bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
@@ -67,11 +67,11 @@ export default function ComparisonMatrix() {
         </div>
 
         {/* Comparison Table Box */}
-        <div className="bg-slate-900 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-800">
+        <div className="dark-card-pro overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-black border-b border-slate-800 text-xs font-semibold uppercase tracking-wider text-slate-300">
+                <tr className="bg-[var(--surface-dark)] border-b border-white/10 text-xs font-semibold uppercase tracking-wider text-slate-300">
                   <th className="p-6">What matters</th>
                   <th className="p-6 text-slate-500">A Freelancer</th>
                   <th className="p-6 text-slate-500">A Regular Agency</th>
@@ -83,7 +83,7 @@ export default function ComparisonMatrix() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800 text-sm">
+              <tbody className="divide-y divide-white/10 text-sm">
                 {COMPARISON_ROWS.map((row, idx) => (
                   <tr key={idx} className="hover:bg-white/5 transition-colors">
                     <td className="p-6 font-semibold text-white text-sm">{row.feature}</td>

@@ -14,11 +14,12 @@
   --background: #ffffff;
   --foreground: #061b31;
   --surface-card: #ffffff;
-  --surface-dark: #0a0a0a;
-  --surface-dark-card: #171717;
-  --accent: #533afd;
+  --surface-dark: #0a2540;
+  --surface-dark-card: #0f2f52;
+  --surface-dark-border: rgba(255, 255, 255, 0.12);
+  --accent: #4f6f93;
   --accent-teal: #0d9488;
-  --accent-amber: #d97706;
+  --accent-amber: #b45309;
 }
 
 /* Hero entrance animation runs in pure CSS (no JS/hydration dependency) so the
@@ -82,28 +83,32 @@ body {
 .glass-card-pro {
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 10px 30px -5px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-card-pro:hover {
-  border-color: rgba(10, 10, 10, 0.4);
-  box-shadow: 0 20px 40px -10px rgba(10, 10, 10, 0.12), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
-  transform: translateY(-3px);
+  border-color: rgba(10, 10, 10, 0.25);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04), 0 16px 32px -8px rgba(10, 10, 10, 0.1);
+  transform: translateY(-2px);
 }
 
-/* High-Contrast Obsidian Dark Card System */
+/* Stripe-style dark card: one consistent navy tone, hairline border, restrained
+   shadow — no glass blur, no neon glow. Used for every dark card on the site so
+   we stop mixing three unrelated near-black hex values across components. */
 .dark-card-pro {
-  background: #171717;
-  border: 1px solid rgba(64, 64, 64, 0.6);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--surface-dark-card);
+  border: 1px solid var(--surface-dark-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 24px -8px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dark-card-pro:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 25px 60px -10px rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 16px 32px -8px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
 }
 
 /* Restrained Solid Buttons — Stripe-style: minimal radius, regular weight, subtle hover */
@@ -116,7 +121,7 @@ body {
 }
 
 .btn-yellow-solid:hover {
-  background: #4529e0;
+  background: #3c5876;
 }
 
 .btn-white-solid {

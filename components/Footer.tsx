@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-slate-800 hover:bg-pink-600 hover:text-white text-slate-300 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-xl bg-slate-800 hover:bg-white hover:text-slate-900 text-slate-300 flex items-center justify-center transition-colors"
                 title="Instagram Account"
               >
                 <Instagram className="w-4 h-4" />
