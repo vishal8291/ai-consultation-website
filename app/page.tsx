@@ -60,6 +60,75 @@ const FACTS = [
   { label: "Based in", value: "Mumbai, India" },
 ];
 
+/**
+ * Automation capability list. This is deliberately broad rather than a set of
+ * fixed packages: the point is for a visitor to find their own problem in it and
+ * conclude we can take on whatever they have. Worded as what we build, not as
+ * work already delivered, since only some of these have shipped for a client.
+ */
+const AUTOMATION_AREAS = [
+  {
+    area: "Sales and leads",
+    items: [
+      "Capture leads from your site, Instagram, or ads into one place",
+      "Score and sort enquiries so the good ones surface first",
+      "Automatic follow-up until someone replies",
+      "Quotations and proposals generated from a template",
+      "Appointment booking, confirmation, and reminders",
+    ],
+  },
+  {
+    area: "Customer communication",
+    items: [
+      "WhatsApp replies, order updates, and notifications",
+      "AI chat support on your website, around the clock",
+      "Email replies, campaigns, and follow-up sequences",
+      "Support tickets raised and routed automatically",
+      "Anything complicated handed to a real person",
+    ],
+  },
+  {
+    area: "Documents and data",
+    items: [
+      "Read PDFs, scans, and photos, and pull the fields out",
+      "Form submissions straight into your database or CRM",
+      "Invoices, contracts, and certificates generated on demand",
+      "Records filed, renamed, and routed without anyone touching them",
+      "Data moved between systems that were never built to talk",
+    ],
+  },
+  {
+    area: "Money and admin",
+    items: [
+      "Invoices raised and chased automatically",
+      "Payment links sent, confirmations logged",
+      "Payments matched against orders",
+      "Expenses sorted into categories",
+      "Daily, weekly, or monthly reports in your inbox",
+    ],
+  },
+  {
+    area: "Operations and stock",
+    items: [
+      "Low stock alerts and automatic purchase triggers",
+      "Orders processed and customers notified at each stage",
+      "Delivery tracking updates sent without being asked",
+      "Staff attendance, leave, and shift notifications",
+      "Alerts when something breaks, before a customer notices",
+    ],
+  },
+  {
+    area: "Marketing and content",
+    items: [
+      "Social posts drafted, scheduled, and published",
+      "Ad creative and variations generated in bulk",
+      "Audience lists built and segmented from your own data",
+      "Blog and product copy drafted from a brief",
+      "Performance pulled into one report you actually read",
+    ],
+  },
+];
+
 const NEXT_STEPS = [
   {
     title: "You describe the problem",
@@ -300,6 +369,69 @@ export default function Home() {
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* WHAT WE CAN AUTOMATE
+          A capability list, not a package menu. Plain columns rather than cards,
+          so it reads as a reference list and stays visually distinct from the
+          four service cards above it. */}
+      <section id="automation" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
+              What we can automate
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4 tracking-tight">
+              If your team does it the same way every week, it can probably run itself
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
+              Most repetitive business work falls into the areas below. This is a
+              reference list rather than a set of packages: we build the specific
+              combination your business needs. If what you do isn&apos;t here, it is
+              usually a variation of something that is, so ask.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+            {AUTOMATION_AREAS.map((group) => (
+              <div key={group.area} className="border-t border-[var(--border-default)] pt-5">
+                <h3 className="text-base font-semibold text-slate-900 mb-4">
+                  {group.area}
+                </h3>
+                <ul className="space-y-2.5">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-sm text-slate-600 leading-relaxed pl-4 relative"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute left-0 top-[0.6em] w-1.5 h-px"
+                        style={{ background: "var(--accent)" }}
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-12 pt-8 border-t border-[var(--border-default)] text-base text-slate-600 max-w-3xl">
+            Not sure which of these your problem is, or whether it is worth
+            automating at all?{" "}
+            <a
+              href="#contact"
+              className="font-semibold underline underline-offset-2"
+              style={{ color: "var(--accent)" }}
+            >
+              Describe it to us
+            </a>{" "}
+            and we will tell you honestly, including when the answer is that it
+            is cheaper to leave it as it is.
+          </p>
         </div>
       </section>
 
