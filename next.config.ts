@@ -33,7 +33,12 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data: https:",
       "font-src 'self' data: https://fonts.gstatic.com",
-      "connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com https://www.google-analytics.com https://region1.google-analytics.com",
+      // GA4 does not beacon to a single host: besides www.google-analytics.com it
+      // uses regionN.google-analytics.com (the region varies by visitor, so this
+      // is wildcarded rather than pinned to region1), analytics.google.com, and
+      // — once Google Signals is on — stats.g.doubleclick.net and www.google.com.
+      // Listing only the first two silently dropped most hits at the CSP layer.
+      "connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com",
       "frame-src https://api.razorpay.com https://checkout.razorpay.com",
       "object-src 'none'",
       "base-uri 'self'",
