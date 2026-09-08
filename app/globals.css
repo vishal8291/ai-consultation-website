@@ -1,25 +1,28 @@
 @import "tailwindcss";
 
-/* Override Tailwind's slate-900/slate-600 with Stripe's exact real text colors,
-   pulled directly from stripe.com's computed styles — since text-slate-900 and
-   text-slate-600 are already used pervasively across every component, this makes
-   the whole site match Stripe's palette without touching every className. */
+/* Override Tailwind's slate-900/slate-600 with Amazon's exact real text/link
+   colors, pulled directly from amazon.com's computed styles — since
+   text-slate-900 and text-slate-600 are already used pervasively across every
+   component, this makes the whole site match Amazon's palette without
+   touching every className. */
 @theme {
-  --color-slate-900: #061b31;
-  --color-slate-600: #50617a;
-  --color-black: #061b31;
+  --color-slate-900: #0f1111;
+  --color-slate-600: #565959;
+  --color-black: #0f1111;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #061b31;
+  --foreground: #0f1111;
   --surface-card: #ffffff;
-  --surface-dark: #0a2540;
-  --surface-dark-card: #0f2f52;
-  --surface-dark-border: rgba(255, 255, 255, 0.12);
-  --accent: #4f6f93;
-  --accent-teal: #0d9488;
-  --accent-amber: #b45309;
+  --surface-alt: #f7f8f8;
+  --border-default: #d5d9d9;
+  --border-strong: #888c8c;
+  --accent: #c45500;
+  --cta-bg: #ffd814;
+  --cta-bg-hover: #f7ca00;
+  --cta-text: #0f1111;
+  --link: #2162a1;
 }
 
 /* Hero entrance animation runs in pure CSS (no JS/hydration dependency) so the
@@ -41,25 +44,24 @@
   }
 }
 
-/* Thin colored marker used to break up long stretches of black/white sections */
+/* Thin colored marker used to break up long stretches of section */
 .accent-bar {
   height: 3px;
   background: linear-gradient(to right, transparent, var(--accent), transparent);
 }
 
-/* Full-width solid section markers, one per accent color, cycled between major sections */
+/* Full-width solid section markers between major sections — one restrained
+   accent color only, no rotating hues */
 .marker-bar {
-  height: 4px;
+  height: 3px;
   width: 100%;
+  background: var(--border-default);
 }
-.marker-indigo { background: var(--accent); }
-.marker-teal { background: var(--accent-teal); }
-.marker-amber { background: var(--accent-amber); }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Aptos', 'Aptos Display', var(--font-open-sans), 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: 'Aptos', Arial, 'Helvetica Neue', var(--font-open-sans), 'Segoe UI', Helvetica, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -70,88 +72,84 @@ body {
 .bg-grid-pattern {
   background-size: 32px 32px;
   background-image:
-    linear-gradient(to right, rgba(10, 10, 10, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 17, 17, 0.03) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(10, 10, 10, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(15, 17, 17, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Elevated White Card System */
+/* Amazon-style product-card system: white, near-square corners, a real gray
+   border instead of a shadow doing the work, and only a very small lift on
+   hover — used for every card on the site, dark or light alike, since the
+   site no longer has a dark surface. */
 .glass-card-pro {
   background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 10px 30px -5px rgba(0, 0, 0, 0.04);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .glass-card-pro:hover {
-  border-color: rgba(10, 10, 10, 0.25);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04), 0 16px 32px -8px rgba(10, 10, 10, 0.1);
-  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 8px rgba(15, 17, 17, 0.08);
 }
 
-/* Stripe-style dark card: one consistent navy tone, hairline border, restrained
-   shadow — no glass blur, no neon glow. Used for every dark card on the site so
-   we stop mixing three unrelated near-black hex values across components. */
 .dark-card-pro {
-  background: var(--surface-dark-card);
-  border: 1px solid var(--surface-dark-border);
-  border-radius: 16px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 24px -8px rgba(0, 0, 0, 0.35);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--surface-alt);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .dark-card-pro:hover {
-  border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 16px 32px -8px rgba(0, 0, 0, 0.45);
-  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 8px rgba(15, 17, 17, 0.08);
 }
 
-/* Restrained Solid Buttons — Stripe-style: minimal radius, regular weight, subtle hover */
+/* Amazon-style buttons: pill-shaped primary (yellow fill, black text),
+   square-ish secondary — minimal, flat, no gradients */
 .btn-yellow-solid {
-  background: var(--accent);
-  color: #ffffff;
-  font-weight: 500;
-  border-radius: 6px;
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  font-weight: 600;
+  border: 1px solid #a88734;
+  border-radius: 100px;
   transition: background-color 0.15s ease;
 }
 
 .btn-yellow-solid:hover {
-  background: #3c5876;
+  background: var(--cta-bg-hover);
 }
 
 .btn-white-solid {
   background: #ffffff;
-  color: #0a0a0a;
+  color: var(--foreground);
   font-weight: 500;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 100px;
   transition: background-color 0.15s ease;
 }
 
 .btn-white-solid:hover {
-  background: #f8fafc;
+  background: var(--surface-alt);
 }
 
 .btn-dark-solid {
-  background: #061b31;
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--foreground);
   font-weight: 500;
-  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 100px;
   transition: background-color 0.15s ease;
 }
 
 .btn-dark-solid:hover {
-  background: #0f2c4c;
-}
-
-/* Ambient Radial Glow */
-.ambient-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(10, 10, 10, 0.08) 0%, rgba(10, 10, 10, 0) 70%);
+  background: var(--surface-alt);
 }
 
 /* Custom Sleek Scrollbar */
@@ -163,11 +161,11 @@ body {
   background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--border-strong);
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0a0a0a;
+  background: #565959;
 }
 
 /* Hide scrollbar for clean horizontal carousels */

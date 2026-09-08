@@ -8,14 +8,14 @@ export default function PrivacyPageClient() {
     <main className="min-h-screen bg-white text-slate-900 antialiased selection:bg-black selection:text-white">
 
       {/* Hero Banner */}
-      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 bg-slate-900 text-white">
+      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 bg-white border-b border-[var(--border-default)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-mono font-bold border border-white/30">
+          <div style={{ color: "var(--accent)" }} className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[var(--surface-alt)] text-xs font-mono font-bold border border-[var(--border-default)]">
             <Lock className="w-3.5 h-3.5" />
             <span>DATA PROTECTION & PRIVACY</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Privacy Policy</h1>
-          <p className="text-slate-300 text-xs sm:text-sm">
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">Privacy Policy</h1>
+          <p className="text-slate-600 text-xs sm:text-sm">
             Last Updated: August 22, 2026 • Your Data Privacy & Security Commitments
           </p>
         </div>

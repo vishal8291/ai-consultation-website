@@ -8,15 +8,14 @@ export default function AboutPageClient() {
     <main className="min-h-screen bg-white text-slate-900 antialiased selection:bg-black selection:text-white">
 
       {/* Hero Banner Section */}
-      <section className="pt-36 pb-16 sm:pt-44 sm:pb-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-3xl rounded-full pointer-events-none" />
+      <section className="pt-36 pb-16 sm:pt-44 sm:pb-24 bg-white border-b border-[var(--border-default)] relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight leading-tight text-slate-900">
             We start with your problem, <br />
             not our services list.
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            <strong>CustomeAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days. Based in Mumbai, working remotely with businesses across India.
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+            <strong className="text-slate-900">CustomeAI</strong> is a small studio for small businesses &mdash; we design, build, and support websites and AI systems around the specific thing that's actually broken, delivered in 7 to 21 days. Based in Mumbai, working remotely with businesses across India.
           </p>
         </div>
       </section>
@@ -25,30 +24,30 @@ export default function AboutPageClient() {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
+
             {/* Founder Card */}
             <div className="md:col-span-5 relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 p-8 text-center text-white space-y-6">
-                <div className="w-24 h-24 mx-auto rounded-full bg-white flex items-center justify-center text-black font-semibold text-3xl shadow-xl">
+              <div className="glass-card-pro overflow-hidden p-8 text-center text-slate-900 space-y-6">
+                <div style={{ color: "var(--accent)" }} className="w-24 h-24 mx-auto rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] flex items-center justify-center font-semibold text-3xl">
                   VT
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-white">Vishal Tiwari</h3>
-                  <p className="text-xs text-white font-mono font-bold uppercase tracking-wider mt-1">Founder & Lead Systems Engineer</p>
+                  <h3 className="text-2xl font-semibold text-slate-900">Vishal Tiwari</h3>
+                  <p style={{ color: "var(--accent)" }} className="text-xs font-mono font-bold uppercase tracking-wider mt-1">Founder & Lead Systems Engineer</p>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   Full-stack developer specializing in Next.js, React, Python, and AI automation.
                 </p>
 
                 {/* Social & Portfolio Links */}
-                <div className="pt-4 border-t border-slate-800 space-y-3">
-                  <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">Connect & Socials</p>
+                <div className="pt-4 border-t border-[var(--border-default)] space-y-3">
+                  <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">Connect & Socials</p>
                   <div className="flex flex-col space-y-2 text-xs font-bold">
                     <a
                       href="https://vishal-tiwari.me"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-white hover:text-black text-white border border-slate-700 flex items-center justify-between transition-colors"
+                      className="px-4 py-2.5 rounded-lg bg-[var(--surface-alt)] hover:bg-white text-slate-800 border border-[var(--border-default)] hover:border-[var(--border-strong)] flex items-center justify-between transition-colors"
                     >
                       <span className="flex items-center space-x-2">
                         <Globe className="w-4 h-4" />
@@ -61,7 +60,7 @@ export default function AboutPageClient() {
                       href="https://github.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-white hover:text-slate-900 text-slate-200 border border-slate-700 flex items-center justify-between transition-colors"
+                      className="px-4 py-2.5 rounded-lg bg-[var(--surface-alt)] hover:bg-white text-slate-800 border border-[var(--border-default)] hover:border-[var(--border-strong)] flex items-center justify-between transition-colors"
                     >
                       <span className="flex items-center space-x-2">
                         <Github className="w-4 h-4" />
@@ -74,7 +73,7 @@ export default function AboutPageClient() {
                       href="https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-pink-600 hover:text-white text-slate-200 border border-slate-700 flex items-center justify-between transition-colors"
+                      className="px-4 py-2.5 rounded-lg bg-[var(--surface-alt)] hover:bg-white text-slate-800 border border-[var(--border-default)] hover:border-[var(--border-strong)] flex items-center justify-between transition-colors"
                     >
                       <span className="flex items-center space-x-2">
                         <Instagram className="w-4 h-4" />
@@ -256,11 +255,11 @@ export default function AboutPageClient() {
       </section>
 
       {/* Direct Contact & Social Reachout Section */}
-      <section className="py-20 bg-slate-900 text-white">
+      <section className="py-20 bg-[var(--surface-alt)] border-t border-[var(--border-default)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div>
-            <h2 className="text-3xl sm:text-5xl font-semibold mb-3">Get in Touch</h2>
-            <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-medium">
+            <h2 className="text-3xl sm:text-5xl font-semibold mb-3 text-slate-900">Get in Touch</h2>
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-medium">
               Have questions about a new website or AI project? Reach out:
             </p>
           </div>
@@ -268,9 +267,9 @@ export default function AboutPageClient() {
           <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:vishal.buildss@gmail.com"
-              className="px-8 py-4 rounded-full bg-white text-black font-semibold text-sm flex items-center space-x-2 shadow-xl hover:scale-105 transition-transform"
+              className="btn-yellow-solid px-8 py-4 text-sm flex items-center space-x-2"
             >
-              <Mail className="w-4 h-4 text-black" />
+              <Mail className="w-4 h-4" />
               <span>Email: vishal.buildss@gmail.com</span>
             </a>
 
@@ -278,9 +277,9 @@ export default function AboutPageClient() {
               href="https://vishal-tiwari.me"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm flex items-center space-x-2 border border-slate-700 transition-colors"
+              className="btn-white-solid px-8 py-4 text-sm flex items-center space-x-2"
             >
-              <Globe className="w-4 h-4 text-white" />
+              <Globe className="w-4 h-4" />
               <span>Visit vishal-tiwari.me</span>
             </a>
           </div>

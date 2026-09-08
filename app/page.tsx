@@ -23,25 +23,18 @@ export default function Home() {
       {/* HERO SECTION */}
       <section
         id="hero"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.82) 45%, rgba(10,10,10,0.94) 100%), url('/images/heroimg.avif')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        className="relative pt-28 sm:pt-32 md:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[#0a0a0a]"
+        className="relative pt-24 sm:pt-28 pb-14 sm:pb-16 bg-white border-b border-[var(--border-default)]"
       >
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center">
 
             {/* Content Column */}
-            <div className="max-w-3xl space-y-6 sm:space-y-8 text-center pt-4 pb-6">
+            <div className="max-w-3xl space-y-5 text-center">
 
               {/* Exact 3-Line Headline Format Requested by User — pure CSS entrance so it
                   paints on first frame instead of waiting on React hydration */}
               <h1
-                className="hero-fade-in-up text-3xl sm:text-5xl lg:text-[44px] font-semibold tracking-tight leading-[1.16] text-white font-sans"
+                className="hero-fade-in-up text-3xl sm:text-5xl lg:text-[44px] font-semibold tracking-tight leading-[1.16] text-[var(--foreground)] font-sans"
                 style={{ animationDelay: "0.1s" }}
               >
                 Tell us the problem. <br />
@@ -51,29 +44,28 @@ export default function Home() {
 
               {/* Description Text */}
               <p
-                className="hero-fade-in-up text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto font-medium"
+                className="hero-fade-in-up text-base sm:text-lg text-[#565959] max-w-xl leading-relaxed mx-auto font-medium"
                 style={{ animationDelay: "0.2s" }}
               >
-                CustomeAI is a studio, not a menu of packages. Describe the problem in your business &mdash; a website that isn't converting, a process eating up your week, a task you wish ran itself &mdash; and we design, build, and support the specific system that fixes it, in <strong className="text-white font-semibold">7 to 21 days</strong> with itemized pricing.
+                CustomeAI is a studio, not a menu of packages. Describe the problem in your business &mdash; a website that isn't converting, a process eating up your week, a task you wish ran itself &mdash; and we design, build, and support the specific system that fixes it, in <strong className="text-[var(--foreground)] font-semibold">7 to 21 days</strong> with itemized pricing.
               </p>
 
-              {/* Glowing Gradient Pill CTA Button */}
+              {/* CTA Buttons */}
               <div
-                className="hero-fade-in-up pt-2 flex flex-col sm:flex-row items-center justify-center gap-4"
+                className="hero-fade-in-up pt-1 flex flex-col sm:flex-row items-center justify-center gap-3"
                 style={{ animationDelay: "0.3s" }}
               >
                 <a
                   href="#pricing"
-                  style={{ background: "var(--accent)" }}
-                  className="w-full sm:w-auto px-6 py-3 rounded-md text-white font-semibold text-sm flex items-center justify-center space-x-2 transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_2px_10px_-2px_rgba(83,58,253,0.4)]"
+                  className="btn-yellow-solid w-full sm:w-auto px-6 py-3 text-sm flex items-center justify-center space-x-2"
                 >
                   <span>View pricing</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <a
                   href="#contact"
-                  className="w-full sm:w-auto px-6 py-3 rounded-md bg-transparent border border-white/25 hover:border-white/50 text-white font-semibold text-sm transition-transform hover:scale-[1.01] active:scale-[0.98]"
+                  className="btn-white-solid w-full sm:w-auto px-6 py-3 text-sm"
                 >
                   Share your problem
                 </a>
@@ -81,7 +73,7 @@ export default function Home() {
 
               {/* Trust Metric Badges */}
               <div
-                className="hero-fade-in-up pt-6 flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-slate-400"
+                className="hero-fade-in-up pt-4 flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#565959]"
                 style={{ animationDelay: "0.4s" }}
               >
                 <span className="flex items-center">
@@ -89,7 +81,7 @@ export default function Home() {
                   7-21 days delivery
                 </span>
                 <span className="flex items-center">
-                  <ShieldCheck style={{ color: "var(--accent-teal)" }} className="w-4 h-4 mr-1.5" />
+                  <ShieldCheck style={{ color: "var(--accent)" }} className="w-4 h-4 mr-1.5" />
                   100% code &amp; IP ownership
                 </span>
               </div>
@@ -122,14 +114,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="marker-bar marker-indigo" />
+      <div className="marker-bar" />
 
       {/* Engineering Pillars Bento Grid — WHAT WE DO */}
-      <section id="services" className="py-24 sm:py-32 bg-white relative overflow-hidden">
+      <section id="services" className="py-14 sm:py-16 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <span className="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold uppercase tracking-wider inline-block mb-3 border border-slate-200">
               WHAT WE ACTUALLY BUILD
             </span>
@@ -142,7 +134,7 @@ export default function Home() {
           </div>
 
           {/* Bento Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
 
             {/* Bento Card 1: Custom Website Design (Span 7) */}
             <motion.div
@@ -150,45 +142,45 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="md:col-span-7 dark-card-pro text-white p-8 sm:p-10 flex flex-col justify-between relative group"
+              className="md:col-span-7 glass-card-pro p-8 sm:p-10 flex flex-col justify-between relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="px-3 py-1 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-wider shadow-sm">
+                  <span className="px-3 py-1 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-[var(--foreground)] text-xs font-semibold uppercase tracking-wider">
                     PILLAR 01 • WEBSITES
                   </span>
-                  <span style={{ borderColor: "var(--accent)" }} className="text-xs font-mono font-bold text-white px-3 py-1 rounded-lg bg-[var(--surface-dark)] border">
+                  <span style={{ color: "var(--accent)", borderColor: "var(--accent)" }} className="text-xs font-mono font-bold px-3 py-1 rounded-lg bg-white border">
                     100/100 SPEED SCORE
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 group-hover:text-slate-300 transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-3 group-hover:text-slate-600 transition-colors">
                   Custom Website Design
                 </h3>
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
                   A website built just for you &mdash; looks great on every screen, loads fast, and feels smooth to use.
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
-                    <p className="text-white font-semibold mb-1">Fast</p>
-                    <p className="text-slate-300 font-medium">Loads in under a second, every time</p>
+                  <div className="p-3.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] text-xs">
+                    <p className="text-slate-900 font-semibold mb-1">Fast</p>
+                    <p className="text-slate-600 font-medium">Loads in under a second, every time</p>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
-                    <p className="text-white font-semibold mb-1">Easy to use</p>
-                    <p className="text-slate-300 font-medium">Clean layout that's simple to read and navigate</p>
+                  <div className="p-3.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] text-xs">
+                    <p className="text-slate-900 font-semibold mb-1">Easy to use</p>
+                    <p className="text-slate-600 font-medium">Clean layout that's simple to read and navigate</p>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
-                    <p className="text-white font-semibold mb-1">Found on Google</p>
-                    <p className="text-slate-300 font-medium">Built so search engines can find you</p>
+                  <div className="p-3.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] text-xs">
+                    <p className="text-slate-900 font-semibold mb-1">Found on Google</p>
+                    <p className="text-slate-600 font-medium">Built so search engines can find you</p>
                   </div>
                 </div>
               </div>
 
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-7 py-4 rounded-xl btn-white-solid text-black font-semibold text-sm inline-flex items-center justify-center space-x-2 shadow-md"
+                className="btn-yellow-solid w-full sm:w-auto px-7 py-4 text-sm inline-flex items-center justify-center space-x-2"
               >
                 <span>Request a Proposal</span>
                 <ArrowRight className="w-4 h-4" />
@@ -240,7 +232,7 @@ export default function Home() {
 
               <a
                 href="#contact"
-                className="w-full py-3.5 px-4 rounded-xl btn-dark-solid text-white font-semibold text-sm flex items-center justify-center space-x-2"
+                className="btn-dark-solid w-full py-3.5 px-4 text-sm flex items-center justify-center space-x-2"
               >
                 <span>Book an Audit</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -292,7 +284,7 @@ export default function Home() {
 
               <a
                 href="#contact"
-                className="w-full py-3.5 px-4 rounded-xl btn-dark-solid text-white font-semibold text-sm flex items-center justify-center space-x-2"
+                className="btn-dark-solid w-full py-3.5 px-4 text-sm flex items-center justify-center space-x-2"
               >
                 <span>Discuss AI Automation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -305,45 +297,45 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="md:col-span-7 dark-card-pro text-white p-8 sm:p-10 flex flex-col justify-between relative group"
+              className="md:col-span-7 glass-card-pro p-8 sm:p-10 flex flex-col justify-between relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="px-3 py-1 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-wider shadow-sm">
+                  <span className="px-3 py-1 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-[var(--foreground)] text-xs font-semibold uppercase tracking-wider">
                     PILLAR 04 • APPS
                   </span>
-                  <span style={{ borderColor: "var(--accent)" }} className="text-xs font-mono font-bold text-white px-3 py-1 rounded-lg bg-[var(--surface-dark)] border">
+                  <span style={{ color: "var(--accent)", borderColor: "var(--accent)" }} className="text-xs font-mono font-bold px-3 py-1 rounded-lg bg-white border">
                     BUILT FOR YOUR BUSINESS
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 group-hover:text-slate-300 transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-3 group-hover:text-slate-600 transition-colors">
                   Custom Apps & Dashboards
                 </h3>
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
                   Login portals, dashboards, and software built to match exactly how your business works.
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
-                    <p className="text-white font-semibold mb-1">Feels instant</p>
-                    <p className="text-slate-300 font-medium">No waiting around, even with lots of data</p>
+                  <div className="p-3.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] text-xs">
+                    <p className="text-slate-900 font-semibold mb-1">Feels instant</p>
+                    <p className="text-slate-600 font-medium">No waiting around, even with lots of data</p>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
-                    <p className="text-white font-semibold mb-1">Secure logins</p>
-                    <p className="text-slate-300 font-medium">Each person sees only what they should</p>
+                  <div className="p-3.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] text-xs">
+                    <p className="text-slate-900 font-semibold mb-1">Secure logins</p>
+                    <p className="text-slate-600 font-medium">Each person sees only what they should</p>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[var(--surface-dark)] border border-white/10 text-xs">
-                    <p className="text-white font-semibold mb-1">Always online</p>
-                    <p className="text-slate-300 font-medium">Built to stay up and reliable</p>
+                  <div className="p-3.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] text-xs">
+                    <p className="text-slate-900 font-semibold mb-1">Always online</p>
+                    <p className="text-slate-600 font-medium">Built to stay up and reliable</p>
                   </div>
                 </div>
               </div>
 
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-7 py-4 rounded-xl btn-white-solid text-black font-semibold text-sm inline-flex items-center justify-center space-x-2 shadow-md"
+                className="btn-yellow-solid w-full sm:w-auto px-7 py-4 text-sm inline-flex items-center justify-center space-x-2"
               >
                 <span>Request a Proposal</span>
                 <ArrowRight className="w-4 h-4" />
@@ -354,17 +346,17 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="marker-bar marker-teal" />
+      <div className="marker-bar" />
 
       {/* Featured 3-Projects Portfolio Section — PROOF of what we just described */}
       <ProjectsShowcase limit={3} isHomepage={true} />
 
       {/* Process Workflow Section — HOW we deliver it */}
-      <section id="process" className="py-24 sm:py-32 bg-white text-slate-900 relative overflow-hidden">
+      <section id="process" className="py-14 sm:py-16 bg-[var(--surface-alt)] text-slate-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-800 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <span className="px-3.5 py-1.5 rounded-full bg-white border border-[var(--border-default)] text-slate-800 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
               OUR PROCESS
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
@@ -375,11 +367,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
             {[
               { step: "01", title: "Understand", desc: "We learn about your goals and write down exactly what needs to be built.", color: "var(--accent)" },
-              { step: "02", title: "Design", desc: "We design how it will look and feel, and show you before building it.", color: "var(--accent-teal)" },
-              { step: "03", title: "Build", desc: "We build it to be fast, clean, and reliable from day one.", color: "var(--accent-amber)" },
+              { step: "02", title: "Design", desc: "We design how it will look and feel, and show you before building it.", color: "var(--accent)" },
+              { step: "03", title: "Build", desc: "We build it to be fast, clean, and reliable from day one.", color: "var(--accent)" },
               { step: "04", title: "Launch & support", desc: "We put it live, then stick around for 30-90 days to fix anything and help you settle in.", color: "var(--accent)" },
             ].map((p, idx) => (
               <motion.div
@@ -388,13 +380,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="bg-white relative group"
+                className="glass-card-pro relative group"
               >
-                <div className="p-7 sm:p-8">
-                  <div className="text-lg font-semibold text-slate-900 mb-6">
+                <div className="p-5 sm:p-6">
+                  <div style={{ color: p.color }} className="text-sm font-bold mb-3">
                     {p.step}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2.5">{p.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2">{p.title}</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">{p.desc}</p>
                 </div>
               </motion.div>
@@ -403,7 +395,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="marker-bar marker-amber" />
+      <div className="marker-bar" />
 
       {/* Agency Feature Comparison Matrix — WHY us, now that they know what "us" means */}
       <ComparisonMatrix />
@@ -417,7 +409,7 @@ export default function Home() {
       {/* Frequently Asked Questions */}
       <FaqSection />
 
-      <div className="marker-bar marker-indigo" />
+      <div className="marker-bar" />
 
       {/* Consultation Booking Form */}
       <ConsultationForm />

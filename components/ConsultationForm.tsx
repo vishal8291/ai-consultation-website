@@ -48,60 +48,60 @@ export default function ConsultationForm() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-slate-800 bg-grid-pattern">
+    <section id="contact" className="py-14 sm:py-16 bg-[var(--surface-alt)] relative overflow-hidden border-t border-[var(--border-default)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="px-3.5 py-1.5 rounded-full bg-white border border-[var(--border-default)] text-slate-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
             SHARE YOUR PROBLEM
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
             What's slowing your business down?
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it's a website fix, an AI system, or something else entirely &mdash; plus a real price.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-slate-900 p-8 sm:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-800">
+        <div className="glass-card-pro bg-white p-6 sm:p-10">
           {success ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="py-12 text-center space-y-6"
             >
-              <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center mx-auto shadow-lg">
-                <CheckCircle2 className="w-10 h-10 text-black" />
+              <div style={{ color: "var(--accent)" }} className="w-16 h-16 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-10 h-10" />
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white">Got it &mdash; we're on it.</h3>
+              <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900">Got it &mdash; we're on it.</h3>
 
-              <p className="text-slate-400 max-w-md mx-auto text-sm leading-relaxed font-medium">
-                Thank you <strong className="text-white font-semibold">{formData.name}</strong>. We'll read what you sent and reach out to you at <span className="text-white font-bold">{formData.contact}</span> within 24 hours with an honest take on the fix.
+              <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed font-medium">
+                Thank you <strong className="text-slate-900 font-semibold">{formData.name}</strong>. We'll read what you sent and reach out to you at <span className="text-slate-900 font-bold">{formData.contact}</span> within 24 hours with an honest take on the fix.
               </p>
 
               <button
                 type="button"
                 onClick={() => setSuccess(false)}
-                className="px-8 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-black font-semibold text-sm transition-colors"
+                className="btn-white-solid px-8 py-3.5 text-sm"
               >
                 Submit Another Request
               </button>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {errorMsg && (
-                <div className="p-4 rounded-xl bg-red-950/50 border border-red-800 text-red-400 text-xs font-bold">
+                <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs font-bold">
                   {errorMsg}
                 </div>
               )}
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -110,12 +110,12 @@ export default function ConsultationForm() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-white border border-[var(--border-default)] rounded-lg p-3 text-slate-900 placeholder-slate-400 focus:border-[var(--border-strong)] focus:ring-2 focus:ring-[var(--accent)]/15 outline-none transition-all text-sm font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
                     Email or Phone Number *
                   </label>
                   <input
@@ -124,14 +124,14 @@ export default function ConsultationForm() {
                     value={formData.contact}
                     onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                     placeholder="jane@company.com or +91 9999999999"
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-white border border-[var(--border-default)] rounded-lg p-3 text-slate-900 placeholder-slate-400 focus:border-[var(--border-strong)] focus:ring-2 focus:ring-[var(--accent)]/15 outline-none transition-all text-sm font-semibold"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
                     Company / Organization
                   </label>
                   <input
@@ -139,18 +139,18 @@ export default function ConsultationForm() {
                     value={formData.business}
                     onChange={(e) => setFormData({ ...formData, business: e.target.value })}
                     placeholder="Acme Systems Inc."
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
+                    className="w-full bg-white border border-[var(--border-default)] rounded-lg p-3 text-slate-900 placeholder-slate-400 focus:border-[var(--border-strong)] focus:ring-2 focus:ring-[var(--accent)]/15 outline-none transition-all text-sm font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
                     Closest Fit, If You Had to Guess *
                   </label>
                   <select
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-bold cursor-pointer"
+                    className="w-full bg-white border border-[var(--border-default)] rounded-lg p-3 text-slate-900 focus:border-[var(--border-strong)] focus:ring-2 focus:ring-[var(--accent)]/15 outline-none transition-all text-sm font-bold cursor-pointer"
                   >
                     <option value="Launch Package (₹12,000 / $150)">A simple website (Launch, ₹12,000 / $150)</option>
                     <option value="Business Package (₹30,000 / $375)">A full business website (Business, ₹30,000 / $375)</option>
@@ -161,7 +161,7 @@ export default function ConsultationForm() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
                   What's Actually Going Wrong? *
                 </label>
                 <textarea
@@ -170,21 +170,21 @@ export default function ConsultationForm() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="e.g. 'Customers can't find us on Google', 'I spend 2 hours a day replying to the same WhatsApp questions', 'Our site looks outdated and nobody trusts it'..."
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-white focus:bg-slate-800 focus:ring-2 focus:ring-white/20 outline-none transition-all text-sm font-semibold"
+                  className="w-full bg-white border border-[var(--border-default)] rounded-lg p-3 text-slate-900 placeholder-slate-400 focus:border-[var(--border-strong)] focus:ring-2 focus:ring-[var(--accent)]/15 outline-none transition-all text-sm font-semibold"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-4.5 rounded-2xl btn-white-solid text-black font-semibold text-sm flex items-center justify-center space-x-2 disabled:opacity-50 shadow-xl hover:scale-[1.01] transition-all"
+                className="btn-yellow-solid w-full py-4 text-sm flex items-center justify-center space-x-2 disabled:opacity-50"
               >
                 {submitting ? (
                   <span>Sending...</span>
                 ) : (
                   <>
                     <span>Send Us the Problem</span>
-                    <Send className="w-4 h-4 text-black ml-1" />
+                    <Send className="w-4 h-4 ml-1" />
                   </>
                 )}
               </button>

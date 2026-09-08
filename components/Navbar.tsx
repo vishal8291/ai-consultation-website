@@ -69,45 +69,43 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/40 backdrop-blur-xl border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed top-0 inset-x-0 z-50 bg-white border-b border-[var(--border-default)] transition-shadow duration-200 ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
 
           {/* Brand wordmark */}
           <a href="/" className="flex items-center space-x-2.5 group">
-            <div className="w-9 h-9 rounded-full bg-white p-1 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-white border border-[var(--border-default)] p-1 flex items-center justify-center group-hover:scale-105 transition-transform">
               <img
                 src="/images/newlogo-clean.png"
                 alt="CustomeAI logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-lg font-bold tracking-tight text-white flex items-center">
+            <span className="text-lg font-bold tracking-tight text-[var(--foreground)] flex items-center">
               Custome<span style={{ color: "var(--accent)" }} className="font-semibold">AI</span>
-              <span style={{ color: "var(--accent-teal)" }} className="ml-0.5">.</span>
+              <span style={{ color: "var(--accent)" }} className="ml-0.5">.</span>
             </span>
           </a>
 
-          {/* Deloitte-style sentence-case nav links */}
-          <div className="hidden lg:flex items-center space-x-9 text-[15px] font-normal text-white/85">
-            <a href="/" className="hover:text-white transition-colors">
+          {/* Sentence-case nav links */}
+          <div className="hidden lg:flex items-center space-x-9 text-[15px] font-normal text-[var(--foreground)]/80">
+            <a href="/" className="hover:text-[var(--foreground)] transition-colors">
               Home
             </a>
-            <a href="/#services" className="flex items-center gap-1 hover:text-white transition-colors">
+            <a href="/#services" className="flex items-center gap-1 hover:text-[var(--foreground)] transition-colors">
               What we do <ChevronDown className="w-3.5 h-3.5 opacity-60" />
             </a>
-            <a href="/#tech" className="flex items-center gap-1 hover:text-white transition-colors">
+            <a href="/#tech" className="flex items-center gap-1 hover:text-[var(--foreground)] transition-colors">
               Our stack <ChevronDown className="w-3.5 h-3.5 opacity-60" />
             </a>
-            <a href="/projects" className="hover:text-white transition-colors">
+            <a href="/projects" className="hover:text-[var(--foreground)] transition-colors">
               Our work
             </a>
-            <a href="/#pricing" className="hover:text-white transition-colors">
+            <a href="/#pricing" className="hover:text-[var(--foreground)] transition-colors">
               Pricing
             </a>
           </div>
@@ -122,22 +120,22 @@ export default function Navbar() {
             <div className="hidden md:flex items-center space-x-4">
               <AnimatePresence mode="wait">
                 {loading ? (
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-5 h-5 border-2 border-[var(--border-default)] border-t-[var(--foreground)] rounded-full animate-spin" />
                 ) : user ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex items-center space-x-3 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15"
+                    className="flex items-center space-x-3 bg-[var(--surface-alt)] px-3.5 py-1.5 rounded-full border border-[var(--border-default)]"
                   >
-                    <div style={{ background: "var(--accent)" }} className="w-7 h-7 text-white rounded-full flex items-center justify-center font-semibold text-xs shadow-sm">
+                    <div style={{ background: "var(--accent)" }} className="w-7 h-7 text-white rounded-full flex items-center justify-center font-semibold text-xs">
                       {user.name?.charAt(0).toUpperCase()}
                     </div>
-                    <a href="/dashboard" className="font-semibold text-xs text-white/85 hover:text-white transition-colors">
+                    <a href="/dashboard" className="font-semibold text-xs text-[var(--foreground)]/85 hover:text-[var(--foreground)] transition-colors">
                       Dashboard
                     </a>
                     <button
                       onClick={handleLogout}
-                      className="p-1 hover:bg-red-500/10 rounded-full text-white/50 hover:text-red-400 transition-all"
+                      className="p-1 hover:bg-red-50 rounded-full text-[var(--foreground)]/50 hover:text-red-600 transition-all"
                       title="Logout"
                     >
                       <LogOut className="w-3.5 h-3.5" />
@@ -151,14 +149,13 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       aria-label="Chat on WhatsApp"
                       title="Chat on WhatsApp"
-                      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105"
+                      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white transition-transform hover:scale-105"
                     >
                       <WhatsAppIcon className="w-5 h-5" />
                     </a>
                     <a
                       href="#contact"
-                      style={{ background: "var(--accent)" }}
-                      className="px-6 py-2.5 rounded-full text-white font-semibold text-sm transition-all shadow-sm hover:scale-105"
+                      className="btn-yellow-solid px-6 py-2.5 text-sm transition-transform hover:scale-105"
                     >
                       Contact
                     </a>
@@ -174,7 +171,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
               title="Chat on WhatsApp"
-              className="flex md:hidden w-10 h-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105 mr-3"
+              className="flex md:hidden w-10 h-10 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform hover:scale-105 mr-3"
             >
               <WhatsAppIcon className="w-5 h-5" />
             </a>
@@ -182,7 +179,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2.5 rounded-full bg-white/10 border border-white/15 text-white transition-colors"
+              className="lg:hidden p-2.5 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-[var(--foreground)] transition-colors"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -197,49 +194,48 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden bg-black/95 backdrop-blur-xl border-t border-white/10 shadow-xl"
+            className="lg:hidden overflow-hidden bg-white border-t border-[var(--border-default)] shadow-md"
           >
-            <div className="px-6 pt-4 pb-8 space-y-1 text-[15px] text-white/85">
+            <div className="px-6 pt-4 pb-8 space-y-1 text-[15px] text-[var(--foreground)]/85">
               <a
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-white/10 text-white font-medium"
+                className="block py-3 border-b border-[var(--border-default)] text-[var(--foreground)] font-medium"
               >
                 Home
               </a>
               <a
                 href="/#services"
                 onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-white/10 hover:text-white"
+                className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
               >
                 What we do
               </a>
               <a
                 href="/#tech"
                 onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-white/10 hover:text-white"
+                className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
               >
                 Our stack
               </a>
               <a
                 href="/projects"
                 onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-white/10 hover:text-white"
+                className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
               >
                 Our work
               </a>
               <a
                 href="/#pricing"
                 onClick={() => setIsOpen(false)}
-                className="block py-3 border-b border-white/10 hover:text-white"
+                className="block py-3 border-b border-[var(--border-default)] hover:text-[var(--foreground)]"
               >
                 Pricing
               </a>
               <a
                 href="/#contact"
                 onClick={() => setIsOpen(false)}
-                style={{ background: "var(--accent)" }}
-                className="block mt-4 py-3 text-center rounded-full text-white font-semibold text-sm"
+                className="btn-yellow-solid block mt-4 py-3 text-center text-sm"
               >
                 Contact
               </a>

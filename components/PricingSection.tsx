@@ -79,7 +79,7 @@ export default function PricingSection() {
           },
         },
         theme: {
-          color: "#000000",
+          color: "#c45500",
         },
       };
 
@@ -100,33 +100,33 @@ export default function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 bg-[var(--surface-dark)] text-white relative overflow-hidden">
+    <section id="pricing" className="py-14 sm:py-16 bg-white relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Top Header Row with Currency Switcher */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div>
-            <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/30 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
+            <span className="px-3.5 py-1.5 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-slate-800 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
               PRICING
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight">
               Website &amp; AI Automation Pricing
             </h2>
-            <p className="text-base sm:text-lg text-slate-400 mt-2 max-w-2xl font-medium">
+            <p className="text-base sm:text-lg text-slate-600 mt-2 max-w-2xl font-medium">
               Choose a website tier or an AI automation package. Fixed pricing, 50% due upfront.
             </p>
           </div>
 
-          {/* Google Style INR / USD Currency Toggle */}
-          <div className="flex items-center bg-slate-900/90 p-1.5 rounded-full border border-slate-800 self-start md:self-auto shadow-inner">
+          {/* Currency Toggle */}
+          <div className="flex items-center bg-[var(--surface-alt)] p-1 rounded-full border border-[var(--border-default)] self-start md:self-auto">
             <button
               type="button"
               onClick={() => setCurrency("INR")}
-              className={`px-6 py-2.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-6 py-2 rounded-full text-xs font-semibold transition-all ${
                 currency === "INR"
-                  ? "bg-white text-black shadow-lg"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-white text-slate-900 shadow-sm border border-[var(--border-default)]"
+                  : "text-slate-500 hover:text-slate-900"
               }`}
             >
               ₹ INR
@@ -134,10 +134,10 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setCurrency("USD")}
-              className={`px-6 py-2.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-6 py-2 rounded-full text-xs font-semibold transition-all ${
                 currency === "USD"
-                  ? "bg-white text-black shadow-lg"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-white text-slate-900 shadow-sm border border-[var(--border-default)]"
+                  : "text-slate-500 hover:text-slate-900"
               }`}
             >
               $ USD
@@ -146,50 +146,48 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid (3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {PRICING_TIERS.map((tier) => (
             <div
               key={tier.id}
-              style={tier.popular ? { borderColor: "var(--accent-amber)", borderWidth: "2px" } : undefined}
-              className={`dark-card-pro p-8 sm:p-9 flex flex-col justify-between relative ${
-                tier.popular ? "scale-[1.03]" : ""
-              }`}
+              style={tier.popular ? { borderColor: "var(--accent)", borderWidth: "2px" } : undefined}
+              className="glass-card-pro p-6 sm:p-7 flex flex-col justify-between relative"
             >
               {tier.popular && (
-                <div style={{ background: "var(--accent-amber)" }} className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-white font-semibold text-[10px] uppercase tracking-widest shadow-md">
+                <div style={{ background: "var(--accent)" }} className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-white font-semibold text-[10px] uppercase tracking-widest">
                   Most popular choice
                 </div>
               )}
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-2xl font-semibold text-white">{tier.name}</h3>
-                  {tier.popular && <Sparkles style={{ color: "var(--accent-amber)" }} className="w-5 h-5" />}
+                  <h3 className="text-2xl font-semibold text-slate-900">{tier.name}</h3>
+                  {tier.popular && <Sparkles style={{ color: "var(--accent)" }} className="w-5 h-5" />}
                 </div>
-                <p className="text-xs text-slate-400 mb-6 font-medium leading-relaxed">{tier.tagline}</p>
+                <p className="text-xs text-slate-500 mb-5 font-medium leading-relaxed">{tier.tagline}</p>
 
                 {/* Price Display & Range */}
-                <div className="mb-6 pb-6 border-b border-slate-800">
+                <div className="mb-5 pb-5 border-b border-[var(--border-default)]">
                   <div className="flex items-baseline space-x-2">
-                    <span className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+                    <span className="text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight">
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </span>
-                    <span className="text-xs text-slate-400 font-bold">
+                    <span className="text-xs text-slate-500 font-bold">
                       {currency === "INR" ? `– ${tier.priceRangeINR.split('–')[1]}` : `– ${tier.priceRangeUSD.split('–')[1]}`}
                     </span>
                   </div>
-                  <div className="flex items-center text-xs text-slate-300 font-bold mt-2.5">
+                  <div className="flex items-center text-xs text-slate-600 font-bold mt-2">
                     <Clock className="w-3.5 h-3.5 mr-1.5" />
                     <span>{tier.deliveryTime}</span>
                   </div>
                 </div>
 
                 {/* Features List */}
-                <div className="space-y-3.5 mb-8">
+                <div className="space-y-3 mb-6">
                   {tier.features.map((feat) => (
-                    <div key={feat} className="flex items-start space-x-3 text-xs font-semibold text-slate-300">
-                      <div style={{ backgroundColor: "rgba(13, 148, 136, 0.18)", color: "var(--accent-teal)" }} className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3" style={{ color: "var(--accent-teal)" }} />
+                    <div key={feat} className="flex items-start space-x-3 text-xs font-semibold text-slate-700">
+                      <div style={{ color: "var(--accent)" }} className="w-4 h-4 rounded-full bg-[var(--surface-alt)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3" />
                       </div>
                       <span className="leading-snug">{feat}</span>
                     </div>
@@ -202,11 +200,7 @@ export default function PricingSection() {
                 type="button"
                 onClick={() => handleRazorpayCheckout(tier)}
                 disabled={loadingTierId === tier.id}
-                className={`w-full py-4 px-4 rounded-2xl font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg transition-all ${
-                  tier.popular
-                    ? "bg-white text-black hover:scale-[1.02] shadow-[0_10px_25px_rgba(255,255,255,0.2)]"
-                    : "bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 hover:border-slate-600"
-                }`}
+                className="btn-yellow-solid w-full py-3.5 px-4 text-sm flex items-center justify-center space-x-2"
               >
                 <CreditCard className="w-4 h-4" />
                 <span>
@@ -218,25 +212,25 @@ export default function PricingSection() {
         </div>
 
         {/* ADD-ONS SECTION */}
-        <div className="mb-20">
-          <div className="flex items-center space-x-2 mb-6">
-            <Zap className="w-4 h-4 text-white" />
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-300">
+        <div className="mb-10">
+          <div className="flex items-center space-x-2 mb-4">
+            <Zap style={{ color: "var(--accent)" }} className="w-4 h-4" />
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-500">
               AVAILABLE ADD-ONS
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {ADDON_OPTIONS.map((addon) => (
               <div
                 key={addon.id}
-                className="dark-card-pro p-5 flex items-center justify-between hover:translate-x-1"
+                className="glass-card-pro p-4 flex items-center justify-between"
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-white" />
-                  <span className="text-sm font-bold text-slate-200">{addon.name}</span>
+                  <div style={{ background: "var(--accent)" }} className="w-1.5 h-1.5 rounded-full" />
+                  <span className="text-sm font-bold text-slate-800">{addon.name}</span>
                 </div>
-                <span className="text-sm font-mono font-semibold text-white">
+                <span className="text-sm font-mono font-semibold text-slate-900">
                   {currency === "INR" ? addon.priceDisplayINR : addon.priceDisplayUSD}
                 </span>
               </div>
@@ -246,18 +240,18 @@ export default function PricingSection() {
 
         {/* GROUND RULES SECTION */}
         <div>
-          <div className="flex items-center space-x-2 mb-6">
-            <ShieldCheck className="w-4 h-4 text-white" />
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-300">
+          <div className="flex items-center space-x-2 mb-4">
+            <ShieldCheck style={{ color: "var(--accent)" }} className="w-4 h-4" />
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-500">
               TERMS
             </h3>
           </div>
-          
-          <div className="dark-card-pro p-6 sm:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+          <div className="glass-card-pro p-5 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {GROUND_RULES.map((rule, idx) => (
-                <div key={idx} className="flex items-start space-x-3 text-xs sm:text-sm font-semibold text-slate-300">
-                  <CheckSquare className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start space-x-3 text-xs sm:text-sm font-semibold text-slate-700">
+                  <CheckSquare style={{ color: "var(--accent)" }} className="w-4 h-4 flex-shrink-0 mt-0.5" />
                   <span>{rule}</span>
                 </div>
               ))}

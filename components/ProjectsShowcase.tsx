@@ -87,8 +87,8 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   onClick={() => setSelectedCategory(cat.key)}
                   className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center space-x-2 transition-all ${
                     isActive
-                      ? "bg-slate-900 text-white shadow-md border-2 border-white"
-                      : "bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300"
+                      ? "bg-slate-900 text-white border-2 border-slate-900"
+                      : "bg-white hover:bg-slate-50 text-slate-700 border border-[var(--border-default)]"
                   }`}
                 >
                   <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-slate-500"}`} />
