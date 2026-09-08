@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--surface-alt)] text-slate-900 border-t border-[var(--border-default)] pt-12 pb-8">
+    <footer className="bg-white text-slate-900 border-t border-[var(--border-default)] pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Col */}

@@ -352,7 +352,7 @@ export default function Home() {
       <ProjectsShowcase limit={3} isHomepage={true} />
 
       {/* Process Workflow Section — HOW we deliver it */}
-      <section id="process" className="py-14 sm:py-16 bg-[var(--surface-alt)] text-slate-900 relative overflow-hidden">
+      <section id="process" className="py-14 sm:py-16 bg-white text-slate-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">

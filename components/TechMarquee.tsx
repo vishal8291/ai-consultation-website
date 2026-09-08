@@ -17,10 +17,10 @@ const TECH_ITEMS = [
 
 export default function TechMarquee() {
   return (
-    <div className="py-8 sm:py-10 bg-[var(--surface-alt)] border-y border-[var(--border-default)] overflow-hidden relative">
+    <div className="py-8 sm:py-10 bg-white border-y border-[var(--border-default)] overflow-hidden relative">
       {/* Side Fade Overlays */}
-      <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[var(--surface-alt)] via-[var(--surface-alt)]/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[var(--surface-alt)] via-[var(--surface-alt)]/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
       {/* Header Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-5 text-center">

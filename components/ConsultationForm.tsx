@@ -48,7 +48,7 @@ export default function ConsultationForm() {
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-16 bg-[var(--surface-alt)] relative overflow-hidden border-t border-[var(--border-default)]">
+    <section id="contact" className="py-14 sm:py-16 bg-white relative overflow-hidden border-t border-[var(--border-default)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}

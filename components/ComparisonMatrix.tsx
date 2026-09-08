@@ -50,7 +50,7 @@ const COMPARISON_ROWS = [
 
 export default function ComparisonMatrix() {
   return (
-    <section className="py-14 sm:py-16 bg-[var(--surface-alt)] relative overflow-hidden border-y border-[var(--border-default)]">
+    <section className="py-14 sm:py-16 bg-white relative overflow-hidden border-y border-[var(--border-default)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}

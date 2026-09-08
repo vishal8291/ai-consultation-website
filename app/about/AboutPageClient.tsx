@@ -255,7 +255,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* Direct Contact & Social Reachout Section */}
-      <section className="py-20 bg-[var(--surface-alt)] border-t border-[var(--border-default)]">
+      <section className="py-20 bg-white border-t border-[var(--border-default)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div>
             <h2 className="text-3xl sm:text-5xl font-semibold mb-3 text-slate-900">Get in Touch</h2>
