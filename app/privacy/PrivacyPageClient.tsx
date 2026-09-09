@@ -103,7 +103,7 @@ export default function PrivacyPageClient() {
               If you have any questions or requests regarding this Privacy Policy, please contact:
             </p>
             <div className="p-4 bg-white text-sm text-slate-700">
-              Email: vishal.buildss@gmail.com <br />
+              Email: customeai.tech@gmail.com <br />
               Platform: CustomeAI Web & AI Engineering
             </div>
           </div>

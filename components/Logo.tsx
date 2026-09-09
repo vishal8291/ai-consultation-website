@@ -1,28 +1,44 @@
 import React from "react";
 
 /**
- * The single place the CustomeAI mark is defined.
+ * The single place the CustomeAI mark is defined. Navbar and footer both render
+ * through this file, so changing the logo is one edit here.
  *
- * Currently a pure type wordmark: no image asset, so it stays sharp at every
- * size, costs nothing to load, and inherits the current text color. The
- * previous gold PNG was a beveled 3D "W" that read as the wrong letter, muddied
- * at navbar size, and disappeared entirely at favicon size.
+ * reallogo.png is a square, stacked lockup: the robot-head mark sits above a
+ * "CUSTOMEAI" wordmark and an "Intelligence" tagline. Dropped whole into a 64px
+ * navbar that lockup is unreadable, so the <Mark> below shows only the head, by
+ * scaling the image up inside a fixed square and offsetting it. The percentages
+ * are tuned to the artwork; if the logo file is replaced, they need retuning.
  *
- * TO DROP IN A REAL LOGO LATER: replace the contents of <Mark /> below with an
- * <img>/<svg> and leave everything else alone. Every surface that shows the
- * logo (navbar, footer, and any future use) renders through this file, so the
- * swap is one edit in one place.
+ * The PNG also ships with a light grey background rather than transparency, so
+ * mix-blend-multiply is used to drop that ground out against white surfaces.
  */
 
+const MARK_SRC = "/images/reallogo.png";
+
+// Framing for the head within the square artwork.
+const MARK_SCALE = "240%";
+const MARK_LEFT = "-70%";
+const MARK_TOP = "-43%";
+
 function Mark({ className = "" }: { className?: string }) {
-  // Placeholder mark: a plain ink square with the C knocked out. Deliberately
-  // simple, since a commissioned mark is coming.
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex items-center justify-center rounded-[4px] bg-[var(--foreground)] text-white font-semibold leading-none ${className}`}
+      className={`relative inline-block overflow-hidden shrink-0 ${className}`}
     >
-      C
+      <img
+        src={MARK_SRC}
+        alt=""
+        className="absolute max-w-none"
+        style={{
+          width: MARK_SCALE,
+          height: MARK_SCALE,
+          left: MARK_LEFT,
+          top: MARK_TOP,
+          mixBlendMode: "multiply",
+        }}
+      />
     </span>
   );
 }
@@ -30,7 +46,7 @@ function Mark({ className = "" }: { className?: string }) {
 export default function Logo({
   showMark = true,
   className = "",
-  markSize = "w-7 h-7 text-sm",
+  markSize = "w-8 h-8",
   textSize = "text-lg",
 }: {
   showMark?: boolean;

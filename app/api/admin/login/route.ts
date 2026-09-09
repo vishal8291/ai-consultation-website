@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       {
         role: "admin",
         name: "Administrator",
-        email: "vishal.buildss@gmail.com",
+        email: "customeai.tech@gmail.com",
       },
       24 * 60 * 60 // 24 hours
     );

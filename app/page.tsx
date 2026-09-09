@@ -253,7 +253,7 @@ export default function Home() {
                 <p className="mt-6 pt-5 border-t border-[var(--border-default)] text-sm text-slate-600">
                   Prefer to talk first?{" "}
                   <a
-                    href="mailto:vishal.buildss@gmail.com"
+                    href="mailto:customeai.tech@gmail.com"
                     className="font-semibold underline underline-offset-2"
                     style={{ color: "var(--accent)" }}
                   >

@@ -47,6 +47,7 @@ export default function PricingSection() {
         amount: orderData.amount,
         currency: orderData.currency,
         name: "CustomeAI",
+        image: "/images/reallogo.png",
         description: `50% Advance for ${tier.name} Tier (${currency === "INR" ? "₹" : "$"}${advanceAmount.toLocaleString()})`,
         order_id: orderData.orderId,
         handler: async function (response: any) {

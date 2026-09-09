@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { ArrowUp, Globe, Instagram } from "lucide-react";
+import { ArrowUp, Globe, Github, Instagram } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Col */}
           <div className="space-y-3 md:col-span-1">
-            <Logo markSize="w-8 h-8 text-base" textSize="text-xl" />
+            <Logo markSize="w-9 h-9" textSize="text-xl" />
             <p className="text-sm text-slate-600 leading-relaxed">
               A small studio that builds websites, AI systems, and custom software around the specific problem a small business brings us. Led by Vishal Tiwari.
             </p>
@@ -31,9 +31,15 @@ export default function Footer() {
               >
                 <Globe className="w-4 h-4" />
               </a>
-              {/* GitHub icon removed: it pointed at github.com rather than an
-                  actual profile, so it sent visitors nowhere. Restore it with a
-                  real profile URL when there is one to link to. */}
+              <a
+                href="https://github.com/vishal8291"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-md bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors"
+                title="GitHub"
+              >
+                <Github className="w-4 h-4" />
+              </a>
               <a
                 href="https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp"
                 target="_blank"
@@ -75,8 +81,8 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-slate-900 mb-3">Get in touch</h4>
             <div className="space-y-2.5 text-sm text-slate-600 leading-relaxed">
               <p>
-                <a href="mailto:vishal.buildss@gmail.com" className="text-slate-900 hover:underline">
-                  vishal.buildss@gmail.com
+                <a href="mailto:customeai.tech@gmail.com" className="text-slate-900 hover:underline">
+                  customeai.tech@gmail.com
                 </a>
               </p>
               <p>

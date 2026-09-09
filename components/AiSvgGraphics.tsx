@@ -253,7 +253,7 @@ export function ProjectGraphicSVG({ type }: { type: string }) {
 
         {/* Lead CRM Status Badge */}
         <rect x="75" y="150" width="150" height="26" rx="8" fill="#ffffff" stroke="#404040" strokeWidth="1.5" />
-        <text x="150" y="167" fill="#854d0e" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="system-ui">⚡ Qdrant RAG + Gmail API</text>
+        <text x="150" y="167" fill="#854d0e" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="system-ui">Qdrant RAG + Gmail API</text>
 
         {/* Real Icon Badge Overlaid */}
         <g transform="translate(225, 20)">
@@ -280,7 +280,7 @@ export function ProjectGraphicSVG({ type }: { type: string }) {
         {/* Leaf AI Chat Bubble */}
         <g transform="translate(165, 30)">
           <rect width="90" height="32" rx="10" fill="#0a0a0a" stroke="#262626" strokeWidth="1" />
-          <text x="45" y="20" fill="#000000" fontSize="9" fontWeight="extrabold" textAnchor="middle" fontFamily="system-ui">🤖 Leaf AI Bot</text>
+          <text x="45" y="20" fill="#000000" fontSize="9" fontWeight="extrabold" textAnchor="middle" fontFamily="system-ui">Leaf AI Bot</text>
         </g>
 
         {/* Real Icon Badge Overlaid */}

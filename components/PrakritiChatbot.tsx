@@ -10,10 +10,10 @@ interface Message {
 }
 
 const QUICK_PROMPTS = [
-  "💰 What are your package prices?",
-  "⚡ How fast can you deliver?",
-  "💳 What are your payment terms?",
-  "🔌 What add-ons do you offer?",
+  "What are your package prices?",
+  "How fast can you deliver?",
+  "What are your payment terms?",
+  "What add-ons do you offer?",
 ];
 
 export default function PrakritiChatbot() {
@@ -78,7 +78,7 @@ export default function PrakritiChatbot() {
         {
           id: `prakriti_err_${Date.now()}`,
           sender: "prakriti",
-          text: "Apologies, I encountered a temporary connection issue. Please feel free to email Vishal directly at **vishal.buildss@gmail.com**!",
+          text: "Apologies, I encountered a temporary connection issue. Please feel free to email Vishal directly at **customeai.tech@gmail.com**!",
         },
       ]);
     } finally {

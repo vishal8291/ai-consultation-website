@@ -89,7 +89,7 @@ export default function TermsPageClient() {
               For legal inquiries or questions regarding these Terms & Conditions, please contact us directly at:
             </p>
             <div className="p-4 bg-white text-sm text-slate-700">
-              Email: vishal.buildss@gmail.com <br />
+              Email: customeai.tech@gmail.com <br />
               Platform: CustomeAI Web & AI Systems
             </div>
           </div>

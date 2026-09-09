@@ -9,7 +9,7 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 // Once a domain is verified in Resend, set RESEND_FROM_EMAIL to something like
 // "notifications@customeai.tech" to send to arbitrary customer addresses too.
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "vishal.buildss@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "customeai.tech@gmail.com";
 
 export async function sendAdminNotification(subject: string, html: string): Promise<void> {
   if (!resend) {

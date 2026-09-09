@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     if (!userQueryLower || userQueryLower.trim().length === 0) {
       return NextResponse.json({
         role: "assistant",
-        content: "Hello! I am Prakriti, how I can help you?",
+        content: "Hello. I am Prakriti, how I can help you?",
       });
     }
 
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: "Hello! 👋 I am Prakriti, your strategy assistant at **CustomeAI**.\n\nHow can I help you today? You can ask me about our website packages, pricing, AI chatbots, delivery timelines, or booking a consultation with Vishal!",
+        content: "Hello. I am Prakriti, your strategy assistant at **CustomeAI**.\n\nHow can I help you today? You can ask me about our website packages, pricing, AI chatbots, delivery timelines, or booking a consultation.",
       });
     }
 
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: "I'm **Prakriti**, the AI Strategy Assistant at **CustomeAI**! 🚀\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems delivered in **7 to 21 days** with 100% code ownership. How can I help you build your project today?",
+        content: "I am **Prakriti**, the assistant at **CustomeAI**.\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems delivered in **7 to 21 days** with 100% code ownership. How can I help you build your project today?",
       });
     }
 
@@ -69,16 +69,16 @@ export async function POST(req: Request) {
         role: "assistant",
         content: `We offer 3 clear, fixed engineering packages:
 
-🚀 **1. Launch Package — ₹12,000 ($150)**
+**1. Launch Package — ₹12,000 ($150)**
 • 5–7 days delivery | 1-page high-speed landing site, contact form & responsive design.
 
 💼 **2. Business Package — ₹30,000 ($375)** *(Most Popular)*
 • 2–3 weeks delivery | Up to 8 pages, CMS blog, AI lead chatbot & Razorpay payment gateway.
 
-🤖 **3. Automate Package — ₹65,000 ($800)**
+**3. Automate Package — ₹65,000 ($800)**
 • 4–6 weeks delivery | Custom AI agent workflows, admin dashboard, RAG vector search & full automation.
 
-💳 **Payment Terms**: 50% advance deposit to start engineering, 50% upon final project delivery.
+**Payment Terms**: 50% advance deposit to start engineering, 50% upon final project delivery.
 
 Would you like a custom quote estimate for your project?`,
       });
@@ -104,11 +104,11 @@ Would you like a custom quote estimate for your project?`,
 
 🌐 **Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7–21 days with 100/100 Google PageSpeed scores.
 
-🤖 **AI Agents & Chatbots**: 24/7 intelligent support bots (like me!), lead capture bots, and automated WhatsApp/email pipelines.
+**AI Agents & Chatbots**: 24/7 intelligent support bots (like this one), lead capture bots, and automated WhatsApp/email pipelines.
 
 💻 **Web Apps & Dashboards**: Full-stack SaaS portals, admin dashboards, and custom business software using React 19 & Python.
 
-⚡ **Process Automation & Audits**: Diagnostic audits to eliminate manual operational waste and save recurring costs.
+**Process Automation & Audits**: Diagnostic audits to eliminate manual operational waste and save recurring costs.
 
 Which service fits what you are looking to build?`,
       });
@@ -129,11 +129,11 @@ Which service fits what you are looking to build?`,
         role: "assistant",
         content: `We deliver all projects in guaranteed 7 to 21-day engineering sprints:
 
-• ⚡ **Launch Package**: 5 to 7 days
+• **Launch Package**: 5 to 7 days
 • 💼 **Business Package**: 2 to 3 weeks
-• 🤖 **Automate Package**: 4 to 6 weeks
+• **Automate Package**: 4 to 6 weeks
 
-Timelines begin immediately after receiving your content and 50% advance deposit!`,
+Timelines begin immediately after receiving your content and 50% advance deposit.`,
       });
     }
 
@@ -173,10 +173,10 @@ Timelines begin immediately after receiving your content and 50% advance deposit
         role: "assistant",
         content: `You can connect with Vishal directly:
 
-📧 **Official Email**: [vishal.buildss@gmail.com](mailto:vishal.buildss@gmail.com)
+**Official Email**: [customeai.tech@gmail.com](mailto:customeai.tech@gmail.com)
 🌐 **Personal Portfolio**: [https://vishal-tiwari.me](https://vishal-tiwari.me)
 📸 **Instagram**: [@vishal.buildss](https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp)
-📅 **Book Audit Call**: Scroll to our 15-minute consultation booking form on the homepage!`,
+📅 **Book Audit Call**: Scroll to our 15-minute consultation booking form on the homepage.`,
       });
     }
 
@@ -195,7 +195,7 @@ Timelines begin immediately after receiving your content and 50% advance deposit
 
 • 📄 **Extra Page**: ₹2,000 ($25) per page
 • 🎨 **Logo & Brand Identity**: ₹5,000 ($65)
-• 🤖 **AI Chatbot Only**: ₹15,000 ($190)
+• **AI Chatbot Only**: ₹15,000 ($190)
 • 🛠️ **Monthly Maintenance**: ₹3,500/mo ($45/mo)
 • 📈 **Monthly SEO Optimization**: ₹5,000/mo ($65/mo)
 • ✍️ **Professional Content Writing**: ₹1,500/page ($20/page)`,
@@ -268,14 +268,14 @@ Timelines begin immediately after receiving your content and 50% advance deposit
 
     return NextResponse.json({
       role: "assistant",
-      content: `Hello! I am Prakriti. I'm here to help you build your website or AI automation system! 🚀
+      content: `Hello. I am Prakriti. I'm here to help you with your website or AI automation project.
 
 Here is a quick summary of what we offer:
-• 🚀 **Launch Package**: ₹12,000 ($150) — 5–7 days 1-page landing site
+• **Launch Package**: ₹12,000 ($150) — 5–7 days 1-page landing site
 • 💼 **Business Package**: ₹30,000 ($375) — 2–3 weeks up to 8 pages + AI bot & payments
-• 🤖 **Automate Package**: ₹65,000 ($800) — 4–6 weeks full AI workflow & admin dashboard
+• **Automate Package**: ₹65,000 ($800) — 4–6 weeks full AI workflow & admin dashboard
 
-Feel free to ask me about pricing, timelines, payment terms, or email Vishal directly at **vishal.buildss@gmail.com**!`,
+Feel free to ask me about pricing, timelines, payment terms, or email Vishal directly at **customeai.tech@gmail.com**.`,
     });
   } catch (error: any) {
     console.error("Prakriti MongoDB Query Error:", error);

@@ -274,7 +274,7 @@ export default function AboutPageClient() {
                   Start a conversation
                 </a>
                 <a
-                  href="mailto:vishal.buildss@gmail.com"
+                  href="mailto:customeai.tech@gmail.com"
                   className="btn-white-solid px-6 py-3 text-sm text-center"
                 >
                   Email us
@@ -287,10 +287,10 @@ export default function AboutPageClient() {
                 <div>
                   <p className="text-sm text-slate-500 mb-1">Email</p>
                   <a
-                    href="mailto:vishal.buildss@gmail.com"
+                    href="mailto:customeai.tech@gmail.com"
                     className="font-semibold text-slate-900 hover:underline"
                   >
-                    vishal.buildss@gmail.com
+                    customeai.tech@gmail.com
                   </a>
                 </div>
                 <div>

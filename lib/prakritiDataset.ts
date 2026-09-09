@@ -45,13 +45,13 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "How can I contact Vishal directly?",
-    answer: "You can email Vishal directly at vishal.buildss@gmail.com or submit a 15-minute consultation audit booking on our website.",
+    answer: "You can email Vishal directly at customeai.tech@gmail.com or submit a 15-minute consultation audit booking on our website.",
     category: "about",
-    keywords: ["contact", "email", "reach", "phone", "vishal.buildss@gmail.com", "talk"],
+    keywords: ["contact", "email", "reach", "phone", "customeai.tech@gmail.com", "talk"],
   },
   {
     question: "What is your email address?",
-    answer: "Our official contact email is vishal.buildss@gmail.com.",
+    answer: "Our official contact email is customeai.tech@gmail.com.",
     category: "about",
     keywords: ["email", "address", "mail"],
   },
@@ -530,7 +530,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
     keywords: ["quality", "guarantee", "promise", "standards"],
   },
   {
-    question: "Thank you!",
+    question: "Thank you.",
     answer: "You're very welcome! If you have any more questions or want to start your build, feel free to ask me or book an audit call above!",
     category: "general",
     keywords: ["thank you", "thanks", "thx", "awesome", "great"],

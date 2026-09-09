@@ -80,10 +80,10 @@ const organizationJsonLd = {
   "@type": "ProfessionalService",
   name: "CustomeAI",
   url: SITE_URL,
-  logo: `${SITE_URL}/images/logo-clean.png`,
-  image: `${SITE_URL}/images/logo-clean.png`,
+  logo: `${SITE_URL}/images/reallogo.png`,
+  image: `${SITE_URL}/images/reallogo.png`,
   description: SITE_DESCRIPTION,
-  email: "vishal.buildss@gmail.com",
+  email: "customeai.tech@gmail.com",
   telephone: "+918291569470",
   priceRange: "₹12,000 - ₹1,20,000",
   address: {
