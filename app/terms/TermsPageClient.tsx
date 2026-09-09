@@ -10,7 +10,7 @@ export default function TermsPageClient() {
       {/* Hero Banner */}
       <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 bg-white border-b border-[var(--border-default)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div style={{ color: "var(--accent)" }} className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[var(--surface-alt)] text-xs font-mono font-bold border border-[var(--border-default)]">
+          <div style={{ color: "var(--accent)" }} className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-[0.14em]">
             <Scale className="w-3.5 h-3.5" />
             <span>LEGAL AGREEMENT</span>
           </div>
@@ -88,7 +88,7 @@ export default function TermsPageClient() {
             <p>
               For legal inquiries or questions regarding these Terms & Conditions, please contact us directly at:
             </p>
-            <div className="p-4 bg-white text-xs font-mono font-bold text-slate-800">
+            <div className="p-4 bg-white text-sm text-slate-700">
               Email: vishal.buildss@gmail.com <br />
               Platform: CustomeAI Web & AI Systems
             </div>

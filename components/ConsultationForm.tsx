@@ -53,9 +53,9 @@ export default function ConsultationForm() {
 
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10">
-          <span className="px-3.5 py-1.5 rounded-full bg-white border border-[var(--border-default)] text-slate-700 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
-            SHARE YOUR PROBLEM
-          </span>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
+            Share your problem
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
             What's slowing your business down?
           </h2>

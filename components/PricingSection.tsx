@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { PRICING_TIERS, ADDON_OPTIONS, GROUND_RULES } from "@/lib/pricingData";
-import { Check, ShieldCheck, ArrowRight, CreditCard, Clock, Sparkles, CheckSquare, Zap } from "lucide-react";
+import { Check, ShieldCheck, ArrowRight, CreditCard, Clock, CheckSquare, Zap } from "lucide-react";
 import { loadRazorpayScript } from "@/lib/razorpay";
 
 export default function PricingSection() {
@@ -65,7 +65,7 @@ export default function PricingSection() {
 
           const verifyData = await verifyRes.json();
           if (verifyRes.ok && verifyData.success) {
-            alert(`🎉 Payment Successful! Payment ID: ${response.razorpay_payment_id}. Your 50% advance for ${tier.name} package is confirmed.`);
+            alert(`Payment received. Payment ID: ${response.razorpay_payment_id}. Your 50% advance for the ${tier.name} package is confirmed, and we will be in touch within 24 hours.`);
           } else {
             alert(verifyData.error || "Payment verification failed. Please contact support.");
           }
@@ -108,9 +108,9 @@ export default function PricingSection() {
         {/* Top Header Row with Currency Switcher */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div>
-            <span className="px-3.5 py-1.5 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-slate-800 text-xs font-semibold uppercase tracking-wider inline-block mb-3">
-              PRICING
-            </span>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
+              Pricing
+            </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight">
               Website &amp; AI Automation Pricing
             </h2>
@@ -163,7 +163,6 @@ export default function PricingSection() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-2xl font-semibold text-slate-900">{tier.name}</h3>
-                  {tier.popular && <Sparkles style={{ color: "var(--accent)" }} className="w-5 h-5" />}
                 </div>
                 <p className="text-xs text-slate-500 mb-5 font-medium leading-relaxed">{tier.tagline}</p>
 
@@ -231,7 +230,7 @@ export default function PricingSection() {
                   <div style={{ background: "var(--accent)" }} className="w-1.5 h-1.5 rounded-full" />
                   <span className="text-sm font-bold text-slate-800">{addon.name}</span>
                 </div>
-                <span className="text-sm font-mono font-semibold text-slate-900">
+                <span className="text-sm font-semibold text-slate-900">
                   {currency === "INR" ? addon.priceDisplayINR : addon.priceDisplayUSD}
                 </span>
               </div>

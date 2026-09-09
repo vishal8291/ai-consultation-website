@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { Heart, Zap, ArrowUp, Globe, Github, Instagram, Mail } from "lucide-react";
+import { ArrowUp, Globe, Instagram } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -31,15 +31,9 @@ export default function Footer() {
               >
                 <Globe className="w-4 h-4" />
               </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-md bg-white border border-[var(--border-default)] hover:border-[var(--border-strong)] text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors"
-                title="GitHub Account"
-              >
-                <Github className="w-4 h-4" />
-              </a>
+              {/* GitHub icon removed: it pointed at github.com rather than an
+                  actual profile, so it sent visitors nowhere. Restore it with a
+                  real profile URL when there is one to link to. */}
               <a
                 href="https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp"
                 target="_blank"

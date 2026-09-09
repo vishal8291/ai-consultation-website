@@ -14,7 +14,7 @@ interface ProjectsShowcaseProps {
 }
 
 const CATEGORIES = [
-  { label: "All Projects", key: "All", icon: LayoutGrid },
+  { label: "All work", key: "All", icon: LayoutGrid },
   { label: "Websites", key: "Websites", icon: Globe2 },
   { label: "AI Agents", key: "AI Agents", icon: Bot },
   { label: "Apps & SaaS", key: "Apps & SaaS", icon: Layers },
@@ -61,7 +61,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3 tracking-tight"
             >
-              {isHomepage || limit === 3 ? "Production Builds" : "All Case Studies & Portfolio Builds"}
+              {isHomepage || limit === 3 ? "Selected work" : "Case studies"}
             </motion.h2>
 
             {!(isHomepage || limit === 3) && (
@@ -72,7 +72,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                 transition={{ delay: 0.1 }}
                 className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
               >
-                Explore projects built by Vishal, categorized by Websites, AI Agents, and Apps & SaaS.
+                Websites, AI systems, and custom software delivered for clients.
               </motion.p>
             )}
           </div>
@@ -89,7 +89,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   key={cat.key}
                   type="button"
                   onClick={() => setSelectedCategory(cat.key)}
-                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center space-x-2 transition-all ${
+                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-md text-sm font-semibold flex items-center space-x-2 transition-all ${
                     isActive
                       ? "bg-slate-900 text-white border-2 border-slate-900"
                       : "bg-white hover:bg-slate-50 text-slate-700 border border-[var(--border-default)]"
@@ -129,7 +129,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     <ProjectGraphicSVG type={project.svgType} />
                   </div>
                 )}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/90 text-white border border-slate-700 text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-semibold tracking-wide backdrop-blur-md">
                   {project.category}
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     {project.title}
                   </h3>
                   {project.results?.primary && (
-                    <p className="text-xs font-bold text-slate-500 mt-1.5 uppercase tracking-wide">
+                    <p className="text-sm text-slate-600 mt-1.5">
                       {project.results.primary}
                     </p>
                   )}
@@ -154,7 +154,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     onClick={() => setActiveModalProject(project)}
                     className="text-xs font-bold text-slate-900 hover:text-black transition-colors inline-flex items-center space-x-1"
                   >
-                    <span>View Architecture Details</span>
+                    <span>View case study</span>
                     <ArrowRight className="w-3.5 h-3.5 text-black" />
                   </button>
 
@@ -215,11 +215,11 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
 
               <div className="space-y-6">
                 <div>
-                  <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-xs font-mono font-bold uppercase tracking-wider border border-slate-300">
+                  <span className="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold border border-[var(--border-default)]">
                     {activeModalProject.category}
                   </span>
                   <h3 className="text-2xl font-semibold text-slate-900 mt-2">{activeModalProject.title}</h3>
-                  <p className="text-xs text-slate-500 font-mono mt-1 font-bold">Industry: {activeModalProject.clientIndustry}</p>
+                  <p className="text-sm text-slate-500 mt-1">Industry: {activeModalProject.clientIndustry}</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs leading-relaxed text-slate-700">
