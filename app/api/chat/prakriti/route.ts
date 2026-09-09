@@ -40,7 +40,10 @@ export async function POST(req: Request) {
       cleanText.includes("who are you") ||
       cleanText.includes("who is prakriti") ||
       cleanText.includes("tell me about yourself") ||
-      cleanText.includes("what are you") ||
+      // Word-boundary matched, not a bare substring: "what are your prices"
+      // contains "what are you" and was being answered with the identity blurb
+      // instead of the pricing tier below.
+      /\bwhat are you\b/.test(cleanText) ||
       cleanText.includes("about company") ||
       cleanText.includes("what is this website")
     ) {
@@ -69,14 +72,14 @@ export async function POST(req: Request) {
         role: "assistant",
         content: `We offer 3 clear, fixed engineering packages:
 
-**1. Launch Package — ₹12,000 ($150)**
-• 5–7 days delivery | 1-page high-speed landing site, contact form & responsive design.
+**1. Launch Package, ₹12,000 ($150)**
+• 5 to 7 days delivery | 1-page high-speed landing site, contact form & responsive design.
 
-💼 **2. Business Package — ₹30,000 ($375)** *(Most Popular)*
-• 2–3 weeks delivery | Up to 8 pages, CMS blog, AI lead chatbot & Razorpay payment gateway.
+ **2. Business Package, ₹30,000 ($375)** *(Most Popular)*
+• 2 to 3 weeks delivery | Up to 8 pages, CMS blog, AI lead chatbot & Razorpay payment gateway.
 
-**3. Automate Package — ₹65,000 ($800)**
-• 4–6 weeks delivery | Custom AI agent workflows, admin dashboard, RAG vector search & full automation.
+**3. Automate Package, ₹65,000 ($800)**
+• 4 to 6 weeks delivery | Custom AI agent workflows, admin dashboard, RAG vector search & full automation.
 
 **Payment Terms**: 50% advance deposit to start engineering, 50% upon final project delivery.
 
@@ -102,11 +105,11 @@ Would you like a custom quote estimate for your project?`,
         role: "assistant",
         content: `Here is how we can help automate and grow your business:
 
-🌐 **Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7–21 days with 100/100 Google PageSpeed scores.
+ **Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7 to 21 days with 100/100 Google PageSpeed scores.
 
 **AI Agents & Chatbots**: 24/7 intelligent support bots (like this one), lead capture bots, and automated WhatsApp/email pipelines.
 
-💻 **Web Apps & Dashboards**: Full-stack SaaS portals, admin dashboards, and custom business software using React 19 & Python.
+ **Web Apps & Dashboards**: Full-stack SaaS portals, admin dashboards, and custom business software using React 19 & Python.
 
 **Process Automation & Audits**: Diagnostic audits to eliminate manual operational waste and save recurring costs.
 
@@ -130,7 +133,7 @@ Which service fits what you are looking to build?`,
         content: `We deliver all projects in guaranteed 7 to 21-day engineering sprints:
 
 • **Launch Package**: 5 to 7 days
-• 💼 **Business Package**: 2 to 3 weeks
+• **Business Package**: 2 to 3 weeks
 • **Automate Package**: 4 to 6 weeks
 
 Timelines begin immediately after receiving your content and 50% advance deposit.`,
@@ -174,9 +177,9 @@ Timelines begin immediately after receiving your content and 50% advance deposit
         content: `You can connect with Vishal directly:
 
 **Official Email**: [customeai.tech@gmail.com](mailto:customeai.tech@gmail.com)
-🌐 **Personal Portfolio**: [https://vishal-tiwari.me](https://vishal-tiwari.me)
-📸 **Instagram**: [@vishal.buildss](https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp)
-📅 **Book Audit Call**: Scroll to our 15-minute consultation booking form on the homepage.`,
+ **Personal Portfolio**: [https://vishal-tiwari.me](https://vishal-tiwari.me)
+ **Instagram**: [@vishal.buildss](https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp)
+ **Book Audit Call**: Scroll to our 15-minute consultation booking form on the homepage.`,
       });
     }
 
@@ -193,12 +196,12 @@ Timelines begin immediately after receiving your content and 50% advance deposit
         role: "assistant",
         content: `Our optional add-on services include:
 
-• 📄 **Extra Page**: ₹2,000 ($25) per page
-• 🎨 **Logo & Brand Identity**: ₹5,000 ($65)
+• **Extra Page**: ₹2,000 ($25) per page
+• **Logo & Brand Identity**: ₹5,000 ($65)
 • **AI Chatbot Only**: ₹15,000 ($190)
-• 🛠️ **Monthly Maintenance**: ₹3,500/mo ($45/mo)
-• 📈 **Monthly SEO Optimization**: ₹5,000/mo ($65/mo)
-• ✍️ **Professional Content Writing**: ₹1,500/page ($20/page)`,
+• **Monthly Maintenance**: ₹3,500/mo ($45/mo)
+• **Monthly SEO Optimization**: ₹5,000/mo ($65/mo)
+• **Professional Content Writing**: ₹1,500/page ($20/page)`,
       });
     }
 
@@ -271,9 +274,9 @@ Timelines begin immediately after receiving your content and 50% advance deposit
       content: `Hello. I am Prakriti. I'm here to help you with your website or AI automation project.
 
 Here is a quick summary of what we offer:
-• **Launch Package**: ₹12,000 ($150) — 5–7 days 1-page landing site
-• 💼 **Business Package**: ₹30,000 ($375) — 2–3 weeks up to 8 pages + AI bot & payments
-• **Automate Package**: ₹65,000 ($800) — 4–6 weeks full AI workflow & admin dashboard
+• **Launch Package**: ₹12,000 ($150), 5 to 7 days 1-page landing site
+• **Business Package**: ₹30,000 ($375), 2 to 3 weeks up to 8 pages + AI bot & payments
+• **Automate Package**: ₹65,000 ($800), 4 to 6 weeks full AI workflow & admin dashboard
 
 Feel free to ask me about pricing, timelines, payment terms, or email Vishal directly at **customeai.tech@gmail.com**.`,
     });

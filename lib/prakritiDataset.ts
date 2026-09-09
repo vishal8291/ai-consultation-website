@@ -63,7 +63,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Are you accepting new projects?",
-    answer: "Yes! We are currently scheduling new website design and AI pipeline builds for this month.",
+    answer: "Yes. We are currently scheduling new website design and AI pipeline builds for this month.",
     category: "about",
     keywords: ["accepting", "available", "schedule", "new", "project", "slot"],
   },
@@ -131,7 +131,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Do you offer custom pricing quotes?",
-    answer: "Yes! Use our interactive quote estimator on the homepage to customize pages and add-ons for an instant custom quote.",
+    answer: "Yes. Use our interactive quote estimator on the homepage to customize pages and add-ons for an instant custom quote.",
     category: "pricing",
     keywords: ["custom", "quote", "estimator", "tailored", "calculator"],
   },
@@ -155,7 +155,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Can I upgrade my package later?",
-    answer: "Yes! You can upgrade from Launch to Business or add AI features at any time as your business grows.",
+    answer: "Yes. You can upgrade from Launch to Business or add AI features at any time as your business grows.",
     category: "pricing",
     keywords: ["upgrade", "expand", "later", "scale"],
   },
@@ -243,7 +243,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Is Razorpay payment secure?",
-    answer: "Yes! All transactions are encrypted via 256-bit SSL and verified with server-side HMAC SHA256 signatures.",
+    answer: "Yes. All transactions are encrypted via 256-bit SSL and verified with server-side HMAC SHA256 signatures.",
     category: "payments",
     keywords: ["secure", "razorpay", "safe", "encryption", "ssl"],
   },
@@ -299,7 +299,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "What if I don't have text content or logo ready?",
-    answer: "No problem! You can select our 'Logo Design' or 'Content Writing' add-ons and we will create them for you.",
+    answer: "No problem. You can select our 'Logo Design' or 'Content Writing' add-ons and we will create them for you.",
     category: "requirements",
     keywords: ["no logo", "no content", "don't have", "text", "copy"],
   },
@@ -341,7 +341,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Can I provide my own design wireframes?",
-    answer: "Yes! If you have Figma or Adobe XD wireframes, we can code them directly into Next.js 16.",
+    answer: "Yes. If you have Figma or Adobe XD wireframes, we can code them directly into Next.js 16.",
     category: "requirements",
     keywords: ["figma", "wireframe", "design", "adobe xd", "convert"],
   },
@@ -349,13 +349,13 @@ export const PRAKRITI_DATASET: QAPair[] = [
   // 6. CODE OWNERSHIP & WARRANTY
   {
     question: "Do I own 100% of the source code?",
-    answer: "Yes! Ground rule: 100% of full source code, repositories, design assets, and database schemas are handed over to you upon full payment.",
+    answer: "Yes. Ground rule: 100% of full source code, repositories, design assets, and database schemas are handed over to you upon full payment.",
     category: "ownership",
     keywords: ["own", "ownership", "source code", "code", "rights", "github", "ip"],
   },
   {
     question: "Do you charge any monthly code license fee?",
-    answer: "Never! You own the code 100% with zero recurring code licensing fees.",
+    answer: "Never. You own the code 100% with zero recurring code licensing fees.",
     category: "ownership",
     keywords: ["license", "lock-in", "recurring", "fee", "ownership"],
   },
@@ -399,7 +399,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Will my website load fast on Google?",
-    answer: "Yes! We optimize all Next.js 16 sites to target sub-second load times and 98-100 Google PageSpeed scores.",
+    answer: "Yes. We optimize all Next.js 16 sites to target sub-second load times and 98-100 Google PageSpeed scores.",
     category: "technical",
     keywords: ["speed", "pagespeed", "google", "fast", "lighthouse", "score"],
   },
@@ -411,7 +411,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Can I manage content myself without coding?",
-    answer: "Yes! In Business & Automate packages, we integrate a CMS so you can edit text and blog posts easily.",
+    answer: "Yes. In Business & Automate packages, we integrate a CMS so you can edit text and blog posts easily.",
     category: "technical",
     keywords: ["cms", "manage", "admin", "edit", "without code"],
   },
@@ -461,7 +461,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Can the AI chatbot collect leads and send them to my email?",
-    answer: "Yes! Every lead captured by the AI chatbot is stored in your database and emailed directly to your inbox.",
+    answer: "Yes. Every lead captured by the AI chatbot is stored in your database and emailed directly to your inbox.",
     category: "ai",
     keywords: ["leads", "collect", "email", "capture", "notifications"],
   },
@@ -475,7 +475,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   // 9. BOOKING & NEXT STEPS
   {
     question: "How do I start a project with CustomeAI?",
-    answer: "Step 1: Select a package or build a quote. Step 2: Pay the 50% advance deposit via Razorpay. Step 3: Send us your text & logo to launch the build sprint!",
+    answer: "Step 1: Select a package or build a quote. Step 2: Pay the 50% advance deposit via Razorpay. Step 3: Send us your text & logo to launch the build sprint.",
     category: "booking",
     keywords: ["how to start", "begin", "hire", "steps", "order"],
   },
@@ -487,7 +487,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Is the 15-minute consultation call free?",
-    answer: "Yes! The initial 15-minute diagnostic engineering audit call is 100% free with zero obligation.",
+    answer: "Yes. The initial 15-minute diagnostic engineering audit call is 100% free with zero obligation.",
     category: "booking",
     keywords: ["free", "audit", "call", "obligation", "cost"],
   },
@@ -513,7 +513,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Do you build e-commerce online stores?",
-    answer: "Yes! We build custom e-commerce stores with product catalogs, shopping cart, Razorpay payment gateway, and dynamic coupons.",
+    answer: "Yes. We build custom e-commerce stores with product catalogs, shopping cart, Razorpay payment gateway, and dynamic coupons.",
     category: "general",
     keywords: ["ecommerce", "e-commerce", "store", "shop", "products", "cart"],
   },
@@ -531,7 +531,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Thank you.",
-    answer: "You're very welcome! If you have any more questions or want to start your build, feel free to ask me or book an audit call above!",
+    answer: "You are very welcome. If you have any more questions or want to start your build, feel free to ask me or book an audit call above.",
     category: "general",
     keywords: ["thank you", "thanks", "thx", "awesome", "great"],
   },

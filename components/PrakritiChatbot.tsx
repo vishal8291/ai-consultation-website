@@ -78,7 +78,7 @@ export default function PrakritiChatbot() {
         {
           id: `prakriti_err_${Date.now()}`,
           sender: "prakriti",
-          text: "Apologies, I encountered a temporary connection issue. Please feel free to email Vishal directly at **customeai.tech@gmail.com**!",
+          text: "Apologies, I encountered a temporary connection issue. Please feel free to email Vishal directly at **customeai.tech@gmail.com**.",
         },
       ]);
     } finally {
@@ -110,7 +110,7 @@ export default function PrakritiChatbot() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 border-2 border-white shadow-2xl flex items-center justify-center group"
-          title="Drag me around! Click to chat with Prakriti"
+          title="Drag to move. Click to chat with Prakriti"
         >
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black flex items-center justify-center font-semibold shadow-md">
             <Bot className="w-6 h-6 text-black" />
