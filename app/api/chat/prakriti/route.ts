@@ -3,11 +3,36 @@ import { connectDB } from "@/lib/mongodb";
 import PrakritiKnowledge from "@/models/PrakritiKnowledge";
 import { PRAKRITI_DATASET } from "@/lib/prakritiDataset";
 import { askGemini } from "@/lib/gemini";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+
+// A single chat message never legitimately needs to be longer than this.
+// The Tier-3 fallback forwards the message to Gemini (a billed API call), so
+// an uncapped length is both a cost and an abuse vector.
+const MAX_MESSAGE_CHARS = 2000;
 
 export async function POST(req: Request) {
   try {
+    // Rate limit before any work: this endpoint can reach the paid Gemini API,
+    // so an unthrottled loop here runs up the bill and can exhaust the quota,
+    // taking the assistant offline for real visitors. 20 messages/min per IP
+    // is well above normal human chat pace.
+    const ip = getClientIp(req);
+    const rateCheck = await checkRateLimit(`chat_prakriti_${ip}`, { limit: 20, windowSeconds: 60 });
+    if (!rateCheck.success) {
+      return NextResponse.json(
+        {
+          role: "assistant",
+          content: "You are sending messages very quickly. Please wait a moment and try again.",
+        },
+        { status: 429 }
+      );
+    }
+
     const { messages } = await req.json();
-    const rawUserQuery = (messages?.[messages.length - 1]?.content || "").trim();
+    const rawUserQuery = (messages?.[messages.length - 1]?.content || "")
+      .toString()
+      .slice(0, MAX_MESSAGE_CHARS)
+      .trim();
     const userQueryLower = rawUserQuery.toLowerCase().replace(/[^\w\s]/gi, " ");
 
     if (!userQueryLower || userQueryLower.trim().length === 0) {

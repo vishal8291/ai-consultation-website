@@ -19,18 +19,15 @@ export default function PricingSection() {
         return;
       }
 
-      // 50% Advance amount calculation
-      const fullPrice = currency === "INR" ? tier.priceINR : tier.priceUSD;
-      const advanceAmount = Math.round(fullPrice * 0.5);
-
-      // Create order on backend API
+      // The server resolves the price from tier.id and computes the 50%
+      // advance itself, so we send only the tier id and currency, never an
+      // amount the client could tamper with.
       const res = await fetch("/api/razorpay/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: advanceAmount,
+          tierId: tier.id,
           currency: currency,
-          receipt: `receipt_${tier.id}_${Date.now()}`,
         }),
       });
 
@@ -40,6 +37,9 @@ export default function PricingSection() {
         setLoadingTierId(null);
         return;
       }
+
+      // Display-only figure, taken from the server's authoritative response.
+      const advanceAmount = orderData.advanceAmount as number;
 
       // Open Razorpay Checkout Modal
       const options = {
