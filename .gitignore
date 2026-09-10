@@ -51,3 +51,6 @@ next-env.d.ts
 /WEB_DESIGN_TERMINOLOGY_HANDBOOK.pdf
 /public/animation.mp4
 /public/images/premium_photo-*.avif
+
+# Uptime monitor state is persisted via GitHub Actions cache, not committed
+monitoring/state/

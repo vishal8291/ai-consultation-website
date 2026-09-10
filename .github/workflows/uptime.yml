@@ -1,0 +1,50 @@
+name: Uptime monitor
+
+on:
+  schedule:
+    # Every 10 minutes. GitHub may delay scheduled runs under load; treat the
+    # cadence as "about every 10-15 min", which is fine for site monitoring.
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {} # allow manual runs from the Actions tab / gh CLI
+
+# Only one monitor run at a time; a slow run won't pile up on the next tick.
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Restore the previous run's state (last.json) so we can alert only on
+      # CHANGES. Exact key never hits (unique per run); restore-keys prefix
+      # match pulls the most recent prior state.
+      - name: Restore monitor state
+        uses: actions/cache/restore@v4
+        with:
+          path: monitoring/state
+          key: uptime-state-${{ github.run_id }}
+          restore-keys: |
+            uptime-state-
+
+      - name: Run health check
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          STATE_FILE: monitoring/state/last.json
+        run: node monitoring/health-check.mjs
+
+      # Persist updated state for the next run.
+      - name: Save monitor state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: monitoring/state
+          key: uptime-state-${{ github.run_id }}

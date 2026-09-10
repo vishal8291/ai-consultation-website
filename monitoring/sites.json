@@ -1,0 +1,13 @@
+{
+  "notifyTo": "customeai.tech@gmail.com",
+  "from": "CustomeAI Monitoring <notifications@customeai.tech>",
+  "heartbeatHourIST": 8,
+  "checks": [
+    { "site": "customeai.tech", "label": "Homepage", "url": "https://customeai.tech/", "expect": [200], "meaning": "Site is down or erroring" },
+    { "site": "customeai.tech", "label": "Consultation API", "url": "https://customeai.tech/api/consultation", "expect": [401], "meaning": "Lead-capture API is broken (should require auth, not 500)" },
+    { "site": "mahagroindia.com", "label": "Homepage", "url": "https://mahagroindia.com/", "expect": [200], "meaning": "Site is down or erroring" },
+    { "site": "mahagroindia.com", "label": "Stats API", "url": "https://mahagroindia.com/backend/api/stats.php", "expect": [200], "meaning": "PHP backend is down" },
+    { "site": "mahagroindia.com", "label": "Admin panel lock", "url": "https://mahagroindia.com/backend/admin/", "expect": [401], "meaning": "SECURITY: admin panel with customer PII is no longer password-protected" },
+    { "site": "mahagroindia.com", "label": "Secret file lock", "url": "https://mahagroindia.com/backend/.env.php", "expect": [403, 404], "meaning": "SECURITY: server config/secrets file is publicly reachable" }
+  ]
+}
