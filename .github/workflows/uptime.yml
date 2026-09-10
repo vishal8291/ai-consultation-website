@@ -5,7 +5,12 @@ on:
     # Every 10 minutes. GitHub may delay scheduled runs under load; treat the
     # cadence as "about every 10-15 min", which is fine for site monitoring.
     - cron: "*/10 * * * *"
-  workflow_dispatch: {} # allow manual runs from the Actions tab / gh CLI
+  workflow_dispatch:
+    inputs:
+      force_heartbeat:
+        description: "Send a test email even if healthy"
+        type: boolean
+        default: false
 
 # Only one monitor run at a time; a slow run won't pile up on the next tick.
 concurrency:
@@ -39,6 +44,7 @@ jobs:
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           STATE_FILE: monitoring/state/last.json
+          FORCE_HEARTBEAT: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_heartbeat) && '1' || '0' }}
         run: node monitoring/health-check.mjs
 
       # Persist updated state for the next run.

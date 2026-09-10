@@ -87,6 +87,13 @@ async function sendEmail(subject, headline, headColor, results, intro) {
       "All sites healthy again", "#16a34a", results,
       `Everything is back to normal as of ${pretty}.`);
     next.lastHeartbeatDate = date; // recovery doubles as today's heartbeat
+  } else if (process.env.FORCE_HEARTBEAT === "1") {
+    // Manual test trigger (workflow_dispatch) — prove the CI email path works
+    // on demand regardless of time or state.
+    await sendEmail(`✅ Site check (manual test) — ${healthy ? "all healthy" : failures.length + " issue(s)"} (${pretty})`,
+      healthy ? "All sites healthy" : `${failures.length} issue(s) found`,
+      healthy ? "#16a34a" : "#dc2626", results,
+      `Manual test run at ${pretty}. This confirms the GitHub Actions monitor can reach you.`);
   } else if (healthy && hour === cfg.heartbeatHourIST && prev.lastHeartbeatDate !== date) {
     // Once-a-day "still healthy, monitor is alive" heartbeat
     await sendEmail(`✅ Daily site check — all healthy (${pretty})`,
