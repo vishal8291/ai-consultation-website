@@ -1,10 +1,25 @@
 // lib/auth.ts - Enterprise Cryptographic Authentication & Token Manager (100% Edge & Node Compatible)
 import { NextRequest } from "next/server";
 
-const JWT_SECRET = process.env.JWT_SECRET;
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET environment variable is required");
+/**
+ * Reads a required environment variable and narrows it to string.
+ *
+ * A bare `const X = process.env.X; if (!X) throw` guards at runtime but does
+ * not narrow inside function bodies, because TypeScript cannot prove those
+ * functions run after the check. That left every call site passing
+ * `string | undefined` into signing and comparison helpers that require a
+ * string, which the build was only tolerating because next.config.ts sets
+ * ignoreBuildErrors. Resolving it here fixes all of those call sites at once.
+ */
+export function requireEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`${name} environment variable is required`);
+  }
+  return value;
 }
+
+const JWT_SECRET: string = requireEnv("JWT_SECRET");
 
 export interface TokenPayload {
   id?: string;

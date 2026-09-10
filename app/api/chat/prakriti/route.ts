@@ -105,7 +105,7 @@ Would you like a custom quote estimate for your project?`,
         role: "assistant",
         content: `Here is how we can help automate and grow your business:
 
-**Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7 to 21 days with 100/100 Google PageSpeed scores.
+**Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7 to 21 days with Google PageSpeed scores of 98 to 100.
 
 **AI Agents & Chatbots**: 24/7 intelligent support bots (like this one), lead capture bots, and automated WhatsApp/email pipelines.
 
@@ -216,7 +216,7 @@ Timelines begin immediately after receiving your content and 50% advance deposit
     const stopwords = new Set(["is", "are", "the", "a", "an", "what", "how", "where", "can", "do", "you", "we", "for", "in", "of", "to", "my", "your"]);
     const queryTokens = cleanText
       .split(/\s+/)
-      .filter((term) => term.length > 2 && !stopwords.has(term));
+      .filter((term: string) => term.length > 2 && !stopwords.has(term));
 
     let bestMatch: any = null;
     let highestScore = 0;

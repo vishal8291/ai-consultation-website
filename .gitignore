@@ -44,3 +44,10 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Reference material and scratch media kept alongside the project but not
+# part of the deployed site. These were sitting untracked in the repo root.
+/PROJECT_DESIGN_REFERENCE.pdf
+/WEB_DESIGN_TERMINOLOGY_HANDBOOK.pdf
+/public/animation.mp4
+/public/images/premium_photo-*.avif

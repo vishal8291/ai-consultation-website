@@ -32,6 +32,12 @@ export async function connectDB(): Promise<typeof mongoose> {
 
   // Production-grade connection pool and timeout configuration
   const opts: mongoose.ConnectOptions = {
+    // IMPORTANT: this deliberately overrides whatever database name appears in
+    // the path of MONGODB_URI. All eleven projects share one Atlas cluster, and
+    // the URI in the Vercel environment still ends in "/paperbag" (an unrelated
+    // project), so without this pin the app would read and write the wrong
+    // database. Any standalone script that connects with the raw URI must pass
+    // dbName: "consultationDB" too, or it will silently target paperbag.
     dbName: "consultationDB",
     bufferCommands: false,
     maxPoolSize: 10,              // Keep up to 10 socket connections in pool

@@ -84,7 +84,9 @@ export default function PrivacyPageClient() {
             <ul className="space-y-2 list-disc pl-5">
               <li><strong>Razorpay:</strong> Secure payment processing and HMAC SHA256 payment verification.</li>
               <li><strong>MongoDB Atlas:</strong> Secure cloud database storage.</li>
-              <li><strong>Vercel / Cloudflare:</strong> Edge network hosting and serverless API execution.</li>
+              <li><strong>Vercel:</strong> Edge network hosting and serverless API execution.</li>
+              <li><strong>Google Gemini:</strong> When our assistant cannot answer a question from its own stored knowledge, the text of that message is sent to Google&apos;s Gemini API to generate a reply. Do not enter personal or confidential information into the chat.</li>
+              <li><strong>Google Analytics:</strong> Anonymised traffic and page-view measurement.</li>
             </ul>
           </div>
 

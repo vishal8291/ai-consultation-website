@@ -1,12 +1,9 @@
 // app/api/admin/login/route.ts - Enterprise Cryptographic Admin Auth Route
 import { NextRequest, NextResponse } from "next/server";
-import { signAuthToken, timingSafeStringCompare } from "@/lib/auth";
+import { signAuthToken, timingSafeStringCompare, requireEnv } from "@/lib/auth";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
-if (!ADMIN_PASSWORD) {
-  throw new Error("ADMIN_PASSWORD environment variable is required");
-}
+const ADMIN_PASSWORD: string = requireEnv("ADMIN_PASSWORD");
 
 export async function POST(req: NextRequest) {
   try {

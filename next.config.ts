@@ -49,8 +49,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Type errors now fail the build. This was previously set to
+  // ignoreBuildErrors: true, which is how four genuine type errors survived in
+  // the auth and admin-login paths: secrets typed `string | undefined` were
+  // being passed into helpers that require a string. Those are fixed, so the
+  // suppression is no longer buying anything except the next silent bug.
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   poweredByHeader: false,
   compress: true,
