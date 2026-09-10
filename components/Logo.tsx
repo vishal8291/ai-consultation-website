@@ -4,17 +4,20 @@ import React from "react";
  * The single place the CustomeAI mark is defined. Navbar and footer both render
  * through this file, so changing the logo is one edit here.
  *
- * reallogo.png is a square, stacked lockup: the robot-head mark sits above a
+ * The artwork is a square, stacked lockup: the robot-head mark sits above a
  * "CUSTOMEAI" wordmark and an "Intelligence" tagline. Dropped whole into a 64px
  * navbar that lockup is unreadable, so the <Mark> below shows only the head, by
  * scaling the image up inside a fixed square and offsetting it. The percentages
  * are tuned to the artwork; if the logo file is replaced, they need retuning.
  *
- * The PNG also ships with a light grey background rather than transparency, so
- * mix-blend-multiply is used to drop that ground out against white surfaces.
+ * Points at the alpha-channel cutout, not the original. reallogo.png shipped
+ * with a light grey (#f9f9fb) ground baked in, which needed a
+ * mix-blend-multiply workaround to vanish against white and only worked on
+ * white. The transparent version sits correctly on any surface, so the blend
+ * mode is gone.
  */
 
-const MARK_SRC = "/images/reallogo.png";
+const MARK_SRC = "/images/reallogo-transparent.png";
 
 // Framing for the head within the square artwork.
 const MARK_SCALE = "240%";
@@ -36,7 +39,6 @@ function Mark({ className = "" }: { className?: string }) {
           height: MARK_SCALE,
           left: MARK_LEFT,
           top: MARK_TOP,
-          mixBlendMode: "multiply",
         }}
       />
     </span>
