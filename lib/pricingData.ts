@@ -94,24 +94,6 @@ export const ADDON_OPTIONS: AddonOption[] = [
     description: "One more page, designed and built",
   },
   {
-    id: "logo-design",
-    name: "Logo design",
-    priceINR: 5000,
-    priceUSD: 65,
-    priceDisplayINR: "₹5,000",
-    priceDisplayUSD: "$65",
-    description: "A custom logo made just for your business",
-  },
-  {
-    id: "ai-chatbot-only",
-    name: "AI chatbot only",
-    priceINR: 15000,
-    priceUSD: 190,
-    priceDisplayINR: "₹15,000",
-    priceDisplayUSD: "$190",
-    description: "An AI chat assistant trained on your own information",
-  },
-  {
     id: "monthly-maintenance",
     name: "Monthly maintenance",
     priceINR: 3500,
@@ -128,15 +110,6 @@ export const ADDON_OPTIONS: AddonOption[] = [
     priceDisplayINR: "₹5,000 / mo",
     priceDisplayUSD: "$65 / mo",
     description: "We work on getting you found higher in Google searches",
-  },
-  {
-    id: "content-writing",
-    name: "Page writing (per page)",
-    priceINR: 1500,
-    priceUSD: 20,
-    priceDisplayINR: "₹1,500",
-    priceDisplayUSD: "$20",
-    description: "We write the words for your page, clearly and well",
   },
 ];
 

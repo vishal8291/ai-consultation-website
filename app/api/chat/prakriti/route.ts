@@ -183,12 +183,14 @@ Timelines begin immediately after receiving your content and 50% advance deposit
       });
     }
 
-    // 8. ADD-ONS INTENT (Matches: "add ons", "addons", "extra page", "logo", "maintenance", "seo")
+    // 8. ADD-ONS INTENT (Matches: "add ons", "addons", "extra page", "maintenance", "seo")
+    // "logo" was a trigger here while logo design was an add-on. It is no longer
+    // offered, so a logo question now falls through rather than returning a list
+    // that does not mention logos.
     if (
       cleanText.includes("add on") ||
       cleanText.includes("addon") ||
       cleanText.includes("extra page") ||
-      cleanText.includes("logo") ||
       cleanText.includes("maintenance") ||
       cleanText.includes("seo")
     ) {
@@ -197,11 +199,8 @@ Timelines begin immediately after receiving your content and 50% advance deposit
         content: `Our optional add-on services include:
 
 • **Extra Page**: ₹2,000 ($25) per page
-• **Logo & Brand Identity**: ₹5,000 ($65)
-• **AI Chatbot Only**: ₹15,000 ($190)
 • **Monthly Maintenance**: ₹3,500/mo ($45/mo)
-• **Monthly SEO Optimization**: ₹5,000/mo ($65/mo)
-• **Professional Content Writing**: ₹1,500/page ($20/page)`,
+• **Monthly SEO Optimization**: ₹5,000/mo ($65/mo)`,
       });
     }
 

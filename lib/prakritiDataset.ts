@@ -163,7 +163,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   // 3. ADD-ONS & MAINTENANCE
   {
     question: "What add-ons do you offer?",
-    answer: "Our add-ons include: Extra page (₹2,000), Logo design (₹5,000), AI chatbot only (₹15,000), Monthly maintenance (₹3,500/mo), SEO monthly (₹5,000/mo), and Content writing (₹1,500/page).",
+    answer: "Our add-ons include: Extra page (₹2,000), Monthly maintenance (₹3,500/mo), and Monthly Google ranking help (₹5,000/mo).",
     category: "addons",
     keywords: ["add-ons", "addons", "extras", "options", "services"],
   },
@@ -172,12 +172,6 @@ export const PRAKRITI_DATASET: QAPair[] = [
     answer: "An additional custom page costs ₹2,000 ($25).",
     category: "addons",
     keywords: ["extra", "page", "2000", "25", "addition"],
-  },
-  {
-    question: "How much does logo design cost?",
-    answer: "Custom vector brand logo design costs ₹5,000 ($65).",
-    category: "addons",
-    keywords: ["logo", "design", "branding", "5000", "65"],
   },
   {
     question: "How much does a standalone AI chatbot cost?",
@@ -198,22 +192,10 @@ export const PRAKRITI_DATASET: QAPair[] = [
     keywords: ["seo", "monthly", "ranking", "google", "5000", "65"],
   },
   {
-    question: "How much does content writing cost per page?",
-    answer: "Professional SEO content writing costs ₹1,500 per page ($20).",
-    category: "addons",
-    keywords: ["content", "writing", "copywriting", "text", "1500", "20"],
-  },
-  {
     question: "Is domain and hosting included?",
     answer: "No, domain name and hosting server subscription costs are paid directly by you to providers like Vercel, Cloudflare, or GoDaddy.",
     category: "addons",
     keywords: ["domain", "hosting", "godaddy", "vercel", "extra"],
-  },
-  {
-    question: "Can I order just logo design or AI chatbot?",
-    answer: "Yes, all add-on services can be ordered individually as standalone tasks.",
-    category: "addons",
-    keywords: ["order", "individual", "standalone", "just"],
   },
   {
     question: "Do you handle website migration?",
@@ -299,7 +281,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "What if I don't have text content or logo ready?",
-    answer: "No problem. You can select our 'Logo Design' or 'Content Writing' add-ons and we will create them for you.",
+    answer: "Send us whatever you have and we will tell you what is still needed. We do not write page copy or design logos in house, so those need to come from you or a designer you work with.",
     category: "requirements",
     keywords: ["no logo", "no content", "don't have", "text", "copy"],
   },
