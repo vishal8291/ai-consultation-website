@@ -75,7 +75,7 @@ export async function POST(req: Request) {
 **1. Launch Package, ₹12,000 ($150)**
 • 5 to 7 days delivery | 1-page high-speed landing site, contact form & responsive design.
 
- **2. Business Package, ₹30,000 ($375)** *(Most Popular)*
+**2. Business Package, ₹30,000 ($375)** *(Most Popular)*
 • 2 to 3 weeks delivery | Up to 8 pages, CMS blog, AI lead chatbot & Razorpay payment gateway.
 
 **3. Automate Package, ₹65,000 ($800)**
@@ -105,11 +105,11 @@ Would you like a custom quote estimate for your project?`,
         role: "assistant",
         content: `Here is how we can help automate and grow your business:
 
- **Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7 to 21 days with 100/100 Google PageSpeed scores.
+**Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7 to 21 days with 100/100 Google PageSpeed scores.
 
 **AI Agents & Chatbots**: 24/7 intelligent support bots (like this one), lead capture bots, and automated WhatsApp/email pipelines.
 
- **Web Apps & Dashboards**: Full-stack SaaS portals, admin dashboards, and custom business software using React 19 & Python.
+**Web Apps & Dashboards**: Full-stack SaaS portals, admin dashboards, and custom business software using React 19 & Python.
 
 **Process Automation & Audits**: Diagnostic audits to eliminate manual operational waste and save recurring costs.
 
@@ -177,9 +177,9 @@ Timelines begin immediately after receiving your content and 50% advance deposit
         content: `You can connect with Vishal directly:
 
 **Official Email**: [customeai.tech@gmail.com](mailto:customeai.tech@gmail.com)
- **Personal Portfolio**: [https://vishal-tiwari.me](https://vishal-tiwari.me)
- **Instagram**: [@vishal.buildss](https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp)
- **Book Audit Call**: Scroll to our 15-minute consultation booking form on the homepage.`,
+**Personal Portfolio**: [https://vishal-tiwari.me](https://vishal-tiwari.me)
+**Instagram**: [@vishal.buildss](https://www.instagram.com/vishal.buildss?igsi=eHBvNHVtZzJkemNp)
+**Book Audit Call**: Scroll to our 15-minute consultation booking form on the homepage.`,
       });
     }
 
