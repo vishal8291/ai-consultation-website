@@ -28,9 +28,12 @@ export default function AdminConsultations() {
   const fetchConsultations = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/consultations");
+      // Route is singular: /api/consultation. The API wraps the array in
+      // { success, consultations } rather than returning it bare.
+      const res = await fetch("/api/consultation");
       const data = await res.json();
-      setConsultations(data);
+      if (!res.ok) throw new Error(data?.error || `Request failed (${res.status})`);
+      setConsultations(Array.isArray(data.consultations) ? data.consultations : []);
     } catch (error) {
       console.error("Failed to fetch consultations:", error);
     } finally {
@@ -43,7 +46,7 @@ export default function AdminConsultations() {
     
     setDeletingId(id);
     try {
-      await fetch(`/api/consultations/${id}`, { method: "DELETE" });
+      await fetch(`/api/consultation/${id}`, { method: "DELETE" });
       setConsultations(prev => prev.filter(c => c._id !== id));
     } catch (error) {
       console.error("Delete failed:", error);

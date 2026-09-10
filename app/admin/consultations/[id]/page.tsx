@@ -33,12 +33,13 @@ export default function ConsultationDetail() {
   const fetchConsultation = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/consultations/${params.id}`);
+      const res = await fetch(`/api/consultation/${params.id}`);
       const data = await res.json();
-      
-      if (res.ok) {
-        setConsultation(data);
-        setStatus(data.status);
+
+      // The API returns { success, consultation }, not the record itself.
+      if (res.ok && data.consultation) {
+        setConsultation(data.consultation);
+        setStatus(data.consultation.status);
       } else {
         router.push("/admin/consultations");
       }
@@ -56,7 +57,7 @@ export default function ConsultationDetail() {
 
     setUpdating(true);
     try {
-      const res = await fetch(`/api/consultations/${params.id}`, {
+      const res = await fetch(`/api/consultation/${params.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),
@@ -64,7 +65,15 @@ export default function ConsultationDetail() {
 
       if (res.ok) {
         const updated = await res.json();
-        setConsultation({ ...consultation, status: updated.status, updatedAt: updated.updatedAt });
+        // PATCH also wraps its payload in { success, consultation }.
+        if (updated.consultation) {
+          setConsultation({
+            ...consultation,
+            status: updated.consultation.status,
+            updatedAt: updated.consultation.updatedAt,
+          });
+          setStatus(updated.consultation.status);
+        }
       }
     } catch (error) {
       console.error("Update failed:", error);
@@ -78,7 +87,7 @@ export default function ConsultationDetail() {
     
     setDeleting(true);
     try {
-      await fetch(`/api/consultations/${params.id}`, { method: "DELETE" });
+      await fetch(`/api/consultation/${params.id}`, { method: "DELETE" });
       router.push("/admin/consultations");
     } catch (error) {
       console.error("Delete failed:", error);
