@@ -4,10 +4,16 @@ import { Resend } from "resend";
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
-// Resend's shared sandbox sender works without verifying a custom domain, but can
-// only deliver to the email address the Resend account itself was signed up with.
-// Once a domain is verified in Resend, set RESEND_FROM_EMAIL to something like
-// "notifications@customeai.tech" to send to arbitrary customer addresses too.
+// Resend's shared sandbox sender ("onboarding@resend.dev") works without verifying
+// a custom domain, but will ONLY deliver to the address the Resend account was
+// signed up with, which for this account is vishal.buildss@gmail.com. Anything
+// else is rejected with a 403 validation_error and the notification is lost, so
+// ADMIN_NOTIFICATION_EMAIL must stay on that address until the domain is verified.
+//
+// To notify customeai.tech@gmail.com (or send mail to clients at all), verify
+// customeai.tech at resend.com/domains, then set:
+//   RESEND_FROM_EMAIL=notifications@customeai.tech
+//   ADMIN_NOTIFICATION_EMAIL=customeai.tech@gmail.com
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "customeai.tech@gmail.com";
 

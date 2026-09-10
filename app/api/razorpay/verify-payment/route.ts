@@ -1,5 +1,5 @@
 // app/api/razorpay/verify-payment/route.ts - Enterprise Cryptographic Payment Verification Route
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import crypto from "crypto";
 import Razorpay from "razorpay";
 import { timingSafeStringCompare } from "@/lib/auth";
@@ -74,7 +74,9 @@ export async function POST(req: Request) {
         razorpayOrderId: razorpay_order_id,
         razorpayPaymentId: razorpay_payment_id,
       });
-      sendAdminNotification(subject, html);
+      // Deferred via after() rather than a bare un-awaited call, which the
+      // serverless runtime can freeze before the mail request completes.
+      after(() => sendAdminNotification(subject, html));
     } catch (persistErr) {
       console.error("Failed to persist/notify verified payment:", persistErr);
     }

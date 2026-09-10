@@ -1,5 +1,5 @@
 // app/api/consultation/route.ts - Enterprise Resilient & Rate-Limited Consultation API
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Consultation from "@/models/Consultation";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
@@ -49,8 +49,11 @@ export async function POST(req: NextRequest) {
       contact: cleanContact,
       message: cleanMessage,
     });
-    // Fire-and-forget: a notification failure must never fail the user's submission
-    sendAdminNotification(subject, html);
+    // Deferred until after the response is sent, so a slow mail provider never
+    // delays the user's submission. after() keeps the serverless function alive
+    // for the duration; an un-awaited bare call gets frozen mid-flight and the
+    // email is silently lost.
+    after(() => sendAdminNotification(subject, html));
 
     return NextResponse.json(
       {
