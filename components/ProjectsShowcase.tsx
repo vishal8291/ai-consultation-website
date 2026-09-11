@@ -48,64 +48,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
     }).slice(0, limit || PROJECTS_DATA.length);
   }
 
-  return (
-    <section id="projects" className="relative py-20 bg-white text-slate-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        {!hideHeader && (
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3 tracking-tight"
-            >
-              {isHomepage || limit === 3 ? "Selected work" : "Case studies"}
-            </motion.h2>
-
-            {!(isHomepage || limit === 3) && (
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
-              >
-                Websites, AI systems, and custom software delivered for clients.
-              </motion.p>
-            )}
-          </div>
-        )}
-
-        {/* Category Tabs (Shown on Portfolio page or when showFilters is enabled) */}
-        {showFilters && !isHomepage && limit !== 3 && (
-          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10">
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.key;
-              const IconComp = cat.icon;
-              return (
-                <button
-                  key={cat.key}
-                  type="button"
-                  onClick={() => setSelectedCategory(cat.key)}
-                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-md text-sm font-semibold flex items-center space-x-2 transition-all ${
-                    isActive
-                      ? "bg-slate-900 text-white border-2 border-slate-900"
-                      : "bg-white hover:bg-slate-50 text-slate-700 border border-[var(--border-default)]"
-                  }`}
-                >
-                  <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-slate-500"}`} />
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {/* 3-Column Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projectsToDisplay.map((project, index) => (
+  const renderCard = (project: Project, index: number) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -129,8 +72,19 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     <ProjectGraphicSVG type={project.svgType} />
                   </div>
                 )}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-semibold tracking-wide backdrop-blur-md">
-                  {project.category}
+                <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5">
+                  <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-semibold tracking-wide backdrop-blur-md">
+                    {project.category}
+                  </span>
+                  {project.engagement === "client" ? (
+                    <span className="px-3 py-1 rounded-md text-white text-[11px] font-semibold tracking-wide backdrop-blur-md" style={{ background: "var(--accent)" }}>
+                      Real client project
+                    </span>
+                  ) : (
+                    <span className="px-3 py-1 rounded-md bg-white/85 text-slate-700 text-[11px] font-semibold tracking-wide backdrop-blur-md">
+                      Independent build
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -172,8 +126,103 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+  );
+
+  return (
+    <section id="projects" className="relative py-20 bg-white text-slate-900 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        {!hideHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3 tracking-tight"
+            >
+              {isHomepage || limit === 3 ? "Selected work" : "Case studies"}
+            </motion.h2>
+
+            {!(isHomepage || limit === 3) && (
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
+              >
+                Our client work, alongside the systems we've built independently to prove out what we can deliver.
+              </motion.p>
+            )}
+          </div>
+        )}
+
+        {/* Category Tabs (Shown on Portfolio page or when showFilters is enabled) */}
+        {showFilters && !isHomepage && limit !== 3 && (
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10">
+            {CATEGORIES.map((cat) => {
+              const isActive = selectedCategory === cat.key;
+              const IconComp = cat.icon;
+              return (
+                <button
+                  key={cat.key}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat.key)}
+                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-md text-sm font-semibold flex items-center space-x-2 transition-all ${
+                    isActive
+                      ? "bg-slate-900 text-white border-2 border-slate-900"
+                      : "bg-white hover:bg-slate-50 text-slate-700 border border-[var(--border-default)]"
+                  }`}
+                >
+                  <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-slate-500"}`} />
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Grouped rendering: on the full projects page, client work and
+            independent builds are shown as separate, labelled sections so a real
+            client result is never diluted by self-initiated demos. The homepage
+            shortlist stays a single grid. */}
+        {isHomepage || limit === 3 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {projectsToDisplay.map((project, index) => renderCard(project, index))}
+          </div>
+        ) : (
+          (() => {
+            const clientWork = projectsToDisplay.filter((p) => p.engagement === "client");
+            const independent = projectsToDisplay.filter((p) => p.engagement === "independent");
+            return (
+              <div className="space-y-16">
+                {clientWork.length > 0 && (
+                  <div>
+                    <div className="mb-6">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Client work</h3>
+                      <p className="text-sm text-slate-500 mt-1">Paid engagements delivered for real businesses.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                      {clientWork.map((project, index) => renderCard(project, index))}
+                    </div>
+                  </div>
+                )}
+                {independent.length > 0 && (
+                  <div>
+                    <div className="mb-6">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Independent builds</h3>
+                      <p className="text-sm text-slate-500 mt-1">Systems we designed and built ourselves to prove out what we can deliver.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                      {independent.map((project, index) => renderCard(project, index))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })()
+        )}
 
         {/* SEE ALL PROJECTS CTA BUTTON (For Homepage View) */}
         {(isHomepage || limit === 3) && (

@@ -3,6 +3,9 @@ export interface Project {
   title: string;
   tagline: string;
   category: "Websites" | "AI Agents" | "Apps & SaaS";
+  // Honest provenance: a paid, delivered client engagement vs a self-initiated
+  // build. Rendered as a badge so a prospect is never misled about which is which.
+  engagement: "client" | "independent";
   clientIndustry: string;
   results: {
     primary: string;
@@ -24,6 +27,7 @@ export interface Project {
 export const PROJECTS_DATA: Project[] = [
   {
     id: "mahagro-india-training-platform",
+    engagement: "client",
     title: "MAHAGRO INDIA: Mushroom Cultivation Training Platform",
     tagline: "Real client project: a bilingual booking site for a 30-year mushroom farming training institute, with resilient payments and enterprise-grade security.",
     category: "Websites",
@@ -53,6 +57,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "lex-agent-legal-auditor",
+    engagement: "independent",
     title: "LexAgent: AI Legal Auditor for SMEs",
     tagline: "AI-powered legal auditor that analyzes contracts, extracts clauses, and flags compliance risks in plain English.",
     category: "AI Agents",
@@ -80,6 +85,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "freelance-ai-sales-agent",
+    engagement: "independent",
     title: "Freelance AI Sales & Outreach Engine",
     tagline: "Multi-layer AI system that finds leads, conducts outreach, generates proposals, and manages a full CRM.",
     category: "AI Agents",
@@ -106,6 +112,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "paperbag-ecommerce-leaf-ai",
+    engagement: "independent",
     title: "Paperbag: Eco E-Commerce Platform",
     tagline: "Full-stack e-commerce platform with Razorpay payments, referral engine, and Groq/LLaMA powered 'Leaf AI' support bot.",
     category: "Websites",
@@ -132,6 +139,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "healthmap-shakticycle",
+    engagement: "independent",
     title: "HealthMap AI (ShaktiCycle): Mobile App",
     tagline: "Cross-platform mobile health app for cycle tracking, AI recommendations, and symptom logging.",
     category: "Apps & SaaS",
@@ -158,6 +166,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "pdf-solution-saas",
+    engagement: "independent",
     title: "PDFSolution: All-in-One PDF & OCR SaaS",
     tagline: "SaaS platform supporting PDF merge, split, OCR text extraction, compression, and conversion pipelines.",
     category: "Apps & SaaS",
@@ -185,6 +194,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "vishal-developer-portfolio",
+    engagement: "independent",
     title: "Vishal's Developer Portfolio Site",
     tagline: "Personal developer portfolio showcasing all full-stack MERN, Next.js, and AI agent projects.",
     category: "Websites",
@@ -211,6 +221,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "entrance-exam-recommendation-system",
+    engagement: "independent",
     title: "Entrance Exam & Recommendation System",
     tagline: "9-module MERN stack recommendation system built leading a 3-member engineering team.",
     category: "Apps & SaaS",

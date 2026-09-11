@@ -28,7 +28,7 @@ export default function ProjectsPageClient() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
           >
-            Case studies covering AI agents, document automation, web portals, and dashboards we've built.
+            One live client engagement, plus the AI agents, web portals, and automation systems we've built ourselves to prove what we can deliver.
           </motion.p>
         </div>
       </section>

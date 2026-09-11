@@ -435,6 +435,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CLIENT SPOTLIGHT — the one real, delivered client engagement, with the
+          concrete engineering details that signal "we understand your business
+          risk, not just design." All factual and drawn from the full case study. */}
+      <section className="py-14 sm:py-16 bg-[var(--surface-alt)] border-y border-[var(--border-default)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="lg:col-span-5">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+                Client spotlight
+              </p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight mb-4">
+                A booking site MAHAGRO INDIA can trust with real money
+              </h2>
+              <p className="text-base text-slate-600 leading-relaxed mb-6">
+                A mushroom-cultivation training institute, running since 1995, needed
+                to take course registrations and payments online without ever losing
+                a booking. We built it, shipped it, and it runs in production today.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://mahagroindia.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-white text-sm font-semibold"
+                  style={{ background: "var(--accent)" }}
+                >
+                  Visit the live site
+                </a>
+                <a
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-slate-900 border border-[var(--border-default)] bg-white"
+                >
+                  Read the case study
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <dl className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { k: "Payments that never block a booking", v: "Razorpay checkout with a WhatsApp + UPI fallback, so a registration still completes even if the card gateway hiccups." },
+                  { k: "Built for a bilingual audience", v: "Full English / Marathi switching, because many students are more comfortable registering in Marathi." },
+                  { k: "Secured like it handles real data", v: "CSP, HSTS, and prepared statements against SQL injection, verified against the live site." },
+                  { k: "The owner is never in the dark", v: "Instant WhatsApp and email the moment someone registers, plus a password-protected admin dashboard." },
+                ].map((item) => (
+                  <div key={item.k} className="bg-white border border-[var(--border-default)] rounded-lg p-5">
+                    <dt className="text-sm font-semibold text-slate-900 mb-1.5">{item.k}</dt>
+                    <dd className="text-sm text-slate-600 leading-relaxed">{item.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* OUR WORK */}
       <ProjectsShowcase limit={3} isHomepage={true} />
 
