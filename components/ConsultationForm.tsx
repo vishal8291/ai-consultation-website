@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import { trackLead } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { Send, CheckCircle2, Calendar, Sparkles, Clock, Shield } from "lucide-react";
 
 export default function ConsultationForm() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  // (trackLead imported below fires the GA4 conversion on success)
   const [errorMsg, setErrorMsg] = useState("");
 
   const [formData, setFormData] = useState({
@@ -36,6 +38,10 @@ export default function ConsultationForm() {
 
       if (res.ok) {
         setSuccess(true);
+        trackLead("consultation_form", {
+          project_scope: formData.projectScope,
+          budget: formData.budget,
+        });
       } else {
         const data = await res.json();
         setErrorMsg(data.error || data.message || "Failed to submit request. Please try again.");

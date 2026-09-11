@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { trackLead } from "@/lib/analytics";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X, Send, CheckCircle2, Zap } from "lucide-react";
 
@@ -30,6 +31,7 @@ export default function FloatingQuoteWidget() {
       });
       if (res.ok) {
         setSubmitted(true);
+        trackLead("quote_widget");
       }
     } catch (err) {
       // ignore

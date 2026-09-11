@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { PRICING_TIERS, ADDON_OPTIONS, GROUND_RULES } from "@/lib/pricingData";
 import { Check, ShieldCheck, ArrowRight, CreditCard, Clock, CheckSquare, Zap } from "lucide-react";
 import { loadRazorpayScript } from "@/lib/razorpay";
+import { trackPurchase } from "@/lib/analytics";
 
 export default function PricingSection() {
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
@@ -66,6 +67,13 @@ export default function PricingSection() {
 
           const verifyData = await verifyRes.json();
           if (verifyRes.ok && verifyData.success) {
+            // Fire the GA4 revenue event so channel ROI is measurable.
+            trackPurchase({
+              transactionId: response.razorpay_payment_id,
+              value: advanceAmount,
+              currency: currency,
+              tierName: tier.name,
+            });
             alert(`Payment received. Payment ID: ${response.razorpay_payment_id}. Your 50% advance for the ${tier.name} package is confirmed, and we will be in touch within 24 hours.`);
           } else {
             alert(verifyData.error || "Payment verification failed. Please contact support.");
