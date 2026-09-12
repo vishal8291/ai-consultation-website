@@ -50,7 +50,7 @@ export default function ReviewPage() {
               Worked with us? Tell us how it went.
             </h1>
             <p className="text-base text-slate-600 max-w-lg mx-auto leading-relaxed">
-              We read every submission before it goes on the site — nothing publishes automatically.
+              Your review goes live on the site right away, under your own name.
             </p>
           </div>
 
@@ -62,7 +62,7 @@ export default function ReviewPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900">Thank you.</h3>
                 <p className="text-slate-600 max-w-sm mx-auto text-sm leading-relaxed">
-                  We'll take a look and it'll appear on the site once approved.
+                  Your review is live on the site now — take a look.
                 </p>
               </div>
             ) : (

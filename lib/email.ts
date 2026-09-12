@@ -63,6 +63,27 @@ export function newConsultationEmail(data: {
   };
 }
 
+export function newTestimonialEmail(data: {
+  quote: string;
+  author: string;
+  role: string;
+  sourceUrl?: string;
+}): { subject: string; html: string } {
+  return {
+    subject: `⭐ New testimonial published live: ${data.author}`,
+    html: `
+      <h2>A new testimonial just went live on customeai.tech</h2>
+      <p>This publishes instantly with no approval step — review it now, and delete it from
+      <a href="https://customeai.tech/admin/testimonials">the admin panel</a> if it isn't genuine.</p>
+      <p><strong>Author:</strong> ${escapeHtml(data.author)}</p>
+      <p><strong>Role / Company:</strong> ${escapeHtml(data.role)}</p>
+      ${data.sourceUrl ? `<p><strong>Link:</strong> ${escapeHtml(data.sourceUrl)}</p>` : ""}
+      <p><strong>Quote:</strong></p>
+      <p style="white-space: pre-wrap;">${escapeHtml(data.quote)}</p>
+    `,
+  };
+}
+
 export function paymentReceivedEmail(data: {
   tierName: string;
   amount: number;

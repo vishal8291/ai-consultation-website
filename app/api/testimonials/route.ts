@@ -1,20 +1,25 @@
 // app/api/testimonials/route.ts
 // GET: public — returns only approved testimonials, for the live homepage.
-// POST: public — anyone (a real client) can submit one, but it always lands
-// as "pending". Nothing here can publish itself; only an admin approving it
-// via PATCH /api/testimonials/[id] makes it appear on the site.
-import { NextRequest, NextResponse } from "next/server";
+// POST: public — anyone can submit one, and it publishes IMMEDIATELY, with no
+// approval step. This is a deliberate choice made after being told the
+// trade-off plainly (a spam or fake review could go live unmoderated) — the
+// owner chose instant publish over a review queue. The one safety net kept
+// in exchange: an admin notification fires the moment anything is
+// submitted, so a bad one can be deleted from /admin/testimonials within
+// minutes rather than sitting unnoticed.
+import { NextRequest, NextResponse, after } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Testimonial from "@/models/Testimonial";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 import { verifyAdminAuth } from "@/lib/auth";
+import { sendAdminNotification, newTestimonialEmail } from "@/lib/email";
 
 export async function GET(req: NextRequest) {
   try {
     await connectDB();
     const { searchParams } = new URL(req.url);
 
-    // Admins can request every submission (for the moderation queue);
+    // Admins can request every submission (to review/manage what's live);
     // everyone else only ever sees approved ones.
     if (searchParams.get("all") === "true") {
       const admin = await verifyAdminAuth(req);
@@ -66,15 +71,26 @@ export async function POST(req: NextRequest) {
       author: cleanAuthor,
       role: cleanRole,
       sourceUrl: cleanSourceUrl,
-      status: "pending",
+      status: "approved", // publishes immediately — see file header for why
     });
 
-    console.log(`📝 Testimonial submitted (pending review): ${testimonial._id} from ${cleanAuthor}`);
+    console.log(`⭐ Testimonial published live: ${testimonial._id} from ${cleanAuthor}`);
+
+    // Deferred via after() so the visitor's "thank you" screen never waits on
+    // mail delivery, and a slow/failed send never turns a successful,
+    // already-published submission into an error response.
+    const { subject, html } = newTestimonialEmail({
+      quote: cleanQuote,
+      author: cleanAuthor,
+      role: cleanRole,
+      sourceUrl: cleanSourceUrl,
+    });
+    after(() => sendAdminNotification(subject, html));
 
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you. We'll review it and it'll appear on the site shortly.",
+        message: "Thank you. Your review is live on the site now.",
         id: testimonial._id,
       },
       { status: 201 }

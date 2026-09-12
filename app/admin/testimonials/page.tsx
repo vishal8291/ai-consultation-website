@@ -77,8 +77,6 @@ export default function AdminTestimonials() {
     }
   };
 
-  const pendingCount = testimonials.filter((t) => t.status === "pending").length;
-
   return (
     <div className="min-h-screen bg-white p-8 antialiased">
       <div className="max-w-5xl mx-auto">
@@ -88,12 +86,8 @@ export default function AdminTestimonials() {
               Testimonials
             </h1>
             <p className="text-slate-600 text-lg">
-              {pendingCount > 0 ? (
-                <span className="font-semibold text-orange-600">{pendingCount} awaiting review</span>
-              ) : (
-                <span className="text-slate-500">Nothing waiting on you right now</span>
-              )}
-              {" "}• Approved ones appear on the homepage automatically.
+              Submissions publish to the homepage <span className="font-semibold text-slate-900">instantly</span>, no approval needed.
+              You get an email the moment one comes in — use Reject or Delete below to take one down.
             </p>
           </div>
           <Link
