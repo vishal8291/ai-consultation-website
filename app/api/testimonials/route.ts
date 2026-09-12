@@ -53,15 +53,27 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { quote, author, role, sourceUrl } = await req.json();
+    const { quote, author, role, sourceUrl, rating } = await req.json();
 
-    if (!quote || !author || !role) {
-      return NextResponse.json({ error: "Your quote, name, and role are required" }, { status: 400 });
+    // role is optional here (defaults below) so the compact <Feedback />
+    // widget can ask for less than the full /review form does — the
+    // "reduce friction" trade-off, same idea as skipping the approval step.
+    if (!quote || !author) {
+      return NextResponse.json({ error: "Your review and name are required" }, { status: 400 });
+    }
+
+    let cleanRating: number | undefined;
+    if (rating !== undefined && rating !== null && rating !== "") {
+      const n = Number(rating);
+      if (!Number.isInteger(n) || n < 1 || n > 5) {
+        return NextResponse.json({ error: "Rating must be a whole number from 1 to 5" }, { status: 400 });
+      }
+      cleanRating = n;
     }
 
     const cleanQuote = String(quote).trim().slice(0, 800);
     const cleanAuthor = String(author).trim().slice(0, 100);
-    const cleanRole = String(role).trim().slice(0, 150);
+    const cleanRole = (role ? String(role).trim() : "Customer").slice(0, 150);
     const cleanSourceUrl = sourceUrl ? String(sourceUrl).trim().slice(0, 300) : undefined;
 
     await connectDB();
@@ -71,6 +83,7 @@ export async function POST(req: NextRequest) {
       author: cleanAuthor,
       role: cleanRole,
       sourceUrl: cleanSourceUrl,
+      rating: cleanRating,
       status: "approved", // publishes immediately — see file header for why
     });
 
@@ -84,6 +97,7 @@ export async function POST(req: NextRequest) {
       author: cleanAuthor,
       role: cleanRole,
       sourceUrl: cleanSourceUrl,
+      rating: cleanRating,
     });
     after(() => sendAdminNotification(subject, html));
 

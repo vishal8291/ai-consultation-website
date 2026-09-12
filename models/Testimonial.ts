@@ -1,9 +1,9 @@
 // models/Testimonial.ts
-// Client testimonials, moderated before publishing. Anyone can submit one via
-// the public form, but it lands as "pending" — nothing appears on the live
-// site until an admin approves it. This replaces the earlier hand-edited
-// lib/testimonialsData.ts array with a real, self-serve intake system while
-// keeping the same editorial control an agency this size actually needs.
+// Client testimonials and quick "rate us" feedback. Anyone can submit one via
+// the public /review page or the compact <Feedback /> widget, and it
+// publishes immediately (status defaults to "approved") — no moderation
+// step, by deliberate choice. Reject/Delete in /admin/testimonials remain as
+// a fast takedown path if something bad goes up.
 import mongoose, { Schema, models, Document } from "mongoose";
 
 export interface ITestimonial extends Document {
@@ -11,6 +11,7 @@ export interface ITestimonial extends Document {
   author: string;
   role: string;
   sourceUrl?: string;
+  rating?: number; // 1-5, optional — the <Feedback /> widget always sets it, /review does not ask for it
   status: "pending" | "approved" | "rejected";
   createdAt: Date;
   updatedAt: Date;
@@ -41,13 +42,18 @@ const TestimonialSchema = new Schema(
       trim: true,
       maxlength: [300, "URL cannot exceed 300 characters"],
     },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+    },
     status: {
       type: String,
       enum: {
         values: ["pending", "approved", "rejected"],
         message: "{VALUE} is not a valid status",
       },
-      default: "pending",
+      default: "approved",
     },
   },
   { timestamps: true }

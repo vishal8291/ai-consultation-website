@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Check, X, Trash2, Eye, ExternalLink } from "lucide-react";
+import { Check, X, Trash2, Eye, ExternalLink, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Testimonial {
@@ -10,6 +10,7 @@ interface Testimonial {
   author: string;
   role: string;
   sourceUrl?: string;
+  rating?: number;
   status: "pending" | "approved" | "rejected";
   createdAt: string;
 }
@@ -144,6 +145,20 @@ export default function AdminTestimonials() {
                         {new Date(t.createdAt).toLocaleDateString()}
                       </span>
                     </div>
+                    {typeof t.rating === "number" && (
+                      <div className="flex gap-0.5 flex-shrink-0">
+                        {[1, 2, 3, 4, 5].map((n) => (
+                          <Star
+                            key={n}
+                            className="w-4 h-4"
+                            style={{
+                              color: n <= t.rating! ? "#f59e0b" : "#e5e7eb",
+                              fill: n <= t.rating! ? "#f59e0b" : "transparent",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   <blockquote className="text-slate-900 text-base leading-relaxed mb-3">
