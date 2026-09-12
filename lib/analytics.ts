@@ -21,8 +21,15 @@ export function trackEvent(event: string, params: GtagParams = {}): void {
 
 // A lead was captured (consultation form or quote widget).
 // Mark `generate_lead` as a Key Event in GA4 to measure lead conversion rate.
-export function trackLead(source: string, params: GtagParams = {}): void {
-  trackEvent("generate_lead", { source, ...params });
+//
+// The parameter is named lead_source, not source: GA4 treats a custom event
+// parameter literally named "source" as special (it overlaps the platform's
+// own source/medium attribution model), which is why the "Sessions by
+// session manual source" report showed a phantom source called
+// "consultation_form" — that was this parameter's value, not a real
+// browsing session referrer.
+export function trackLead(leadSource: string, params: GtagParams = {}): void {
+  trackEvent("generate_lead", { lead_source: leadSource, ...params });
 }
 
 // An advance payment was completed. Mark `purchase` as a Key Event in GA4 to
