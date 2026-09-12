@@ -333,14 +333,17 @@ export default function Home() {
       <section id="services" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-10 sm:mb-12">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-              What we do
-            </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-4 tracking-[-0.03em] leading-[1.0]">
-              Websites and AI, <span className="headline-accent">built to fit</span>
-            </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+          <div className="rule-hairline mb-8" />
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+                What we do
+              </p>
+              <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 tracking-[-0.03em] leading-[1.0]">
+                Websites and AI, <span className="headline-accent">built to fit</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 text-lg text-slate-600 leading-relaxed">
               Most problems fall into one of four areas. Tell us yours.
             </p>
           </div>
@@ -401,14 +404,17 @@ export default function Home() {
       <section id="automation" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-10 sm:mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
-              What we can automate
-            </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-4 tracking-[-0.03em] leading-[1.0]">
-              If you do it every week, <span className="headline-accent">it can run itself</span>
-            </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+          <div className="rule-hairline mb-8" />
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
+                What we can automate
+              </p>
+              <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 tracking-[-0.03em] leading-[1.0]">
+                If you do it every week, <span className="headline-accent">it can run itself</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 text-lg text-slate-600 leading-relaxed">
               A reference list, not a package menu. Not seeing yours? Ask.
             </p>
           </div>
@@ -525,14 +531,17 @@ export default function Home() {
       <section id="process" className="py-14 sm:py-16 bg-white border-y border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mb-10 sm:mb-12">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-              How we work
-            </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-4 tracking-[-0.03em] leading-[1.0]">
-              First call to launch in <span className="headline-accent">7 to 21 days</span>
-            </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+          <div className="rule-hairline mb-8" />
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+                How we work
+              </p>
+              <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 tracking-[-0.03em] leading-[1.0]">
+                First call to launch in <span className="headline-accent">7 to 21 days</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 text-lg text-slate-600 leading-relaxed">
               Four stages, each ending in a checkpoint.
             </p>
           </div>

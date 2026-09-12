@@ -56,10 +56,10 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="bg-white overflow-hidden flex flex-col justify-between relative group"
+              className="bg-white overflow-hidden flex flex-col justify-between relative group rounded-2xl border border-[var(--border-default)] hover:border-[var(--accent-strong)] transition-colors"
             >
               {/* Preview Banner Top */}
-              <div className="h-44 sm:h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div className="h-64 sm:h-72 lg:h-80 bg-slate-900 relative overflow-hidden flex items-center justify-center">
                 {project.previewImage ? (
                   <img
                     src={project.previewImage}
@@ -134,14 +134,19 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
         
         {/* Section Header */}
         {!hideHeader && (
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="mb-10">
+            <div className="rule-hairline mb-8" />
             <motion.h2
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3 tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-3 tracking-[-0.03em] leading-[1.0]"
             >
-              {isHomepage || limit === 3 ? "Our Work" : "Case studies"}
+              {isHomepage || limit === 3 ? (
+                <>Our <span className="headline-accent">work</span></>
+              ) : (
+                <>Case <span className="headline-accent">studies</span></>
+              )}
             </motion.h2>
 
             {!(isHomepage || limit === 3) && (
@@ -188,7 +193,9 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
             client result is never diluted by self-initiated demos. The homepage
             shortlist stays a single grid. */}
         {isHomepage || limit === 3 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          /* Two across rather than three: the screenshots are the evidence on
+             this page, so they get the width to actually be legible. */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {projectsToDisplay.map((project, index) => renderCard(project, index))}
           </div>
         ) : (
