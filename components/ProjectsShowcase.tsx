@@ -141,7 +141,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3 tracking-tight"
             >
-              {isHomepage || limit === 3 ? "Selected work" : "Case studies"}
+              {isHomepage || limit === 3 ? "Our Work" : "Case studies"}
             </motion.h2>
 
             {!(isHomepage || limit === 3) && (
