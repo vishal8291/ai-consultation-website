@@ -70,6 +70,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-slate-600">
               <li><Link href="/about" className="hover:text-slate-900 transition-colors">About us</Link></li>
               <li><Link href="/projects" className="hover:text-slate-900 transition-colors">Our work</Link></li>
+              <li><Link href="/review" className="hover:text-slate-900 transition-colors">Leave a review</Link></li>
               <li><a href="https://vishal-tiwari.me" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">Founder&apos;s portfolio</a></li>
               <li><Link href="/terms" className="hover:text-slate-900 transition-colors">Terms and conditions</Link></li>
               <li><Link href="/privacy" className="hover:text-slate-900 transition-colors">Privacy policy</Link></li>

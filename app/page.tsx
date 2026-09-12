@@ -492,8 +492,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT CLIENTS SAY — renders nothing until a real, permissioned quote is
-          added to lib/testimonialsData.ts; deliberately not a public form. */}
+      {/* WHAT CLIENTS SAY — renders nothing until at least one submission at
+          /review has been approved from /admin/testimonials. */}
       <Testimonials />
 
       {/* OUR WORK */}

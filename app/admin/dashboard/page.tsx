@@ -69,13 +69,22 @@ export default function DashboardPage() {
             </div>
             <p className="text-slate-600 text-lg">Consultation analytics overview • <span className="font-semibold text-blue-600">{stats.total.toLocaleString()} total requests</span></p>
           </div>
-          <a
-            href="/admin/consultations"
-            className="bg-linear-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center"
-          >
-            <Users className="w-5 h-5 mr-2" />
-            View All Consultations
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/admin/consultations"
+              className="bg-linear-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center"
+            >
+              <Users className="w-5 h-5 mr-2" />
+              View All Consultations
+            </a>
+            <a
+              href="/admin/testimonials"
+              className="bg-linear-to-r from-slate-800 to-slate-900 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Testimonials
+            </a>
+          </div>
         </div>
 
         {/* Stats Grid */}
