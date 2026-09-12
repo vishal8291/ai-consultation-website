@@ -10,6 +10,12 @@
   --color-slate-500: #6b7480;
   --color-slate-400: #97a0ab;
   --color-black: #101418;
+
+  /* Wired into Tailwind's own font-sans utility (previously undefined here,
+     so font-sans silently fell back to Tailwind's built-in default stack —
+     which is why headings and body text were never actually the same font).
+     --font-inter is set by next/font/google's Inter() in layout.tsx. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 /* Ink + single cool accent.
@@ -67,11 +73,35 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Aptos', Arial, 'Helvetica Neue', var(--font-open-sans), 'Segoe UI', Helvetica, sans-serif;
+  /* Set directly here rather than relying on the font-sans utility class:
+     Tailwind v4 silently declines to generate a utility rule for a --theme
+     token whose value contains a var() reference to another custom
+     property (confirmed by inspecting the compiled CSS — the --font-sans
+     token exists on :root, but no .font-sans rule was ever emitted). Every
+     other element inherits this normally; nothing downstream needs its own
+     font-sans class for this to work. */
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* A near-imperceptible grain texture across every page — the same technique
+   Stripe, Linear, and Vercel use so flat, single-color sections read as a
+   deliberate, quiet finish rather than an unfinished template. No color, no
+   gradient, no shape: just texture. pointer-events: none so it can never
+   intercept a click, and the opacity is low enough that it should not be
+   consciously noticeable at normal viewing distance. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Google-Grade Micro Dot / Grid Pattern */
@@ -128,12 +158,13 @@ body {
   font-weight: 600;
   border: 1px solid var(--cta-bg);
   border-radius: 6px;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .btn-yellow-solid:hover {
   background: var(--cta-bg-hover);
   border-color: var(--cta-bg-hover);
+  transform: translateY(-1px);
 }
 
 .btn-white-solid,
@@ -143,13 +174,25 @@ body {
   font-weight: 600;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .btn-white-solid:hover,
 .btn-dark-solid:hover {
   background: var(--surface-alt);
   border-color: var(--foreground);
+  transform: translateY(-1px);
+}
+
+/* Keyboard-only focus ring (not shown on mouse click, only tab-navigation) —
+   previously these buttons had no custom focus state at all, so keyboard
+   users got whatever the browser's raw, inconsistent default happened to
+   render. */
+.btn-yellow-solid:focus-visible,
+.btn-white-solid:focus-visible,
+.btn-dark-solid:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Custom Sleek Scrollbar */

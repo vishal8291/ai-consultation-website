@@ -1,4 +1,4 @@
-import { Open_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -9,10 +9,16 @@ import type { Metadata } from "next";
 const GA_MEASUREMENT_ID = "G-EFQGVR8B6G";
 const SITE_URL = "https://customeai.tech";
 
-const openSans = Open_Sans({
+// Replaces a body font-stack that led with 'Aptos' — a Microsoft system font
+// with no @font-face bundled, so it only ever rendered for visitors who
+// already had it installed locally (effectively Windows + recent Office
+// only). Everyone else silently fell through to Arial, which sits ahead of
+// the site's own bundled Open Sans web font in the old fallback chain, so
+// that web font rarely ever actually rendered either. Inter is loaded as a
+// full variable font (one file, every weight) and is properly embeddable.
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "800"],
-  variable: "--font-open-sans",
+  variable: "--font-inter",
 });
 
 const SITE_DESCRIPTION =
@@ -124,7 +130,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${openSans.variable} font-sans`}>
+      <body className={`${inter.variable} font-sans`}>
         <ScrollRestoration />
         <Navbar />
         {children}
