@@ -7,6 +7,7 @@ import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
 import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
@@ -490,6 +491,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* WHAT CLIENTS SAY — renders nothing until a real, permissioned quote is
+          added to lib/testimonialsData.ts; deliberately not a public form. */}
+      <Testimonials />
 
       {/* OUR WORK */}
       <ProjectsShowcase limit={3} isHomepage={true} />
