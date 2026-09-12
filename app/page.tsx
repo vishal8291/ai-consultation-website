@@ -18,7 +18,7 @@ const SERVICES = [
   {
     icon: Globe,
     title: "Custom website design",
-    desc: "A website built for your business rather than adapted from a template. Fast on every connection, readable on every screen, and structured so search engines can index it properly.",
+    desc: "Built for your business, not adapted from a template. Fast, readable, and indexable.",
     points: [
       "Loads in under a second",
       "Clean layout that is simple to read and navigate",
@@ -28,7 +28,7 @@ const SERVICES = [
   {
     icon: Cpu,
     title: "Business and website review",
-    desc: "We examine how your business runs today, identify where time and revenue are being lost, and set out the specific fix worth building first.",
+    desc: "We find where time and revenue leak, then name the one fix worth building first.",
     points: [
       "Find what is slowing you down",
       "See how quickly the work pays for itself",
@@ -38,7 +38,7 @@ const SERVICES = [
   {
     icon: Bot,
     title: "AI assistants and automation",
-    desc: "Support that answers around the clock, tools that read and sort documents automatically, and systems that connect the applications you already use.",
+    desc: "Support that answers around the clock. Documents that sort themselves. Apps that finally talk.",
     points: [
       "AI that answers from your own files",
       "Works with WhatsApp and your support tools",
@@ -48,7 +48,7 @@ const SERVICES = [
   {
     icon: Layers,
     title: "Custom apps and dashboards",
-    desc: "Login portals, internal dashboards, and operational software built to match how your business actually works, instead of forcing your process into a product that was never designed for it.",
+    desc: "Portals, dashboards, and internal tools shaped around how you already work.",
     points: [
       "Stays responsive as your data grows",
       "Each person sees only what they should",
@@ -178,7 +178,8 @@ export default function Home() {
           src="/images/hero-network-graphic.png"
           alt=""
           aria-hidden="true"
-          className="hidden lg:block pointer-events-none select-none absolute -right-24 top-0 w-[900px] max-w-none opacity-[0.07]"
+          className="hidden lg:block pointer-events-none select-none absolute -right-24 top-0 w-[900px] max-w-none opacity-[0.16]"
+          style={{ filter: "brightness(0) invert(1)" }}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -195,22 +196,23 @@ export default function Home() {
                 Mumbai, India
               </p>
 
-              {/* Exact 3-Line Headline Format Requested by User — pure CSS entrance so it
-                  paints on first frame instead of waiting on React hydration */}
+              {/* Two weights, two colors, one phrase — the headline treatment
+                  carried over from the reference design. Pure CSS entrance so it
+                  paints on first frame instead of waiting on React hydration. */}
               <h1
-                className="hero-fade-in-up text-4xl sm:text-5xl lg:text-[52px] font-semibold tracking-tight leading-[1.1] text-[var(--foreground)] font-sans"
+                className="hero-fade-in-up text-5xl sm:text-6xl lg:text-[76px] font-normal tracking-[-0.03em] leading-[0.95] text-[var(--foreground)] font-sans"
                 style={{ animationDelay: "0.1s" }}
               >
                 Tell us the problem. <br />
-                <span style={{ color: "var(--accent)" }}>We build the fix.</span> <br />
-                Built for small businesses.
+                <span className="headline-accent">We build the fix.</span>
               </h1>
 
               <p
-                className="hero-fade-in-up mt-6 text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed"
+                className="hero-fade-in-up mt-7 text-lg text-slate-600 max-w-md leading-relaxed"
                 style={{ animationDelay: "0.2s" }}
               >
-                CustomeAI is a studio, not a menu of packages. Describe the problem in your business: a website that isn&apos;t converting, a process eating up your week, a task you wish ran itself. We design, build, and support the specific system that fixes it, in <strong className="text-[var(--foreground)] font-semibold">7 to 21 days</strong>, with itemized pricing.
+                Custom websites and AI systems for small businesses. Live in{" "}
+                <strong className="text-[var(--foreground)] font-semibold">7 to 21 days</strong>.
               </p>
 
               <div
@@ -335,11 +337,11 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
               What we do
             </p>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4 tracking-tight">
-              Website design and AI automation, built to fit
+            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-4 tracking-[-0.03em] leading-[1.0]">
+              Websites and AI, <span className="headline-accent">built to fit</span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
-              Most small-business problems fall into one of four areas. Tell us yours and we will tell you honestly which one it is, including when the answer is that you do not need us yet.
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Most problems fall into one of four areas. Tell us yours.
             </p>
           </div>
 
@@ -403,14 +405,11 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
               What we can automate
             </p>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4 tracking-tight">
-              If your team does it the same way every week, it can probably run itself
+            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-4 tracking-[-0.03em] leading-[1.0]">
+              If you do it every week, <span className="headline-accent">it can run itself</span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
-              Most repetitive business work falls into the areas below. This is a
-              reference list rather than a set of packages: we build the specific
-              combination your business needs. If what you do isn&apos;t here, it is
-              usually a variation of something that is, so ask.
+            <p className="text-lg text-slate-600 leading-relaxed">
+              A reference list, not a package menu. Not seeing yours? Ask.
             </p>
           </div>
 
@@ -440,8 +439,7 @@ export default function Home() {
           </div>
 
           <p className="mt-12 pt-8 border-t border-[var(--border-default)] text-base text-slate-600 max-w-3xl">
-            Not sure which of these your problem is, or whether it is worth
-            automating at all?{" "}
+            Not sure it is worth automating at all?{" "}
             <a
               href="#contact"
               className="font-semibold underline underline-offset-2"
@@ -474,9 +472,8 @@ export default function Home() {
                 A booking site MAHAGRO INDIA can trust with real money
               </h2>
               <p className="text-base text-slate-600 leading-relaxed mb-6">
-                A mushroom-cultivation training institute, running since 1995, needed
-                to take course registrations and payments online without ever losing
-                a booking. We built it, shipped it, and it runs in production today.
+                A training institute running since 1995 needed online registrations
+                and payments without ever losing a booking. It runs in production today.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -532,11 +529,11 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
               How we work
             </p>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4 tracking-tight">
-              From first conversation to launch in 7 to 21 days
+            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-4 tracking-[-0.03em] leading-[1.0]">
+              First call to launch in <span className="headline-accent">7 to 21 days</span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
-              Four stages, with a checkpoint at the end of each one, so you always know what has been done and what comes next.
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Four stages, each ending in a checkpoint.
             </p>
           </div>
 

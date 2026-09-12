@@ -39,6 +39,10 @@ function Mark({ className = "" }: { className?: string }) {
           height: MARK_SCALE,
           left: MARK_LEFT,
           top: MARK_TOP,
+          // The artwork is dark aubergine line work drawn for a white page and
+          // is all but invisible on this dark ground. Flattening it to pure
+          // white keeps one logo file working on both.
+          filter: "brightness(0) invert(1)",
         }}
       />
     </span>

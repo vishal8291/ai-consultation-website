@@ -1,40 +1,73 @@
 @import "tailwindcss";
 
-/* text-slate-900 and text-slate-600 are used pervasively across every
-   component, so redefining them here retones the whole site's type without
-   touching every className. Previously these carried Amazon's retail palette;
-   they now carry the ink scale below. */
+/* Dark "techflux" palette.
+   text-slate-900 / text-slate-600 are used pervasively across every component,
+   so redefining them here retones the whole site's type without touching every
+   className. On this dark ground they now run light-on-dark. */
 @theme {
-  --color-slate-900: #101418;
-  --color-slate-600: #5b636d;
-  --color-slate-500: #6b7480;
-  --color-slate-400: #97a0ab;
-  --color-black: #101418;
+  --color-slate-900: #ffffff;
+  --color-slate-800: #f0f0f5;
+  --color-slate-700: #d4d4de;
+  --color-slate-600: #a9a9b8;
+  --color-slate-500: #8b8b9b;
+  --color-slate-400: #6e6e80;
+  --color-slate-300: #4a4a5c;
+  --color-black: #ffffff;
 
-  /* Wired into Tailwind's own font-sans utility (previously undefined here,
-     so font-sans silently fell back to Tailwind's built-in default stack —
-     which is why headings and body text were never actually the same font).
-     --font-inter is set by next/font/google's Inter() in layout.tsx. */
+  /* Wired into Tailwind's own font-sans utility. --font-inter is set by
+     next/font/google's Inter() in layout.tsx. */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-/* Ink + single cool accent.
-   The palette deliberately leads with near-black rather than a brand hue:
-   the accent earns its weight by being rare, so it is reserved for links,
-   small emphasis marks, and step numbers — never for large fills. */
 :root {
-  --background: #ffffff;
-  --foreground: #101418;
-  --surface-card: #ffffff;
-  --surface-alt: #f6f7f9;
-  --border-default: #d8dce1;
-  --border-strong: #8b939c;
-  --accent: #1b5e9c;
-  --accent-hover: #174e83;
-  --cta-bg: #101418;
-  --cta-bg-hover: #2b323a;
+  --background: #08080c;
+  --foreground: #ffffff;
+  --surface-card: #0e0e14;
+  --surface-alt: #141420;
+  --border-default: #24242f;
+  --border-strong: #3b3b4d;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-strong: #7c3aed;
+  --cta-bg: #7c3aed;
+  --cta-bg-hover: #8b5cf6;
   --cta-text: #ffffff;
-  --link: #1b5e9c;
+  --link: #a78bfa;
+}
+
+/* Background utilities are overridden as plain rules rather than by remapping
+   their theme tokens, because a token is shared by both the text and the
+   background utility built from it. --color-white drives bg-white AND
+   text-white; --color-slate-900 drives text-slate-900 (headings, which must go
+   light) AND bg-slate-900 (dark panels, which must stay dark). Remapping either
+   token would fix one usage and break the other, so the text side keeps the
+   token and the background side is corrected here. These sit outside
+   @layer utilities and therefore win over Tailwind's layered output. */
+.bg-white {
+  background-color: var(--surface-card);
+}
+.bg-slate-900,
+.bg-slate-950 {
+  background-color: #05050a;
+}
+.bg-slate-50,
+.bg-slate-100 {
+  background-color: var(--surface-alt);
+}
+.bg-slate-200 {
+  background-color: var(--border-default);
+}
+/* --color-black is remapped to white above so text-black reads on the dark
+   ground; without this, bg-black would render as a white block. */
+.bg-black {
+  background-color: #05050a;
+}
+/* Status chips were light tints meant for a white page and glare on black. */
+.bg-red-50 {
+  background-color: rgba(239, 68, 68, 0.12);
+}
+.bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.12);
 }
 
 /* Hero entrance animation runs in pure CSS (no JS/hydration dependency) so the
@@ -56,16 +89,27 @@
   }
 }
 
-/* Thin colored marker used to break up long stretches of section */
+/* The template's signature headline move: one phrase, two weights, two colors.
+   Regular white for the setup, heavy accent for the payoff word. */
+.headline-accent {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Hairline rule used to open a section, as in the template. */
+.rule-hairline {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, var(--border-strong), var(--border-default) 40%, transparent);
+}
+
 .accent-bar {
   height: 3px;
   background: linear-gradient(to right, transparent, var(--accent), transparent);
 }
 
-/* Full-width solid section markers between major sections — one restrained
-   accent color only, no rotating hues */
 .marker-bar {
-  height: 3px;
+  height: 1px;
   width: 100%;
   background: var(--border-default);
 }
@@ -75,11 +119,8 @@ body {
   color: var(--foreground);
   /* Set directly here rather than relying on the font-sans utility class:
      Tailwind v4 silently declines to generate a utility rule for a --theme
-     token whose value contains a var() reference to another custom
-     property (confirmed by inspecting the compiled CSS — the --font-sans
-     token exists on :root, but no .font-sans rule was ever emitted). Every
-     other element inherits this normally; nothing downstream needs its own
-     font-sans class for this to work. */
+     token whose value contains a var() reference to another custom property
+     (confirmed by inspecting the compiled CSS). */
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -88,95 +129,96 @@ body {
   position: relative;
 }
 
-/* A near-imperceptible grain texture across every page — the same technique
-   Stripe, Linear, and Vercel use so flat, single-color sections read as a
-   deliberate, quiet finish rather than an unfinished template. No color, no
-   gradient, no shape: just texture. pointer-events: none so it can never
-   intercept a click, and the opacity is low enough that it should not be
-   consciously noticeable at normal viewing distance. */
+/* Near-imperceptible grain so large flat black areas read as a deliberate
+   finish rather than an empty canvas. pointer-events: none so it can never
+   intercept a click. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.025;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Google-Grade Micro Dot / Grid Pattern */
 .bg-grid-pattern {
   background-size: 32px 32px;
   background-image:
-    linear-gradient(to right, rgba(15, 17, 17, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 17, 17, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(15, 17, 17, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Amazon-style product-card system: white, near-square corners, a real gray
-   border instead of a shadow doing the work, and only a very small lift on
-   hover — used for every card on the site, dark or light alike, since the
-   site no longer has a dark surface. */
+/* Cards: near-black fill, thin border, generous radius, and a faint accent
+   bloom on hover — the template's card language. */
 .glass-card-pro {
-  background: #ffffff;
+  background: var(--surface-card);
   border: 1px solid var(--border-default);
-  border-radius: 6px;
+  border-radius: 16px;
   box-shadow: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .glass-card-pro:hover {
-  border-color: var(--border-strong);
-  box-shadow: 0 2px 8px rgba(15, 17, 17, 0.08);
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.25), 0 8px 30px rgba(124, 58, 237, 0.12);
 }
 
 .dark-card-pro {
   background: var(--surface-alt);
   border: 1px solid var(--border-default);
-  border-radius: 6px;
+  border-radius: 16px;
   box-shadow: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dark-card-pro:hover {
-  border-color: var(--border-strong);
-  box-shadow: 0 2px 8px rgba(15, 17, 17, 0.08);
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.25), 0 8px 30px rgba(124, 58, 237, 0.12);
 }
 
-/* Buttons. The class names are historical (they date from the yellow Amazon
+/* Buttons. The class names are historical (they date from an earlier yellow
    palette) but are kept because they are referenced across every component.
-   All three variants now render the same outline style: white fill, black
-   border, black text — one consistent button look site-wide instead of a
-   solid dark primary + a separate gray-bordered secondary.
-   A 6px radius rather than a 100px pill: pills read consumer, and the squarer
-   corner matches the cards and the rest of the enterprise register. */
-.btn-yellow-solid,
+   btn-yellow-solid is the primary call to action and takes the template's
+   gradient pill; the other two are the quiet outlined variant. */
+.btn-yellow-solid {
+  background: linear-gradient(90deg, var(--accent-strong), var(--accent));
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-yellow-solid:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+
 .btn-white-solid,
 .btn-dark-solid {
-  background: #ffffff;
+  background: transparent;
   color: var(--foreground);
   font-weight: 600;
-  border: 1px solid var(--foreground);
-  border-radius: 6px;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-yellow-solid:hover,
 .btn-white-solid:hover,
 .btn-dark-solid:hover {
   background: var(--surface-alt);
-  border-color: var(--foreground);
+  border-color: var(--accent);
   transform: translateY(-1px);
 }
 
-/* Keyboard-only focus ring (not shown on mouse click, only tab-navigation) —
-   previously these buttons had no custom focus state at all, so keyboard
-   users got whatever the browser's raw, inconsistent default happened to
-   render. */
+/* Keyboard-only focus ring (not shown on mouse click, only tab-navigation). */
 .btn-yellow-solid:focus-visible,
 .btn-white-solid:focus-visible,
 .btn-dark-solid:focus-visible {
@@ -184,20 +226,19 @@ body::before {
   outline-offset: 2px;
 }
 
-/* Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border-strong);
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #565959;
+  background: var(--accent-strong);
 }
 
 /* Hide scrollbar for clean horizontal carousels */
