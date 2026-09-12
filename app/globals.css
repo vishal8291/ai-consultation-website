@@ -148,35 +148,24 @@ body::before {
 }
 
 /* Buttons. The class names are historical (they date from the yellow Amazon
-   palette) but are kept because they are referenced across every component;
-   what they render is now an ink primary and a hairline secondary.
+   palette) but are kept because they are referenced across every component.
+   All three variants now render the same outline style: white fill, black
+   border, black text — one consistent button look site-wide instead of a
+   solid dark primary + a separate gray-bordered secondary.
    A 6px radius rather than a 100px pill: pills read consumer, and the squarer
    corner matches the cards and the rest of the enterprise register. */
-.btn-yellow-solid {
-  background: var(--cta-bg);
-  color: var(--cta-text);
-  font-weight: 600;
-  border: 1px solid var(--cta-bg);
-  border-radius: 6px;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-}
-
-.btn-yellow-solid:hover {
-  background: var(--cta-bg-hover);
-  border-color: var(--cta-bg-hover);
-  transform: translateY(-1px);
-}
-
+.btn-yellow-solid,
 .btn-white-solid,
 .btn-dark-solid {
   background: #ffffff;
   color: var(--foreground);
   font-weight: 600;
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--foreground);
   border-radius: 6px;
   transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
+.btn-yellow-solid:hover,
 .btn-white-solid:hover,
 .btn-dark-solid:hover {
   background: var(--surface-alt);
