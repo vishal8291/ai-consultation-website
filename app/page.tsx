@@ -11,7 +11,6 @@ import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import TechMarquee from "@/components/TechMarquee";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
-import ComparisonMatrix from "@/components/ComparisonMatrix";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
 const SERVICES = [
@@ -156,6 +155,8 @@ const PROCESS = [
 ];
 
 export default function Home() {
+  const [showAllAutomation, setShowAllAutomation] = React.useState(false);
+
   return (
     <main className="min-h-screen text-slate-900 antialiased selection:bg-black selection:text-white relative overflow-x-hidden">
 
@@ -420,7 +421,7 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
-            {AUTOMATION_AREAS.map((group) => (
+            {(showAllAutomation ? AUTOMATION_AREAS : AUTOMATION_AREAS.slice(0, 3)).map((group) => (
               <div key={group.area} className="border-t border-[var(--border-default)] pt-5">
                 <h3 className="text-base font-semibold text-slate-900 mb-4">
                   {group.area}
@@ -443,6 +444,18 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {!showAllAutomation && (
+            <div className="mt-10">
+              <button
+                type="button"
+                onClick={() => setShowAllAutomation(true)}
+                className="btn-white-solid px-6 py-3 text-sm"
+              >
+                See all {AUTOMATION_AREAS.length} areas
+              </button>
+            </div>
+          )}
 
           <p className="mt-12 pt-8 border-t border-[var(--border-default)] text-base text-slate-600 max-w-3xl">
             Not sure it is worth automating at all?{" "}
@@ -569,10 +582,6 @@ export default function Home() {
 
       {/* COMMITMENTS */}
       <TestimonialsSection />
-
-      {/* Sits immediately before pricing: the comparison is what makes the
-          number that follows feel reasonable. */}
-      <ComparisonMatrix />
 
       {/* PRICING */}
       <PricingSection />
