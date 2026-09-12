@@ -164,9 +164,21 @@ export default function Home() {
           happens after someone gets in touch), not an illustration. */}
       <section
         id="hero"
-        className="relative pt-24 sm:pt-28 pb-14 sm:pb-16 bg-white border-b border-[var(--border-default)]"
+        className="relative pt-24 sm:pt-28 pb-14 sm:pb-16 bg-white border-b border-[var(--border-default)] overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Faint network-diagram watermark, not a decorative illustration: sits
+            behind the real content in the negative space, reinforcing the
+            technology-consulting register without competing with the message
+            or the "what happens next" panel. Hidden below lg to keep mobile
+            clean. */}
+        <img
+          src="/images/hero-network-graphic.png"
+          alt=""
+          aria-hidden="true"
+          className="hidden lg:block pointer-events-none select-none absolute -right-24 top-0 w-[900px] max-w-none opacity-[0.07]"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
             {/* Message */}
