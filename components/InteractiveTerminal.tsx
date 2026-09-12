@@ -1,247 +1,205 @@
 "use client";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, Copy, Check, Play, Code2, Cpu, Zap, ShieldCheck } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 
-const CODE_SNIPPETS = [
+/**
+ * Every snippet below is real code running in this repository, trimmed for
+ * readability. Nothing here is illustrative or invented: the previous version
+ * of this component showed a Groq/Qdrant/LangChain Python stack that does not
+ * exist anywhere in the codebase, which would have been a false technical
+ * claim on a client-facing page.
+ */
+const SNIPPETS = [
   {
-    id: "nextjs-action",
-    title: "Next.js 16 Server Action",
-    language: "typescript",
-    filename: "app/actions/websiteEngine.ts",
-    code: `// Next.js 16 Turbopack Server Action
-"use server";
+    id: "payments",
+    tab: "Payment verification",
+    concern: "A payment can't be faked by editing the page",
+    filename: "app/api/razorpay/verify-payment/route.ts",
+    explanation:
+      "The browser tells us a payment succeeded. We never take its word for it: the signature is re-computed server-side with your secret key, compared in constant time, and the amount is read back from Razorpay rather than from the request.",
+    code: `const body = razorpay_order_id + "|" + razorpay_payment_id;
+const expectedSignature = crypto
+  .createHmac("sha256", key_secret)
+  .update(body.toString())
+  .digest("hex");
 
-import { revalidatePath } from "next/cache";
-import { dbConnect } from "@/lib/db";
-import { RazorpayOrder } from "@/lib/razorpay";
+// Constant-time compare: a plain === leaks timing information
+const isSignatureValid = timingSafeStringCompare(
+  expectedSignature,
+  razorpay_signature
+);
 
-export async function createCustomWebsiteOrder(data: {
-  packageTier: "launch" | "business" | "automate";
-  clientEmail: string;
-}) {
-  await dbConnect();
-  
-  // Calculate 50% advance deposit math
-  const priceMap = { launch: 12000, business: 30000, automate: 65000 };
-  const advanceAmount = Math.round(priceMap[data.packageTier] * 0.5);
+if (!isSignatureValid) {
+  return NextResponse.json(
+    { error: "Invalid payment verification signature" },
+    { status: 400 }
+  );
+}
 
-  const order = await RazorpayOrder.create({
-    amount: advanceAmount * 100, // in paise
-    currency: "INR",
-    receipt: \`rcpt_\${Date.now()}\`,
-  });
-
-  return { success: true, orderId: order.id, deposit: advanceAmount };
-}`,
-    output: `✓ Compiled in 12ms (Turbopack Engine)
-✓ Razorpay Order Created: order_Pz92KxM8a2Q
-✓ 50% Advance Calculated: ₹15,000 (Business Tier)
-✓ Handshake Verified: 200 OK`,
+// Authoritative amount comes from Razorpay, never from the client,
+// which could otherwise claim it paid any figure it liked.
+const order = await razorpay.orders.fetch(razorpay_order_id);
+const amount = Number(order.amount) / 100;`,
   },
   {
-    id: "python-rag",
-    title: "Python AI RAG Pipeline",
-    language: "python",
-    filename: "services/rag_agent.py",
-    code: `# Python FastAPI + Groq LLaMA RAG Pipeline
-from fastapi import FastAPI, BackgroundTasks
-from langchain.vectorstores import Qdrant
-from groq import Groq
-import os
+    id: "leads",
+    tab: "Lead capture",
+    concern: "An enquiry never gets silently lost",
+    filename: "app/api/consultation/route.ts",
+    explanation:
+      "Enquiries are rate-limited against spam, trimmed to safe lengths, and stored before anything else happens. The notification email is deferred with after() so a slow mail provider can never delay or fail the customer's submission.",
+    code: `// Max 5 submissions per minute per IP
+const rateCheck = await checkRateLimit(\`consultation_submit_\${ip}\`, {
+  limit: 5,
+  windowSeconds: 60,
+});
+if (!rateCheck.success) {
+  return NextResponse.json(
+    { error: "Too many submission attempts." },
+    { status: 429 }
+  );
+}
 
-app = FastAPI(title="CustomeAI Engine")
-groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+const consultation = await Consultation.create({
+  name: cleanName,
+  business: cleanBusiness,
+  contact: cleanContact,
+  message: cleanMessage,
+});
 
-@app.post("/api/ai/query")
-async def execute_rag_pipeline(user_query: str):
-    # Vector similarity search across documentation
-    context_docs = qdrant_store.similarity_search(user_query, k=4)
-    
-    completion = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
-            {"role": "system", "content": "You are the CustomeAI assistant."},
-            {"role": "user", "content": f"Context: {context_docs}\\nQuery: {user_query}"}
-        ],
-        temperature=0.2
-    )
-    return {"response": completion.choices[0].message.content, "latency_ms": 142}`,
-    output: `INFO:     Started server process [84920]
-INFO:     Groq LLaMA-3.3-70B model loaded
-INFO:     Qdrant Vector DB connected (450ms)
-✓ Query: "How long to build an AI chatbot?"
-✓ Response: "Delivered in 14 to 21 days with 100% source code ownership." (Latency: 142ms)`,
+// Deferred until after the response is sent. An un-awaited bare call
+// gets frozen mid-flight by the serverless runtime and the mail is lost.
+after(() => sendAdminNotification(subject, html));`,
   },
   {
-    id: "razorpay-webhook",
-    title: "Razorpay Webhook Handler",
-    language: "typescript",
-    filename: "app/api/razorpay/webhook/route.ts",
-    code: `// Secure HMAC SHA256 Payment Webhook Verification
-import { NextResponse } from "next/server";
-import crypto from "crypto";
+    id: "ai",
+    tab: "AI grounding",
+    concern: "The assistant can't invent a price to your customer",
+    filename: "lib/gemini.ts",
+    explanation:
+      "The chat assistant on this page is handed its facts at runtime from the same pricing data the pricing section renders. It is instructed to answer only from that, so it cannot quote a number that does not exist.",
+    code: `// Built from the same PRICING_TIERS data the pricing page renders,
+// so the assistant can never quote a stale or invented number.
+const tiersSummary = PRICING_TIERS.map(
+  (t) =>
+    \`- \${t.name}: \${t.priceRangeINR}, delivered in \${t.deliveryTime}.\` +
+    \` Includes: \${t.features.join(", ")}.\`
+).join("\\n");
 
-export async function POST(req: Request) {
-  const bodyText = await req.text();
-  const signature = req.headers.get("x-razorpay-signature");
-
-  const expectedSignature = crypto
-    .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET!)
-    .update(bodyText)
-    .digest("hex");
-
-  if (expectedSignature !== signature) {
-    return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
-  }
-
-  const payload = JSON.parse(bodyText);
-  if (payload.event === "payment.captured") {
-    // 50% advance confirmed -> trigger client dashboard access
-    await grantClientAccess(payload.payload.payment.entity);
-  }
-
-  return NextResponse.json({ received: true });
-}`,
-    output: `✓ Webhook Received: x-razorpay-signature verified
-✓ HMAC SHA256 Checksum: PASS
-✓ Event: payment.captured (₹15,000)
-✓ Status: 200 OK — Repository Access Granted`,
+const response = await ai.models.generateContent({
+  model: "gemini-3.6-flash",
+  contents: userMessage,
+  config: {
+    systemInstruction: buildSystemPrompt(),
+    temperature: 0.4,
+  },
+});`,
   },
 ];
 
 export default function InteractiveTerminal() {
-  const [activeTabId, setActiveTabId] = useState<string>("nextjs-action");
-  const [copied, setCopied] = useState<boolean>(false);
-  const [isRunning, setIsRunning] = useState<boolean>(false);
-  const [showOutput, setShowOutput] = useState<boolean>(true);
+  const [activeId, setActiveId] = useState(SNIPPETS[0].id);
+  const [copied, setCopied] = useState(false);
 
-  const activeSnippet = CODE_SNIPPETS.find((s) => s.id === activeTabId) || CODE_SNIPPETS[0];
+  const active = SNIPPETS.find((s) => s.id === activeId) ?? SNIPPETS[0];
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(activeSnippet.code);
+    navigator.clipboard.writeText(active.code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleRunTest = () => {
-    setIsRunning(true);
-    setShowOutput(false);
-    setTimeout(() => {
-      setIsRunning(false);
-      setShowOutput(true);
-    }, 600);
-  };
-
   return (
-    <section className="py-24 bg-white text-slate-900 relative overflow-hidden border-t border-slate-200 bg-grid-pattern">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="px-4 py-1.5 rounded-full bg-yellow-400 text-black text-xs font-semibold uppercase tracking-wider shadow-sm">
-            INTERACTIVE CODE DEMO
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 mt-4 mb-4 tracking-tight">
-            Production-Grade Full-Stack Architecture
+    <section
+      id="engineering"
+      className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="max-w-3xl mb-10 sm:mb-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+            Under the hood
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-4 tracking-tight">
+            The parts you never see are the parts that cost you money
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
-            Explore live code snippets driving our Next.js 16 web applications, Python AI microservices, and Razorpay payment webhooks.
+          <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
+            Anyone can show you a homepage. Below is real code from this site,
+            handling the three things that quietly break a small business online:
+            a payment that can be faked, an enquiry that vanishes, and an AI that
+            invents an answer.
           </p>
         </div>
 
-        {/* IDE Terminal Window Box */}
-        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border-2 border-slate-800">
-          
-          {/* Terminal Titlebar & Tabs */}
-          <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
-            
-            {/* macOS Control Dots */}
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-red-500/80" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              <span className="ml-3 text-xs font-mono font-bold text-slate-400 hidden sm:inline">
-                CustomeAI — bash (zsh)
-              </span>
-            </div>
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
-            {/* Code Tabs Selector */}
-            <div className="flex items-center space-x-1 sm:space-x-2">
-              {CODE_SNIPPETS.map((snippet) => (
+          {/* Concern selector — the tabs are phrased as the business risk, not
+              the filename, so a non-technical visitor knows why it matters. */}
+          <div className="lg:col-span-4 flex flex-col gap-2">
+            {SNIPPETS.map((s) => {
+              const isActive = s.id === active.id;
+              return (
                 <button
+                  key={s.id}
                   type="button"
-                  key={snippet.id}
-                  onClick={() => {
-                    setActiveTabId(snippet.id);
-                    setShowOutput(true);
-                  }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${
-                    activeTabId === snippet.id
-                      ? "bg-yellow-400 text-black shadow-sm"
-                      : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  onClick={() => setActiveId(s.id)}
+                  aria-pressed={isActive}
+                  className={`text-left p-4 sm:p-5 rounded-md border transition-colors ${
+                    isActive
+                      ? "border-[var(--foreground)] bg-[var(--surface-alt)]"
+                      : "border-[var(--border-default)] bg-white hover:border-[var(--border-strong)]"
                   }`}
                 >
-                  {snippet.title}
+                  <span
+                    className="block text-xs font-semibold uppercase tracking-wider mb-1.5"
+                    style={{ color: isActive ? "var(--accent)" : undefined }}
+                  >
+                    {s.tab}
+                  </span>
+                  <span className="block text-sm font-semibold text-slate-900 leading-snug">
+                    {s.concern}
+                  </span>
                 </button>
-              ))}
-            </div>
+              );
+            })}
 
-            {/* Run & Copy Action Buttons */}
-            <div className="flex items-center space-x-2">
-              <button
-                type="button"
-                onClick={handleRunTest}
-                disabled={isRunning}
-                className="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-mono font-bold hover:bg-emerald-500/30 transition-all flex items-center space-x-1.5"
-              >
-                <Play className="w-3.5 h-3.5 fill-emerald-400" />
-                <span>{isRunning ? "Testing..." : "Test Run"}</span>
-              </button>
+            <p className="text-sm text-slate-600 leading-relaxed mt-3">
+              {active.explanation}
+            </p>
+          </div>
 
+          {/* Code viewer. Deliberately the one dark surface on the page: it
+              reads as a real editor and gives the layout a visual anchor. */}
+          <div className="lg:col-span-8 w-full rounded-lg overflow-hidden border border-[var(--border-default)] bg-[#0f1216]">
+            <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-white/10">
+              <span className="font-mono text-xs text-slate-400 truncate">
+                {active.filename}
+              </span>
               <button
                 type="button"
                 onClick={handleCopy}
-                className="p-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
-                title="Copy Code"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
               >
-                {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy</span>
+                  </>
+                )}
               </button>
             </div>
-          </div>
 
-          {/* Terminal File Path Bar */}
-          <div className="bg-slate-900/60 px-6 py-2 border-b border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-400">
-            <span className="text-yellow-400 font-bold">📄 {activeSnippet.filename}</span>
-            <span className="text-slate-500 uppercase">{activeSnippet.language}</span>
+            <div className="overflow-x-auto p-5 sm:p-6">
+              <pre className="font-mono text-xs sm:text-[13px] leading-relaxed text-slate-200">
+                <code>{active.code}</code>
+              </pre>
+            </div>
           </div>
-
-          {/* Code Viewer Body */}
-          <div className="p-6 sm:p-8 font-mono text-xs sm:text-sm leading-relaxed text-slate-200 overflow-x-auto max-h-[420px] bg-slate-950">
-            <pre className="text-slate-200">
-              <code>{activeSnippet.code}</code>
-            </pre>
-          </div>
-
-          {/* Live Execution Output Panel */}
-          <AnimatePresence>
-            {showOutput && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="bg-slate-900 px-6 py-4 border-t border-slate-800 font-mono text-xs text-slate-300"
-              >
-                <div className="flex items-center space-x-2 text-slate-400 font-bold mb-2">
-                  <Terminal className="w-4 h-4 text-yellow-400" />
-                  <span>Execution Output Console:</span>
-                </div>
-                <pre className="text-emerald-400 whitespace-pre-wrap leading-snug">
-                  {activeSnippet.output}
-                </pre>
-              </motion.div>
-            )}
-          </AnimatePresence>
 
         </div>
       </div>

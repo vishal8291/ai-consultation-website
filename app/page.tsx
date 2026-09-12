@@ -9,6 +9,9 @@ import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
+import TechMarquee from "@/components/TechMarquee";
+import InteractiveTerminal from "@/components/InteractiveTerminal";
+import ComparisonMatrix from "@/components/ComparisonMatrix";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
 const SERVICES = [
@@ -321,6 +324,10 @@ export default function Home() {
       </section>
 
       {/* WHAT WE DO */}
+      {/* Moving band of what every project includes. Breaks the run of static
+          text blocks between the hero and the service cards. */}
+      <TechMarquee />
+
       <section id="services" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -448,6 +455,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* UNDER THE HOOD — real code from this repository, placed directly after
+          the automation capability list so the longest stretch of plain text on
+          the page is followed by concrete evidence rather than more claims. */}
+      <InteractiveTerminal />
+
       {/* CLIENT SPOTLIGHT — the one real, delivered client engagement, with the
           concrete engineering details that signal "we understand your business
           risk, not just design." All factual and drawn from the full case study. */}
@@ -551,6 +563,10 @@ export default function Home() {
 
       {/* COMMITMENTS */}
       <TestimonialsSection />
+
+      {/* Sits immediately before pricing: the comparison is what makes the
+          number that follows feel reasonable. */}
+      <ComparisonMatrix />
 
       {/* PRICING */}
       <PricingSection />

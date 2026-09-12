@@ -1,50 +1,47 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, X, Sparkles, Shield, Zap, Award } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
+/* The freelancer and agency columns are deliberately hedged generalizations
+   rather than specific figures. We can state precisely what we do; we cannot
+   state as fact what every other freelancer or agency charges or delivers. */
 const COMPARISON_ROWS = [
   {
     feature: "How fast you get it",
-    freelance: "4 - 8 weeks",
-    agency: "2 - 4 months",
-    vishal: "7 - 21 days",
-    vishalHighlight: true,
+    freelance: "Typically several weeks",
+    agency: "Typically a few months",
+    vishal: "7 to 21 days",
   },
   {
-    feature: "How well it's built",
-    freelance: "Slow, template-based sites",
-    agency: "Slow, overcomplicated systems",
-    vishal: "Fast, modern, scores 100/100 on speed",
-    vishalHighlight: true,
+    feature: "What it's built on",
+    freelance: "Often a template or page builder",
+    agency: "Often their own platform",
+    vishal: "A custom build on a modern stack",
   },
   {
-    feature: "AI & automation",
-    freelance: "None, or a basic plugin",
-    agency: "Expensive add-on, extra cost",
-    vishal: "Built in, trained on your own data",
-    vishalHighlight: true,
+    feature: "AI and automation",
+    freelance: "Usually not offered",
+    agency: "Usually a paid add-on",
+    vishal: "Built in from the start, on your own data",
   },
   {
     feature: "How you're charged",
-    freelance: "Hourly, hard to predict",
-    agency: "High markup ($30k+)",
-    vishal: "One fixed price, listed upfront",
-    vishalHighlight: true,
+    freelance: "Often hourly, hard to predict",
+    agency: "Retainer or monthly plan",
+    vishal: "One fixed price, itemized upfront",
   },
   {
     feature: "Who owns it",
-    freelance: "Sometimes shared",
-    agency: "Locked into their platform",
-    vishal: "You own 100% of it",
-    vishalHighlight: true,
+    freelance: "Varies by contract",
+    agency: "Often tied to their platform",
+    vishal: "You own 100%, code and data",
   },
   {
     feature: "Support after launch",
-    freelance: "0 - 7 days",
+    freelance: "Varies",
     agency: "Paid monthly plan",
-    vishal: "30 - 90 days included, free",
-    vishalHighlight: true,
+    vishal: "30 to 90 days included",
   },
 ];
 
