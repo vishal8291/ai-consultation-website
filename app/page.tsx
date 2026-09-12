@@ -9,7 +9,6 @@ import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
-import TechMarquee from "@/components/TechMarquee";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
@@ -327,10 +326,6 @@ export default function Home() {
       </section>
 
       {/* WHAT WE DO */}
-      {/* Moving band of what every project includes. Breaks the run of static
-          text blocks between the hero and the service cards. */}
-      <TechMarquee />
-
       <section id="services" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
