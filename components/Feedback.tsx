@@ -2,14 +2,21 @@
 import React, { useState } from "react";
 import { Star, CheckCircle2 } from "lucide-react";
 
+interface FeedbackProps {
+  /** Called ~1.2s after a successful submit, once the confirmation has been
+   * visible for a moment — the parent (the review modal) uses this to close
+   * itself and refresh the testimonial list. */
+  onSuccess?: () => void;
+}
+
 /**
- * Compact "Rate us" widget — a lower-friction alternative to the full /review
- * page. Star rating + name + a short comment, nothing else required. Posts to
- * the same /api/testimonials endpoint used by /review, so it publishes
- * instantly and shows up in the same "What clients say" section and the same
- * /admin/testimonials management list.
+ * Compact "Rate us" form: star rating + name + a short comment, nothing else
+ * required. Posts to the same /api/testimonials endpoint used by /review, so
+ * it publishes instantly and shows up in the same "What clients say" section
+ * and the same /admin/testimonials management list. Rendered inside the
+ * "Write a review" modal in Testimonials.tsx, not as its own page section.
  */
-export default function Feedback() {
+export default function Feedback({ onSuccess }: FeedbackProps) {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [name, setName] = useState("");
@@ -45,6 +52,7 @@ export default function Feedback() {
 
       if (res.ok) {
         setSuccess(true);
+        setTimeout(() => onSuccess?.(), 1200);
       } else {
         const data = await res.json();
         setErrorMsg(data.error || "Failed to submit. Please try again.");
@@ -58,22 +66,19 @@ export default function Feedback() {
 
   if (success) {
     return (
-      <div className="glass-card-pro bg-white p-6 sm:p-8 max-w-md mx-auto text-center space-y-3">
+      <div className="text-center space-y-3 py-4">
         <div style={{ color: "var(--accent)" }} className="w-12 h-12 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-7 h-7" />
         </div>
-        <h3 className="text-lg font-semibold text-slate-900">Thanks for rating us.</h3>
+        <h3 className="text-lg font-semibold text-slate-900">Thanks for your review.</h3>
         <p className="text-slate-600 text-sm">It's live on the site now.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card-pro bg-white p-6 sm:p-8 max-w-md mx-auto space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="text-center">
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
-          Rate us
-        </p>
         <h3 className="text-lg font-semibold text-slate-900">How was your experience?</h3>
       </div>
 

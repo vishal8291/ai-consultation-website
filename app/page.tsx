@@ -8,7 +8,6 @@ import FaqSection from "@/components/FaqSection";
 import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
-import Feedback from "@/components/Feedback";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
@@ -493,17 +492,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT CLIENTS SAY — renders nothing until at least one testimonial
-          has been submitted via /review or the Feedback widget below. */}
+      {/* WHAT CLIENTS SAY — "Write a review" opens the Feedback form in a
+          modal (see Testimonials.tsx); the card grid only renders once
+          there's at least one review. */}
       <Testimonials />
-
-      {/* RATE US — always visible, low-friction alternative to the full
-          /review page. Publishes instantly, same as /review. */}
-      <section className="py-14 sm:py-16 bg-[var(--surface-alt)] border-b border-[var(--border-default)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Feedback />
-        </div>
-      </section>
 
       {/* OUR WORK */}
       <ProjectsShowcase limit={3} isHomepage={true} />
