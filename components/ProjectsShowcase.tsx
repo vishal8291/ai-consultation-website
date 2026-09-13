@@ -181,20 +181,6 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     )}
                   </div>
                 </div>
-                <div className="absolute bottom-3 left-6 flex flex-col items-start gap-1.5">
-                  <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-semibold tracking-wide backdrop-blur-md">
-                    {project.category}
-                  </span>
-                  {project.engagement === "client" ? (
-                    <span className="px-3 py-1 rounded-md text-white text-[11px] font-semibold tracking-wide backdrop-blur-md" style={{ background: "var(--accent-strong)" }}>
-                      Real client project
-                    </span>
-                  ) : (
-                    <span className="px-3 py-1 rounded-md bg-white/85 text-slate-700 text-[11px] font-semibold tracking-wide backdrop-blur-md">
-                      Independent build
-                    </span>
-                  )}
-                </div>
               </div>
 
               {/* Card Body */}
