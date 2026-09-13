@@ -55,7 +55,16 @@ export default function ConsultationForm() {
 
   return (
     <section id="contact" className="py-14 sm:py-16 bg-white relative overflow-hidden border-t border-[var(--border-default)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Violet plume drifting behind the conversion moment. Sits under the
+          existing z-10 content wrapper, so it changes nothing structurally. */}
+      <img
+        src="/images/violet-plume.png"
+        alt=""
+        aria-hidden="true"
+        className="hidden lg:block pointer-events-none select-none absolute -left-32 -top-24 w-[720px] max-w-none opacity-[0.5]"
+      />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10">
@@ -70,6 +79,19 @@ export default function ConsultationForm() {
             No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it's a website fix, an AI system, or something else entirely, plus a real price.
           </p>
         </div>
+
+        {/* Header banner. Its wording lives only as pixels, so the section's
+            real <h2> above stays the heading that screen readers and search
+            engines actually read; this carries descriptive alt text instead.
+            Intrinsic width/height are set so the browser reserves the space
+            before the file arrives rather than shifting the form downward. */}
+        <img
+          src="/images/consultation-banner.jpg"
+          alt="Consultation booking form"
+          width={1600}
+          height={400}
+          className="w-full h-auto rounded-xl border border-[var(--border-default)] mb-6"
+        />
 
         {/* Form Container — the conversion moment, so it carries the one
             violet-to-blue bloom on the page besides the terminal. */}
