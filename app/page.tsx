@@ -202,8 +202,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACTS + CLIENTS */}
-      <section className="bg-white border-b border-[var(--border-default)]">
+      {/* FACTS + CLIENTS
+          White ground with black text, set through the section's colour
+          tokens so the layout is untouched; labels are black at lower
+          opacity rather than a tinted grey. */}
+      <section
+        className="border-b border-[var(--border-default)]"
+        style={{
+          backgroundColor: "#ffffff",
+          "--border-default": "rgba(0, 0, 0, 0.12)",
+          "--accent": "#000000",
+          "--color-slate-900": "#000000",
+          "--color-slate-500": "rgba(0, 0, 0, 0.6)",
+        } as React.CSSProperties}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
           <dl className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
             {FACTS.map((f) => (
@@ -233,7 +245,7 @@ export default function Home() {
                 alt="MAHAGRO INDIA logo"
                 className="w-10 h-10 object-contain"
               />
-              <span className="text-sm font-semibold text-slate-900 group-hover:text-[var(--accent)] transition-colors">
+              <span className="text-sm font-semibold text-slate-900 group-hover:underline underline-offset-4">
                 MAHAGRO INDIA
               </span>
             </a>
