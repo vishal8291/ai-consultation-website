@@ -241,8 +241,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT WE DO */}
-      <section id="services" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+      {/* WHAT WE DO
+          Uses the hero's palette. Every card, border and accent here reads
+          from these tokens, so redefining them on the section recolours the
+          whole block (black ground, neutral surfaces, hero blue) without
+          touching its layout. */}
+      <section
+        id="services"
+        className="py-14 sm:py-16 border-b border-[var(--border-default)]"
+        style={{
+          backgroundColor: "#000000",
+          "--surface-card": "#0b0b0b",
+          "--surface-alt": "#161616",
+          "--border-default": "rgba(255, 255, 255, 0.12)",
+          "--border-strong": "rgba(255, 255, 255, 0.24)",
+          "--accent": "#4aa8e0",
+          "--accent-strong": "#0f76b0",
+          "--color-slate-700": "#d4d4d4",
+          "--color-slate-600": "#a3a3a3",
+          "--color-slate-500": "#8f8f8f",
+          "--color-slate-400": "#737373",
+        } as React.CSSProperties}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="rule-hairline mb-8" />
@@ -300,7 +320,8 @@ export default function Home() {
           <div className="mt-10">
             <a
               href="#contact"
-              className="btn-yellow-solid inline-flex items-center justify-center px-6 py-3 text-sm space-x-2"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white space-x-2 transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              style={{ backgroundColor: "#0f76b0", borderRadius: "50px" }}
             >
               <span>Request a proposal</span>
               <ArrowRight className="w-4 h-4" />
