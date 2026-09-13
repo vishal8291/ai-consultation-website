@@ -32,6 +32,10 @@ export default function UserDashboard() {
         return;
       }
       const userData = await userRes.json();
+      if (!userData.authenticated) {
+        router.push("/login");
+        return;
+      }
       setUser(userData);
 
       const consRes = await fetch("/api/users/consultations");

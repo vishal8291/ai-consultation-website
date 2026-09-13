@@ -109,6 +109,41 @@
   background-color: #fef2f2;
 }
 
+/* slate-700 and slate-800 are remapped to near-white in @theme so that text
+   using them reads on the dark ground. Used as a background or border they
+   became light panels, which left their own light text unreadable (found in
+   the chatbot's assistant bubble). Backgrounds and borders built from those
+   shades are pointed back at the dark surface tokens here. */
+.bg-slate-700,
+.bg-slate-800 {
+  background-color: var(--surface-alt);
+}
+.border-slate-700,
+.border-slate-800 {
+  border-color: var(--border-default);
+}
+
+/* The overrides above only cover the resting state. Hover variants are
+   separate utilities, so hover:bg-white still painted pure white, under text
+   that the remap had already turned white. Hover backgrounds resolve to the
+   alternate surface instead, which also stays correct inside .section-light. */
+.hover\:bg-white:hover,
+.hover\:bg-slate-50:hover,
+.hover\:bg-slate-100:hover,
+.hover\:bg-slate-200:hover {
+  background-color: var(--surface-alt);
+}
+
+/* hover:bg-slate-700/800 is used only on dark buttons with white labels
+   (Sign In, Create Account, Access Dashboard). With the remap it hovered to
+   near-white, blanking the label. A fixed lifted dark is used rather than a
+   token, because these buttons stay dark inside .section-light too, where
+   the surface tokens turn light. */
+.hover\:bg-slate-700:hover,
+.hover\:bg-slate-800:hover {
+  background-color: #2e2745;
+}
+
 /* Hero entrance runs in pure CSS (no JS/hydration dependency) so the headline
    paints on the first frame instead of sitting at opacity:0 until React
    hydrates and Framer Motion takes over. */
