@@ -162,12 +162,10 @@ export default function Home() {
                   instead of waiting on React hydration. The body face is used
                   at 300 because its humanist shapes match the reference. */}
               <h1
-                className="hero-fade-in-up text-[38px] sm:text-5xl xl:text-[56px] leading-[1.3] tracking-[-0.01em]"
+                className="hero-fade-in-up text-[38px] sm:text-5xl xl:text-[56px] leading-[1.3] tracking-[-0.01em] text-balance"
                 style={{ animationDelay: "0.1s", color: "#ffffff", fontWeight: 300, fontFamily: "var(--font-manrope), ui-sans-serif, system-ui, sans-serif" }}
               >
-                Tell us the problem.
-                <br />
-                We build the fix.
+                We build websites, AI agents &amp; automation tools.
               </h1>
 
               <p
