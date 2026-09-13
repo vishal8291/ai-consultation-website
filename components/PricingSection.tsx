@@ -217,12 +217,7 @@ export default function PricingSection() {
                 type="button"
                 onClick={() => handleRazorpayCheckout(tier)}
                 disabled={loadingTierId === tier.id}
-                style={
-                  tier.popular
-                    ? { background: "var(--on-accent, #ffffff)", color: "var(--accent-strong)", borderColor: "var(--on-accent, #ffffff)" }
-                    : { background: "transparent", color: "var(--foreground)", borderColor: "var(--border-strong)" }
-                }
-                className="w-full border py-4 px-4 text-sm font-semibold uppercase tracking-wider flex items-center justify-center space-x-2 transition-colors disabled:opacity-60"
+                className="btn-hero w-full py-4 px-4 text-sm flex items-center justify-center space-x-2 disabled:opacity-60"
               >
                 <CreditCard className="w-4 h-4" />
                 <span>

@@ -276,45 +276,42 @@ body::before {
   box-shadow: 0 0 80px rgba(109, 40, 217, 0.28), 0 0 120px rgba(37, 99, 235, 0.18);
 }
 
-/* Buttons. Class names are historical but referenced across every component.
-   btn-yellow-solid is the primary CTA and takes the gradient pill. */
-.btn-yellow-solid {
-  background: linear-gradient(90deg, var(--accent-strong), #8b5cf6);
-  color: #ffffff;
-  font-weight: 600;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-yellow-solid:hover {
-  filter: brightness(1.12);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.35);
-}
-
+/* Buttons. Every text button on the site uses the hero's look: a solid
+   blue pill with white semibold text. The three historical class names are
+   kept as aliases because they are referenced across many components; they
+   no longer differ from each other. */
+.btn-hero,
+.btn-yellow-solid,
 .btn-white-solid,
 .btn-dark-solid {
-  background: transparent;
-  color: var(--foreground);
+  background: #0f76b0;
+  color: #ffffff;
   font-weight: 600;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  border: 1px solid #0f76b0;
+  border-radius: 50px;
+  transition: filter 0.2s ease;
 }
 
+.btn-hero:hover,
+.btn-yellow-solid:hover,
 .btn-white-solid:hover,
 .btn-dark-solid:hover {
-  background: var(--surface-alt);
-  border-color: var(--accent);
-  transform: translateY(-1px);
+  filter: brightness(1.1);
 }
 
+.btn-hero:disabled,
+.btn-yellow-solid:disabled,
+.btn-white-solid:disabled,
+.btn-dark-solid:disabled {
+  filter: none;
+}
+
+.btn-hero:focus-visible,
 .btn-yellow-solid:focus-visible,
 .btn-white-solid:focus-visible,
 .btn-dark-solid:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: 2px solid #0f76b0;
+  outline-offset: 3px;
 }
 
 ::-webkit-scrollbar {
@@ -404,17 +401,6 @@ body::before {
   background-color: #1f1f1f;
 }
 
-/* Primary pill: solid foreground on the band's ground, no gradient. */
-:is(.tone-black, .tone-white) .btn-yellow-solid {
-  background: var(--foreground);
-  color: var(--background);
-}
-:is(.tone-black, .tone-white) .btn-yellow-solid:hover {
-  filter: none;
-  opacity: 0.85;
-  box-shadow: none;
-}
-
 /* Violet blooms and glows become a plain hairline. */
 :is(.tone-black, .tone-white) :is(.glass-card-pro, .dark-card-pro):hover,
 :is(.tone-black, .tone-white) :is(.glow-violet, .glow-violet-blue) {
@@ -425,4 +411,14 @@ body::before {
    hidden inside a band. */
 :is(.tone-black, .tone-white) .decor-plume {
   display: none;
+}
+
+/* Logo mark. The artwork is dark line work, flattened to pure white for the
+   dark site and to pure black inside a white band such as the footer. Kept
+   in CSS rather than inline so a band can switch it. */
+.logo-mark {
+  filter: brightness(0) invert(1);
+}
+.tone-white .logo-mark {
+  filter: brightness(0);
 }

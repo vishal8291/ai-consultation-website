@@ -60,14 +60,14 @@ export default function CookieConsent() {
           <button
             type="button"
             onClick={handleDecline}
-            className="btn-white-solid flex-1 sm:flex-none px-4 py-2.5 text-xs font-bold uppercase tracking-wider"
+            className="btn-hero flex-1 sm:flex-none px-5 py-2.5 text-sm"
           >
             Decline Cookies
           </button>
           <button
             type="button"
             onClick={handleAccept}
-            className="btn-yellow-solid flex-1 sm:flex-none px-5 py-2.5 text-xs font-semibold uppercase tracking-wider"
+            className="btn-hero flex-1 sm:flex-none px-5 py-2.5 text-sm"
           >
             Accept Cookies
           </button>

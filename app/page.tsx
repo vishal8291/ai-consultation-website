@@ -182,8 +182,7 @@ export default function Home() {
               <div className="hero-fade-in-up mt-10" style={{ animationDelay: "0.3s" }}>
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center px-12 py-3.5 text-lg font-semibold text-white transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                  style={{ backgroundColor: "#0f76b0", borderRadius: "50px" }}
+                  className="btn-hero inline-flex items-center justify-center px-12 py-3.5 text-lg"
                 >
                   Start a conversation
                 </a>
@@ -303,8 +302,7 @@ export default function Home() {
           <div className="mt-10">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold space-x-2 transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-              style={{ backgroundColor: "#ffffff", color: "#000000", borderRadius: "50px" }}
+              className="btn-hero inline-flex items-center justify-center px-6 py-3 text-sm space-x-2"
             >
               <span>Request a proposal</span>
               <ArrowRight className="w-4 h-4" />
@@ -416,14 +414,13 @@ export default function Home() {
                   href="https://mahagroindia.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-white text-sm font-semibold"
-                  style={{ background: "var(--accent-strong)" }}
+                  className="btn-hero inline-flex items-center gap-2 px-5 py-3 text-sm"
                 >
                   Visit the live site
                 </a>
                 <a
                   href="/projects"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-slate-900 border border-[var(--border-default)] bg-white"
+                  className="btn-hero inline-flex items-center gap-2 px-5 py-3 text-sm"
                 >
                   Read the case study
                 </a>

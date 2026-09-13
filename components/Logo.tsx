@@ -33,16 +33,12 @@ function Mark({ className = "" }: { className?: string }) {
       <img
         src={MARK_SRC}
         alt=""
-        className="absolute max-w-none"
+        className="logo-mark absolute max-w-none"
         style={{
           width: MARK_SCALE,
           height: MARK_SCALE,
           left: MARK_LEFT,
           top: MARK_TOP,
-          // The artwork is dark aubergine line work drawn for a white page and
-          // is all but invisible on this dark ground. Flattening it to pure
-          // white keeps one logo file working on both.
-          filter: "brightness(0) invert(1)",
         }}
       />
     </span>

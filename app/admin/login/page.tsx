@@ -92,7 +92,7 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={isLoading || !password.trim()}
-            className="w-full h-14 bg-black hover:bg-slate-800 disabled:bg-slate-400 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 text-lg disabled:cursor-not-allowed"
+            className="btn-hero w-full h-14 disabled:opacity-50 flex items-center justify-center gap-2 text-lg disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>

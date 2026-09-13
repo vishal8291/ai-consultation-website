@@ -82,7 +82,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading || !formData.email || !formData.password}
-            className="w-full h-14 bg-black hover:bg-slate-800 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg transition-all duration-300"
+            className="btn-hero w-full h-14 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg"
           >
             {loading ? (
               <>
