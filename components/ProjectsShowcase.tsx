@@ -240,16 +240,17 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
         {/* Section Header */}
         {!hideHeader && (
           <div className="mb-10">
-            {/* Decorative banner, so it is hidden from assistive tech rather
-                than given alt text. Intrinsic dimensions come from the SVG's
-                viewBox so the browser reserves the space before it loads. */}
+            {/* Decorative header strip, so it is hidden from assistive tech
+                rather than given alt text. Cropped tight to the artwork and
+                kept deliberately short: at this height it reads as a header
+                mark rather than a full-bleed illustration. */}
             <img
-              src="/images/art-corner-banner.svg"
+              src="/images/our-work-header.jpg"
               alt=""
               aria-hidden="true"
-              width={2835}
-              height={1418}
-              className="w-full h-auto mb-8"
+              width={1100}
+              height={456}
+              className="w-full h-20 sm:h-24 object-cover mb-8"
             />
 
             <div className="rule-hairline mb-8" />
