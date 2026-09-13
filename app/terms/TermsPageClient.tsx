@@ -15,8 +15,10 @@ export default function TermsPageClient() {
             <span>LEGAL AGREEMENT</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">Terms & Conditions</h1>
-          <p className="text-slate-600 text-xs sm:text-sm">
-            Last Updated: August 22, 2026 • Official Operating & Engineering Ground Rules
+          <p className="text-slate-600 text-sm flex flex-col sm:flex-row sm:justify-center sm:gap-2">
+            <span>Last Updated: September 13, 2026</span>
+            <span className="hidden sm:inline" aria-hidden="true">•</span>
+            <span>Official Operating & Engineering Ground Rules</span>
           </p>
         </div>
       </section>
@@ -85,9 +87,14 @@ export default function TermsPageClient() {
             <p>
               For legal inquiries or questions regarding these Terms & Conditions, please contact us directly at:
             </p>
-            <div className="p-4 bg-white text-sm text-slate-700">
-              Email: customeai.tech@gmail.com <br />
-              Platform: CustomeAI Web & AI Systems
+            <div className="p-4 rounded-xl border border-[var(--border-default)] bg-[var(--surface-alt)] text-sm text-slate-700 space-y-1">
+              <p>
+                Email:{" "}
+                <a href="mailto:customeai.tech@gmail.com" className="font-semibold break-all underline underline-offset-4" style={{ color: "var(--accent)" }}>
+                  customeai.tech@gmail.com
+                </a>
+              </p>
+              <p>Platform: CustomeAI Web & AI Systems</p>
             </div>
           </div>
 
