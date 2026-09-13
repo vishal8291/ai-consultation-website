@@ -10,6 +10,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
+import CircuitMesh from "@/components/CircuitMesh";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
 const SERVICES = [
@@ -169,18 +170,13 @@ export default function Home() {
         id="hero"
         className="relative pt-24 sm:pt-28 pb-14 sm:pb-16 bg-white border-b border-[var(--border-default)] overflow-hidden"
       >
-        {/* Faint network-diagram watermark, not a decorative illustration: sits
-            behind the real content in the negative space, reinforcing the
-            technology-consulting register without competing with the message
-            or the "what happens next" panel. Hidden below lg to keep mobile
-            clean. */}
-        <img
-          src="/images/hero-network-graphic.png"
-          alt=""
-          aria-hidden="true"
-          className="hidden lg:block pointer-events-none select-none absolute -right-24 top-0 w-[900px] max-w-none opacity-[0.16]"
-          style={{ filter: "brightness(0) invert(1)" }}
-        />
+        {/* Animated node mesh echoing the logo's brain-circuit mark. This
+            replaces the static network watermark rather than layering over it:
+            two network motifs in the same space competed with each other.
+            Hidden below lg to keep mobile cheap and clean. */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-none">
+          <CircuitMesh />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">

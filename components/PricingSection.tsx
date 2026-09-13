@@ -160,7 +160,16 @@ export default function PricingSection() {
           {PRICING_TIERS.map((tier) => (
             <div
               key={tier.id}
-              style={tier.popular ? { borderColor: "var(--accent)", borderWidth: "2px" } : undefined}
+              style={
+                tier.popular
+                  ? {
+                      borderColor: "var(--accent)",
+                      borderWidth: "2px",
+                      boxShadow:
+                        "0 0 0 4px rgba(109, 40, 217, 0.10), 0 14px 44px rgba(109, 40, 217, 0.18)",
+                    }
+                  : undefined
+              }
               className="glass-card-pro p-6 sm:p-7 flex flex-col justify-between relative"
             >
               {tier.popular && (

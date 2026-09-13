@@ -170,7 +170,7 @@ export default function InteractiveTerminal() {
 
           {/* Code viewer. Deliberately the one dark surface on the page: it
               reads as a real editor and gives the layout a visual anchor. */}
-          <div className="lg:col-span-8 w-full rounded-lg overflow-hidden border border-[var(--border-default)] bg-[#0f1216]">
+          <div className="lg:col-span-8 w-full rounded-lg overflow-hidden border border-[var(--border-default)] bg-[#0f1216] glow-violet">
             <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-white/10">
               <span className="font-mono text-xs text-slate-400 truncate">
                 {active.filename}
