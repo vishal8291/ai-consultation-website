@@ -20,6 +20,7 @@ export default function Navbar() {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [hasHero, setHasHero] = useState(false);
 
   useEffect(() => {
     checkAuth();
@@ -33,6 +34,7 @@ export default function Navbar() {
       const hero = document.getElementById("hero");
       return hero ? hero.getBoundingClientRect().height - 80 : 24;
     };
+    setHasHero(!!document.getElementById("hero"));
     let threshold = getThreshold();
     const onScroll = () => setScrolled(window.scrollY > threshold);
     const onResize = () => {
@@ -70,9 +72,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 inset-x-0 z-50 bg-white border-b border-[var(--border-default)] transition-shadow duration-200 ${
-        scrolled ? "shadow-sm" : ""
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ${
+        hasHero && !scrolled && !isOpen
+          ? "border-transparent"
+          : "bg-white border-[var(--border-default)]"
+      } ${scrolled ? "shadow-sm" : ""}`}
+      // Over the black hero the bar blends into it, as on the reference
+      // design; it picks up its normal surface once scrolled past.
+      style={hasHero && !scrolled && !isOpen ? { backgroundColor: "#000000" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">

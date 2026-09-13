@@ -10,7 +10,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
-import HeroOrb from "@/components/HeroOrb";
+import HeroRings from "@/components/HeroRings";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
 const SERVICES = [
@@ -145,32 +145,25 @@ export default function Home() {
     <main className="min-h-screen text-slate-900 antialiased selection:bg-black selection:text-white relative overflow-x-hidden">
 
       {/* HERO
-          Solid black ground, a light-weight white headline and one blue pill
-          CTA, with the message on the left and a live 3D graphic on the right. */}
+          Modelled on a large-consultancy split hero: solid black ground,
+          a light humanist headline with generous line spacing, a readable
+          paragraph, one blue pill CTA, and a 3D graphic on the right. */}
       <section
         id="hero"
-        className="relative overflow-hidden border-b border-white/10"
+        className="relative overflow-hidden"
         style={{ backgroundColor: "#000000" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-24 pb-10 lg:pb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-10 lg:min-h-[600px]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-28 sm:pt-32 lg:pt-20 pb-12 lg:pb-16">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 lg:min-h-[640px]">
 
             {/* Message */}
-            <div className="lg:w-[58%] relative z-10">
-              <p
-                className="hero-fade-in-up text-xs font-medium uppercase tracking-[0.16em] mb-6"
-                style={{ animationDelay: "0.05s", color: "rgba(255, 255, 255, 0.6)" }}
-              >
-                Web and AI studio
-                <span className="mx-2">/</span>
-                Mumbai, India
-              </p>
-
+            <div className="lg:w-[55%] relative z-10">
               {/* Pure CSS entrance so the headline paints on the first frame
-                  instead of waiting on React hydration. */}
+                  instead of waiting on React hydration. The body face is used
+                  at 300 because its humanist shapes match the reference. */}
               <h1
-                className="hero-fade-in-up font-sans text-[40px] sm:text-6xl xl:text-[68px] tracking-[-0.02em] leading-[1.08]"
-                style={{ animationDelay: "0.1s", color: "#ffffff", fontWeight: 300 }}
+                className="hero-fade-in-up text-[38px] sm:text-5xl xl:text-[56px] leading-[1.3] tracking-[-0.01em]"
+                style={{ animationDelay: "0.1s", color: "#ffffff", fontWeight: 300, fontFamily: "var(--font-manrope), ui-sans-serif, system-ui, sans-serif" }}
               >
                 Tell us the problem.
                 <br />
@@ -178,30 +171,31 @@ export default function Home() {
               </h1>
 
               <p
-                className="hero-fade-in-up mt-6 text-lg sm:text-xl max-w-md leading-relaxed"
-                style={{ animationDelay: "0.2s", color: "#ffffff", fontWeight: 300 }}
+                className="hero-fade-in-up mt-6 text-lg sm:text-[20px] leading-[1.75] max-w-[600px]"
+                style={{ animationDelay: "0.2s", color: "#ffffff", fontWeight: 400 }}
               >
-                Custom websites and AI systems for small businesses.
+                Custom websites and AI systems for small businesses. Describe what&apos;s
+                broken in your own words, and we&apos;ll reply within 24 hours with an
+                honest read and a real price.
               </p>
 
-              <div className="hero-fade-in-up mt-9" style={{ animationDelay: "0.3s" }}>
+              <div className="hero-fade-in-up mt-10" style={{ animationDelay: "0.3s" }}>
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium text-white transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                  style={{ backgroundColor: "#2563eb", borderRadius: "50px" }}
+                  className="inline-flex items-center justify-center px-12 py-3.5 text-lg font-semibold text-white transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  style={{ backgroundColor: "#0f76b0", borderRadius: "50px" }}
                 >
                   Start a conversation
-                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
             {/* 3D graphic */}
             <div
-              className="hero-fade-in-up lg:w-[42%] w-full h-[340px] sm:h-[440px] lg:h-[560px]"
+              className="hero-fade-in-up lg:w-[45%] w-full h-[340px] sm:h-[460px] lg:h-[560px]"
               style={{ animationDelay: "0.25s" }}
             >
-              <HeroOrb />
+              <HeroRings />
             </div>
 
           </div>
