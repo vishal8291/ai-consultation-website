@@ -57,7 +57,6 @@ const SERVICES = [
 ];
 
 const FACTS = [
-  { label: "Delivery", value: "7 to 21 days" },
   { label: "Ownership", value: "100% yours" },
   { label: "Post-launch support", value: "30 to 90 days" },
   { label: "Based in", value: "Mumbai, India" },
@@ -284,7 +283,7 @@ export default function Home() {
       {/* FACTS + CLIENTS */}
       <section className="bg-white border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+          <dl className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
             {FACTS.map((f) => (
               <div key={f.label}>
                 <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">
