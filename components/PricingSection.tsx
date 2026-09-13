@@ -88,8 +88,9 @@ export default function PricingSection() {
         },
         theme: {
           // Razorpay's modal is an iframe and cannot read our CSS variables, so
-          // this must be kept in sync with --accent in globals.css by hand.
-          color: "#1b5e9c",
+          // this must be kept in sync with --accent-strong in globals.css by
+          // hand. It was left on the pre-rebrand blue when the palette changed.
+          color: "#6d28d9",
         },
       };
 

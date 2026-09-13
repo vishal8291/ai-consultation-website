@@ -4,7 +4,9 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PROJECTS_DATA, Project } from "@/lib/projectsData";
 import { ProjectGraphicSVG, ProjectIconSVG } from "@/components/AiSvgGraphics";
-import { ExternalLink, CheckCircle2, ArrowRight, X, Sparkles, Cpu, Layers, Github, Globe, Globe2, Bot, LayoutGrid } from "lucide-react";
+import { ExternalLink, CheckCircle2, ArrowRight, X, Sparkles, Cpu, Layers, Github, Globe, Globe2, Bot, LayoutGrid, AlertCircle } from "lucide-react";
+import { loadRazorpayScript } from "@/lib/razorpay";
+import { trackPurchase } from "@/lib/analytics";
 
 interface ProjectsShowcaseProps {
   limit?: number;
@@ -30,6 +32,100 @@ const HOMEPAGE_PROJECT_IDS = [
 export default function ProjectsShowcase({ limit, showFilters = true, isHomepage = false, hideHeader = false }: ProjectsShowcaseProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+  const [buyingId, setBuyingId] = useState<string | null>(null);
+
+  /**
+   * Ready-built systems are charged in full rather than as a 50% advance,
+   * because there is no delivery milestone to split around. The server resolves
+   * the price from the product id, so only the id is sent here.
+   */
+  const handleBuyProduct = async (project: Project) => {
+    if (!project.forSale) return;
+    try {
+      setBuyingId(project.id);
+
+      const isLoaded = await loadRazorpayScript();
+      if (!isLoaded) {
+        alert("Failed to load the payment SDK. Please check your internet connection.");
+        setBuyingId(null);
+        return;
+      }
+
+      const res = await fetch("/api/razorpay/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: project.id, currency: "INR" }),
+      });
+
+      const orderData = await res.json();
+      if (!res.ok || !orderData.orderId) {
+        alert(orderData.error || "Failed to start the purchase.");
+        setBuyingId(null);
+        return;
+      }
+
+      // Display-only figure, taken from the server's authoritative response.
+      const chargedAmount = orderData.advanceAmount as number;
+
+      const options = {
+        key: orderData.keyId,
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "CustomeAI",
+        image: "/images/reallogo-transparent.png",
+        description: `${project.title} (₹${chargedAmount.toLocaleString()})`,
+        order_id: orderData.orderId,
+        handler: async function (response: any) {
+          const verifyRes = await fetch("/api/razorpay/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              tierName: project.title,
+              amount: chargedAmount,
+              currency: "INR",
+            }),
+          });
+
+          const verifyData = await verifyRes.json();
+          if (verifyRes.ok && verifyData.success) {
+            trackPurchase({
+              transactionId: response.razorpay_payment_id,
+              value: chargedAmount,
+              currency: "INR",
+              tierName: project.title,
+            });
+            alert(`Payment received. Payment ID: ${response.razorpay_payment_id}. We will email you within 24 hours to arrange handover of ${project.title}.`);
+          } else {
+            alert(verifyData.error || "Payment verification failed. Please contact support.");
+          }
+          setBuyingId(null);
+        },
+        modal: {
+          ondismiss: () => setBuyingId(null),
+        },
+        theme: {
+          // Razorpay's modal is an iframe and cannot read our CSS variables, so
+          // this must be kept in sync with --accent-strong in globals.css.
+          color: "#6d28d9",
+        },
+      };
+
+      const razorpayWindow = new (window as any).Razorpay(options);
+      razorpayWindow.on("payment.failed", (response: any) => {
+        console.error("Razorpay payment failed:", response.error);
+        alert(`Payment failed: ${response.error?.description || "Please try again."}`);
+        setBuyingId(null);
+      });
+      razorpayWindow.open();
+    } catch (err) {
+      console.error(err);
+      alert("An unexpected error occurred while starting the purchase.");
+      setBuyingId(null);
+    }
+  };
 
   let projectsToDisplay: Project[] = [];
 
@@ -110,6 +206,16 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   {project.results?.primary && (
                     <p className="text-sm text-slate-600 mt-1.5">
                       {project.results.primary}
+                    </p>
+                  )}
+                  {project.forSale && (
+                    <p className="mt-3 text-sm font-semibold text-slate-900">
+                      <span style={{ color: "var(--accent)" }}>
+                        {project.forSale.priceDisplayINR}
+                      </span>
+                      <span className="text-slate-500 font-normal">
+                        {" "}· ready to buy
+                      </span>
                     </p>
                   )}
                 </div>
@@ -319,6 +425,56 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     ))}
                   </ul>
                 </div>
+
+                {activeModalProject.forSale && (
+                  <div className="space-y-4 p-4 rounded-2xl border" style={{ borderColor: "var(--accent-strong)" }}>
+                    <div className="flex items-baseline justify-between gap-3 flex-wrap">
+                      <span className="text-2xl font-semibold text-slate-900">
+                        {activeModalProject.forSale.priceDisplayINR}
+                      </span>
+                      <span className="text-xs text-slate-500">
+                        {activeModalProject.forSale.priceDisplayUSD} · paid once, not a subscription
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="text-xs font-semibold text-slate-900 uppercase tracking-wider">What you get</h4>
+                      <ul className="space-y-1.5 text-xs text-slate-700">
+                        {activeModalProject.forSale.whatYouGet.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: "var(--accent)" }} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Stated up front rather than discovered after paying: these
+                        are third-party services the buyer funds themselves. */}
+                    <div className="space-y-2">
+                      <h4 className="text-xs font-semibold text-slate-900 uppercase tracking-wider">What you pay for separately</h4>
+                      <ul className="space-y-1.5 text-xs text-slate-600">
+                        {activeModalProject.forSale.runningCosts.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-slate-500" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleBuyProduct(activeModalProject)}
+                      disabled={buyingId === activeModalProject.id}
+                      className="btn-yellow-solid w-full py-3 px-4 text-sm disabled:opacity-60"
+                    >
+                      {buyingId === activeModalProject.id
+                        ? "Starting checkout..."
+                        : `Buy for ${activeModalProject.forSale.priceDisplayINR}`}
+                    </button>
+                  </div>
+                )}
 
                 <div className="flex flex-wrap gap-4 pt-4 border-t border-slate-200">
                   {activeModalProject.demoUrl && (

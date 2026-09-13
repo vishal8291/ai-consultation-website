@@ -22,6 +22,22 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   previewImage?: string;
+  /**
+   * Present only on systems offered for sale as a ready-built product. Once
+   * this exists the page is making a commercial offer rather than showing a
+   * portfolio piece, so what transfers and what the buyer still has to pay for
+   * are both stated explicitly rather than discovered after purchase.
+   */
+  forSale?: {
+    priceINR: number;
+    priceUSD: number;
+    priceDisplayINR: string;
+    priceDisplayUSD: string;
+    /** What the buyer receives. */
+    whatYouGet: string[];
+    /** Paid third-party services the buyer supplies themselves. */
+    runningCosts: string[];
+  };
 }
 
 export const PROJECTS_DATA: Project[] = [
@@ -59,7 +75,7 @@ export const PROJECTS_DATA: Project[] = [
     id: "lex-agent-legal-auditor",
     engagement: "independent",
     title: "LexAgent: AI Legal Auditor for SMEs",
-    tagline: "AI-powered legal auditor that analyzes contracts, extracts clauses, and flags compliance risks in plain English.",
+    tagline: "AI-powered legal auditor that analyzes contracts, extracts clauses, and flags compliance risks in plain English. Available to buy as a ready-built system.",
     category: "AI Agents",
     clientIndustry: "LegalTech & SME Compliance",
     results: {
@@ -82,12 +98,28 @@ export const PROJECTS_DATA: Project[] = [
     demoUrl: "https://lex-agent.vercel.app/",
     githubUrl: "https://github.com/vishal8291/LexAgent",
     previewImage: "/images/projects/lex-agent-legal-auditor.jpg",
+    forSale: {
+      priceINR: 25000,
+      priceUSD: 299,
+      priceDisplayINR: "₹25,000",
+      priceDisplayUSD: "$299",
+      whatYouGet: [
+        "Full source code, frontend and FastAPI backend, yours to keep and modify",
+        "Deployed and running on your own hosting and domain",
+        "Rebranded with your name, colours, and logo",
+        "Handover walkthrough plus 30 days of support for anything that breaks",
+      ],
+      runningCosts: [
+        "An Anthropic (Claude) API key, billed to you per use",
+        "MongoDB and hosting, which have free tiers that suit low volume",
+      ],
+    },
   },
   {
     id: "freelance-ai-sales-agent",
     engagement: "independent",
     title: "Freelance AI Sales & Outreach Engine",
-    tagline: "Multi-layer AI system that finds leads, conducts outreach, generates proposals, and manages a full CRM.",
+    tagline: "Multi-layer AI system that finds leads, conducts outreach, generates proposals, and manages a full CRM. Available to buy as a ready-built system.",
     category: "AI Agents",
     clientIndustry: "Sales & B2B Lead Gen",
     results: {
@@ -109,12 +141,30 @@ export const PROJECTS_DATA: Project[] = [
     featured: true,
     githubUrl: "https://github.com/vishal8291/freelance-agent",
     previewImage: "/images/projects/freelance-ai-sales-agent.jpg",
+    forSale: {
+      priceINR: 35000,
+      priceUSD: 425,
+      priceDisplayINR: "₹35,000",
+      priceDisplayUSD: "$425",
+      whatYouGet: [
+        "Full source code for the agent pipeline and the CRM dashboard",
+        "Deployed on your own hosting, connected to your own Gmail account",
+        "Rebranded with your name, colours, and logo",
+        "Setup of the outreach templates and pipeline stages to match how you sell",
+        "Handover walkthrough plus 30 days of support for anything that breaks",
+      ],
+      runningCosts: [
+        "An Anthropic (Claude) API key, billed to you per use",
+        "A Qdrant Cloud account for the vector search, free tier available",
+        "Your own email sending limits and reputation apply",
+      ],
+    },
   },
   {
     id: "paperbag-ecommerce-leaf-ai",
     engagement: "independent",
     title: "Paperbag: Eco E-Commerce Platform",
-    tagline: "Full-stack e-commerce platform with Razorpay payments, referral engine, and Groq/LLaMA powered 'Leaf AI' support bot.",
+    tagline: "Full-stack e-commerce platform with Razorpay payments, referral engine, and an AI support bot. Available to buy as a ready-built store.",
     category: "Websites",
     clientIndustry: "E-Commerce & Retail",
     results: {
@@ -136,33 +186,24 @@ export const PROJECTS_DATA: Project[] = [
     featured: true,
     demoUrl: "https://frontend-delta-inky-96.vercel.app/",
     previewImage: "/images/projects/paperbag-ecommerce-leaf-ai.jpg",
-  },
-  {
-    id: "healthmap-shakticycle",
-    engagement: "independent",
-    title: "HealthMap AI (ShaktiCycle): Mobile App",
-    tagline: "Cross-platform mobile health app for cycle tracking, AI recommendations, and symptom logging.",
-    category: "Apps & SaaS",
-    clientIndustry: "Healthcare & Mobile Tech",
-    results: {
-      primary: "One app, works on iPhone and Android",
-      secondary: "AI-personalized health tips",
-      roi: "Your data syncs instantly, everywhere",
+    forSale: {
+      priceINR: 30000,
+      priceUSD: 359,
+      priceDisplayINR: "₹30,000",
+      priceDisplayUSD: "$359",
+      whatYouGet: [
+        "Full source code for the storefront, admin, and AI support bot",
+        "Deployed on your own hosting and domain, wired to your Razorpay account",
+        "Rebranded with your name, colours, and logo",
+        "Your product catalogue loaded in and the support bot pointed at your own answers",
+        "Handover walkthrough plus 30 days of support for anything that breaks",
+      ],
+      runningCosts: [
+        "A Groq API key for the support bot, free tier available",
+        "Your own Razorpay account, which charges its usual per-transaction fee",
+        "MongoDB and hosting, which have free tiers that suit low volume",
+      ],
     },
-    techStack: ["React Native (Expo)", "TypeScript", "Node.js", "Express.js", "MongoDB Atlas"],
-    description: "A cross-platform mobile application designed for women's cycle tracking, symptom logging, personalized AI wellness insights, and push notifications.",
-    problem: "Users need a private, accurate, and actionable health companion rather than static calendar prediction tools.",
-    solution: "Developed a mobile-first app using React Native (Expo) and TypeScript backed by Node.js, Express, and MongoDB Atlas with real-time data sync.",
-    features: [
-      "AI-powered cycle prediction and personalized wellness recommendations",
-      "Symptom logging and body parameter tracking",
-      "Push notification reminders for cycle phases and health checkups",
-      "Secure MongoDB Atlas database architecture with real-time data sync"
-    ],
-    svgType: "health-ai",
-    featured: true,
-    githubUrl: "https://github.com/vishal8291/shakticycle",
-    previewImage: "/images/projects/healthmap-shakticycle.jpg",
   },
   {
     id: "pdf-solution-saas",
@@ -192,56 +233,4 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: "https://github.com/vishal8291/pdfsolution",
     previewImage: "/images/projects/pdf-solution-saas.jpg",
   },
-  {
-    id: "vishal-developer-portfolio",
-    engagement: "independent",
-    title: "Vishal's Developer Portfolio Site",
-    tagline: "Personal developer portfolio showcasing all full-stack MERN, Next.js, and AI agent projects.",
-    category: "Websites",
-    clientIndustry: "Software Engineering",
-    results: {
-      primary: "Unified Showcase for All Live Projects",
-      secondary: "Built with Next.js + TypeScript",
-      roi: "Deployed Live on Vercel",
-    },
-    techStack: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Vercel"],
-    description: "Vishal's personal developer portfolio showcasing all full-stack applications, AI integrations, technical skills, and engineering experience.",
-    problem: "Showcasing a wide range of independent MERN, Next.js, and Python AI builds in one unified, responsive platform.",
-    solution: "Designed a clean, fast portfolio site built with Next.js and TailwindCSS.",
-    features: [
-      "Comprehensive project gallery with direct GitHub and Vercel live links",
-      "Technical skill sets showcase (Java, TypeScript, Python, React, Next.js, Docker)",
-      "Responsive design optimized for tech recruiters and clients",
-      "Hosted live on Vercel"
-    ],
-    svgType: "portfolio",
-    featured: false,
-    demoUrl: "https://my-portfolio-ashy-five-43.vercel.app",
-    previewImage: "/images/projects/vishal-developer-portfolio.jpg",
-  },
-  {
-    id: "entrance-exam-recommendation-system",
-    engagement: "independent",
-    title: "Entrance Exam & Recommendation System",
-    tagline: "9-module MERN stack recommendation system built leading a 3-member engineering team.",
-    category: "Apps & SaaS",
-    clientIndustry: "EdTech & University Systems",
-    results: {
-      primary: "9 Integrated Modules Shipped",
-      secondary: "Led a 3-Person Agile Team",
-      roi: "Automated Course-Matching Engine",
-    },
-    techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "JavaScript"],
-    description: "An Entrance Examination with Course Recommendation System featuring 9 integrated modules built using Agile + Iterative sprint methodologies.",
-    problem: "Students struggle to choose appropriate academic courses based on their entrance exam scores and personal aptitudes.",
-    solution: "Led a 3-member engineering team to design and build a 9-module MERN stack platform that evaluates entrance exam results and outputs tailored course recommendations.",
-    features: [
-      "Online entrance examination module with automated scoring",
-      "Smart course recommendation algorithm based on score thresholds",
-      "Sprint-planned 9-module system delivered through iterative Agile development",
-      "Full MERN stack (React, Node, Express, MongoDB) architecture"
-    ],
-    svgType: "edtech-ai",
-    featured: false,
-  }
 ];
