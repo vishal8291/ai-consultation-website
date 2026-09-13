@@ -111,7 +111,6 @@ export const ADDON_OPTIONS: AddonOption[] = [
 
 export const GROUND_RULES = [
   "50% advance, 50% on delivery",
-  "Timeline starts after content received",
   "Scope changes = revised quote",
   "Source code handed over on full payment",
   "Domain + hosting cost extra",
