@@ -273,8 +273,11 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
     <section id="projects" className="relative py-20 bg-white text-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        {!hideHeader && (
+        {/* Section Header. The homepage showreel already opens on its own
+            "Our Works" title, so the written heading is shown only on the full
+            projects page; the homepage keeps it for screen readers alone. */}
+        {(isHomepage || limit === 3) && <h2 className="sr-only">Our work</h2>}
+        {!hideHeader && !(isHomepage || limit === 3) && (
           <div className="mb-10">
             <div className="rule-hairline mb-8" />
             <motion.h2
@@ -283,24 +286,18 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               viewport={{ once: true }}
               className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 mb-3 tracking-[-0.03em] leading-[1.0]"
             >
-              {isHomepage || limit === 3 ? (
-                <>Our <span className="headline-accent">work</span></>
-              ) : (
-                <>Case <span className="headline-accent">studies</span></>
-              )}
+              Case <span className="headline-accent">studies</span>
             </motion.h2>
 
-            {!(isHomepage || limit === 3) && (
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
-              >
-                Our client work, alongside the systems we've built independently to prove out what we can deliver.
-              </motion.p>
-            )}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
+            >
+              Our client work, alongside the systems we've built independently to prove out what we can deliver.
+            </motion.p>
           </div>
         )}
 
