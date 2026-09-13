@@ -254,6 +254,12 @@ body::before {
   box-shadow: 0 0 0 1px rgba(109, 40, 217, 0.25), 0 8px 30px rgba(109, 40, 217, 0.12);
 }
 
+/* Black-and-white sections: the default hover bloom is violet, so it is
+   swapped for a plain white edge. */
+.mono-section .glass-card-pro:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
 .dark-card-pro {
   background: var(--surface-alt);
   border: 1px solid var(--border-default);
