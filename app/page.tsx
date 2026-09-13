@@ -14,14 +14,6 @@ import HeroRings from "@/components/HeroRings";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import { ArrowRight } from "lucide-react";
 
-const SERVICES = [
-  "Websites",
-  "AI agents",
-  "Automation tools",
-  "Custom apps & dashboards",
-  "Business & website review",
-];
-
 const FACTS = [
   { label: "Ownership", value: "100% yours" },
   { label: "Post-launch support", value: "30 to 90 days" },
@@ -208,34 +200,25 @@ export default function Home() {
       </section>
 
       {/* WHAT WE DO
-          A plain list of the services, then the services video, which shows
-          them rather than describing each one in a card. */}
+          The services video, edge to edge, between the heading and the call
+          to action. */}
       <section id="services" className="tone-black py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-5">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-8">
             What we do
           </h2>
+        </div>
 
-          <ul className="flex flex-wrap gap-x-8 gap-y-3 mb-10 sm:mb-12 text-2xl sm:text-3xl font-light text-slate-900 tracking-[-0.01em]">
-            {SERVICES.map((service) => (
-              <li key={service}>{service}</li>
-            ))}
-          </ul>
+        <AutoplayVideo src="/OUR%20SERVICES.mp4" label="Video of our services" />
 
-          <div className="max-w-[1014px] rounded-2xl overflow-hidden border border-[var(--border-default)]">
-            <AutoplayVideo src="/OUR%20SERVICES.mp4" label="Video of our services" />
-          </div>
-
-          <div className="mt-10">
-            <a
-              href="#contact"
-              className="btn-hero inline-flex items-center justify-center px-6 py-3 text-sm space-x-2"
-            >
-              <span>Request a proposal</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+          <a
+            href="#contact"
+            className="btn-hero inline-flex items-center justify-center px-6 py-3 text-sm space-x-2"
+          >
+            <span>Request a proposal</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </section>
 
