@@ -8,7 +8,6 @@ export interface PricingTier {
   priceUSD: number;
   priceRangeUSD: string;
   popular?: boolean;
-  deliveryTime: string;
   features: string[];
 }
 
@@ -21,7 +20,6 @@ export const PRICING_TIERS: PricingTier[] = [
     priceRangeINR: "₹12,000 to ₹18,000",
     priceUSD: 150,
     priceRangeUSD: "$150 to $220",
-    deliveryTime: "5 to 7 days",
     features: [
       "One-page website",
       "Works on phone, tablet, and computer",
@@ -41,7 +39,6 @@ export const PRICING_TIERS: PricingTier[] = [
     priceRangeINR: "₹30,000 to ₹50,000",
     priceUSD: 375,
     priceRangeUSD: "$375 to $625",
-    deliveryTime: "2 to 3 weeks",
     features: [
       "Up to 8 pages",
       "Custom design with smooth animations",
@@ -60,7 +57,6 @@ export const PRICING_TIERS: PricingTier[] = [
     priceRangeINR: "₹65,000 to ₹1,20,000",
     priceUSD: 800,
     priceRangeUSD: "$800 to $1,500",
-    deliveryTime: "4 to 6 weeks",
     features: [
       "Everything in Business",
       "AI chat assistant trained on your own information",

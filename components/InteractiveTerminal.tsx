@@ -82,7 +82,7 @@ after(() => sendAdminNotification(subject, html));`,
 // so the assistant can never quote a stale or invented number.
 const tiersSummary = PRICING_TIERS.map(
   (t) =>
-    \`- \${t.name}: \${t.priceRangeINR}, delivered in \${t.deliveryTime}.\` +
+    \`- \${t.name}: \${t.priceRangeINR}.\` +
     \` Includes: \${t.features.join(", ")}.\`
 ).join("\\n");
 

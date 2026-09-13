@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { PRICING_TIERS, ADDON_OPTIONS, GROUND_RULES } from "@/lib/pricingData";
-import { Check, ShieldCheck, ArrowRight, CreditCard, Clock, CheckSquare, Zap } from "lucide-react";
+import { Check, ShieldCheck, ArrowRight, CreditCard, CheckSquare, Zap } from "lucide-react";
 import { loadRazorpayScript } from "@/lib/razorpay";
 import { trackPurchase } from "@/lib/analytics";
 
@@ -180,10 +180,6 @@ export default function PricingSection() {
                     <span className={`text-sm ${tier.popular ? "text-white" : "text-slate-500"}`}>
                       {currency === "INR" ? `to ${tier.priceRangeINR.split(' to ')[1]}` : `to ${tier.priceRangeUSD.split(' to ')[1]}`}
                     </span>
-                  </div>
-                  <div className={`flex items-center text-xs mt-3 ${tier.popular ? "text-white" : "text-slate-600"}`}>
-                    <Clock className="w-3.5 h-3.5 mr-1.5" />
-                    <span>{tier.deliveryTime}</span>
                   </div>
                 </div>
 
