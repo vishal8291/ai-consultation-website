@@ -207,8 +207,7 @@ export default function Home() {
                 className="hero-fade-in-up mt-7 text-lg text-slate-600 max-w-md leading-relaxed"
                 style={{ animationDelay: "0.2s" }}
               >
-                Custom websites and AI systems for small businesses. Live in{" "}
-                <strong className="text-[var(--foreground)] font-semibold">7 to 21 days</strong>.
+                Custom websites and AI systems for small businesses.
               </p>
 
               <div
