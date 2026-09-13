@@ -10,7 +10,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
-import CircuitMesh from "@/components/CircuitMesh";
+import HeroOrb from "@/components/HeroOrb";
 import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
 
 const SERVICES = [
@@ -131,21 +131,6 @@ const AUTOMATION_AREAS = [
   },
 ];
 
-const NEXT_STEPS = [
-  {
-    title: "You describe the problem",
-    desc: "In your own words. No brief, no spec, no technical vocabulary needed.",
-  },
-  {
-    title: "We reply within 24 hours",
-    desc: "With an honest read on whether it is a website fix, an AI system, or something else, plus a real price.",
-  },
-  {
-    title: "Work starts once you agree",
-    desc: "50% to begin, 50% on delivery. You own everything at the end of it.",
-  },
-];
-
 const PROCESS = [
   { step: "01", title: "Understand", desc: "We learn about your goals and write down exactly what needs to be built." },
   { step: "02", title: "Design", desc: "We design how it will look and feel, and show you before building it." },
@@ -160,120 +145,63 @@ export default function Home() {
     <main className="min-h-screen text-slate-900 antialiased selection:bg-black selection:text-white relative overflow-x-hidden">
 
       {/* HERO
-          Asymmetric and left-aligned rather than a centered marketing block:
-          large firms lead with the message on the left and something concrete
-          beside it, instead of centering everything and filling the right with
-          decoration. The panel on the right is real content (what actually
-          happens after someone gets in touch), not an illustration. */}
+          Solid black ground, a light-weight white headline and one blue pill
+          CTA, with the message on the left and a live 3D graphic on the right. */}
       <section
         id="hero"
-        className="relative pt-24 sm:pt-28 pb-14 sm:pb-16 bg-white border-b border-[var(--border-default)] overflow-hidden"
+        className="relative overflow-hidden border-b border-white/10"
+        style={{ backgroundColor: "#000000" }}
       >
-        {/* Animated node mesh echoing the logo's brain-circuit mark. This
-            replaces the static network watermark rather than layering over it:
-            two network motifs in the same space competed with each other.
-            Hidden below lg to keep mobile cheap and clean. */}
-        <div className="hidden lg:block absolute inset-0 pointer-events-none">
-          <CircuitMesh />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-24 pb-10 lg:pb-12">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-10 lg:min-h-[600px]">
 
             {/* Message */}
-            <div className="lg:col-span-7">
+            <div className="lg:w-[58%] relative z-10">
               <p
-                className="hero-fade-in-up text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-5"
-                style={{ animationDelay: "0.05s" }}
+                className="hero-fade-in-up text-xs font-medium uppercase tracking-[0.16em] mb-6"
+                style={{ animationDelay: "0.05s", color: "rgba(255, 255, 255, 0.6)" }}
               >
                 Web and AI studio
-                <span className="mx-2 text-slate-500">/</span>
+                <span className="mx-2">/</span>
                 Mumbai, India
               </p>
 
-              {/* Two weights, two colors, one phrase — the headline treatment
-                  carried over from the reference design. Pure CSS entrance so it
-                  paints on first frame instead of waiting on React hydration. */}
+              {/* Pure CSS entrance so the headline paints on the first frame
+                  instead of waiting on React hydration. */}
               <h1
-                className="hero-fade-in-up text-5xl sm:text-6xl lg:text-[76px] font-normal tracking-[-0.03em] leading-[0.95] text-[var(--foreground)] font-sans"
-                style={{ animationDelay: "0.1s" }}
+                className="hero-fade-in-up font-sans text-[40px] sm:text-6xl xl:text-[68px] tracking-[-0.02em] leading-[1.08]"
+                style={{ animationDelay: "0.1s", color: "#ffffff", fontWeight: 300 }}
               >
-                Tell us the problem. <br />
-                <span className="headline-accent">We build the fix.</span>
+                Tell us the problem.
+                <br />
+                We build the fix.
               </h1>
 
               <p
-                className="hero-fade-in-up mt-7 text-lg text-slate-600 max-w-md leading-relaxed"
-                style={{ animationDelay: "0.2s" }}
+                className="hero-fade-in-up mt-6 text-lg sm:text-xl max-w-md leading-relaxed"
+                style={{ animationDelay: "0.2s", color: "#ffffff", fontWeight: 300 }}
               >
                 Custom websites and AI systems for small businesses.
               </p>
 
-              <div
-                className="hero-fade-in-up mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
-                style={{ animationDelay: "0.3s" }}
-              >
+              <div className="hero-fade-in-up mt-9" style={{ animationDelay: "0.3s" }}>
                 <a
                   href="#contact"
-                  className="btn-yellow-solid px-6 py-3 text-sm flex items-center justify-center gap-2"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium text-white transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  style={{ backgroundColor: "#2563eb", borderRadius: "50px" }}
                 >
-                  <span>Start a conversation</span>
+                  Start a conversation
                   <ArrowRight className="w-4 h-4" />
                 </a>
-
-                <a
-                  href="/projects"
-                  className="btn-white-solid px-6 py-3 text-sm text-center"
-                >
-                  See our work
-                </a>
               </div>
-
             </div>
 
-            {/* What happens next */}
+            {/* 3D graphic */}
             <div
-              className="hero-fade-in-up lg:col-span-5 w-full"
-              style={{ animationDelay: "0.35s" }}
+              className="hero-fade-in-up lg:w-[42%] w-full h-[340px] sm:h-[440px] lg:h-[560px]"
+              style={{ animationDelay: "0.25s" }}
             >
-              <div className="glass-card-pro p-6 sm:p-7">
-                <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-5">
-                  What happens next
-                </h2>
-
-                <ol className="space-y-5">
-                  {NEXT_STEPS.map((s, i) => (
-                    <li key={s.title} className="flex gap-4">
-                      <span
-                        className="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--border-default)] flex items-center justify-center text-xs font-semibold"
-                        style={{ color: "var(--accent)" }}
-                      >
-                        {i + 1}
-                      </span>
-                      <div>
-                        <p className="text-sm font-semibold text-slate-900 mb-1">
-                          {s.title}
-                        </p>
-                        <p className="text-sm text-slate-600 leading-relaxed">
-                          {s.desc}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-
-                <p className="mt-6 pt-5 border-t border-[var(--border-default)] text-sm text-slate-600">
-                  Prefer to talk first?{" "}
-                  <a
-                    href="mailto:customeai.tech@gmail.com"
-                    className="font-semibold underline underline-offset-2"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    Email us directly
-                  </a>
-                  .
-                </p>
-              </div>
+              <HeroOrb />
             </div>
 
           </div>
