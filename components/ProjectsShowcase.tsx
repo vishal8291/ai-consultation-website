@@ -7,7 +7,6 @@ import { ProjectGraphicSVG, ProjectIconSVG } from "@/components/AiSvgGraphics";
 import { ExternalLink, CheckCircle2, ArrowRight, X, Sparkles, Cpu, Layers, Github, Globe, Globe2, Bot, LayoutGrid, AlertCircle } from "lucide-react";
 import { loadRazorpayScript } from "@/lib/razorpay";
 import { trackPurchase } from "@/lib/analytics";
-import SecuredByRazorpay from "@/components/SecuredByRazorpay";
 
 interface ProjectsShowcaseProps {
   limit?: number;
@@ -506,7 +505,6 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                         ? "Starting checkout..."
                         : `Buy for ${activeModalProject.forSale.priceDisplayINR}`}
                     </button>
-                    <SecuredByRazorpay compact />
                   </div>
                 )}
 
