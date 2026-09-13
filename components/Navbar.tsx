@@ -19,35 +19,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [scrolled, setScrolled] = useState(false);
-  const [hasHero, setHasHero] = useState(false);
 
   useEffect(() => {
     checkAuth();
-  }, []);
-
-  useEffect(() => {
-    // Stay transparent for as long as we're over the dark hero (if this page has one) —
-    // only pick up a backdrop once scrolled past it, where white nav text would
-    // otherwise be unreadable against a light section.
-    const getThreshold = () => {
-      const hero = document.getElementById("hero");
-      return hero ? hero.getBoundingClientRect().height - 80 : 24;
-    };
-    setHasHero(!!document.getElementById("hero"));
-    let threshold = getThreshold();
-    const onScroll = () => setScrolled(window.scrollY > threshold);
-    const onResize = () => {
-      threshold = getThreshold();
-      onScroll();
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
   }, []);
 
   const checkAuth = async () => {
@@ -71,15 +45,19 @@ export default function Navbar() {
   };
 
   return (
+    // Transparent with no fill, border or shadow, sitting over the top of each
+    // page (every page opens on a dark ground) and scrolling away with it.
+    // Absolute rather than fixed: a pinned transparent bar would lose its
+    // white links over the homepage's white bands.
     <nav
-      className={`fixed top-0 inset-x-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ${
-        hasHero && !scrolled && !isOpen
-          ? "border-transparent"
-          : "bg-white border-[var(--border-default)]"
-      } ${scrolled ? "shadow-sm" : ""}`}
-      // Over the black hero the bar blends into it, as on the reference
-      // design; it picks up its normal surface once scrolled past.
-      style={hasHero && !scrolled && !isOpen ? { backgroundColor: "#000000" } : undefined}
+      className="absolute top-0 inset-x-0 z-50 bg-transparent"
+      // Neutral tokens for everything inside the bar: the logo accent and the
+      // icon-button outlines are plain white instead of the site violet.
+      style={{
+        "--accent": "#ffffff",
+        "--border-default": "rgba(255, 255, 255, 0.2)",
+        "--border-strong": "rgba(255, 255, 255, 0.45)",
+      } as React.CSSProperties}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -120,9 +98,9 @@ export default function Navbar() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex items-center space-x-3 bg-[var(--surface-alt)] px-3.5 py-1.5 rounded-full border border-[var(--border-default)]"
+                    className="flex items-center space-x-3 bg-transparent px-3.5 py-1.5 rounded-full border border-[var(--border-default)]"
                   >
-                    <div style={{ background: "var(--accent)" }} className="w-7 h-7 text-white rounded-full flex items-center justify-center font-semibold text-xs">
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center font-semibold text-xs bg-[var(--foreground)] text-[var(--background)]">
                       {user.name?.charAt(0).toUpperCase()}
                     </div>
                     <a href="/dashboard" className="font-semibold text-xs text-[var(--foreground)]/85 hover:text-[var(--foreground)] transition-colors">
@@ -130,7 +108,7 @@ export default function Navbar() {
                     </a>
                     <button
                       onClick={handleLogout}
-                      className="p-1 hover:bg-red-50 rounded-full text-[var(--foreground)]/50 hover:text-red-600 transition-all"
+                      className="p-1 rounded-full text-[var(--foreground)]/50 hover:text-[var(--foreground)] transition-all"
                       title="Logout"
                     >
                       <LogOut className="w-3.5 h-3.5" />
@@ -144,7 +122,7 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       aria-label="Chat on WhatsApp"
                       title="Chat on WhatsApp"
-                      className="w-10 h-10 flex items-center justify-center rounded-md bg-white border border-[var(--border-default)] text-slate-600 transition-colors hover:text-[#25D366] hover:border-[#25D366]"
+                      className="w-10 h-10 flex items-center justify-center rounded-md bg-transparent border border-[var(--border-default)] text-[var(--foreground)]/80 transition-colors hover:text-[var(--foreground)] hover:border-[var(--border-strong)]"
                     >
                       <WhatsAppIcon className="w-5 h-5" />
                     </a>
@@ -166,7 +144,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
               title="Chat on WhatsApp"
-              className="flex md:hidden w-10 h-10 items-center justify-center rounded-md bg-white border border-[var(--border-default)] text-slate-600 transition-colors hover:text-[#25D366] hover:border-[#25D366] mr-3"
+              className="flex md:hidden w-10 h-10 items-center justify-center rounded-md bg-transparent border border-[var(--border-default)] text-[var(--foreground)]/80 transition-colors hover:text-[var(--foreground)] hover:border-[var(--border-strong)] mr-3"
             >
               <WhatsAppIcon className="w-5 h-5" />
             </a>
@@ -176,7 +154,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
-              className="lg:hidden p-2.5 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-[var(--foreground)] transition-colors"
+              className="lg:hidden p-2.5 rounded-full bg-transparent border border-[var(--border-default)] text-[var(--foreground)] transition-colors"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -191,7 +169,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden bg-white border-t border-[var(--border-default)] shadow-md"
+            className="lg:hidden overflow-hidden border-t border-b border-[var(--border-default)]"
+            style={{ backgroundColor: "#000000" }}
           >
             <div className="px-6 pt-4 pb-8 space-y-1 text-[15px] text-[var(--foreground)]/85">
               <a
@@ -234,7 +213,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-3 py-3 flex items-center justify-center gap-2 rounded-md bg-white border border-[var(--border-default)] text-slate-700 font-semibold text-sm hover:text-[#25D366] hover:border-[#25D366] transition-colors"
+                className="mt-3 py-3 flex items-center justify-center gap-2 rounded-md bg-transparent border border-[var(--border-default)] text-[var(--foreground)]/85 font-semibold text-sm hover:text-[var(--foreground)] hover:border-[var(--border-strong)] transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 Chat on WhatsApp
