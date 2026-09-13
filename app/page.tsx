@@ -11,49 +11,15 @@ import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
 import HeroRings from "@/components/HeroRings";
-import { ArrowRight, Globe, Bot, CheckCircle2, Cpu, Layers } from "lucide-react";
+import AutoplayVideo from "@/components/AutoplayVideo";
+import { ArrowRight } from "lucide-react";
 
 const SERVICES = [
-  {
-    icon: Globe,
-    title: "Custom website design",
-    desc: "Built for your business, not adapted from a template. Fast, readable, and indexable.",
-    points: [
-      "Loads in under a second",
-      "Clean layout that is simple to read and navigate",
-      "Built so search engines can find you",
-    ],
-  },
-  {
-    icon: Cpu,
-    title: "Business and website review",
-    desc: "We find where time and revenue leak, then name the one fix worth building first.",
-    points: [
-      "Find what is slowing you down",
-      "See how quickly the work pays for itself",
-      "Get a written plan of what to build",
-    ],
-  },
-  {
-    icon: Bot,
-    title: "AI assistants and automation",
-    desc: "Support that answers around the clock. Documents that sort themselves. Apps that finally talk.",
-    points: [
-      "AI that answers from your own files",
-      "Works with WhatsApp and your support tools",
-      "A person reviews anything that matters",
-    ],
-  },
-  {
-    icon: Layers,
-    title: "Custom apps and dashboards",
-    desc: "Portals, dashboards, and internal tools shaped around how you already work.",
-    points: [
-      "Stays responsive as your data grows",
-      "Each person sees only what they should",
-      "Built to stay online and reliable",
-    ],
-  },
+  "Websites",
+  "AI agents",
+  "Automation tools",
+  "Custom apps & dashboards",
+  "Business & website review",
 ];
 
 const FACTS = [
@@ -241,60 +207,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT WE DO */}
+      {/* WHAT WE DO
+          A plain list of the services, then the services video, which shows
+          them rather than describing each one in a card. */}
       <section id="services" className="tone-black py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="rule-hairline mb-8" />
-          <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
-            <div className="lg:col-span-7">
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-                What we do
-              </p>
-              <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 tracking-[-0.03em] leading-[1.0]">
-                Websites and AI, <span className="headline-accent">built to fit</span>
-              </h2>
-            </div>
-            <p className="lg:col-span-5 text-lg text-slate-600 leading-relaxed">
-              Most problems fall into one of four areas. Tell us yours.
-            </p>
-          </div>
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-5">
+            What we do
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {SERVICES.map((s, idx) => {
-              const Icon = s.icon;
-              return (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
-                  className="glass-card-pro p-7 sm:p-8 flex flex-col"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] flex items-center justify-center mb-5">
-                    <Icon style={{ color: "var(--accent)" }} className="w-5 h-5" />
-                  </div>
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 mb-10 sm:mb-12 text-2xl sm:text-3xl font-light text-slate-900 tracking-[-0.01em]">
+            {SERVICES.map((service) => (
+              <li key={service}>{service}</li>
+            ))}
+          </ul>
 
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                    {s.title}
-                  </h3>
-
-                  <p className="text-sm text-slate-600 leading-relaxed mb-5 font-medium">
-                    {s.desc}
-                  </p>
-
-                  <ul className="space-y-2.5 mt-auto">
-                    {s.points.map((p) => (
-                      <li key={p} className="flex items-start text-sm text-slate-700 font-medium">
-                        <CheckCircle2 className="w-4 h-4 mr-2.5 mt-0.5 flex-shrink-0 text-slate-400" />
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              );
-            })}
+          <div className="max-w-[1014px] rounded-2xl overflow-hidden border border-[var(--border-default)]">
+            <AutoplayVideo src="/OUR%20SERVICES.mp4" label="Video of our services" />
           </div>
 
           <div className="mt-10">
