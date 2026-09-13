@@ -240,19 +240,6 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
         {/* Section Header */}
         {!hideHeader && (
           <div className="mb-10">
-            {/* Decorative header strip, so it is hidden from assistive tech
-                rather than given alt text. Cropped tight to the artwork and
-                kept deliberately short: at this height it reads as a header
-                mark rather than a full-bleed illustration. */}
-            <img
-              src="/images/our-work-header.jpg"
-              alt=""
-              aria-hidden="true"
-              width={1100}
-              height={456}
-              className="w-full h-20 sm:h-24 object-cover mb-8"
-            />
-
             <div className="rule-hairline mb-8" />
             <motion.h2
               initial={{ opacity: 0, y: 15 }}
@@ -311,10 +298,31 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
             client result is never diluted by self-initiated demos. The homepage
             shortlist stays a single grid. */}
         {isHomepage || limit === 3 ? (
-          /* Two across rather than three: the screenshots are the evidence on
-             this page, so they get the width to actually be legible. */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {projectsToDisplay.map((project, index) => renderCard(project, index))}
+          /* Diagonal split: a clipped artwork panel holds the left, the work
+             itself runs down the right. The panel is sticky so it stays put
+             while the projects scroll past it, and it is decorative, so it is
+             hidden from assistive tech. Below lg the panel drops away entirely
+             and the cards return to a plain stack. */
+          <div className="lg:grid lg:grid-cols-12 lg:gap-10 lg:items-start">
+            <div className="hidden lg:block lg:col-span-4">
+              <div
+                className="sticky top-24 h-[640px] overflow-hidden"
+                style={{ clipPath: "polygon(0 0, 100% 0, 76% 100%, 0 100%)" }}
+                aria-hidden="true"
+              >
+                <img
+                  src="/images/our-work-panel.jpg"
+                  alt=""
+                  width={900}
+                  height={1200}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-1 gap-6 lg:gap-8">
+              {projectsToDisplay.map((project, index) => renderCard(project, index))}
+            </div>
           </div>
         ) : (
           (() => {
