@@ -159,7 +159,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   sites look nothing like each other, so a shared chrome is what
                   makes the grid read as one portfolio rather than a scrapbook.
                   Badges sit bottom-left to stay clear of the chrome strip. */}
-              <div className="h-64 sm:h-72 lg:h-80 bg-slate-900 relative overflow-hidden flex items-end justify-center px-4 pt-5">
+              <div className="h-40 sm:h-44 bg-slate-900 relative overflow-hidden flex items-end justify-center px-3 pt-4">
                 <div className="w-full h-full rounded-t-lg overflow-hidden border border-white/10 border-b-0 bg-[#0b0814] flex flex-col shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
                   <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-white/[0.04] flex-shrink-0">
                     <span className="w-2 h-2 rounded-full bg-white/25" />
@@ -184,7 +184,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               </div>
 
               {/* Card Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                 <div>
                   <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors">
                     {project.title}
@@ -320,7 +320,9 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               </div>
             </div>
 
-            <div className="lg:col-span-8 grid grid-cols-1 gap-6 lg:gap-8">
+            {/* Two across inside the right column: one per row made the stack
+                tower over the artwork panel and the diagonal stopped reading. */}
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
               {projectsToDisplay.map((project, index) => renderCard(project, index))}
             </div>
           </div>
