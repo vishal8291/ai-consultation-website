@@ -107,6 +107,8 @@ export default function PrakritiChatbot() {
       >
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close chat with Prakriti" : "Chat with Prakriti"}
+          aria-expanded={isOpen}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-900 border-2 border-white shadow-2xl flex items-center justify-center group"
@@ -157,12 +159,14 @@ export default function PrakritiChatbot() {
                   onClick={handleResetChat}
                   className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#221b33] transition-colors"
                   title="Reset Conversation"
+                  aria-label="Reset conversation"
                 >
                   <RefreshCw className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
+                  aria-label="Close chat"
                   className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#221b33] transition-colors"
                 >
                   <X className="w-5 h-5" />
@@ -229,14 +233,15 @@ export default function PrakritiChatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask Prakriti about pricing, timeline..."
-                className="flex-1 bg-[#120f1d] border border-[#2e2745] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-[#8a82a3] focus:outline-none focus:border-[#a78bfa] transition-colors"
+                className="flex-1 bg-[#120f1d] border border-[#2e2745] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-white placeholder-[#8a82a3] focus:outline-none focus:border-[#a78bfa] transition-colors"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
+                aria-label="Send message"
                 className="p-2.5 rounded-xl bg-[#6d28d9] text-white hover:bg-[#7c3aed] disabled:opacity-40 transition-colors font-bold"
               >
-                <Send className="w-4 h-4 text-black" />
+                <Send className="w-4 h-4 text-white" />
               </button>
             </form>
 

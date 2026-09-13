@@ -167,6 +167,8 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
               className="lg:hidden p-2.5 rounded-full bg-[var(--surface-alt)] border border-[var(--border-default)] text-[var(--foreground)] transition-colors"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

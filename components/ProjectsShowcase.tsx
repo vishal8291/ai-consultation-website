@@ -417,6 +417,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               <button
                 type="button"
                 onClick={() => setActiveModalProject(null)}
+                aria-label="Close"
                 className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
               >
                 <X className="w-5 h-5" />

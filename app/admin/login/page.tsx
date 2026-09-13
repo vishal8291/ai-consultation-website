@@ -78,6 +78,7 @@ export default function AdminLogin() {
               type="button"
               className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/50 rounded-full transition-all duration-200"
               onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
               disabled={isLoading}
             >
               {showPassword ? (
