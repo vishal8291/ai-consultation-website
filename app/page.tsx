@@ -202,20 +202,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACTS + CLIENTS
-          White ground with black text, set through the section's colour
-          tokens so the layout is untouched; labels are black at lower
-          opacity rather than a tinted grey. */}
-      <section
-        className="border-b border-[var(--border-default)]"
-        style={{
-          backgroundColor: "#ffffff",
-          "--border-default": "rgba(0, 0, 0, 0.12)",
-          "--accent": "#000000",
-          "--color-slate-900": "#000000",
-          "--color-slate-500": "rgba(0, 0, 0, 0.6)",
-        } as React.CSSProperties}
-      >
+      {/* From here down the page alternates black and white bands (tone-black
+          and tone-white in globals.css), starting white after the black hero. */}
+
+      {/* FACTS + CLIENTS */}
+      <section className="tone-white border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
           <dl className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
             {FACTS.map((f) => (
@@ -253,29 +244,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT WE DO
-          Black and white only. Every card, border and accent here reads from
-          these tokens, so redefining them on the section recolours the whole
-          block without touching its layout; secondary text is white at lower
-          opacity rather than a tinted grey. */}
-      <section
-        id="services"
-        className="mono-section py-14 sm:py-16 border-b border-[var(--border-default)]"
-        style={{
-          backgroundColor: "#000000",
-          "--surface-card": "#000000",
-          "--surface-alt": "#000000",
-          "--border-default": "rgba(255, 255, 255, 0.16)",
-          "--border-strong": "rgba(255, 255, 255, 0.4)",
-          "--accent": "#ffffff",
-          "--accent-strong": "#ffffff",
-          "--color-slate-900": "#ffffff",
-          "--color-slate-700": "rgba(255, 255, 255, 0.85)",
-          "--color-slate-600": "rgba(255, 255, 255, 0.7)",
-          "--color-slate-500": "rgba(255, 255, 255, 0.6)",
-          "--color-slate-400": "rgba(255, 255, 255, 0.5)",
-        } as React.CSSProperties}
-      >
+      {/* WHAT WE DO */}
+      <section id="services" className="tone-black py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="rule-hairline mb-8" />
@@ -347,7 +317,7 @@ export default function Home() {
           A capability list, not a package menu. Plain columns rather than cards,
           so it reads as a reference list and stays visually distinct from the
           four service cards above it. */}
-      <section id="automation" className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+      <section id="automation" className="tone-white py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="rule-hairline mb-8" />
@@ -420,12 +390,14 @@ export default function Home() {
       {/* UNDER THE HOOD — real code from this repository, placed directly after
           the automation capability list so the longest stretch of plain text on
           the page is followed by concrete evidence rather than more claims. */}
-      <InteractiveTerminal />
+      <div className="tone-black">
+        <InteractiveTerminal />
+      </div>
 
       {/* CLIENT SPOTLIGHT — the one real, delivered client engagement, with the
           concrete engineering details that signal "we understand your business
           risk, not just design." All factual and drawn from the full case study. */}
-      <section className="py-14 sm:py-16 bg-[var(--surface-alt)] border-y border-[var(--border-default)]">
+      <section className="tone-white py-14 sm:py-16 border-y border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5">
@@ -480,13 +452,17 @@ export default function Home() {
       {/* WHAT CLIENTS SAY — "Write a review" opens the Feedback form in a
           modal (see Testimonials.tsx); the card grid only renders once
           there's at least one review. */}
-      <Testimonials />
+      <div className="tone-black">
+        <Testimonials />
+      </div>
 
       {/* OUR WORK */}
-      <ProjectsShowcase limit={3} isHomepage={true} />
+      <div className="tone-white">
+        <ProjectsShowcase limit={3} isHomepage={true} />
+      </div>
 
       {/* HOW WE WORK */}
-      <section id="process" className="py-14 sm:py-16 bg-white border-y border-[var(--border-default)]">
+      <section id="process" className="tone-black py-14 sm:py-16 border-y border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="rule-hairline mb-8" />
@@ -526,16 +502,24 @@ export default function Home() {
       </section>
 
       {/* COMMITMENTS */}
-      <TestimonialsSection />
+      <div className="tone-white">
+        <TestimonialsSection />
+      </div>
 
       {/* PRICING */}
-      <PricingSection />
+      <div className="tone-black">
+        <PricingSection />
+      </div>
 
       {/* FAQ */}
-      <FaqSection />
+      <div className="tone-white">
+        <FaqSection />
+      </div>
 
       {/* CONTACT */}
-      <ConsultationForm />
+      <div className="tone-black">
+        <ConsultationForm />
+      </div>
 
       <PrakritiChatbot />
 

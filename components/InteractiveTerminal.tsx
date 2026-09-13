@@ -170,7 +170,7 @@ export default function InteractiveTerminal() {
 
           {/* Code viewer. Deliberately the one dark surface on the page: it
               reads as a real editor and gives the layout a visual anchor. */}
-          <div className="lg:col-span-8 w-full rounded-lg overflow-hidden border border-[var(--border-default)] bg-[#0f1216] glow-violet">
+          <div className="lg:col-span-8 w-full rounded-lg overflow-hidden border border-[var(--border-default)] bg-[var(--surface-card)] glow-violet">
             <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-white/10">
               <span className="font-mono text-xs text-slate-500 truncate">
                 {active.filename}
@@ -178,7 +178,7 @@ export default function InteractiveTerminal() {
               <button
                 type="button"
                 onClick={handleCopy}
-                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-medium text-slate-600 hover:text-white hover:bg-white/10 transition-colors"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-medium text-slate-600 hover:text-[var(--foreground)] hover:bg-[var(--border-default)] transition-colors"
               >
                 {copied ? (
                   <>
@@ -195,7 +195,7 @@ export default function InteractiveTerminal() {
             </div>
 
             <div className="overflow-x-auto p-5 sm:p-6">
-              <pre className="font-mono text-xs sm:text-[13px] leading-relaxed text-slate-200">
+              <pre className="font-mono text-xs sm:text-[13px] leading-relaxed text-[var(--foreground)]">
                 <code>{active.code}</code>
               </pre>
             </div>

@@ -171,15 +171,15 @@ export default function PricingSection() {
             >
 
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">{tier.name}</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-6" style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>{tier.name}</h3>
 
                 {/* Price Display & Range */}
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className="text-5xl sm:text-6xl font-bold text-slate-900 tracking-tight leading-none">
+                    <span className="text-5xl sm:text-6xl font-bold text-slate-900 tracking-tight leading-none" style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </span>
-                    <span className={`text-sm ${tier.popular ? "text-white" : "text-slate-500"}`}>
+                    <span className={`text-sm ${tier.popular ? "" : "text-slate-500"}`} style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
                       {currency === "INR" ? `to ${tier.priceRangeINR.split(' to ')[1]}` : `to ${tier.priceRangeUSD.split(' to ')[1]}`}
                     </span>
                   </div>
@@ -188,7 +188,7 @@ export default function PricingSection() {
                 {/* Features List */}
                 {/* Full white rather than a faded tint: at 70% over the filled
                     tier this measured 2.47:1, below the 4.5:1 floor. */}
-                <p className={`italic text-sm mb-4 ${tier.popular ? "text-white" : "text-slate-500"}`}>
+                <p className={`italic text-sm mb-4 ${tier.popular ? "" : "text-slate-500"}`} style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
                   Features
                 </p>
 
@@ -196,12 +196,13 @@ export default function PricingSection() {
                   {tier.features.map((feat) => (
                     <div
                       key={feat}
-                      className={`flex items-start gap-3 text-sm ${tier.popular ? "text-white" : "text-slate-700"}`}
+                      className={`flex items-start gap-3 text-sm ${tier.popular ? "" : "text-slate-700"}`}
+                      style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}
                     >
                       <Check
                         className="w-4 h-4 flex-shrink-0 mt-0.5"
                         strokeWidth={1.75}
-                        style={{ color: tier.popular ? "#ffffff" : "var(--accent)" }}
+                        style={{ color: tier.popular ? "var(--on-accent, #ffffff)" : "var(--accent)" }}
                       />
                       <span className="leading-snug">{feat}</span>
                     </div>
@@ -218,7 +219,7 @@ export default function PricingSection() {
                 disabled={loadingTierId === tier.id}
                 style={
                   tier.popular
-                    ? { background: "#ffffff", color: "#120f1d", borderColor: "#ffffff" }
+                    ? { background: "var(--on-accent, #ffffff)", color: "var(--accent-strong)", borderColor: "var(--on-accent, #ffffff)" }
                     : { background: "transparent", color: "var(--foreground)", borderColor: "var(--border-strong)" }
                 }
                 className="w-full border py-4 px-4 text-sm font-semibold uppercase tracking-wider flex items-center justify-center space-x-2 transition-colors disabled:opacity-60"

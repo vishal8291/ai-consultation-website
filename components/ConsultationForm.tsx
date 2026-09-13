@@ -61,7 +61,7 @@ export default function ConsultationForm() {
         src="/images/violet-plume.png"
         alt=""
         aria-hidden="true"
-        className="hidden lg:block pointer-events-none select-none absolute -left-32 -top-24 w-[720px] max-w-none opacity-[0.5]"
+        className="decor-plume hidden lg:block pointer-events-none select-none absolute -left-32 -top-24 w-[720px] max-w-none opacity-[0.5]"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
