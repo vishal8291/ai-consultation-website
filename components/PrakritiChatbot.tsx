@@ -9,9 +9,21 @@ interface Message {
   text: string;
 }
 
+// Replies use **bold** markdown. Rendering it as <strong> nodes rather than
+// injecting HTML keeps the text safe while hiding the raw asterisks.
+function renderBold(text: string) {
+  return text.split(/(\*\*[^*\n]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") && part.length > 4 ? (
+      <strong key={i} className="font-semibold text-white">{part.slice(2, -2)}</strong>
+    ) : (
+      part
+    )
+  );
+}
+
 const QUICK_PROMPTS = [
   "What are your package prices?",
-  "How fast can you deliver?",
+  "What services do you offer?",
   "What are your payment terms?",
   "What add-ons do you offer?",
 ];
@@ -188,7 +200,7 @@ export default function PrakritiChatbot() {
                         : "bg-[#221b33] text-[#ece8f6] border border-[#2e2745] rounded-bl-none shadow-sm"
                     }`}
                   >
-                    {msg.text}
+                    {msg.sender === "user" ? msg.text : renderBold(msg.text)}
                   </div>
                 </div>
               ))}
@@ -232,7 +244,7 @@ export default function PrakritiChatbot() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask Prakriti about pricing, timeline..."
+                placeholder="Ask Prakriti about pricing, services..."
                 className="flex-1 bg-[#120f1d] border border-[#2e2745] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-white placeholder-[#8a82a3] focus:outline-none focus:border-[#a78bfa] transition-colors"
               />
               <button

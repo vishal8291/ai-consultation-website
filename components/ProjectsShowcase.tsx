@@ -424,11 +424,8 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               </button>
 
               <div className="space-y-6">
-                <div>
-                  <span className="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold border border-[var(--border-default)]">
-                    {activeModalProject.category}
-                  </span>
-                  <h3 className="text-2xl font-semibold text-slate-900 mt-2">{activeModalProject.title}</h3>
+                <div className="pr-10">
+                  <h3 className="text-2xl font-semibold text-slate-900">{activeModalProject.title}</h3>
                   <p className="text-sm text-slate-500 mt-1">Industry: {activeModalProject.clientIndustry}</p>
                 </div>
 
