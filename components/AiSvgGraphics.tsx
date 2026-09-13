@@ -1,92 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
-
-export function HeroNeuralNetworkSVG() {
-  return (
-    <div className="relative w-full max-w-lg aspect-square flex items-center justify-center p-4">
-      {/* Background glowing ambient light */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/30 via-amber-200/20 to-transparent blur-3xl rounded-full" />
-      
-      <svg
-        viewBox="0 0 600 600"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full relative z-10 drop-shadow-[0_10px_30px_rgba(234,179,8,0.25)]"
-      >
-        {/* Outer Orbit Rings */}
-        <motion.circle
-          cx="300"
-          cy="300"
-          r="240"
-          stroke="rgba(234, 179, 8, 0.4)"
-          strokeWidth="1.5"
-          strokeDasharray="10 15"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        />
-        <motion.circle
-          cx="300"
-          cy="300"
-          r="180"
-          stroke="rgba(15, 23, 42, 0.15)"
-          strokeWidth="2"
-          strokeDasharray="8 12"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        />
-
-        {/* Central Core Sphere */}
-        <defs>
-          <radialGradient id="goldCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#d4d4d4" />
-            <stop offset="60%" stopColor="#0a0a0a" />
-            <stop offset="100%" stopColor="#404040" />
-          </radialGradient>
-          <linearGradient id="yellowLine" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#404040" />
-            <stop offset="100%" stopColor="#0f172a" />
-          </linearGradient>
-        </defs>
-
-        {/* Connecting Lines */}
-        <path d="M 300 300 L 150 150 M 300 300 L 450 150 M 300 300 L 450 450 M 300 300 L 150 450 M 300 300 L 300 100 M 300 300 L 300 500" stroke="url(#yellowLine)" strokeWidth="2" opacity="0.4" />
-
-        {/* Outer Floating Nodes */}
-        <motion.g animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
-          <circle cx="150" cy="150" r="16" fill="#0a0a0a" stroke="#404040" strokeWidth="2" />
-          <circle cx="150" cy="150" r="24" stroke="#0f172a" strokeWidth="1.5" fill="none" opacity="0.3" />
-        </motion.g>
-
-        <motion.g animate={{ y: [0, 10, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}>
-          <circle cx="450" cy="150" r="16" fill="#0f172a" />
-          <circle cx="450" cy="150" r="24" stroke="#404040" strokeWidth="2" fill="none" opacity="0.6" />
-        </motion.g>
-
-        <motion.g animate={{ y: [0, -8, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}>
-          <circle cx="450" cy="450" r="16" fill="#0a0a0a" stroke="#404040" strokeWidth="2" />
-          <circle cx="450" cy="450" r="24" stroke="#0f172a" strokeWidth="1.5" fill="none" opacity="0.3" />
-        </motion.g>
-
-        <motion.g animate={{ y: [0, 12, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
-          <circle cx="150" cy="450" r="16" fill="#0f172a" />
-          <circle cx="150" cy="450" r="24" stroke="#404040" strokeWidth="2" fill="none" opacity="0.6" />
-        </motion.g>
-
-        {/* Glowing Center Core */}
-        <motion.circle
-          cx="300"
-          cy="300"
-          r="48"
-          fill="url(#goldCore)"
-          animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <circle cx="300" cy="300" r="64" stroke="#0f172a" strokeWidth="2" fill="none" opacity="0.4" />
-      </svg>
-    </div>
-  );
-}
 
 {/* REAL HIGH-FIDELITY PROJECT SVG ICONS */}
 export function ProjectIconSVG({ type }: { type: string }) {
@@ -437,15 +350,5 @@ export function ProjectGraphicSVG({ type }: { type: string }) {
       <rect x="20" y="20" width="260" height="160" rx="12" stroke="rgba(234, 179, 8, 0.4)" strokeWidth="1.5" fill="#ffffff" />
       <rect x="40" y="60" width="120" height="12" rx="4" fill="#404040" />
     </svg>
-  );
-}
-
-export function ServiceGraphicSVG({ service }: { service: string }) {
-  return (
-    <div className="w-12 h-12 rounded-2xl bg-yellow-400 text-black border border-yellow-500 flex items-center justify-center shadow-sm font-semibold">
-      <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    </div>
   );
 }
