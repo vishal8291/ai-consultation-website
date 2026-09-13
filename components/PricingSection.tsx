@@ -4,6 +4,7 @@ import { PRICING_TIERS, ADDON_OPTIONS, GROUND_RULES } from "@/lib/pricingData";
 import { Check, ShieldCheck, ArrowRight, CreditCard, CheckSquare, Zap } from "lucide-react";
 import { loadRazorpayScript } from "@/lib/razorpay";
 import { trackPurchase } from "@/lib/analytics";
+import SecuredByRazorpay from "@/components/SecuredByRazorpay";
 
 export default function PricingSection() {
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
@@ -231,6 +232,8 @@ export default function PricingSection() {
             </div>
           ))}
         </div>
+
+        <SecuredByRazorpay />
 
         {/* ADD-ONS SECTION */}
         <div className="mb-10">
