@@ -240,6 +240,18 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
         {/* Section Header */}
         {!hideHeader && (
           <div className="mb-10">
+            {/* Decorative banner, so it is hidden from assistive tech rather
+                than given alt text. Intrinsic dimensions come from the SVG's
+                viewBox so the browser reserves the space before it loads. */}
+            <img
+              src="/images/art-corner-banner.svg"
+              alt=""
+              aria-hidden="true"
+              width={2835}
+              height={1418}
+              className="w-full h-auto mb-8"
+            />
+
             <div className="rule-hairline mb-8" />
             <motion.h2
               initial={{ opacity: 0, y: 15 }}
