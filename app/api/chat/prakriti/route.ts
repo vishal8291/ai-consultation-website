@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: "I am **Prakriti**, the assistant at **CustomeAI**.\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems delivered in **7 to 21 days** with 100% code ownership. How can I help you build your project today?",
+        content: "I am **Prakriti**, the assistant at **CustomeAI**.\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems with 100% code ownership. How can I help you build your project today?",
       });
     }
 
@@ -130,7 +130,7 @@ Would you like a custom quote estimate for your project?`,
         role: "assistant",
         content: `Here is how we can help automate and grow your business:
 
-**Custom Next.js 16 Websites**: High-speed, SEO-optimized websites built in 7 to 21 days with Google PageSpeed scores of 98 to 100.
+**Custom Next.js 16 Websites**: High-speed, SEO-optimized websites with Google PageSpeed scores of 98 to 100.
 
 **AI Agents & Chatbots**: 24/7 intelligent support bots (like this one), lead capture bots, and automated WhatsApp/email pipelines.
 
@@ -155,7 +155,7 @@ Which service fits what you are looking to build?`,
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: `We deliver all projects in guaranteed 7 to 21-day engineering sprints:
+        content: `Timelines depend on the package:
 
 • **Launch Package**: 5 to 7 days
 • **Business Package**: 2 to 3 weeks

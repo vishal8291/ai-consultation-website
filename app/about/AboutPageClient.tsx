@@ -25,7 +25,6 @@ const FACTS = [
   { label: "Headquarters", value: "Mumbai, Maharashtra, India" },
   { label: "Operating model", value: "Remote, across India and overseas" },
   { label: "Focus", value: "Small and mid-sized businesses" },
-  { label: "Delivery", value: "7 to 21 days per engagement" },
   { label: "Commercial terms", value: "50% advance, 50% on delivery" },
   { label: "Post-launch support", value: "30 to 90 days included" },
 ];
@@ -105,8 +104,8 @@ export default function AboutPageClient() {
                 <p>
                   We are deliberately a small practice. Work is delivered by a
                   senior engineer end to end rather than scoped by one person and
-                  handed to another, which is what makes a 7 to 21 day delivery
-                  window possible. We take on a limited number of engagements at a
+                  handed to another, which keeps communication direct and quality
+                  consistent. We take on a limited number of engagements at a
                   time, and we would rather decline work than staff it thinly.
                 </p>
               </div>

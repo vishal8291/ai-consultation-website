@@ -15,7 +15,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "What is CustomeAI?",
-    answer: "CustomeAI is a modern web engineering agency platform building custom Next.js 16 websites, full-stack portals, and AI agent automation systems delivered in 7 to 21 days.",
+    answer: "CustomeAI is a modern web engineering agency platform building custom Next.js 16 websites, full-stack portals, and AI agent automation systems.",
     category: "about",
     keywords: ["what", "CustomeAI", "agency", "company", "platform", "business"],
   },
@@ -33,13 +33,13 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Why choose CustomeAI over solo freelancers?",
-    answer: "Unlike freelancers who take 4-8 weeks with unpredictable hourly billing, we deliver in 7-21 days with fixed itemized pricing, sub-second Next.js 16 performance, and 30 days free support.",
+    answer: "Unlike freelancers who take 4-8 weeks with unpredictable hourly billing, we work to an agreed delivery plan with fixed itemized pricing, sub-second Next.js 16 performance, and 30 days free support.",
     category: "about",
     keywords: ["freelancer", "freelance", "why", "choose", "versus", "compare"],
   },
   {
     question: "Why choose CustomeAI over traditional agencies?",
-    answer: "Traditional agencies charge $30k+ markups and take months. We deliver identical enterprise-grade Next.js 16 & AI systems in 7-21 days starting at ₹12,000 ($150) with 100% code IP ownership.",
+    answer: "Traditional agencies charge $30k+ markups and take months. We deliver identical enterprise-grade Next.js 16 & AI systems starting at ₹12,000 ($150) with 100% code IP ownership.",
     category: "about",
     keywords: ["agency", "traditional", "versus", "compare", "markup", "expensive"],
   },
@@ -57,7 +57,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "What is your working style?",
-    answer: "We work in rapid 7-to-21-day engineering sprints with clear milestone updates, zero fluff, and 50% advance / 50% delivery terms.",
+    answer: "We work in focused engineering sprints with clear milestone updates, zero fluff, and 50% advance / 50% delivery terms.",
     category: "about",
     keywords: ["working", "style", "sprint", "methodology", "process"],
   },

@@ -70,7 +70,7 @@ export default async function Image() {
             maxWidth: 880,
           }}
         >
-          Custom websites and AI systems for small businesses. Live in 7 to 21 days.
+          Custom websites and AI systems for small businesses.
         </div>
       </div>
     ),

@@ -5,14 +5,14 @@ import { Rocket, KeyRound, Tag, Headphones, CheckCircle2 } from "lucide-react";
 
 /**
  * The four promises. Copy is taken from the supplied design, which happens to
- * state this studio's actual terms: 7 to 21 day delivery, full ownership, no
+ * state this studio's actual terms: reliable delivery, full ownership, no
  * hidden fees, and 30 to 90 days of post-launch support.
  */
 const PROMISES = [
   {
     icon: Rocket,
     title: "Fast, reliable delivery",
-    desc: "Most projects are delivered within 7 to 21 days. We keep you updated at every step so deadlines are always on track.",
+    desc: "We agree a delivery plan before work starts and keep you updated at every step, so deadlines stay on track.",
   },
   {
     icon: KeyRound,

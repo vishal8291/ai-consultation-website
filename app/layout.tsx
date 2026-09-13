@@ -35,7 +35,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "CustomeAI is a Mumbai-based studio building custom websites and AI systems for small businesses across India, remote-first, live in 7 to 21 days.";
+  "CustomeAI is a Mumbai-based studio building custom websites and AI systems for small businesses across India, working remote-first.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

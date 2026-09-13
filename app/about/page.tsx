@@ -4,7 +4,7 @@ import AboutPageClient from "./AboutPageClient";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "CustomeAI is a founder-led studio for small businesses. We start with the problem that's actually broken and build the custom website or AI system that fixes it, delivered in 7 to 21 days.",
+    "CustomeAI is a founder-led studio for small businesses. We start with the problem that's actually broken and build the custom website or AI system that fixes it.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About CustomeAI",
