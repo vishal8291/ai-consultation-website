@@ -98,13 +98,13 @@ export async function POST(req: Request) {
         content: `We offer 3 clear, fixed engineering packages:
 
 **1. Launch Package, ₹12,000 ($150)**
-• 5 to 7 days delivery | 1-page high-speed landing site, contact form & responsive design.
+• 1-page high-speed landing site, contact form & responsive design.
 
 **2. Business Package, ₹30,000 ($375)** *(Most Popular)*
-• 2 to 3 weeks delivery | Up to 8 pages, CMS blog, AI lead chatbot & Razorpay payment gateway.
+• Up to 8 pages, CMS blog, AI lead chatbot & Razorpay payment gateway.
 
 **3. Automate Package, ₹65,000 ($800)**
-• 4 to 6 weeks delivery | Custom AI agent workflows, admin dashboard, RAG vector search & full automation.
+• Custom AI agent workflows, admin dashboard, RAG vector search & full automation.
 
 **Payment Terms**: 50% advance deposit to start engineering, 50% upon final project delivery.
 
@@ -155,13 +155,9 @@ Which service fits what you are looking to build?`,
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: `Timelines depend on the package:
+        content: `Every project is different, so we agree the timeline with you on the first call, before any work or payment starts.
 
-• **Launch Package**: 5 to 7 days
-• **Business Package**: 2 to 3 weeks
-• **Automate Package**: 4 to 6 weeks
-
-Timelines begin immediately after receiving your content and 50% advance deposit.`,
+Work begins once we receive your content and the 50% advance deposit.`,
       });
     }
 
@@ -298,9 +294,9 @@ Timelines begin immediately after receiving your content and 50% advance deposit
       content: `Hello. I am Prakriti. I'm here to help you with your website or AI automation project.
 
 Here is a quick summary of what we offer:
-• **Launch Package**: ₹12,000 ($150), 5 to 7 days 1-page landing site
-• **Business Package**: ₹30,000 ($375), 2 to 3 weeks up to 8 pages + AI bot & payments
-• **Automate Package**: ₹65,000 ($800), 4 to 6 weeks full AI workflow & admin dashboard
+• **Launch Package**: ₹12,000 ($150), 1-page landing site
+• **Business Package**: ₹30,000 ($375), up to 8 pages + AI bot & payments
+• **Automate Package**: ₹65,000 ($800), full AI workflow & admin dashboard
 
 Feel free to ask me about pricing, timelines, payment terms, or email Vishal directly at **customeai.tech@gmail.com**.`,
     });

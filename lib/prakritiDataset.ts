@@ -77,37 +77,37 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "How much does a basic 1-page website cost?",
-    answer: "Our Launch Package for a 1-page high-converting landing site costs ₹12,000 ($150) delivered in 5 to 7 days.",
+    answer: "Our Launch Package for a 1-page high-converting landing site costs ₹12,000 ($150).",
     category: "pricing",
     keywords: ["basic", "1-page", "landing", "starter", "launch", "12000", "150"],
   },
   {
     question: "What is included in the Launch Package?",
-    answer: "The Launch Package (₹12,000 / $150) includes a 1-page landing site, mobile responsive layout, smooth animations, contact + WhatsApp button, basic SEO setup, and 1 revision round in 5-7 days.",
+    answer: "The Launch Package (₹12,000 / $150) includes a 1-page landing site, mobile responsive layout, smooth animations, contact + WhatsApp button, basic SEO setup, and 1 revision round.",
     category: "pricing",
     keywords: ["launch", "package", "details", "includes", "features", "12000"],
   },
   {
     question: "How much does the Business Package cost?",
-    answer: "Our Business Package costs ₹30,000 ($375) delivered in 2 to 3 weeks. It is our most popular tier.",
+    answer: "Our Business Package costs ₹30,000 ($375). It is our most popular tier.",
     category: "pricing",
     keywords: ["business", "cost", "price", "30000", "375"],
   },
   {
     question: "What is included in the Business Package?",
-    answer: "The Business Package (₹30,000 / $375) includes up to 8 pages, custom design + GSAP animations, CMS/blog system, payment gateway integration, basic AI chatbot, SEO optimization, and 3 revision rounds in 2-3 weeks.",
+    answer: "The Business Package (₹30,000 / $375) includes up to 8 pages, custom design + GSAP animations, CMS/blog system, payment gateway integration, basic AI chatbot, SEO optimization, and 3 revision rounds.",
     category: "pricing",
     keywords: ["business", "package", "details", "includes", "features", "30000"],
   },
   {
     question: "How much does the Automate Package cost?",
-    answer: "Our Automate Package costs ₹65,000 ($800) delivered in 4 to 6 weeks.",
+    answer: "Our Automate Package costs ₹65,000 ($800).",
     category: "pricing",
     keywords: ["automate", "cost", "price", "65000", "800"],
   },
   {
     question: "What is included in the Automate Package?",
-    answer: "The Automate Package (₹65,000 / $800) includes everything in Business + custom AI chatbot trained on your data, lead capture automation, WhatsApp/email automation, admin dashboard, API integrations, and unlimited revisions in 4-6 weeks.",
+    answer: "The Automate Package (₹65,000 / $800) includes everything in Business + custom AI chatbot trained on your data, lead capture automation, WhatsApp/email automation, admin dashboard, API integrations, and unlimited revisions.",
     category: "pricing",
     keywords: ["automate", "package", "details", "includes", "features", "65000"],
   },
@@ -269,7 +269,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   // 5. TIMELINES & REQUIREMENTS
   {
     question: "How long does a website build take?",
-    answer: "Delivery takes 5-7 days for Launch Package, 2-3 weeks for Business Package, and 4-6 weeks for Automate Package.",
+    answer: "Every project is different, so we agree the timeline with you on the first call, before any work or payment starts.",
     category: "timeline",
     keywords: ["time", "duration", "days", "weeks", "how long", "timeline"],
   },
