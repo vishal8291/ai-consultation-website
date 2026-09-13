@@ -177,18 +177,20 @@ export default function PricingSection() {
                     <span className="text-5xl sm:text-6xl font-bold text-slate-900 tracking-tight leading-none">
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </span>
-                    <span className={`text-sm ${tier.popular ? "text-white/80" : "text-slate-500"}`}>
+                    <span className={`text-sm ${tier.popular ? "text-white" : "text-slate-500"}`}>
                       {currency === "INR" ? `to ${tier.priceRangeINR.split(' to ')[1]}` : `to ${tier.priceRangeUSD.split(' to ')[1]}`}
                     </span>
                   </div>
-                  <div className={`flex items-center text-xs mt-3 ${tier.popular ? "text-white/80" : "text-slate-600"}`}>
+                  <div className={`flex items-center text-xs mt-3 ${tier.popular ? "text-white" : "text-slate-600"}`}>
                     <Clock className="w-3.5 h-3.5 mr-1.5" />
                     <span>{tier.deliveryTime}</span>
                   </div>
                 </div>
 
                 {/* Features List */}
-                <p className={`italic text-sm mb-4 ${tier.popular ? "text-white/70" : "text-slate-500"}`}>
+                {/* Full white rather than a faded tint: at 70% over the filled
+                    tier this measured 2.47:1, below the 4.5:1 floor. */}
+                <p className={`italic text-sm mb-4 ${tier.popular ? "text-white" : "text-slate-500"}`}>
                   Features
                 </p>
 
