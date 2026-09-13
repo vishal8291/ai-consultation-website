@@ -57,13 +57,10 @@ export default function FaqSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
-            Website &amp; AI Development, Answered
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight">
+            FAQ
           </h2>
-          <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-            Everything you need to know about our process, pricing, and support.
-          </p>
         </div>
 
         {/* Accordion List */}

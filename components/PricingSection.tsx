@@ -156,7 +156,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid (3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-5xl mx-auto">
           {PRICING_TIERS.map((tier) => (
             /* Square corners and a hairline border, with the popular tier
                carried by a solid fill rather than a badge or a glow: in the
@@ -167,19 +167,19 @@ export default function PricingSection() {
                 borderColor: tier.popular ? "var(--accent-strong)" : "var(--border-strong)",
                 background: tier.popular ? "var(--accent-strong)" : "transparent",
               }}
-              className="border p-7 sm:p-8 flex flex-col justify-between relative"
+              className="border p-5 sm:p-6 flex flex-col justify-between relative"
             >
 
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-6" style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>{tier.name}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 mb-3" style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>{tier.name}</h3>
 
                 {/* Price Display & Range */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className="text-5xl sm:text-6xl font-bold text-slate-900 tracking-tight leading-none" style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
+                    <span className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-none" style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
                       {currency === "INR" ? `₹${tier.priceINR.toLocaleString()}` : `$${tier.priceUSD.toLocaleString()}`}
                     </span>
-                    <span className={`text-sm ${tier.popular ? "" : "text-slate-500"}`} style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
+                    <span className={`text-xs ${tier.popular ? "" : "text-slate-500"}`} style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
                       {currency === "INR" ? `to ${tier.priceRangeINR.split(' to ')[1]}` : `to ${tier.priceRangeUSD.split(' to ')[1]}`}
                     </span>
                   </div>
@@ -188,19 +188,19 @@ export default function PricingSection() {
                 {/* Features List */}
                 {/* Full white rather than a faded tint: at 70% over the filled
                     tier this measured 2.47:1, below the 4.5:1 floor. */}
-                <p className={`italic text-sm mb-4 ${tier.popular ? "" : "text-slate-500"}`} style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
+                <p className={`italic text-xs mb-3 ${tier.popular ? "" : "text-slate-500"}`} style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}>
                   Features
                 </p>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-2 mb-6">
                   {tier.features.map((feat) => (
                     <div
                       key={feat}
-                      className={`flex items-start gap-3 text-sm ${tier.popular ? "" : "text-slate-700"}`}
+                      className={`flex items-start gap-2.5 text-sm ${tier.popular ? "" : "text-slate-700"}`}
                       style={tier.popular ? { color: "var(--on-accent, #ffffff)" } : undefined}
                     >
                       <Check
-                        className="w-4 h-4 flex-shrink-0 mt-0.5"
+                        className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
                         strokeWidth={1.75}
                         style={{ color: tier.popular ? "var(--on-accent, #ffffff)" : "var(--accent)" }}
                       />
@@ -217,7 +217,7 @@ export default function PricingSection() {
                 type="button"
                 onClick={() => handleRazorpayCheckout(tier)}
                 disabled={loadingTierId === tier.id}
-                className="btn-hero w-full py-4 px-4 text-sm flex items-center justify-center space-x-2 disabled:opacity-60"
+                className="btn-hero w-full py-2.5 px-4 text-sm flex items-center justify-center space-x-2 disabled:opacity-60"
               >
                 <CreditCard className="w-4 h-4" />
                 <span>
