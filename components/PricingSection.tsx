@@ -127,14 +127,15 @@ export default function PricingSection() {
           </div>
 
           {/* Currency Toggle */}
-          <div className="flex items-center bg-[var(--surface-alt)] p-1 rounded-full border border-[var(--border-default)] self-start md:self-auto">
+          <div className="flex items-center bg-[var(--surface-alt)] p-1 rounded-full border border-[var(--border-default)]">
             <button
               type="button"
               onClick={() => setCurrency("INR")}
-              className={`px-6 py-2 rounded-full text-xs font-semibold transition-all ${
+              aria-pressed={currency === "INR"}
+              className={`min-h-11 px-6 rounded-full text-sm font-semibold border transition-all ${
                 currency === "INR"
-                  ? "bg-white text-slate-900 shadow-sm border border-[var(--border-default)]"
-                  : "text-slate-500 hover:text-slate-900"
+                  ? "bg-white text-slate-900 shadow-sm border-[var(--border-default)]"
+                  : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >
               ₹ INR
@@ -142,10 +143,11 @@ export default function PricingSection() {
             <button
               type="button"
               onClick={() => setCurrency("USD")}
-              className={`px-6 py-2 rounded-full text-xs font-semibold transition-all ${
+              aria-pressed={currency === "USD"}
+              className={`min-h-11 px-6 rounded-full text-sm font-semibold border transition-all ${
                 currency === "USD"
-                  ? "bg-white text-slate-900 shadow-sm border border-[var(--border-default)]"
-                  : "text-slate-500 hover:text-slate-900"
+                  ? "bg-white text-slate-900 shadow-sm border-[var(--border-default)]"
+                  : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >
               $ USD
@@ -269,7 +271,7 @@ export default function PricingSection() {
           <div className="glass-card-pro p-5 sm:p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {GROUND_RULES.map((rule, idx) => (
-                <div key={idx} className="flex items-start space-x-3 text-xs sm:text-sm font-semibold text-slate-700">
+                <div key={idx} className="flex items-start space-x-3 text-sm font-semibold text-slate-700">
                   <CheckSquare style={{ color: "var(--accent)" }} className="w-4 h-4 flex-shrink-0 mt-0.5" />
                   <span>{rule}</span>
                 </div>
