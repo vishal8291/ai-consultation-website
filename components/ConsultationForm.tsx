@@ -80,6 +80,11 @@ export default function ConsultationForm() {
           </p>
         </div>
 
+        {/* Form Container — the conversion moment, so it carries the one
+            violet-to-blue bloom on the page besides the terminal. The banner
+            is the card's own top edge rather than a separate block above it,
+            and overflow-hidden lets the card's radius crop its corners. */}
+        <div className="glass-card-pro glow-violet-blue overflow-hidden">
         {/* Header banner. Its wording lives only as pixels, so the section's
             real <h2> above stays the heading that screen readers and search
             engines actually read; this carries descriptive alt text instead.
@@ -90,12 +95,9 @@ export default function ConsultationForm() {
           alt="Consultation booking form"
           width={1600}
           height={400}
-          className="w-full h-auto rounded-xl border border-[var(--border-default)] mb-6"
+          className="block w-full h-auto"
         />
-
-        {/* Form Container — the conversion moment, so it carries the one
-            violet-to-blue bloom on the page besides the terminal. */}
-        <div className="glass-card-pro glow-violet-blue p-6 sm:p-10">
+        <div className="p-6 sm:p-10">
           {success ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -219,6 +221,7 @@ export default function ConsultationForm() {
               </button>
             </form>
           )}
+        </div>
         </div>
       </div>
     </section>
