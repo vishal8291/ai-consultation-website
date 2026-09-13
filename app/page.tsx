@@ -540,7 +540,7 @@ export default function Home() {
                 How we work
               </p>
               <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-slate-900 tracking-[-0.03em] leading-[1.0]">
-                First call to launch in <span className="headline-accent">7 to 21 days</span>
+                From first call to <span className="headline-accent">launch</span>
               </h2>
             </div>
             <p className="lg:col-span-5 text-lg text-slate-600 leading-relaxed">
