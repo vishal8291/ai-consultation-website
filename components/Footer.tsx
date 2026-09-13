@@ -108,6 +108,20 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-[var(--border-default)] pt-6 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} CustomeAI. All rights reserved.</p>
+          {/* Every checkout on the site runs through Razorpay, so the gateway
+              is credited here the way payment providers usually are. */}
+          <a
+            href="https://razorpay.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-alt)] px-4 py-2 hover:border-[var(--border-strong)] transition-colors"
+          >
+            <span className="text-xs text-slate-500">Payments powered by</span>
+            <span className="inline-flex items-center gap-1.5">
+              <img src="/images/razorpay.svg" alt="" width={16} height={16} className="w-4 h-4" />
+              <span className="text-sm font-semibold text-slate-900 tracking-tight">Razorpay</span>
+            </span>
+          </a>
           <button
             onClick={scrollToTop}
             className="flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors"
