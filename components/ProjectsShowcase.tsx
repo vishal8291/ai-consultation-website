@@ -334,8 +334,10 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
           /* The homepage shows a showreel and sends people to the full
              portfolio, rather than duplicating the project grid here. Muted
              and inline are both required for autoplay to be allowed at all;
-             without them browsers silently refuse to start playback. */
-          <div className="rounded-2xl overflow-hidden border border-[var(--border-default)] bg-slate-900">
+             without them browsers silently refuse to start playback.
+             It breaks out of the centred container to run edge to edge;
+             the section clips any scrollbar-width overflow. */
+          <div className="relative left-1/2 w-screen -translate-x-1/2 bg-black">
             <video
               ref={showreelRef}
               src="/images/project-showcase.mp4"
