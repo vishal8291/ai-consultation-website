@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PROJECTS_DATA, Project } from "@/lib/projectsData";
@@ -33,6 +33,42 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
   const [buyingId, setBuyingId] = useState<string | null>(null);
+  const showreelRef = useRef<HTMLVideoElement | null>(null);
+
+  /**
+   * The autoplay attribute alone did not start this clip: measured on the
+   * running page it sat fully buffered, muted and paused, with currentTime
+   * frozen across two samples. So playback is requested explicitly, and the
+   * rejection is swallowed rather than thrown, since a browser refusing
+   * autoplay is a policy decision and not an error worth surfacing.
+   *
+   * The observer is the other half of it. The source is 4K, so decoding it
+   * continuously for a element that is usually offscreen is wasted work on
+   * exactly the low-powered phones this site is aimed at.
+   */
+  useEffect(() => {
+    const video = showreelRef.current;
+    if (!video) return;
+
+    const attempt = () => {
+      const played = video.play();
+      if (played && typeof played.catch === "function") played.catch(() => {});
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? attempt() : video.pause()),
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+    attempt();
+
+    return () => observer.disconnect();
+  }, []);
 
   /**
    * Ready-built systems are charged in full rather than as a 50% advance,
@@ -298,33 +334,22 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
             client result is never diluted by self-initiated demos. The homepage
             shortlist stays a single grid. */}
         {isHomepage || limit === 3 ? (
-          /* Diagonal split: a clipped artwork panel holds the left, the work
-             itself runs down the right. The panel is sticky so it stays put
-             while the projects scroll past it, and it is decorative, so it is
-             hidden from assistive tech. Below lg the panel drops away entirely
-             and the cards return to a plain stack. */
-          <div className="lg:grid lg:grid-cols-12 lg:gap-10 lg:items-start">
-            <div className="hidden lg:block lg:col-span-4">
-              <div
-                className="sticky top-24 h-[640px] overflow-hidden"
-                style={{ clipPath: "polygon(0 0, 100% 0, 76% 100%, 0 100%)" }}
-                aria-hidden="true"
-              >
-                <img
-                  src="/images/our-work-panel.jpg"
-                  alt=""
-                  width={900}
-                  height={1200}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Two across inside the right column: one per row made the stack
-                tower over the artwork panel and the diagonal stopped reading. */}
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {projectsToDisplay.map((project, index) => renderCard(project, index))}
-            </div>
+          /* The homepage shows a showreel and sends people to the full
+             portfolio, rather than duplicating the project grid here. Muted
+             and inline are both required for autoplay to be allowed at all;
+             without them browsers silently refuse to start playback. */
+          <div className="rounded-2xl overflow-hidden border border-[var(--border-default)] bg-slate-900">
+            <video
+              ref={showreelRef}
+              src="/images/project-showcase.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Showreel of recent project work"
+              className="w-full h-auto block"
+            />
           </div>
         ) : (
           (() => {
@@ -369,9 +394,9 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
           >
             <Link
               href="/projects"
-              className="inline-flex items-center space-x-3 px-10 py-4.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-white hover:text-black transition-all shadow-xl hover:scale-105 border-2 border-slate-900 group"
+              className="btn-yellow-solid inline-flex items-center space-x-3 px-10 py-4 text-sm group"
             >
-              <span>See all projects</span>
+              <span>See work</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:text-black transition-colors" />
             </Link>
           </motion.div>
