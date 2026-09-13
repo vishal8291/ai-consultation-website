@@ -192,7 +192,7 @@ export default function Home() {
                 style={{ animationDelay: "0.05s" }}
               >
                 Web and AI studio
-                <span className="mx-2 text-slate-300">/</span>
+                <span className="mx-2 text-slate-500">/</span>
                 Mumbai, India
               </p>
 
@@ -495,7 +495,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-white text-sm font-semibold"
-                  style={{ background: "var(--accent)" }}
+                  style={{ background: "var(--accent-strong)" }}
                 >
                   Visit the live site
                 </a>

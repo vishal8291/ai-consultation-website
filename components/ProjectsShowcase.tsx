@@ -59,25 +59,38 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               className="bg-white overflow-hidden flex flex-col justify-between relative group rounded-2xl border border-[var(--border-default)] hover:border-[var(--accent-strong)] transition-colors"
             >
               {/* Preview Banner Top */}
-              <div className="h-64 sm:h-72 lg:h-80 bg-slate-900 relative overflow-hidden flex items-center justify-center">
-                {project.previewImage ? (
-                  <img
-                    src={project.previewImage}
-                    alt={`${project.title} live preview`}
-                    className="w-full h-full object-cover object-top"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="p-4 w-full h-full flex items-center justify-center">
-                    <ProjectGraphicSVG type={project.svgType} />
+              {/* Every screenshot sits in the same slim browser frame. Client
+                  sites look nothing like each other, so a shared chrome is what
+                  makes the grid read as one portfolio rather than a scrapbook.
+                  Badges sit bottom-left to stay clear of the chrome strip. */}
+              <div className="h-64 sm:h-72 lg:h-80 bg-slate-900 relative overflow-hidden flex items-end justify-center px-4 pt-5">
+                <div className="w-full h-full rounded-t-lg overflow-hidden border border-white/10 border-b-0 bg-[#0b0814] flex flex-col shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-white/[0.04] flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-white/25" />
+                    <span className="w-2 h-2 rounded-full bg-white/25" />
+                    <span className="w-2 h-2 rounded-full bg-white/25" />
                   </div>
-                )}
-                <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5">
+                  <div className="flex-1 overflow-hidden">
+                    {project.previewImage ? (
+                      <img
+                        src={project.previewImage}
+                        alt={`${project.title} live preview`}
+                        className="w-full h-full object-cover object-top"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="p-4 w-full h-full flex items-center justify-center">
+                        <ProjectGraphicSVG type={project.svgType} />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="absolute bottom-3 left-6 flex flex-col items-start gap-1.5">
                   <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-semibold tracking-wide backdrop-blur-md">
                     {project.category}
                   </span>
                   {project.engagement === "client" ? (
-                    <span className="px-3 py-1 rounded-md text-white text-[11px] font-semibold tracking-wide backdrop-blur-md" style={{ background: "var(--accent)" }}>
+                    <span className="px-3 py-1 rounded-md text-white text-[11px] font-semibold tracking-wide backdrop-blur-md" style={{ background: "var(--accent-strong)" }}>
                       Real client project
                     </span>
                   ) : (

@@ -71,8 +71,9 @@ export default function ConsultationForm() {
           </p>
         </div>
 
-        {/* Form Container */}
-        <div className="glass-card-pro bg-white p-6 sm:p-10">
+        {/* Form Container — the conversion moment, so it carries the one
+            violet-to-blue bloom on the page besides the terminal. */}
+        <div className="glass-card-pro glow-violet-blue p-6 sm:p-10">
           {success ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}

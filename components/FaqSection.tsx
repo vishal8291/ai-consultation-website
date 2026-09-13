@@ -51,7 +51,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white text-slate-900 relative overflow-hidden">
+    <section id="faq" className="section-light py-24 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -79,12 +79,22 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(idx)}
                   className="w-full p-5 text-left flex items-center justify-between space-x-4 focus:outline-none"
                 >
-                  <span className="text-base font-semibold text-slate-900 leading-snug">
+                  <span className="text-base font-semibold text-slate-900 leading-snug flex gap-3">
+                    {/* The site already speaks terminal elsewhere; carrying a
+                        mono prompt marker here is cheaper than an icon and
+                        reads as part of the same voice. */}
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-sm shrink-0 select-none"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      Q&gt;
+                    </span>
                     {faq.q}
                   </span>
-                  <div className={`p-2 rounded-xl border transition-transform duration-200 flex-shrink-0 ${isOpen ? "rotate-180 bg-black text-white border-black font-bold" : "bg-slate-100 text-slate-600 border-slate-200"}`}>
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
+                  <ChevronDown
+                    className={`w-4 h-4 shrink-0 transition-transform duration-200 text-slate-500 ${isOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
 
                 <AnimatePresence>

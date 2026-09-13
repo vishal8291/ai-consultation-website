@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -16,9 +16,22 @@ const SITE_URL = "https://customeai.tech";
 // the site's own bundled Open Sans web font in the old fallback chain, so
 // that web font rarely ever actually rendered either. Inter is loaded as a
 // full variable font (one file, every weight) and is properly embeddable.
-const inter = Inter({
+// Three roles, per the brand direction: Sora carries display headlines,
+// Manrope the body copy, JetBrains Mono the code panel and the FAQ's
+// terminal-style question prefixes.
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sora",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
 });
 
 const SITE_DESCRIPTION =
@@ -130,7 +143,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} font-sans`}>
+      <body
+        className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} font-sans`}
+      >
         <ScrollRestoration />
         <Navbar />
         {children}
