@@ -199,16 +199,24 @@ export default function Home() {
       </section>
 
       {/* WHAT WE DO
-          The services video, edge to edge, between the heading and the call
-          to action. */}
-      <section id="services" className="tone-black py-14 sm:py-16 border-b border-[var(--border-default)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-8">
-            What we do
-          </h2>
+          The services video runs edge to edge from the top of the section, with
+          the heading laid over its top-left corner, then the call to action. */}
+      <section id="services" className="tone-black pb-14 sm:pb-16 border-b border-[var(--border-default)]">
+        <div className="relative">
+          <AutoplayVideo src="/OUR%20SERVICES.mp4" label="Video of our services" />
+          {/* Fixed white with a soft shadow rather than a band token: it sits on
+              the video's own colours, not on the black section. */}
+          <div className="absolute inset-x-0 top-0 pointer-events-none">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-8">
+              <h2
+                className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
+                style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.55)" }}
+              >
+                What we do
+              </h2>
+            </div>
+          </div>
         </div>
-
-        <AutoplayVideo src="/OUR%20SERVICES.mp4" label="Video of our services" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <a
