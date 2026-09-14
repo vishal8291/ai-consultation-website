@@ -97,7 +97,6 @@ export const PROJECTS_DATA: Project[] = [
     svgType: "legal-ai",
     featured: true,
     demoUrl: "https://lex-agent.vercel.app/",
-    githubUrl: "https://github.com/vishal8291/LexAgent",
     previewImage: "/images/projects/lex-agent-legal-auditor.jpg",
     forSale: {
       priceINR: 59000,
