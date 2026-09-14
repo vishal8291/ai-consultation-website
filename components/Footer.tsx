@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-slate-600">
               <li><a href="/#services" className="hover:text-slate-900 transition-colors">Websites</a></li>
               <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI agents</a></li>
-              <li><a href="/#automation" className="hover:text-slate-900 transition-colors">Automation tools</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Automation tools</a></li>
               <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Pricing</a></li>
             </ul>
           </div>
