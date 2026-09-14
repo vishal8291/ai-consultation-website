@@ -271,7 +271,9 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
   );
 
   return (
-    <section id="projects" className="relative py-20 bg-white text-slate-900 overflow-hidden">
+    /* On the homepage the showreel starts flush against the band above it,
+       so only the bottom keeps its padding (for the See work button). */
+    <section id="projects" className={`relative ${isHomepage || limit === 3 ? "pt-0 pb-16" : "py-20"} bg-white text-slate-900 overflow-hidden`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header. The homepage showreel already opens on its own
