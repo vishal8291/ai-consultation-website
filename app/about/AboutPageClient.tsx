@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Footer from "@/components/Footer";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 const PRINCIPLES = [
   {
@@ -142,7 +143,15 @@ export default function AboutPageClient() {
               Websites, AI agents and automation tools
             </h2>
           </div>
+        </div>
 
+        {/* Edge to edge, like the services video on the homepage. */}
+        <AutoplayVideo
+          src="/Red%20and%20Blue%20Modern%20Video%20Editor%20Presentation.mp4"
+          label="Video of the websites, AI agents and automation tools we build"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <div className="grid sm:grid-cols-3 gap-x-12 gap-y-8">
             {CAPABILITIES.map((c) => (
               <div key={c.title} className="border-t border-[var(--border-default)] pt-5">
