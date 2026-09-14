@@ -6,12 +6,12 @@
    them for its subtree. */
 @theme {
   --color-slate-900: #ffffff;
-  --color-slate-800: #f2f0f7;
-  --color-slate-700: #d8d3e4;
-  --color-slate-600: #a9a2bd;
-  --color-slate-500: #8a82a3;
-  --color-slate-400: #6d6685;
-  --color-slate-300: #4a4460;
+  --color-slate-800: #f5f5f5;
+  --color-slate-700: #d4d4d4;
+  --color-slate-600: #a3a3a3;
+  --color-slate-500: #8f8f8f;
+  --color-slate-400: #737373;
+  --color-slate-300: #525252;
   --color-black: #ffffff;
 
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -20,26 +20,26 @@
 }
 
 :root {
-  --background: #120f1d;
+  /* Black and white site-wide. Buttons carry the one colour (the hero
+     blue, set on the button classes below); everything else is neutral. */
+  --background: #000000;
   --foreground: #ffffff;
-  --surface-card: #1a1526;
-  --surface-alt: #221b33;
-  --border-default: #2e2745;
-  --border-strong: #453b63;
+  --surface-card: #0b0b0b;
+  --surface-alt: #141414;
+  --border-default: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.35);
 
-  /* The brief's violet (#6D28D9) is too dark to read as text on the ink
-     ground, so it carries fills, glows and borders while a lighter violet
-     carries text. Inside .section-light the two roles swap. */
-  --accent: #a78bfa;
-  --accent-hover: #c4b5fd;
-  --accent-strong: #6d28d9;
-  --brand-blue: #2563eb;
-  --brand-pink: #db2777;
-  --lavender: #f2eefb;
+  --accent: #ffffff;
+  --accent-hover: #ffffff;
+  --accent-strong: #ffffff;
+  --on-accent: #000000;
+  --brand-blue: #0f76b0;
+  --brand-pink: #ffffff;
+  --lavender: #ffffff;
 
-  --cta-bg: #6d28d9;
+  --cta-bg: #0f76b0;
   --cta-text: #ffffff;
-  --link: #a78bfa;
+  --link: #ffffff;
 }
 
 /* Light sections. Trust content (pricing, FAQ, the standards cards) reads
@@ -48,27 +48,29 @@
    --color-slate-* tokens, which cascade like any other custom property — a
    whole subtree re-tones itself without a single component edit. */
 .section-light {
-  --color-slate-900: #120f1d;
-  --color-slate-800: #221b33;
-  --color-slate-700: #3b3357;
-  --color-slate-600: #544b70;
-  --color-slate-500: #6b6188;
-  --color-slate-400: #8a82a3;
-  --color-slate-300: #c9bceb;
-  --color-black: #120f1d;
+  --color-slate-900: #000000;
+  --color-slate-800: #111111;
+  --color-slate-700: #333333;
+  --color-slate-600: #525252;
+  --color-slate-500: #666666;
+  --color-slate-400: #8a8a8a;
+  --color-slate-300: #d4d4d4;
+  --color-black: #000000;
 
-  --background: var(--lavender);
-  --foreground: #120f1d;
+  --background: #ffffff;
+  --foreground: #000000;
   --surface-card: #ffffff;
-  --surface-alt: #f2eefb;
-  --border-default: #e4dcf7;
-  --border-strong: #c9bceb;
-  --accent: #6d28d9;
-  --accent-hover: #5b21b6;
-  --link: #6d28d9;
+  --surface-alt: #f5f5f5;
+  --border-default: #e5e5e5;
+  --border-strong: #d4d4d4;
+  --accent: #000000;
+  --accent-hover: #000000;
+  --accent-strong: #000000;
+  --on-accent: #ffffff;
+  --link: #000000;
 
-  background-color: var(--lavender);
-  color: #120f1d;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* Background utilities are overridden as plain rules rather than by remapping
@@ -85,7 +87,7 @@
 }
 .bg-slate-900,
 .bg-slate-950 {
-  background-color: #0b0814;
+  background-color: #000000;
 }
 .bg-slate-50,
 .bg-slate-100 {
@@ -97,7 +99,7 @@
 /* --color-black is remapped above so text-black reads on the dark ground;
    without this, bg-black would render as a white block. */
 .bg-black {
-  background-color: #0b0814;
+  background-color: #000000;
 }
 .bg-red-50 {
   background-color: rgba(239, 68, 68, 0.12);
@@ -141,7 +143,7 @@
    the surface tokens turn light. */
 .hover\:bg-slate-700:hover,
 .hover\:bg-slate-800:hover {
-  background-color: #2e2745;
+  background-color: #1f1f1f;
 }
 
 /* Hero entrance runs in pure CSS (no JS/hydration dependency) so the headline
@@ -250,8 +252,8 @@ body::before {
 }
 
 .glass-card-pro:hover {
-  border-color: var(--accent-strong);
-  box-shadow: 0 0 0 1px rgba(109, 40, 217, 0.25), 0 8px 30px rgba(109, 40, 217, 0.12);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px var(--border-strong);
 }
 
 .dark-card-pro {
@@ -262,18 +264,15 @@ body::before {
 }
 
 .dark-card-pro:hover {
-  border-color: var(--accent-strong);
-  box-shadow: 0 0 0 1px rgba(109, 40, 217, 0.25), 0 8px 30px rgba(109, 40, 217, 0.12);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px var(--border-strong);
 }
 
 /* The one element allowed a violet glow: the terminal window and the
    consultation panel, per the brand direction. */
-.glow-violet {
-  box-shadow: 0 0 0 1px rgba(109, 40, 217, 0.45), 0 0 60px rgba(109, 40, 217, 0.25);
-}
-
+.glow-violet,
 .glow-violet-blue {
-  box-shadow: 0 0 80px rgba(109, 40, 217, 0.28), 0 0 120px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 0 0 1px var(--border-strong);
 }
 
 /* Buttons. Every text button on the site uses the hero's look: a solid

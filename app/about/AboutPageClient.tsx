@@ -50,10 +50,10 @@ const CAPABILITIES = [
 
 export default function AboutPageClient() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 antialiased selection:bg-black selection:text-white">
+    <main className="min-h-screen text-slate-900 antialiased selection:bg-black selection:text-white">
 
       {/* HERO */}
-      <section className="pt-32 pb-14 sm:pt-40 sm:pb-16 bg-white border-b border-[var(--border-default)]">
+      <section className="tone-black pt-32 pb-14 sm:pt-40 sm:pb-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-4">
@@ -73,7 +73,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* WHO WE ARE */}
-      <section className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+      <section className="tone-white py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
 
@@ -137,7 +137,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* WHAT WE DO */}
-      <section className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+      <section className="tone-black py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
@@ -162,7 +162,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* HOW WE WORK */}
-      <section className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+      <section className="tone-white py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
@@ -197,7 +197,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* LEADERSHIP */}
-      <section className="py-14 sm:py-16 bg-white border-b border-[var(--border-default)]">
+      <section className="tone-black py-14 sm:py-16 border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">
@@ -254,7 +254,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* CONTACT */}
-      <section className="py-14 sm:py-16 bg-white">
+      <section className="tone-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-7">

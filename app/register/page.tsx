@@ -37,8 +37,8 @@ export default function Register() {
   const isPasswordValid = formData.password.length >= 6;
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <div className="section-light bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10 w-full max-w-md">
+    <div className="tone-black min-h-screen bg-black flex items-center justify-center p-4">
+      <div className="tone-white bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10 w-full max-w-md">
         <h1 className="text-3xl font-bold bg-linear-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-8 text-center"> {/* ✅ Fixed Tailwind */}
           Create Account
         </h1>

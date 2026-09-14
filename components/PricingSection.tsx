@@ -90,7 +90,7 @@ export default function PricingSection() {
           // Razorpay's modal is an iframe and cannot read our CSS variables, so
           // this must be kept in sync with --accent-strong in globals.css by
           // hand. It was left on the pre-rebrand blue when the palette changed.
-          color: "#6d28d9",
+          color: "#0f76b0",
         },
       };
 

@@ -152,7 +152,7 @@ export default function PrakritiChatbot() {
                 headings read on the dark site, which turned these panel
                 backgrounds and borders light and left the assistant's text
                 light-on-light. */}
-            <div className="bg-slate-950 p-4 border-b border-[#2e2745] flex items-center justify-between">
+            <div className="bg-slate-950 p-4 border-b border-[#2a2a2a] flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="relative">
                   <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-semibold shadow-md">
@@ -169,7 +169,7 @@ export default function PrakritiChatbot() {
                 <button
                   type="button"
                   onClick={handleResetChat}
-                  className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#221b33] transition-colors"
+                  className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#1a1a1a] transition-colors"
                   title="Reset Conversation"
                   aria-label="Reset conversation"
                 >
@@ -179,7 +179,7 @@ export default function PrakritiChatbot() {
                   type="button"
                   onClick={() => setIsOpen(false)}
                   aria-label="Close chat"
-                  className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#221b33] transition-colors"
+                  className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#1a1a1a] transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -197,7 +197,7 @@ export default function PrakritiChatbot() {
                     className={`max-w-[85%] p-3.5 rounded-2xl leading-relaxed whitespace-pre-wrap ${
                       msg.sender === "user"
                         ? "bg-white text-black font-semibold rounded-br-none shadow-md"
-                        : "bg-[#221b33] text-[#ece8f6] border border-[#2e2745] rounded-bl-none shadow-sm"
+                        : "bg-[#1a1a1a] text-[#f5f5f5] border border-[#2a2a2a] rounded-bl-none shadow-sm"
                     }`}
                   >
                     {msg.sender === "user" ? msg.text : renderBold(msg.text)}
@@ -207,7 +207,7 @@ export default function PrakritiChatbot() {
 
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-[#221b33] border border-[#2e2745] p-3 rounded-2xl rounded-bl-none text-[#a9a2bd] text-xs flex items-center space-x-2">
+                  <div className="bg-[#1a1a1a] border border-[#2a2a2a] p-3 rounded-2xl rounded-bl-none text-[#a3a3a3] text-xs flex items-center space-x-2">
                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                     <span>Prakriti is typing...</span>
                   </div>
@@ -218,13 +218,13 @@ export default function PrakritiChatbot() {
 
             {/* Quick Suggestion Prompts */}
             {messages.length < 5 && (
-              <div className="px-4 py-2 border-t border-[#2e2745] flex items-center space-x-2 overflow-x-auto no-scrollbar">
+              <div className="px-4 py-2 border-t border-[#2a2a2a] flex items-center space-x-2 overflow-x-auto no-scrollbar">
                 {QUICK_PROMPTS.map((prompt) => (
                   <button
                     type="button"
                     key={prompt}
                     onClick={() => handleSendMessage(prompt)}
-                    className="px-3 py-1.5 rounded-full bg-[#221b33] hover:bg-[#6d28d9] hover:text-white border border-[#2e2745] text-[11px] font-bold text-[#d8d3e4] whitespace-nowrap transition-colors flex-shrink-0"
+                    className="px-3 py-1.5 rounded-full bg-[#1a1a1a] hover:bg-[#0f76b0] hover:text-white border border-[#2a2a2a] text-[11px] font-bold text-[#d4d4d4] whitespace-nowrap transition-colors flex-shrink-0"
                   >
                     {prompt}
                   </button>
@@ -238,20 +238,20 @@ export default function PrakritiChatbot() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 bg-slate-950 border-t border-[#2e2745] flex items-center space-x-2"
+              className="p-3 bg-slate-950 border-t border-[#2a2a2a] flex items-center space-x-2"
             >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask Prakriti about pricing, services..."
-                className="flex-1 bg-[#120f1d] border border-[#2e2745] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-white placeholder-[#8a82a3] focus:outline-none focus:border-[#a78bfa] transition-colors"
+                className="flex-1 bg-[#000000] border border-[#2a2a2a] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-white placeholder-[#8f8f8f] focus:outline-none focus:border-[#ffffff] transition-colors"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
                 aria-label="Send message"
-                className="p-2.5 rounded-xl bg-[#6d28d9] text-white hover:bg-[#7c3aed] disabled:opacity-40 transition-colors font-bold"
+                className="p-2.5 rounded-xl bg-[#0f76b0] text-white hover:bg-[#0d6699] disabled:opacity-40 transition-colors font-bold"
               >
                 <Send className="w-4 h-4 text-white" />
               </button>

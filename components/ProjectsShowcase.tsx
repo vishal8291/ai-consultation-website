@@ -145,7 +145,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
         theme: {
           // Razorpay's modal is an iframe and cannot read our CSS variables, so
           // this must be kept in sync with --accent-strong in globals.css.
-          color: "#6d28d9",
+          color: "#0f76b0",
         },
       };
 
@@ -196,7 +196,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   makes the grid read as one portfolio rather than a scrapbook.
                   Badges sit bottom-left to stay clear of the chrome strip. */}
               <div className="h-40 sm:h-44 bg-slate-900 relative overflow-hidden flex items-end justify-center px-3 pt-4">
-                <div className="w-full h-full rounded-t-lg overflow-hidden border border-white/10 border-b-0 bg-[#0b0814] flex flex-col shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
+                <div className="w-full h-full rounded-t-lg overflow-hidden border border-white/10 border-b-0 bg-black flex flex-col shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
                   <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-white/[0.04] flex-shrink-0">
                     <span className="w-2 h-2 rounded-full bg-white/25" />
                     <span className="w-2 h-2 rounded-full bg-white/25" />

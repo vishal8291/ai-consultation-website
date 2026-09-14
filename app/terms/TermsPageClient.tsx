@@ -5,10 +5,10 @@ import { ShieldCheck, CheckCircle2, FileText, Lock, Scale } from "lucide-react";
 
 export default function TermsPageClient() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 antialiased selection:bg-black selection:text-white">
+    <main className="min-h-screen text-slate-900 antialiased selection:bg-black selection:text-white">
 
       {/* Hero Banner */}
-      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 bg-white border-b border-[var(--border-default)]">
+      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 tone-black border-b border-[var(--border-default)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <div style={{ color: "var(--accent)" }} className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-[0.14em]">
             <Scale className="w-3.5 h-3.5" />
@@ -24,7 +24,7 @@ export default function TermsPageClient() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 tone-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-700 text-sm leading-relaxed">
           
           {/* Introduction */}

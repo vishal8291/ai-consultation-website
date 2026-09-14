@@ -39,7 +39,7 @@ export default function ReviewPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white antialiased">
+    <main className="tone-black min-h-screen antialiased">
       <section className="pt-32 pb-16 sm:pt-40 sm:pb-20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">

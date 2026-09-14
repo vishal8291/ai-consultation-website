@@ -8,10 +8,10 @@ import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function ProjectsPageClient() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 antialiased">
+    <main className="min-h-screen text-slate-900 antialiased">
 
       {/* Hero Header */}
-      <section className="relative pt-36 sm:pt-40 pb-16 bg-white overflow-hidden border-b border-[var(--border-default)]">
+      <section className="tone-black relative pt-36 sm:pt-40 pb-16 overflow-hidden border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
@@ -34,10 +34,14 @@ export default function ProjectsPageClient() {
       </section>
 
       {/* Main Filterable Projects Showcase */}
-      <ProjectsShowcase showFilters={true} hideHeader />
+      <div className="tone-white">
+        <ProjectsShowcase showFilters={true} hideHeader />
+      </div>
 
       {/* Booking Form CTA */}
-      <ConsultationForm />
+      <div className="tone-black">
+        <ConsultationForm />
+      </div>
 
       {/* Footer */}
       <Footer />
