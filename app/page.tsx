@@ -9,7 +9,6 @@ import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
 import PrakritiChatbot from "@/components/PrakritiChatbot";
-import InteractiveTerminal from "@/components/InteractiveTerminal";
 import HeroRings from "@/components/HeroRings";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import { ArrowRight } from "lucide-react";
@@ -296,17 +295,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* UNDER THE HOOD — real code from this repository, placed directly after
-          the automation capability list so the longest stretch of plain text on
-          the page is followed by concrete evidence rather than more claims. */}
-      <div className="tone-black">
-        <InteractiveTerminal />
-      </div>
-
       {/* CLIENT SPOTLIGHT — the one real, delivered client engagement, with the
           concrete engineering details that signal "we understand your business
           risk, not just design." All factual and drawn from the full case study. */}
-      <section className="tone-white py-14 sm:py-16 border-y border-[var(--border-default)]">
+      <section className="tone-black py-14 sm:py-16 border-y border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5">
@@ -360,17 +352,17 @@ export default function Home() {
       {/* WHAT CLIENTS SAY — "Write a review" opens the Feedback form in a
           modal (see Testimonials.tsx); the card grid only renders once
           there's at least one review. */}
-      <div className="tone-black">
+      <div className="tone-white">
         <Testimonials />
       </div>
 
       {/* OUR WORK */}
-      <div className="tone-white">
+      <div className="tone-black">
         <ProjectsShowcase limit={3} isHomepage={true} />
       </div>
 
       {/* HOW WE WORK */}
-      <section id="process" className="tone-black py-14 sm:py-16 border-y border-[var(--border-default)]">
+      <section id="process" className="tone-white py-14 sm:py-16 border-y border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="rule-hairline mb-8" />
@@ -410,22 +402,22 @@ export default function Home() {
       </section>
 
       {/* COMMITMENTS */}
-      <div className="tone-white">
+      <div className="tone-black">
         <TestimonialsSection />
       </div>
 
       {/* PRICING */}
-      <div className="tone-black">
+      <div className="tone-white">
         <PricingSection />
       </div>
 
       {/* FAQ */}
-      <div className="tone-white">
+      <div className="tone-black">
         <FaqSection />
       </div>
 
       {/* CONTACT */}
-      <div className="tone-black">
+      <div className="tone-white">
         <ConsultationForm />
       </div>
 

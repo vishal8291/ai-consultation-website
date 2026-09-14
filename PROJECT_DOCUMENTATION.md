@@ -83,10 +83,6 @@ app/
 - **3D Model Frame**: 3D female model character building websites surrounded by glowing holographic UI windows, code IDE panels, and floating speed score badges.
 - **Live Status Radar Beacon**: Pulsing indicator badge for Next.js 16 & AI Engine status.
 
-### 4.2 Production Code Terminal (`components/InteractiveTerminal.tsx`)
-- Previews live TypeScript Server Actions, Python FastAPI RAG AI pipelines, and Razorpay webhook code.
-- Includes an interactive **"Test Run"** button triggering console telemetry logs, and a 1-click **"Copy Code"** button.
-
 ### 4.3 Interactive Custom Quote Estimator (`components/PricingEstimator.tsx`)
 - 2-part grid layout combining interactive mathematical sliders (page count, scope selector, add-on checkboxes) with a clean borderless video player (`/video1.mp4`).
 
