@@ -132,6 +132,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               value: chargedAmount,
               currency: "INR",
               tierName: project.title,
+              kind: "product",
             });
             alert(`Payment received. Payment ID: ${response.razorpay_payment_id}. We will email you within 24 hours to arrange handover of ${project.title}.`);
           } else {

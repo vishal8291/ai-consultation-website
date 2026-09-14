@@ -141,7 +141,6 @@ export const PROJECTS_DATA: Project[] = [
     ],
     svgType: "sales-ai",
     featured: true,
-    githubUrl: "https://github.com/vishal8291/freelance-agent",
     previewImage: "/images/projects/freelance-ai-sales-agent.jpg",
     forSale: {
       priceINR: 35000,

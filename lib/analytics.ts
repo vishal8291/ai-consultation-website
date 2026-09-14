@@ -32,18 +32,26 @@ export function trackLead(leadSource: string, params: GtagParams = {}): void {
   trackEvent("generate_lead", { lead_source: leadSource, ...params });
 }
 
-// An advance payment was completed. Mark `purchase` as a Key Event in GA4 to
-// measure revenue and channel ROI.
+// A payment was completed: a 50% package advance, or a ready-built product
+// paid in full. Mark `purchase` as a Key Event in GA4 to measure revenue and
+// channel ROI; item_category separates the two in GA4's ecommerce reports.
 export function trackPurchase(args: {
   transactionId: string;
   value: number;
   currency: string;
   tierName: string;
+  kind?: "advance" | "product";
 }): void {
+  const kind = args.kind ?? "advance";
   trackEvent("purchase", {
     transaction_id: args.transactionId,
     value: args.value,
     currency: args.currency,
-    items: [{ item_name: `${args.tierName} (50% advance)` }],
+    items: [{
+      item_name: kind === "advance" ? `${args.tierName} (50% advance)` : args.tierName,
+      item_category: kind === "advance" ? "Service package" : "Ready-built product",
+      price: args.value,
+      quantity: 1,
+    }],
   });
 }
