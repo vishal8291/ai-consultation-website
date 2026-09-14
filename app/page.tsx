@@ -203,7 +203,7 @@ export default function Home() {
           the heading laid over its top-left corner, then the call to action. */}
       <section id="services" className="tone-black pb-14 sm:pb-16 border-b border-[var(--border-default)]">
         <div className="relative">
-          <AutoplayVideo src="/OUR%20SERVICES.mp4" label="Video of our services" />
+          <AutoplayVideo src="/Red%20and%20Blue%20Modern%20Video%20Editor%20Presentation.mp4" label="Video of the websites, AI agents and automation tools we build" />
           {/* Fixed white with a soft shadow rather than a band token: it sits on
               the video's own colours, not on the black section. */}
           <div className="absolute inset-x-0 top-0 pointer-events-none">
