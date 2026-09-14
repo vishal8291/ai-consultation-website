@@ -40,16 +40,26 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-[60] p-4 sm:p-6">
-      <div className="glass-card-pro max-w-3xl mx-auto bg-white p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4" style={{ boxShadow: "0 4px 16px rgba(15,17,17,0.12)" }}>
-        <div style={{ color: "var(--accent)" }} className="w-10 h-10 rounded-lg bg-[var(--surface-alt)] border border-[var(--border-default)] flex items-center justify-center flex-shrink-0">
+      {/* Explicit black-on-white rather than the site's bg-white / text-slate-900
+          utilities: both are remapped by the dark-theme token overrides in
+          globals.css (bg-white -> surface-card, text-slate-900 -> white), which
+          would have rendered this on a dark ground with white text. */}
+      <div
+        className="max-w-3xl mx-auto rounded-2xl border p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+        style={{ backgroundColor: "#ffffff", borderColor: "#e5e5e5", boxShadow: "0 4px 16px rgba(15,17,17,0.12)" }}
+      >
+        <div
+          className="w-10 h-10 rounded-lg border flex items-center justify-center flex-shrink-0"
+          style={{ backgroundColor: "#f5f5f5", borderColor: "#e5e5e5", color: "#000000" }}
+        >
           <Cookie className="w-5 h-5" />
         </div>
 
         <div className="flex-1 space-y-1">
-          <p className="text-sm font-bold text-slate-900">We use cookies</p>
-          <p className="text-xs text-slate-600 leading-relaxed">
+          <p className="text-sm font-bold" style={{ color: "#000000" }}>We use cookies</p>
+          <p className="text-xs leading-relaxed" style={{ color: "#333333" }}>
             We use essential cookies to keep you signed in and remember your preferences. See our{" "}
-            <a href="/privacy" className="text-slate-900 underline hover:text-slate-600 transition-colors">
+            <a href="/privacy" className="underline transition-colors" style={{ color: "#000000" }}>
               Privacy Policy
             </a>{" "}
             for details.
@@ -75,7 +85,8 @@ export default function CookieConsent() {
             type="button"
             onClick={handleDecline}
             aria-label="Dismiss"
-            className="hidden sm:flex p-2 rounded-full text-slate-400 hover:text-slate-900 hover:bg-[var(--surface-alt)] transition-colors"
+            className="hidden sm:flex p-2 rounded-full transition-colors hover:bg-[#f5f5f5]"
+            style={{ color: "#666666" }}
           >
             <X className="w-4 h-4" />
           </button>
