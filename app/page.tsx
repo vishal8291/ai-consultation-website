@@ -129,7 +129,7 @@ export default function Home() {
                 className="hero-fade-in-up mt-6 text-lg sm:text-[20px] leading-[1.75] max-w-[600px]"
                 style={{ animationDelay: "0.2s", color: "#ffffff", fontWeight: 400 }}
               >
-                Custom websites and AI systems for small businesses. Describe what&apos;s
+                Built for small businesses. Describe what&apos;s
                 broken in your own words, and we&apos;ll reply within 24 hours with an
                 honest read and a real price.
               </p>

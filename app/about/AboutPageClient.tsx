@@ -31,20 +31,16 @@ const FACTS = [
 
 const CAPABILITIES = [
   {
-    title: "Web design and development",
-    body: "Corporate sites, booking and registration platforms, and e-commerce, built for speed and search visibility rather than adapted from templates.",
+    title: "Websites",
+    body: "Business sites, booking and registration platforms, and online stores, built for speed and search visibility rather than adapted from templates.",
   },
   {
-    title: "AI systems and automation",
-    body: "Assistants that answer from a business's own material, document and data extraction pipelines, and workflows that connect existing tools.",
+    title: "AI agents",
+    body: "Assistants that answer customers from a business's own material, read and check documents, and handle enquiries around the clock.",
   },
   {
-    title: "Custom software",
-    body: "Internal dashboards, customer portals, and operational tools built around an organisation's existing process rather than replacing it.",
-  },
-  {
-    title: "Advisory and review",
-    body: "Assessment of an existing site or process, identifying where revenue or working hours are being lost, and a written plan of what to address first.",
+    title: "Automation tools",
+    body: "Workflows that take repetitive work off a team: lead capture, WhatsApp and email replies, reports, and connections between the tools a business already uses.",
   },
 ];
 
@@ -63,10 +59,9 @@ export default function AboutPageClient() {
               We start with the problem, not the services list.
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-              CustomeAI is a web and AI studio based in Mumbai. We design, build,
-              and support websites, automation, and custom software for small and
-              mid-sized businesses, working to fixed prices and short delivery
-              windows.
+              CustomeAI is a studio based in Mumbai. We build websites, AI agents
+              and automation tools for small and mid-sized businesses, working to
+              fixed prices agreed before work begins.
             </p>
           </div>
         </div>
@@ -96,7 +91,7 @@ export default function AboutPageClient() {
                 <p>
                   CustomeAI was established to operate the other way round. An
                   engagement begins with the problem the business is actually
-                  experiencing, and the website, AI system, or software we propose
+                  experiencing, and the website, AI agent, or automation tool we propose
                   follows from that assessment. The scope is written down, the
                   price is fixed before work starts, and the client owns everything
                   produced.
@@ -144,11 +139,11 @@ export default function AboutPageClient() {
               What we do
             </p>
             <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight">
-              Four areas of practice
+              Websites, AI agents and automation tools
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
+          <div className="grid sm:grid-cols-3 gap-x-12 gap-y-8">
             {CAPABILITIES.map((c) => (
               <div key={c.title} className="border-t border-[var(--border-default)] pt-5">
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">
@@ -240,7 +235,7 @@ export default function AboutPageClient() {
               <p>
                 Recent work includes a bilingual training and registration platform
                 with integrated payments for an agricultural business in
-                Maharashtra, an AI system that reviews commercial documents for
+                Maharashtra, an AI agent that reviews commercial documents for
                 small enterprises, and an automated outreach and proposal engine
                 built on retrieval over a client&apos;s own material.
               </p>

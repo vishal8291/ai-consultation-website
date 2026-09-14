@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "CustomeAI: Tell us the problem, we build the fix";
+export const alt = "CustomeAI: Websites, AI agents & automation tools";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -59,7 +59,7 @@ export default async function Image() {
             maxWidth: 980,
           }}
         >
-          Tell us the problem, we build the fix.
+          We build websites, AI agents & automation tools.
         </div>
         <div
           style={{
@@ -70,7 +70,7 @@ export default async function Image() {
             maxWidth: 880,
           }}
         >
-          Custom websites and AI systems for small businesses.
+          For small businesses, at a fixed price agreed up front.
         </div>
       </div>
     ),

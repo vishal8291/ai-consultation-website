@@ -94,7 +94,7 @@ export default function TermsPageClient() {
                   customeai.tech@gmail.com
                 </a>
               </p>
-              <p>Platform: CustomeAI Web & AI Systems</p>
+              <p>Platform: CustomeAI (websites, AI agents & automation tools)</p>
             </div>
           </div>
 

@@ -4,12 +4,12 @@ import ProjectsPageClient from "./ProjectsPageClient";
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Real websites and AI systems CustomeAI has built for real businesses, from AI sales agents to full e-commerce platforms.",
+    "Websites, AI agents and automation tools CustomeAI has built, from AI sales agents to full e-commerce platforms.",
   alternates: { canonical: "/projects" },
   openGraph: {
     title: "Our Work | CustomeAI",
     description:
-      "Real websites and AI systems CustomeAI has built for real businesses.",
+      "Websites, AI agents and automation tools CustomeAI has built.",
     url: "/projects",
   },
 };

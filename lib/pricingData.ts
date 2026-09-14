@@ -52,7 +52,7 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: "automate",
     name: "Automate",
-    tagline: "Website + AI system",
+    tagline: "Website + AI agent & automation",
     priceINR: 65000,
     priceRangeINR: "₹65,000 to ₹1,20,000",
     priceUSD: 800,

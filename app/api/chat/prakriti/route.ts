@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json({
         role: "assistant",
-        content: "I am **Prakriti**, the assistant at **CustomeAI**.\n\nWe build high-speed Next.js 16 websites, full-stack web applications, and custom AI automation systems with 100% code ownership. How can I help you build your project today?",
+        content: "I am **Prakriti**, the assistant at **CustomeAI**.\n\nWe build websites, AI agents and automation tools for small businesses, and you own 100% of the code. How can I help you build your project today?",
       });
     }
 
@@ -130,13 +130,11 @@ Would you like a custom quote estimate for your project?`,
         role: "assistant",
         content: `Here is how we can help automate and grow your business:
 
-**Custom Next.js 16 Websites**: High-speed, SEO-optimized websites with Google PageSpeed scores of 98 to 100.
+**Websites**: Fast, SEO-optimized business websites, booking sites and online stores, with Google PageSpeed scores of 98 to 100.
 
-**AI Agents & Chatbots**: 24/7 intelligent support bots (like this one), lead capture bots, and automated WhatsApp/email pipelines.
+**AI Agents**: 24/7 support assistants (like this one) that answer from your own information, lead capture bots, and document readers.
 
-**Web Apps & Dashboards**: Full-stack SaaS portals, admin dashboards, and custom business software using React 19 & Python.
-
-**Process Automation & Audits**: Diagnostic audits to eliminate manual operational waste and save recurring costs.
+**Automation Tools**: Workflows that take repetitive work off your team, like WhatsApp and email replies, lead capture, reports, and connecting the tools you already use.
 
 Which service fits what you are looking to build?`,
       });
@@ -291,7 +289,7 @@ Work begins once we receive your content and the 50% advance deposit.`,
 
     return NextResponse.json({
       role: "assistant",
-      content: `Hello. I am Prakriti. I'm here to help you with your website or AI automation project.
+      content: `Hello. I am Prakriti. I'm here to help you with your website, AI agent or automation tool.
 
 Here is a quick summary of what we offer:
 • **Launch Package**: ₹12,000 ($150), 1-page landing site

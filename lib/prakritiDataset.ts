@@ -9,13 +9,13 @@ export const PRAKRITI_DATASET: QAPair[] = [
   // 1. ABOUT US & FOUNDER (VISHAL)
   {
     question: "Who is Vishal?",
-    answer: "Vishal is a Full-Stack Web & AI Systems Engineer specializing in Next.js 16, Python AI pipelines, and business workflow automation. He leads CustomeAI.",
+    answer: "Vishal is a full-stack engineer who builds websites, AI agents and automation tools. He leads CustomeAI.",
     category: "about",
     keywords: ["who", "vishal", "founder", "developer", "engineer", "owner"],
   },
   {
     question: "What is CustomeAI?",
-    answer: "CustomeAI is a modern web engineering agency platform building custom Next.js 16 websites, full-stack portals, and AI agent automation systems.",
+    answer: "CustomeAI is a small studio that builds websites, AI agents and automation tools for small businesses.",
     category: "about",
     keywords: ["what", "CustomeAI", "agency", "company", "platform", "business"],
   },
@@ -27,7 +27,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "What is your core mission?",
-    answer: "Our mission is to eliminate manual operational waste by engineering high-speed custom websites and automated AI systems with 100% transparent math and zero hidden fees.",
+    answer: "Our mission is to take repetitive work off small businesses with fast websites, AI agents and automation tools, at fixed prices with no hidden fees.",
     category: "about",
     keywords: ["mission", "goal", "vision", "purpose"],
   },
@@ -39,7 +39,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "Why choose CustomeAI over traditional agencies?",
-    answer: "Traditional agencies charge $30k+ markups and take months. We deliver identical enterprise-grade Next.js 16 & AI systems starting at ₹12,000 ($150) with 100% code IP ownership.",
+    answer: "Traditional agencies charge $30k+ markups and take months. We deliver websites, AI agents and automation tools starting at ₹12,000 ($150) with 100% code IP ownership.",
     category: "about",
     keywords: ["agency", "traditional", "versus", "compare", "markup", "expensive"],
   },
@@ -369,7 +369,7 @@ export const PRAKRITI_DATASET: QAPair[] = [
   },
   {
     question: "What tech stack do you use for AI agents?",
-    answer: "We build AI systems using Python FastAPI microservices, Groq LLaMA-3.3-70B models, and Qdrant / MongoDB vector databases.",
+    answer: "We build AI agents and automation tools using Python FastAPI microservices, Groq LLaMA-3.3-70B models, and Qdrant / MongoDB vector databases.",
     category: "technical",
     keywords: ["ai stack", "python", "fastapi", "groq", "llama", "vector"],
   },

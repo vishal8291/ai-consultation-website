@@ -35,20 +35,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "CustomeAI is a Mumbai-based studio building custom websites and AI systems for small businesses across India, working remote-first.";
+  "CustomeAI is a Mumbai-based studio that builds websites, AI agents and automation tools for small businesses across India, working remote-first.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "CustomeAI | Tell us the problem, we build the fix",
+    default: "CustomeAI | Websites, AI agents & automation tools",
     template: "%s | CustomeAI",
   },
   description: SITE_DESCRIPTION,
   keywords: [
     "custom website development",
-    "AI systems for small business",
-    "AI consultation",
-    "custom software development India",
+    "AI agents for small business",
+    "automation tools for small business",
+    "AI agent development India",
+    "business automation India",
     "AI chatbot development",
     "small business website studio",
     "website design agency Mumbai",
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "CustomeAI",
-    title: "CustomeAI | Tell us the problem, we build the fix",
+    title: "CustomeAI | Websites, AI agents & automation tools",
     description: SITE_DESCRIPTION,
     locale: "en_US",
     images: [
@@ -72,13 +73,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "CustomeAI: Tell us the problem, we build the fix",
+        alt: "CustomeAI: Websites, AI agents & automation tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CustomeAI | Tell us the problem, we build the fix",
+    title: "CustomeAI | Websites, AI agents & automation tools",
     description: SITE_DESCRIPTION,
     images: ["/opengraph-image"],
   },

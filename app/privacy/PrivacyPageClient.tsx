@@ -51,7 +51,7 @@ export default function PrivacyPageClient() {
             <ul className="space-y-2 list-disc pl-5">
               <li>To schedule and conduct your 15-minute diagnostic engineering audit call.</li>
               <li>To issue official invoices and process 50% advance / 50% delivery project payments via Razorpay.</li>
-              <li>To engineer, deliver, and support your custom Next.js 16 website or AI system.</li>
+              <li>To engineer, deliver, and support your website, AI agent, or automation tool.</li>
               <li>To communicate project status updates via Email or WhatsApp.</li>
             </ul>
           </div>

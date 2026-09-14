@@ -76,7 +76,7 @@ export default function ConsultationForm() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it's a website fix, an AI system, or something else entirely, plus a real price.
+            No packages to pick from yet. Describe the actual problem, and we'll reply within 24 hours with an honest read on whether it needs a website, an AI agent, or an automation tool, plus a real price.
           </p>
         </div>
 

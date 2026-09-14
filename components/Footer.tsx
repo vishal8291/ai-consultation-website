@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="space-y-3 md:col-span-1">
             <Logo markSize="w-9 h-9" textSize="text-xl" />
             <p className="text-sm text-slate-600 leading-relaxed">
-              A small studio that builds websites, AI systems, and custom software around the specific problem a small business brings us. Led by Vishal Tiwari.
+              A small studio that builds websites, AI agents and automation tools around the specific problem a small business brings us. Led by Vishal Tiwari.
             </p>
 
             {/* Social & Portfolio Links */}
@@ -56,10 +56,9 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-slate-900 mb-3">Services</h4>
             <ul className="space-y-2 text-sm text-slate-600">
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom website design</a></li>
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Business and website review</a></li>
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI assistants and automation</a></li>
-              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Custom apps and dashboards</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">Websites</a></li>
+              <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI agents</a></li>
+              <li><a href="/#automation" className="hover:text-slate-900 transition-colors">Automation tools</a></li>
               <li><a href="/#pricing" className="hover:text-slate-900 transition-colors">Pricing</a></li>
             </ul>
           </div>

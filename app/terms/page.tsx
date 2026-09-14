@@ -3,7 +3,7 @@ import TermsPageClient from "./TermsPageClient";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "The terms and conditions governing CustomeAI's website and AI development services.",
+  description: "The terms and conditions for CustomeAI's websites, AI agents and automation tools.",
   alternates: { canonical: "/terms" },
   robots: { index: false, follow: true },
 };
