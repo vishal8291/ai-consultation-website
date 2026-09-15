@@ -58,7 +58,7 @@ function rowsHtml(results) {
 
 async function sendEmail(subject, headline, headColor, results, intro) {
   if (!RESEND_API_KEY) { console.log("(no RESEND_API_KEY — skipping email)"); return; }
-  const html = `<div style="font-family:Arial,sans-serif;max-width:680px;"><h2 style="color:${headColor};">${headline}</h2><p style="color:#475569;">${intro}</p><table style="width:100%;border-collapse:collapse;font-size:14px;border:1px solid #e2e8f0;"><tbody>${rowsHtml(results)}</tbody></table><p style="color:#94a3b8;font-size:12px;margin-top:16px;">CustomeAI external monitoring · GitHub Actions · every ~10 min</p></div>`;
+  const html = `<div style="font-family:Arial,sans-serif;max-width:680px;"><h2 style="color:${headColor};">${headline}</h2><p style="color:#475569;">${intro}</p><table style="width:100%;border-collapse:collapse;font-size:14px;border:1px solid #e2e8f0;"><tbody>${rowsHtml(results)}</tbody></table><p style="color:#94a3b8;font-size:12px;margin-top:16px;">CustomeAI external monitoring · GitHub Actions · several checks a day</p></div>`;
   const res = await fetch("https://api.resend.com/emails", { method: "POST",
     headers: { Authorization: "Bearer " + RESEND_API_KEY, "Content-Type": "application/json" },
     body: JSON.stringify({ from: cfg.from, to: cfg.notifyTo, subject, html }) });
@@ -94,8 +94,11 @@ async function sendEmail(subject, headline, headColor, results, intro) {
       healthy ? "All sites healthy" : `${failures.length} issue(s) found`,
       healthy ? "#16a34a" : "#dc2626", results,
       `Manual test run at ${pretty}. This confirms the GitHub Actions monitor can reach you.`);
-  } else if (healthy && hour === cfg.heartbeatHourIST && prev.lastHeartbeatDate !== date) {
-    // Once-a-day "still healthy, monitor is alive" heartbeat
+  } else if (healthy && hour >= cfg.heartbeatHourIST && prev.lastHeartbeatDate !== date) {
+    // Once-a-day "still healthy, monitor is alive" heartbeat. GitHub runs the
+    // schedule every few hours rather than every 10 minutes, so this fires on
+    // the first healthy run at or after the heartbeat hour instead of needing
+    // a run to land inside that exact hour (which it usually didn't).
     await sendEmail(`✅ Daily site check — all healthy (${pretty})`,
       "All sites healthy", "#16a34a", results,
       `Daily heartbeat at ${pretty}. All ${results.length} checks passed.`);
