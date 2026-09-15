@@ -232,6 +232,7 @@ export const PROJECTS_DATA: Project[] = [
     ],
     svgType: "ecommerce-ai",
     featured: true,
+    demoUrl: "https://kesharji.vercel.app/",
     previewImage: "/images/projects/kesharji-saffron-ecommerce.jpg",
     forSale: {
       priceINR: 35000,
