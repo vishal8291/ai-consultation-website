@@ -8,10 +8,15 @@ import FaqSection from "@/components/FaqSection";
 import ConsultationForm from "@/components/ConsultationForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Testimonials from "@/components/Testimonials";
-import PrakritiChatbot from "@/components/PrakritiChatbot";
 import HeroRings from "@/components/HeroRings";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import { ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
+
+// The chat widget sits at the very bottom and nobody needs it in the first
+// seconds, so it is fetched separately once the page is interactive. Keeping
+// it out of the main bundle is most of the homepage's script work.
+const PrakritiChatbot = dynamic(() => import("@/components/PrakritiChatbot"), { ssr: false });
 
 const FACTS = [
   { label: "Ownership", value: "100% yours" },
@@ -116,8 +121,8 @@ export default function Home() {
             >
               <img
                 src="/images/mahagro-logo.webp"
-                width={160}
-                height={198}
+                width={96}
+                height={119}
                 alt="MAHAGRO INDIA logo"
                 className="w-10 h-10 object-contain"
               />

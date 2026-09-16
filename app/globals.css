@@ -422,3 +422,9 @@ body::before {
   filter: brightness(0);
 }
 
+
+/* Hidden before paint for visitors who already answered; see the inline
+   script in app/layout.tsx. */
+html.cookie-consented .cookie-banner {
+  display: none;
+}

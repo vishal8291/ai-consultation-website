@@ -14,14 +14,17 @@ function setCookie(name: string, value: string, maxAgeSeconds: number) {
   document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAgeSeconds}; SameSite=Lax`;
 }
 
+/**
+ * Rendered in the server HTML so it paints with the rest of the page instead
+ * of waiting for React to hydrate (it was the slowest element on the page).
+ * Visitors who already chose never see it: a tiny script in <head> stamps a
+ * class on <html> before paint, and CSS hides the banner.
+ */
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const existing = getCookie(CONSENT_COOKIE);
-    if (!existing) {
-      setVisible(true);
-    }
+    if (getCookie(CONSENT_COOKIE)) setVisible(false);
   }, []);
 
   const handleAccept = () => {
@@ -39,7 +42,7 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <aside aria-label="Cookie notice" className="fixed bottom-0 inset-x-0 z-[60] p-4 sm:p-6">
+    <aside aria-label="Cookie notice" className="cookie-banner fixed bottom-0 inset-x-0 z-[60] p-4 sm:p-6">
       {/* Explicit black-on-white rather than the site's bg-white / text-slate-900
           utilities: both are remapped by the dark-theme token overrides in
           globals.css (bg-white -> surface-card, text-slate-900 -> white), which

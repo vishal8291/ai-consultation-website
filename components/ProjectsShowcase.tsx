@@ -348,7 +348,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               muted
               loop
               playsInline
-              poster="/images/project-showcase-poster.jpg"
+              poster="/images/project-showcase-poster.webp"
               preload="none"
               aria-label="Showreel of recent project work"
               className="w-full h-auto block"

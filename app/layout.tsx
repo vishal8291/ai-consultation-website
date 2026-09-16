@@ -127,9 +127,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Analytics loads late, but the connection can be opened early. */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://analytics.google.com" />
+        {/* Hides the cookie banner before first paint for anyone who already
+            chose, so the banner can be part of the server-rendered HTML. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(document.cookie.indexOf('cookie_consent=')>-1)document.documentElement.classList.add('cookie-consented')}catch(e){}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
