@@ -50,7 +50,7 @@ export default function AutoplayVideo({
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none"
       className={`block w-full h-auto ${className}`}
     />
   );

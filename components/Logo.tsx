@@ -17,7 +17,7 @@ import React from "react";
  * mode is gone.
  */
 
-const MARK_SRC = "/images/reallogo-transparent.png";
+const MARK_SRC = "/images/reallogo-mark.webp";
 
 // Framing for the head within the square artwork.
 const MARK_SCALE = "240%";

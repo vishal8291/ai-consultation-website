@@ -39,7 +39,7 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-[60] p-4 sm:p-6">
+    <aside aria-label="Cookie notice" className="fixed bottom-0 inset-x-0 z-[60] p-4 sm:p-6">
       {/* Explicit black-on-white rather than the site's bg-white / text-slate-900
           utilities: both are remapped by the dark-theme token overrides in
           globals.css (bg-white -> surface-card, text-slate-900 -> white), which
@@ -92,6 +92,6 @@ export default function CookieConsent() {
           </button>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }

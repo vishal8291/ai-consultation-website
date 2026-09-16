@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Nav Links with Packages */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-3">Services</h4>
+            <h3 className="text-sm font-semibold text-slate-900 mb-3">Services</h3>
             <ul className="space-y-2 text-sm text-slate-600">
               <li><a href="/#services" className="hover:text-slate-900 transition-colors">Websites</a></li>
               <li><a href="/#services" className="hover:text-slate-900 transition-colors">AI agents</a></li>
@@ -65,7 +65,7 @@ export default function Footer() {
 
           {/* Quick Legal & Company Links */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-3">Company</h4>
+            <h3 className="text-sm font-semibold text-slate-900 mb-3">Company</h3>
             <ul className="space-y-2 text-sm text-slate-600">
               <li><Link href="/about" className="hover:text-slate-900 transition-colors">About us</Link></li>
               <li><Link href="/projects" className="hover:text-slate-900 transition-colors">Our work</Link></li>
@@ -78,7 +78,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-3">Get in touch</h4>
+            <h3 className="text-sm font-semibold text-slate-900 mb-3">Get in touch</h3>
             <div className="space-y-2.5 text-sm text-slate-600 leading-relaxed">
               <p>
                 <a href="mailto:customeai.tech@gmail.com" className="text-slate-900 hover:underline">

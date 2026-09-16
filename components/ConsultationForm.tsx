@@ -58,7 +58,11 @@ export default function ConsultationForm() {
       {/* Violet plume drifting behind the conversion moment. Sits under the
           existing z-10 content wrapper, so it changes nothing structurally. */}
       <img
-        src="/images/violet-plume.png"
+        src="/images/violet-plume.webp"
+        width={720}
+        height={1080}
+        loading="lazy"
+        decoding="async"
         alt=""
         aria-hidden="true"
         className="decor-plume hidden lg:block pointer-events-none select-none absolute -left-32 -top-24 w-[720px] max-w-none opacity-[0.5]"
@@ -175,10 +179,11 @@ export default function ConsultationForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
+                  <label htmlFor="project-scope" className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
                     Closest Fit, If You Had to Guess *
                   </label>
                   <select
+                    id="project-scope"
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
                     className="w-full bg-white border border-[var(--border-default)] rounded-lg p-3 text-slate-900 focus:border-[var(--border-strong)] focus:ring-2 focus:ring-[var(--accent)]/15 outline-none transition-all text-sm font-bold cursor-pointer"

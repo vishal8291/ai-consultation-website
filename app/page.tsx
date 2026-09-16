@@ -115,7 +115,9 @@ export default function Home() {
               className="inline-flex items-center gap-3 group"
             >
               <img
-                src="/images/mahagro-logo.png"
+                src="/images/mahagro-logo.webp"
+                width={160}
+                height={198}
                 alt="MAHAGRO INDIA logo"
                 className="w-10 h-10 object-contain"
               />

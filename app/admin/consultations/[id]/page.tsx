@@ -219,8 +219,9 @@ export default function ConsultationDetail() {
           {/* Status Update Form */}
           <form onSubmit={handleStatusUpdate} className="space-y-6">
             <div>
-              <label className="flex items-center text-sm font-semibold text-gray-600 mb-3">Update Status</label>
+              <label htmlFor="consultation-status" className="flex items-center text-sm font-semibold text-gray-600 mb-3">Update Status</label>
               <select
+                id="consultation-status"
                 value={status}
                 onChange={(e) => setStatus(e.target.value as "new" | "contacted" | "closed")}
                 disabled={updating}

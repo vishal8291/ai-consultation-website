@@ -94,9 +94,9 @@ export default function GanpatiGreeting() {
               src="/images/festive/ganpati-bappa.webp"
               alt="Ganpati Bappa idol with a golden crown, raising a hand in blessing"
               fill
-              sizes="(min-width: 640px) 320px, 90vw"
+              sizes="(min-width: 640px) 340px, 90vw"
               className="object-cover object-[50%_25%]"
-              priority
+              loading="lazy"
             />
           </div>
 
