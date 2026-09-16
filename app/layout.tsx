@@ -3,7 +3,6 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CookieConsent from "@/components/CookieConsent";
-import GanpatiGreeting from "@/components/GanpatiGreeting";
 import ScrollRestoration from "@/components/ScrollRestoration";
 import type { Metadata } from "next";
 
@@ -155,7 +154,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <CookieConsent />
-        <GanpatiGreeting />
       </body>
     </html>
   );

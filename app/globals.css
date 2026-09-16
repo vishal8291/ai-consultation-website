@@ -422,11 +422,3 @@ body::before {
   filter: brightness(0);
 }
 
-/* Ganesh Chaturthi greeting: a short fade for the backdrop and a gentle rise for the card. */
-@keyframes ganpati-fade { from { opacity: 0 } to { opacity: 1 } }
-@keyframes ganpati-rise { from { opacity: 0; transform: translateY(16px) scale(0.98) } to { opacity: 1; transform: none } }
-.ganpati-fade { animation: ganpati-fade 0.25s ease-out both; }
-.ganpati-rise { animation: ganpati-rise 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-@media (prefers-reduced-motion: reduce) {
-  .ganpati-fade, .ganpati-rise { animation: none; }
-}
