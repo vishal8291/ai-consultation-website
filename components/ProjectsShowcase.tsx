@@ -449,6 +449,31 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                   </div>
                 )}
 
+                {activeModalProject.problem && (
+                  <div className="space-y-1.5">
+                    <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wider">The challenge</h4>
+                    <p className="text-sm leading-relaxed text-slate-700">{activeModalProject.problem}</p>
+                  </div>
+                )}
+
+                {activeModalProject.solution && (
+                  <div className="space-y-1.5">
+                    <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wider">What we built</h4>
+                    <p className="text-sm leading-relaxed text-slate-700">{activeModalProject.solution}</p>
+                  </div>
+                )}
+
+                {activeModalProject.testimonial && (
+                  <figure className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <blockquote className="text-sm leading-relaxed text-slate-900">
+                      &ldquo;{activeModalProject.testimonial.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-2 text-xs text-slate-500">
+                      {activeModalProject.testimonial.author}, {activeModalProject.testimonial.role}
+                    </figcaption>
+                  </figure>
+                )}
+
                 <div className="space-y-3">
                   <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wider">Key Features Delivered</h4>
                   <ul className="space-y-2 text-xs text-slate-700">

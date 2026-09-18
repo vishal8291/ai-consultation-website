@@ -22,6 +22,12 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   previewImage?: string;
+  /** A real quote from the client, shown in the case study. Only add genuine, approved words. */
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+  };
   /**
    * Present only on systems offered for sale as a ready-built product. Once
    * this exists the page is making a commercial offer rather than showing a
@@ -45,18 +51,18 @@ export const PROJECTS_DATA: Project[] = [
     id: "mahagro-india-training-platform",
     engagement: "client",
     title: "MAHAGRO INDIA: Mushroom Cultivation Training Platform",
-    tagline: "Real client project: a bilingual booking site for a 30-year mushroom farming training institute, with resilient payments and enterprise-grade security.",
+    tagline: "Our first paying client: a Maharashtra mushroom farming institute running since 1995, now taking course bookings and payments online in English and Marathi.",
     category: "Websites",
     clientIndustry: "Agritech Education & Vocational Training",
     results: {
-      primary: "Loads fast, even on slow phones",
-      secondary: "Bilingual English + Marathi",
-      roi: "Payment never fails, even if the gateway is down",
+      primary: "Students book and pay online, day or night",
+      secondary: "Full site in English and Marathi",
+      roi: "Bookings still work if the payment gateway is down",
     },
     techStack: ["Vite", "Vanilla JS", "PHP 8", "MySQL", "Razorpay", "JSON-LD Schema"],
-    description: "A real, live client project for MAHAGRO INDIA, a mushroom cultivation training institute operating in Maharashtra since 1995. Built as a bilingual (English/Marathi) booking site with seat registration, live payment processing, and an admin dashboard for the client's team.",
-    problem: "MAHAGRO INDIA needed a fast, trustworthy booking site for their 2-day live training program, one that worked reliably for a bilingual audience (many prospective students are more comfortable in Marathi) and never lost a registration even if the payment gateway had issues.",
-    solution: "Built a lightweight Vite + vanilla JS frontend (no framework overhead) with a real-time English/Marathi language switcher, an interactive profit calculator, and a PHP + MySQL backend. Wired Razorpay for card/UPI payments with an invisible fallback to WhatsApp + manual UPI if the gateway is ever unavailable, so registrations never get blocked. Cut the JS bundle from 600KB+ (unpinned CDN icon library) down to ~25KB by importing only the icons actually used. Locked down the site with a strict Content-Security-Policy, HSTS, and full input sanitization that's safe for Devanagari (Marathi) text. The earlier ASCII-only sanitizer was silently deleting Marathi names.",
+    description: "MAHAGRO INDIA has trained people in mushroom cultivation in Maharashtra since 1995. We designed, built and launched their website, where students read about the 2-day training, work out what they could earn, and book and pay for a seat in English or Marathi. It is live at mahagroindia.com, and the MAHAGRO team manages bookings from their own dashboard.",
+    problem: "MAHAGRO needed a website where new students could trust them, understand the 2-day training and book a seat on their own. Many students are more comfortable reading in Marathi, most visit on a phone with a slow connection, and a failed payment would mean a lost student.",
+    solution: "We built a fast, simple site that works on any phone. Students switch between English and Marathi with one tap, see a profit calculator for their own numbers, and pay by UPI or card through Razorpay. If the payment gateway ever goes down, the booking quietly switches to WhatsApp and UPI, so no student is turned away. The MAHAGRO team sees every booking in a password-protected dashboard and can export the list. The site is secured against common attacks and is monitored around the clock.",
     features: [
       "Real-time English ⇄ Marathi language switcher across the entire site",
       "Razorpay checkout with an invisible WhatsApp + UPI fallback if the gateway is down, so registration never blocks",
