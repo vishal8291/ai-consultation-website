@@ -299,7 +299,7 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
               transition={{ delay: 0.1 }}
               className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium"
             >
-              Our client work, alongside the systems we've built independently to prove out what we can deliver.
+              Our client work, alongside ready-built templates we can launch for your business.
             </motion.p>
           </div>
         )}
@@ -374,8 +374,8 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                 {independent.length > 0 && (
                   <div>
                     <div className="mb-6">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Independent builds</h3>
-                      <p className="text-sm text-slate-500 mt-1">Systems we designed and built ourselves to prove out what we can deliver.</p>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Our templates</h3>
+                      <p className="text-sm text-slate-500 mt-1">Ready-built websites and systems we designed ourselves, rebranded and launched for your business.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                       {independent.map((project, index) => renderCard(project, index))}
