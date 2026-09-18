@@ -181,94 +181,132 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
     }).slice(0, limit || PROJECTS_DATA.length);
   }
 
-  const renderCard = (project: Project, index: number) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="bg-white overflow-hidden flex flex-col justify-between relative group rounded-2xl border border-[var(--border-default)] hover:border-[var(--accent-strong)] transition-colors"
-            >
-              {/* Preview Banner Top */}
-              {/* Every screenshot sits in the same slim browser frame. Client
-                  sites look nothing like each other, so a shared chrome is what
-                  makes the grid read as one portfolio rather than a scrapbook.
-                  Badges sit bottom-left to stay clear of the chrome strip. */}
-              <div className="h-40 sm:h-44 bg-slate-900 relative overflow-hidden flex items-end justify-center px-3 pt-4">
-                <div className="w-full h-full rounded-t-lg overflow-hidden border border-white/10 border-b-0 bg-black flex flex-col shadow-[0_-8px_30px_rgba(0,0,0,0.35)]">
-                  <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-white/[0.04] flex-shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-white/25" />
-                    <span className="w-2 h-2 rounded-full bg-white/25" />
-                    <span className="w-2 h-2 rounded-full bg-white/25" />
-                  </div>
-                  <div className="flex-1 overflow-hidden">
-                    {project.previewImage ? (
-                      <img
-                        src={project.previewImage}
-                        alt={`${project.title} live preview`}
-                        className="w-full h-full object-cover object-top"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="p-4 w-full h-full flex items-center justify-center">
-                        <ProjectGraphicSVG type={project.svgType} />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+  // "Veyra Residences: 3D Real Estate Launch Website" -> name + what it is.
+  const splitTitle = (title: string) => {
+    const i = title.indexOf(":");
+    return i === -1 ? { name: title, kind: "" } : { name: title.slice(0, i), kind: title.slice(i + 1).trim() };
+  };
 
-              {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors">
-                    {project.title}
-                  </h3>
-                  {project.results?.primary && (
-                    <p className="text-sm text-slate-600 mt-1.5">
-                      {project.results.primary}
-                    </p>
-                  )}
-                  {project.forSale && (
-                    <p className="mt-3 text-sm font-semibold text-slate-900">
-                      <span style={{ color: "var(--accent)" }}>
-                        {project.forSale.priceDisplayINR}
-                      </span>
-                      <span className="text-slate-500 font-normal">
-                        {" "}· ready to buy
-                      </span>
-                    </p>
-                  )}
-                </div>
-
-                {/* Card Action Buttons */}
-                <div className="pt-4 flex items-center justify-between">
-                  <button
-                    type="button"
-                    onClick={() => setActiveModalProject(project)}
-                    className="text-xs font-bold text-slate-900 hover:text-black transition-colors inline-flex items-center space-x-1"
-                  >
-                    <span>View case study</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-black" />
-                  </button>
-
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-xl bg-slate-900 text-white hover:bg-white hover:text-black transition-colors"
-                      title="View Live Site"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+  // Plain render helpers rather than nested components, so opening a case
+  // study (a state change) doesn't remount and reload every preview image.
+  const renderPreview = (project: Project, priority = false) => (
+    <button
+      type="button"
+      onClick={() => setActiveModalProject(project)}
+      aria-label={`Open the ${splitTitle(project.title).name} case study`}
+      className="block w-full overflow-hidden rounded-xl border border-[var(--border-default)] bg-slate-100 aspect-[16/10] group/preview"
+    >
+      {project.previewImage ? (
+        <img
+          src={project.previewImage}
+          alt={`${splitTitle(project.title).name} website preview`}
+          width={800}
+          height={500}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover/preview:scale-[1.03]"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center p-6 bg-slate-900">
+          <ProjectGraphicSVG type={project.svgType} />
+        </div>
+      )}
+    </button>
   );
+
+  const renderActions = (project: Project) => (
+    <div className="flex items-center gap-5 text-sm font-semibold">
+      <button
+        type="button"
+        onClick={() => setActiveModalProject(project)}
+        className="inline-flex items-center gap-1.5 text-slate-900 hover:underline underline-offset-4"
+      >
+        Case study
+        <ArrowRight className="w-4 h-4" />
+      </button>
+      {project.demoUrl && (
+        <a
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-slate-600 hover:text-slate-900 hover:underline underline-offset-4"
+        >
+          Live site
+          <ExternalLink className="w-3.5 h-3.5" />
+        </a>
+      )}
+    </div>
+  );
+
+  // Client work: one wide, editorial row per project, so a paid engagement
+  // reads as a case study rather than one more tile in a grid.
+  const renderFeatured = (project: Project) => {
+    const { name, kind } = splitTitle(project.title);
+    const results = [project.results.primary, project.results.secondary, project.results.roi].filter(Boolean);
+    return (
+      <article key={project.id} className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-12 items-center">
+        {renderPreview(project, true)}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            Client project · {project.clientIndustry}
+          </p>
+          <h4 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">{name}</h4>
+          {kind && <p className="mt-1 text-base text-slate-500">{kind}</p>}
+          <p className="mt-4 text-[15px] leading-relaxed text-slate-700">{project.tagline}</p>
+          <ul className="mt-6 border-t border-[var(--border-default)]">
+            {results.map((r) => (
+              <li key={r} className="flex items-start gap-3 border-b border-[var(--border-default)] py-3 text-sm text-slate-900">
+                <CheckCircle2 className="mt-0.5 w-4 h-4 flex-shrink-0 text-slate-900" />
+                {r}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            {renderActions(project)}
+          </div>
+        </div>
+      </article>
+    );
+  };
+
+  // Templates: a calm two-column catalogue. Large previews do the selling;
+  // the text underneath answers "what is it" and "what does it cost".
+  const renderCard = (project: Project, index: number) => {
+    const { name, kind } = splitTitle(project.title);
+    return (
+      <motion.article
+        key={project.id}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.4, delay: (index % 2) * 0.06 }}
+        className="flex flex-col"
+      >
+        {renderPreview(project)}
+        <div className="mt-5 flex flex-1 flex-col">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            {project.clientIndustry}
+          </p>
+          <h4 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">{name}</h4>
+          {kind && <p className="mt-0.5 text-sm text-slate-500">{kind}</p>}
+          <p className="mt-3 text-sm leading-relaxed text-slate-700">{project.results.primary}</p>
+          <div className="mt-auto pt-5">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--border-default)] pt-4">
+              {project.forSale ? (
+                <p className="text-sm text-slate-500">
+                  <span className="text-lg font-semibold text-slate-900">{project.forSale.priceDisplayINR}</span>
+                  {" "}one-time
+                </p>
+              ) : (
+                <span />
+              )}
+              {renderActions(project)}
+            </div>
+          </div>
+        </div>
+      </motion.article>
+    );
+  };
 
   return (
     /* On the homepage the showreel starts flush against the band above it,
@@ -359,25 +397,31 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
             const clientWork = projectsToDisplay.filter((p) => p.engagement === "client");
             const independent = projectsToDisplay.filter((p) => p.engagement === "independent");
             return (
-              <div className="space-y-16">
+              <div className="space-y-24">
                 {clientWork.length > 0 && (
                   <div>
-                    <div className="mb-6">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Client work</h3>
-                      <p className="text-sm text-slate-500 mt-1">Paid engagements delivered for real businesses.</p>
+                    <div className="mb-10 flex flex-wrap items-end justify-between gap-2 border-b border-[var(--border-default)] pb-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Client work</h3>
+                        <p className="text-sm text-slate-500 mt-1">Paid engagements delivered for real businesses.</p>
+                      </div>
+                      <span className="hidden sm:inline text-sm text-slate-500 tabular-nums">{String(clientWork.length).padStart(2, "0")}</span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                      {clientWork.map((project, index) => renderCard(project, index))}
+                    <div className="space-y-16">
+                      {clientWork.map((project) => renderFeatured(project))}
                     </div>
                   </div>
                 )}
                 {independent.length > 0 && (
                   <div>
-                    <div className="mb-6">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Our templates</h3>
-                      <p className="text-sm text-slate-500 mt-1">Ready-built websites and systems we designed ourselves, rebranded and launched for your business.</p>
+                    <div className="mb-10 flex flex-wrap items-end justify-between gap-2 border-b border-[var(--border-default)] pb-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Our templates</h3>
+                        <p className="text-sm text-slate-500 mt-1">Ready-built websites and systems we designed ourselves, rebranded and launched for your business.</p>
+                      </div>
+                      <span className="hidden sm:inline text-sm text-slate-500 tabular-nums">{String(independent.length).padStart(2, "0")}</span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
                       {independent.map((project, index) => renderCard(project, index))}
                     </div>
                   </div>
