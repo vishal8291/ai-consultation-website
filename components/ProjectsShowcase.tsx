@@ -43,9 +43,9 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
    * rejection is swallowed rather than thrown, since a browser refusing
    * autoplay is a policy decision and not an error worth surfacing.
    *
-   * The observer is the other half of it. The source is 4K, so decoding it
-   * continuously for a element that is usually offscreen is wasted work on
-   * exactly the low-powered phones this site is aimed at.
+   * The observer is the other half of it: the clip is only fetched and played
+   * once it scrolls into view, and paused when it leaves, so it costs nothing
+   * on first load and no decoding while offscreen on low-powered phones.
    */
   useEffect(() => {
     const video = showreelRef.current;
@@ -66,7 +66,6 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
       { threshold: 0.25 }
     );
     observer.observe(video);
-    attempt();
 
     return () => observer.disconnect();
   }, []);
@@ -383,7 +382,6 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
             <video
               ref={showreelRef}
               src="/images/project-showcase.mp4"
-              autoPlay
               muted
               loop
               playsInline

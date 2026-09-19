@@ -121,8 +121,8 @@ export default function Home() {
             >
               <img
                 src="/images/mahagro-logo.webp"
-                width={96}
-                height={119}
+                width={64}
+                height={79}
                 alt="MAHAGRO INDIA logo"
                 className="w-10 h-10 object-contain"
               />
