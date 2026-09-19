@@ -32,23 +32,44 @@ export async function POST(req: NextRequest) {
     const cleanContact = String(contact).trim().slice(0, 100);
     const cleanMessage = String(message).trim().slice(0, 5000);
 
-    await connectDB();
-
-    const consultation = await Consultation.create({
-      name: cleanName,
-      business: cleanBusiness,
-      contact: cleanContact,
-      message: cleanMessage,
-    });
-
-    console.log(`✅ Consultation recorded: ${consultation._id} for ${cleanName}`);
-
     const { subject, html } = newConsultationEmail({
       name: cleanName,
       business: cleanBusiness,
       contact: cleanContact,
       message: cleanMessage,
     });
+
+    // A lead must never be lost because the database is unreachable (a rotated
+    // Atlas password once took every submission down with a 500). If saving
+    // fails, the enquiry still reaches the inbox, flagged so it can be re-entered.
+    let consultationId: unknown = null;
+    try {
+      await connectDB();
+      const consultation = await Consultation.create({
+        name: cleanName,
+        business: cleanBusiness,
+        contact: cleanContact,
+        message: cleanMessage,
+      });
+      consultationId = consultation._id;
+      console.log(`✅ Consultation recorded: ${consultation._id} for ${cleanName}`);
+    } catch (dbErr) {
+      console.error("❌ Consultation not saved to the database, emailing it instead:", dbErr);
+      // Awaited rather than deferred: this email is now the only copy of the lead.
+      const emailed = await sendAdminNotification(`[NOT SAVED - database down] ${subject}`, html);
+      if (!emailed) {
+        // Neither copy exists, so say so honestly and point to a channel that works.
+        return NextResponse.json(
+          { error: "We couldn't send your request just now. Please message us on WhatsApp at +91 82915 69470." },
+          { status: 503 }
+        );
+      }
+      return NextResponse.json(
+        { success: true, message: "Consultation request submitted successfully! We'll reach out within 24 hours." },
+        { status: 201 }
+      );
+    }
+
     // Deferred until after the response is sent, so a slow mail provider never
     // delays the user's submission. after() keeps the serverless function alive
     // for the duration; an un-awaited bare call gets frozen mid-flight and the
@@ -58,7 +79,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        id: consultation._id,
+        id: consultationId,
         message: "Consultation request submitted successfully! We'll reach out within 24 hours.",
       },
       { status: 201 }

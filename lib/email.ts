@@ -17,10 +17,11 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "customeai.tech@gmail.com";
 
-export async function sendAdminNotification(subject: string, html: string): Promise<void> {
+/** Resolves true when Resend accepted the email, false otherwise. Never throws. */
+export async function sendAdminNotification(subject: string, html: string): Promise<boolean> {
   if (!resend) {
     console.warn("⚠️ RESEND_API_KEY is not set — skipping admin notification email:", subject);
-    return;
+    return false;
   }
 
   try {
@@ -34,13 +35,15 @@ export async function sendAdminNotification(subject: string, html: string): Prom
     // as a `{ error }` field rather than throwing.
     if (result.error) {
       console.error("❌ Resend rejected admin notification email:", result.error);
-    } else {
-      console.log("✅ Admin notification email sent:", subject, "id:", result.data?.id);
+      return false;
     }
+    console.log("✅ Admin notification email sent:", subject, "id:", result.data?.id);
+    return true;
   } catch (error) {
     // Notification failures must never break the underlying request (form
     // submission / payment) that triggered them.
     console.error("❌ Failed to send admin notification email:", error);
+    return false;
   }
 }
 
