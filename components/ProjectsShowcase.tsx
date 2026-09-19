@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PROJECTS_DATA, Project } from "@/lib/projectsData";
+import { DESIGN_SAMPLES } from "@/lib/designSamples";
 import { ProjectGraphicSVG, ProjectIconSVG } from "@/components/AiSvgGraphics";
 import { ExternalLink, CheckCircle2, ArrowRight, X, Sparkles, Cpu, Layers, Github, Globe, Globe2, Bot, LayoutGrid, AlertCircle } from "lucide-react";
 import { loadRazorpayScript } from "@/lib/razorpay";
@@ -426,6 +427,52 @@ export default function ProjectsShowcase({ limit, showFilters = true, isHomepage
                     </div>
                   </div>
                 )}
+                {selectedCategory === "All" || selectedCategory === "Websites" ? (
+                  <div>
+                    <div className="mb-10 flex flex-wrap items-end justify-between gap-2 border-b border-[var(--border-default)] pb-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Design samples</h3>
+                        <p className="text-sm text-slate-500 mt-1">Quick concept pages we make so you can see a look before we build it.</p>
+                      </div>
+                      <span className="hidden sm:inline text-sm text-slate-500 tabular-nums">{String(DESIGN_SAMPLES.length).padStart(2, "0")}</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                      {DESIGN_SAMPLES.map((sample) => (
+                        <article key={sample.id} className="flex flex-col">
+                          <a
+                            href={sample.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open the ${sample.title} sample in a new tab`}
+                            className="block w-full overflow-hidden rounded-xl border border-[var(--border-default)] bg-slate-100 aspect-[16/10] group/preview"
+                          >
+                            <img
+                              src={sample.previewImage}
+                              alt={`${sample.title} website sample`}
+                              width={800}
+                              height={500}
+                              loading="lazy"
+                              decoding="async"
+                              className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover/preview:scale-[1.03]"
+                            />
+                          </a>
+                          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{sample.industry}</p>
+                          <h4 className="mt-2 text-xl font-semibold tracking-tight text-slate-900">{sample.title}</h4>
+                          <p className="mt-2 text-sm leading-relaxed text-slate-700">{sample.description}</p>
+                          <a
+                            href={sample.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 hover:underline underline-offset-4"
+                          >
+                            View sample
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
               </div>
             );
           })()
